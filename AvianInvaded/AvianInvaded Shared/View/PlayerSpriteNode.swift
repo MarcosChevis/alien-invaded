@@ -8,26 +8,30 @@
 import Foundation
 import SpriteKit
 
-class PlayerNode: SKNode {
-    
-//    var image: UIImage
-    let playerLogic: PlayerLogic = PlayerLogic()
-    
-    let bodySprite: SKSpriteNode
+class PlayerNode: SKNode, LifeCycleElement {
+
+    private let logicController: PlayerLogicController = PlayerLogicController()
+    private let bodySprite: SKSpriteNode
     
     override init() {
         bodySprite = .init(imageNamed: "MainChar")
-        bodySprite.setScale(0.03)
-
+        bodySprite.setScale(logicController.scale)
         super.init()
+       
+        let texture = SKTexture(imageNamed: "MainChar")
+       self.physicsBody = .init(texture: texture, size: texture.size() * logicController.scale)
+        self.physicsBody?.mass = logicController.mass
+        self.physicsBody?.affectedByGravity = false
         self.addChildren()
     }
     
     func update(_ currentTime: TimeInterval) {
-        playerLogic.position = self.position
+        let friction = logicController.applyFriction(velocity: self.physicsBody?.velocity ?? .zero)
+        self.physicsBody?.applyForce(friction)
+        print(physicsBody!.velocity.magnitude)
     }
     
-    func addChildren() {
+    private func addChildren() {
         addChild(bodySprite)
     }
     
@@ -36,23 +40,19 @@ class PlayerNode: SKNode {
     }
     
     func rotate(by angle: CGFloat) {
-        let action = SKAction.rotate(toAngle: angle, duration: 0)
+        let action = SKAction.rotate(toAngle: angle, duration: .zero, shortestUnitArc: true)
         self.run(action)
     }
     
-    func move(by vector: CGVector) {
-        print(self.position)
-        self.position  = playerLogic.move(by: vector ,initialPosition: position)
-        print(self.position)
+    func apply(force vector: CGVector) {
+        guard
+            let velocity = physicsBody?.velocity,
+            let vector = logicController.move(by: vector, currentVelocity: velocity)
+        else { return }
+        self.physicsBody?.applyForce(vector)
     }
+    
+    
     
 }
 
-extension PlayerNode: PlayerLogicDelegate {
-    func move(to: CGPoint) {
-        self.position.x = position.x * 10
-        self.position.y = position.y * 10
-    }
-    
-    
-}

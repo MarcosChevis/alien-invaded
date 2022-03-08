@@ -30,7 +30,7 @@ class InputControllerIOS: InputControllerProtocol {
         self.observeForGameControllers()
     }
     
-    func update(_ currentTime: TimeInterval) {
+    func update() {
         guard let gamePadLeft = gamePadLeft, let gamePadRight = gamePadRight else {
             return
         }
@@ -97,6 +97,8 @@ class InputControllerIOS: InputControllerProtocol {
             return
         }
         registerGameController(gameController)
+        virtualController.disconnect()
+        #warning("coisa errada acho")
         
         inputDelegate?.didChangeInputType(to: .controller)
     }

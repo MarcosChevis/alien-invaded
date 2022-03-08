@@ -9,5 +9,5 @@ import Foundation
 import CoreGraphics
 
 protocol PlayerLogicDelegate: AnyObject {
-    func move(to: CGPoint)
+    func apply(force: CGVector)
 }

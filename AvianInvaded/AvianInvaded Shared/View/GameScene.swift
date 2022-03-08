@@ -9,8 +9,6 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-//    var joystickController: InputControllerProtocol = InputController()
-    
     let gameLogicController: GameLogicController
     let playerNode: PlayerNode
     
@@ -19,6 +17,7 @@ class GameScene: SKScene {
         self.playerNode = PlayerNode()
         
         super.init(size: size)
+        self.physicsWorld.gravity = CGVector(dx: 1, dy: 0)
         
         self.gameController.gameLogicDelegate = self
         self.addChildren([self.playerNode])
@@ -30,7 +29,7 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor.red
+        backgroundColor = SKColor.black
         self.setupScene()
     }
     
@@ -38,20 +37,24 @@ class GameScene: SKScene {
     var gameController: GameLogicController =  {
         let y = InputControllerIOS()
         let x = GameLogicController(inputController: y)
-        
         y.inputDelegate = x
         
         return x
     }()
     
     override func update(_ currentTime: TimeInterval) {
-        gameController.update(currentTime)
-        playerNode.update(currentTime)
+        gameController.update()
+        
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.update(currentTime) }
     }
     #endif
     
     func setupScene() {
-//        joystickController.inputDelegate = self
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.startup() }
         
     }
     
@@ -70,8 +73,7 @@ class GameScene: SKScene {
 
 extension GameScene: GameLogicDelegate {
     func movePlayer(with vector: CGVector) {
-//        self.playerNode.position = position
-        playerNode.move(by: vector)
+        playerNode.apply(force: vector)
     }
     
     func rotatePlayerTo(angle: CGFloat) {
