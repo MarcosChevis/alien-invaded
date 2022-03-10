@@ -9,7 +9,7 @@ import Foundation
 import CoreGraphics
 
 protocol InputDelegate: AnyObject {
-    
+        
     func didChangeInputType(to inputType: InputType?)
     
     //angle - 0..<2*PI

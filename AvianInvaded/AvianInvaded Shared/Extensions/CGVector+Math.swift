@@ -24,6 +24,12 @@ extension CGVector {
         return vector
     }
     
+//    init(angle: CGFloat) {
+//        let vector = CGVector()
+//        
+//        
+//    }
+    
     static func +(lhs: CGVector, rhs: CGVector) -> CGVector {
         return CGVector(dx: lhs.dx + rhs.dx, dy: lhs.dy + rhs.dy)
     }

@@ -20,7 +20,8 @@ class GameViewController: UIViewController {
         
     }
     override func loadView() {
-        let scene = GameScene()
+        let scene = GameSceneIOS()
+        #warning("create specific scene")
     
         let skView = SKView(frame: .zero)
         

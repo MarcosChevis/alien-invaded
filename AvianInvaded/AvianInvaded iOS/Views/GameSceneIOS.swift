@@ -7,10 +7,10 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameSceneIOS: SKScene {
     
-    let gameLogicController: GameLogicController
     let playerNode: PlayerNode
+    var gameLogicController: GameLogicController
     
     init(gameLogicController: GameLogicController, size: CGSize) {
         self.gameLogicController = gameLogicController
@@ -19,7 +19,8 @@ class GameScene: SKScene {
         super.init(size: size)
         self.physicsWorld.gravity = CGVector(dx: 1, dy: 0)
         
-        self.gameController.gameLogicDelegate = self
+        self.gameLogicController.gameLogicDelegate = self
+        
         self.addChildren([self.playerNode])
         self.moveNodeToCenter(playerNode, size: size)
     }
@@ -33,23 +34,14 @@ class GameScene: SKScene {
         self.setupScene()
     }
     
-    #if os(iOS)
-    var gameController: GameLogicController =  {
-        let y = InputControllerIOS()
-        let x = GameLogicController(inputController: y)
-        y.inputDelegate = x
-        
-        return x
-    }()
-    
     override func update(_ currentTime: TimeInterval) {
-        gameController.update()
+        gameLogicController.update()
         
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.update(currentTime) }
     }
-    #endif
+    
     
     func setupScene() {
         children
@@ -71,7 +63,7 @@ class GameScene: SKScene {
 }
 
 
-extension GameScene: GameLogicDelegate {
+extension GameSceneIOS: GameLogicDelegate {
     func movePlayer(with vector: CGVector) {
         playerNode.apply(force: vector)
     }

@@ -11,11 +11,10 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    let gameScene: GameScene
+    let gameScene: GameSceneIOS
     
-    init(gameScene: GameScene = GameScene(gameLogicController: GameLogicController(inputController: InputControllerIOS(preferedInput: .controller)), size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))) {
-        self.gameScene = gameScene
-        
+    init(gameLogicController: GameLogicController, size: CGSize) {
+        self.gameScene = GameSceneIOS(gameLogicController: gameLogicController, size: size)
         super.init(nibName: nil, bundle: nil)
         
     }

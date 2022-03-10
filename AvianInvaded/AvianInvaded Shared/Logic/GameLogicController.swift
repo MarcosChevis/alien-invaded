@@ -13,9 +13,7 @@ class GameLogicController {
     
     private var inputController: InputControllerProtocol
     weak var gameLogicDelegate: GameLogicDelegate?
-    
-    
-    
+
     init(inputController: InputControllerProtocol) {
         self.inputController = inputController
     }
@@ -43,13 +41,10 @@ extension GameLogicController: InputDelegate {
     }
     
     func updateMovement(vector: CGVector) {
-//        print("to \(vector)")
-//        gameLogicDelegate?.movePlayerTo(position: <#T##CGPoint#>)
         gameLogicDelegate?.movePlayer(with: vector)
     }
     
     func updateShooting(direction angle: CGFloat, isShooting: Bool) {
-//        print("shooting at \(angle)")
         gameLogicDelegate?.rotatePlayerTo(angle: angle - (CGFloat.pi/2))
     }
     

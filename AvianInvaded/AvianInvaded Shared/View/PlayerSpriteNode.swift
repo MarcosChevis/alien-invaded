@@ -28,7 +28,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     func update(_ currentTime: TimeInterval) {
         let friction = logicController.applyFriction(velocity: self.physicsBody?.velocity ?? .zero)
         self.physicsBody?.applyForce(friction)
-        print(physicsBody!.velocity.magnitude)
+//        print(physicsBody!.velocity.magnitude)
     }
     
     private func addChildren() {

@@ -16,7 +16,6 @@ class InputControllerIOS: InputControllerProtocol {
     
     var preferedInput: InputType
     
-    
     private lazy var virtualController: GCVirtualController = {
         let virtualConfiguration = GCVirtualController.Configuration()
         virtualConfiguration.elements = [GCInputLeftThumbstick, GCInputRightThumbstick]
@@ -31,6 +30,7 @@ class InputControllerIOS: InputControllerProtocol {
     }
     
     func update() {
+        
         guard let gamePadLeft = gamePadLeft, let gamePadRight = gamePadRight else {
             return
         }
@@ -56,6 +56,7 @@ class InputControllerIOS: InputControllerProtocol {
     }
     
     private func observeForGameControllers() {
+        
         NotificationCenter.default.addObserver(
             self, selector: #selector(self.handleControllerDidConnect),
             name: NSNotification.Name.GCControllerDidBecomeCurrent, object: nil)
@@ -64,11 +65,13 @@ class InputControllerIOS: InputControllerProtocol {
             self, selector: #selector(self.handleControllerDidDisconnect),
             name: NSNotification.Name.GCControllerDidStopBeingCurrent, object: nil)
         
-        // Connect to the virtual controller if no physical controllers are available.
+        
         if GCController.controllers().isEmpty {
-            virtualController.connect()
+            self.virtualController.connect()
         }
         
+        guard let controller = GCController.controllers().first else { return }
+        registerGameController(controller)
         
     }
     
@@ -86,7 +89,7 @@ class InputControllerIOS: InputControllerProtocol {
     
     private func unregisterGameController() {
         gamePadLeft = nil
-        gamePadLeft = nil
+        gamePadRight = nil
     }
     
     
@@ -96,10 +99,13 @@ class InputControllerIOS: InputControllerProtocol {
         guard let gameController = notification.object as? GCController else {
             return
         }
-        registerGameController(gameController)
-        virtualController.disconnect()
-        #warning("coisa errada acho")
         
+        unregisterGameController()
+        if gameController != virtualController.controller {
+            virtualController.disconnect()
+        }
+        
+        registerGameController(gameController)
         inputDelegate?.didChangeInputType(to: .controller)
     }
     

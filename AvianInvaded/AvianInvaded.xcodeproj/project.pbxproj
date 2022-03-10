@@ -59,9 +59,7 @@
 		BADECBF627D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
 		BADECBF727D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
 		BADECBF827D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
-		BADECBF927D14CE600EFD009 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameScene.swift */; };
-		BADECBFA27D14CE600EFD009 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameScene.swift */; };
-		BADECBFB27D14CE600EFD009 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameScene.swift */; };
+		BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */; };
 		BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
 		BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
 		BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
@@ -84,7 +82,7 @@
 		BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpriteNode.swift; sourceTree = "<group>"; };
 		BADECBC027D14CE300EFD009 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		BADECBC127D14CE300EFD009 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		BADECBC227D14CE300EFD009 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneIOS.swift; sourceTree = "<group>"; };
 		BADECBC327D14CE600EFD009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BADECBC827D14CE600EFD009 /* AvianInvaded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvianInvaded.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADECBCB27D14CE600EFD009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */,
-				BADECBC227D14CE300EFD009 /* GameScene.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +155,7 @@
 		BA04A3FE27D69324004E51EA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -428,7 +426,7 @@
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
-				BADECBF927D14CE600EFD009 /* GameScene.swift in Sources */,
+				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				BA088FB427D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA4C856627D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
@@ -447,7 +445,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBFA27D14CE600EFD009 /* GameScene.swift in Sources */,
 				BA088FB127D2AB8C00CCB38D /* GameLogicController.swift in Sources */,
 				BA088FA127D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
@@ -473,7 +470,6 @@
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BAAAFF9527D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
-				BADECBFB27D14CE600EFD009 /* GameScene.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA4C856827D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
