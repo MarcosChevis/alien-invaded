@@ -126,7 +126,7 @@
 		BA04A3FB27D69281004E51EA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */,
+				BAE17D1327DA874B00E131F4 /* Player */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,11 +134,9 @@
 		BA04A3FC27D692E9004E51EA /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				BAE17D1227DA872400E131F4 /* Player */,
+				BAE17D1127DA871400E131F4 /* Game */,
 				BA04A40127D6936D004E51EA /* Input */,
-				BA088FAD27D2AB7A00CCB38D /* GameLogicController.swift */,
-				BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */,
-				BA04A40727D6A274004E51EA /* PlayerLogicController.swift */,
-				BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -163,8 +161,8 @@
 		BA04A3FF27D6932B004E51EA /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				BA088F9D27D299AD00CCB38D /* InputControllerIOS.swift */,
-				BADECBCD27D14CE600EFD009 /* GameViewController.swift */,
+				BAE17D1627DA87A600E131F4 /* ViewControllers */,
+				BAE17D1527DA876800E131F4 /* Input */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -269,8 +267,10 @@
 		BADECBDA27D14CE600EFD009 /* AvianInvaded tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				BAE17D1727DA887200E131F4 /* Data */,
+				BAE17D1827DA887900E131F4 /* Logic */,
+				BAE17D1927DA887F00E131F4 /* Views */,
 				BADECBDB27D14CE600EFD009 /* AppDelegate.swift */,
-				BADECBDD27D14CE600EFD009 /* GameViewController.swift */,
 				BADECBE227D14CE600EFD009 /* LaunchScreen.storyboard */,
 			);
 			path = "AvianInvaded tvOS";
@@ -279,12 +279,116 @@
 		BADECBEA27D14CE600EFD009 /* AvianInvaded macOS */ = {
 			isa = PBXGroup;
 			children = (
+				BAE17D1D27DA88BB00E131F4 /* Data */,
+				BAE17D1C27DA88B000E131F4 /* Logic */,
+				BAE17D1B27DA88A400E131F4 /* Views */,
 				BADECBEB27D14CE600EFD009 /* AppDelegate.swift */,
-				BADECBED27D14CE600EFD009 /* GameViewController.swift */,
-				BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */,
 				BA088F9B27D2846100CCB38D /* main.swift */,
+				BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */,
 			);
 			path = "AvianInvaded macOS";
+			sourceTree = "<group>";
+		};
+		BAE17D1127DA871400E131F4 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */,
+				BA088FAD27D2AB7A00CCB38D /* GameLogicController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		BAE17D1227DA872400E131F4 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */,
+				BA04A40727D6A274004E51EA /* PlayerLogicController.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		BAE17D1327DA874B00E131F4 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		BAE17D1527DA876800E131F4 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				BA088F9D27D299AD00CCB38D /* InputControllerIOS.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		BAE17D1627DA87A600E131F4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BADECBCD27D14CE600EFD009 /* GameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BAE17D1727DA887200E131F4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BAE17D1827DA887900E131F4 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				BAE17D1A27DA889400E131F4 /* ViewControllers */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		BAE17D1927DA887F00E131F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BAE17D1A27DA889400E131F4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BADECBDD27D14CE600EFD009 /* GameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BAE17D1B27DA88A400E131F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BAE17D1C27DA88B000E131F4 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				BAE17D1E27DA88C100E131F4 /* ViewControllers */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		BAE17D1D27DA88BB00E131F4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BAE17D1E27DA88C100E131F4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BADECBED27D14CE600EFD009 /* GameViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
