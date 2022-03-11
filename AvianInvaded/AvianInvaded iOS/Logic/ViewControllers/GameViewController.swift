@@ -10,19 +10,39 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
+    let gameScene: GameSceneIOS
+    
+    init(gameLogicController: GameLogicController, size: CGSize) {
+        self.gameScene = GameSceneIOS(gameLogicController: gameLogicController, size: size)
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let scene = GameScene.newGameScene()
-
         // Present the scene
-        let skView = self.view as! SKView
+        
+    }
+    override func loadView() {
+        let scene = gameScene
+    
+        let skView = SKView(frame: .zero)
+        
         skView.presentScene(scene)
+        skView.showsPhysics = true
         
         skView.ignoresSiblingOrder = true
         skView.showsFPS = true
         skView.showsNodeCount = true
+        scene.scaleMode = .aspectFill
+        
+        self.view = skView
+        
     }
 
     override var shouldAutorotate: Bool {
@@ -30,11 +50,7 @@ class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        return .landscape
     }
 
     override var prefersStatusBarHidden: Bool {
