@@ -18,8 +18,8 @@ class GameLogicController {
         self.inputController = inputController
     }
     
-    func update() {
-        inputController.update()
+    func update(_ currentTime: TimeInterval) {
+        inputController.update(currentTime)
     }
     
 }
@@ -44,8 +44,12 @@ extension GameLogicController: InputDelegate {
         gameLogicDelegate?.movePlayer(with: vector)
     }
     
-    func updateShooting(direction angle: CGFloat, isShooting: Bool) {
+    func updateAngle(direction angle: CGFloat) {
         gameLogicDelegate?.rotatePlayerTo(angle: angle - (CGFloat.pi/2))
+    }
+    
+    func shoot(_ currentTime: TimeInterval) {
+        gameLogicDelegate?.shoot(currentTime)
     }
     
     

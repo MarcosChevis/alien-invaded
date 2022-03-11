@@ -14,6 +14,13 @@ extension CGVector {
         self.init(dx: CGFloat(dx), dy: CGFloat(dy))
     }
     
+    init(angle: CGFloat, magnitude: CGFloat) {
+        let dx = cos(angle) * magnitude
+        let dy = sin(angle) * magnitude
+        
+        self.init(dx: dx, dy: dy)
+    }
+    
     static func *(lhs: CGVector, rhs: CGFloat) -> CGVector {
         
         var vector: CGVector = .zero
@@ -26,8 +33,8 @@ extension CGVector {
     
 //    init(angle: CGFloat) {
 //        let vector = CGVector()
-//        
-//        
+//
+//
 //    }
     
     static func +(lhs: CGVector, rhs: CGVector) -> CGVector {

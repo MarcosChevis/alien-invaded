@@ -29,7 +29,7 @@ class InputControllerIOS: InputControllerProtocol {
         self.observeForGameControllers()
     }
     
-    func update() {
+    func update(_ currentTime: TimeInterval) {
         
         guard let gamePadLeft = gamePadLeft, let gamePadRight = gamePadRight else {
             return
@@ -42,7 +42,8 @@ class InputControllerIOS: InputControllerProtocol {
         }
         
         if rightJoystickData.intensity != 0 {
-            inputDelegate?.updateShooting(direction: rightJoystickData.direction, isShooting: true)
+            inputDelegate?.updateAngle(direction: rightJoystickData.direction)
+            inputDelegate?.shoot(currentTime)
         }
     }
     

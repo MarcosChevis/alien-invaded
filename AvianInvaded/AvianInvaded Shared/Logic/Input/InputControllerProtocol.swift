@@ -11,5 +11,5 @@ protocol InputControllerProtocol: AnyObject {
     
     var preferedInput: InputType { get }
     
-    func update()
+    func update(_ currentTime: TimeInterval)
 }

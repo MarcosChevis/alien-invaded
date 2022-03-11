@@ -17,7 +17,6 @@ class GameSceneIOS: SKScene {
         self.playerNode = PlayerNode()
         
         super.init(size: size)
-        self.physicsWorld.gravity = CGVector(dx: 1, dy: 0)
         
         self.gameLogicController.gameLogicDelegate = self
         
@@ -35,7 +34,7 @@ class GameSceneIOS: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        gameLogicController.update()
+        gameLogicController.update(currentTime)
         
         children
             .compactMap { $0 as? LifeCycleElement }
@@ -64,11 +63,16 @@ class GameSceneIOS: SKScene {
 
 
 extension GameSceneIOS: GameLogicDelegate {
+    
     func movePlayer(with vector: CGVector) {
         playerNode.apply(force: vector)
     }
     
     func rotatePlayerTo(angle: CGFloat) {
         playerNode.rotate(by: angle)
+    }
+    
+    func shoot(_ currentTime: TimeInterval) {
+        playerNode.shoot(currentTime)
     }
 }
