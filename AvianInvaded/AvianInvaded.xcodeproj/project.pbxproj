@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
+		5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
+		5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
+		5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
+		5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
+		5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
+		5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
+		5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
+		5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
 		BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
@@ -53,12 +62,6 @@
 		BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADECBE227D14CE600EFD009 /* LaunchScreen.storyboard */; };
 		BADECBEC27D14CE600EFD009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBEB27D14CE600EFD009 /* AppDelegate.swift */; };
 		BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBED27D14CE600EFD009 /* GameViewController.swift */; };
-		BADECBF327D14CE600EFD009 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC027D14CE300EFD009 /* Actions.sks */; };
-		BADECBF427D14CE600EFD009 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC027D14CE300EFD009 /* Actions.sks */; };
-		BADECBF527D14CE600EFD009 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC027D14CE300EFD009 /* Actions.sks */; };
-		BADECBF627D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
-		BADECBF727D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
-		BADECBF827D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
 		BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */; };
 		BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
 		BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
@@ -75,6 +78,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBuilder.swift; sourceTree = "<group>"; };
+		5BFE7DD927DF9FE500BB9998 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		5BFE7DE027DFA1B700BB9998 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicDelegate.swift; sourceTree = "<group>"; };
 		BA04A40727D6A274004E51EA /* PlayerLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicController.swift; sourceTree = "<group>"; };
 		BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +95,6 @@
 		BA4C856527D7F479000EBEB2 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleElement.swift; sourceTree = "<group>"; };
 		BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpriteNode.swift; sourceTree = "<group>"; };
-		BADECBC027D14CE300EFD009 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		BADECBC127D14CE300EFD009 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneIOS.swift; sourceTree = "<group>"; };
 		BADECBC327D14CE600EFD009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BADECBC827D14CE600EFD009 /* AvianInvaded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvianInvaded.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +139,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BFE7DD527DF9FA700BB9998 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		5BFE7DD827DF9FD700BB9998 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				5BFE7DD927DF9FE500BB9998 /* Room.swift */,
+				5BFE7DE027DFA1B700BB9998 /* Tile.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
 		BA04A3FB27D69281004E51EA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +168,8 @@
 		BA04A3FC27D692E9004E51EA /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D2927DBB66600E131F4 /* Projectile */,
+				5BFE7DD527DF9FA700BB9998 /* Room */,
+				BAE17D2A27DBB66F00E131F4 /* Projectile */,
 				BAE17D1227DA872400E131F4 /* Player */,
 				BAE17D1127DA871400E131F4 /* Game */,
 				BA04A40127D6936D004E51EA /* Input */,
@@ -158,6 +180,7 @@
 		BA04A3FD27D692F2004E51EA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5BFE7DD827DF9FD700BB9998 /* Room */,
 				BAE17D2227DA8A9B00E131F4 /* System */,
 				BA4C856427D7F46A000EBEB2 /* Player */,
 				BA04A40227D6937D004E51EA /* Input */,
@@ -180,13 +203,6 @@
 				BAE17D1527DA876800E131F4 /* Input */,
 			);
 			path = Logic;
-			sourceTree = "<group>";
-		};
-		BA04A40027D69331004E51EA /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		BA04A40127D6936D004E51EA /* Input */ = {
@@ -250,8 +266,6 @@
 				BA04A3FC27D692E9004E51EA /* Logic */,
 				BA04A3FB27D69281004E51EA /* View */,
 				BA088FB727D2AFC800CCB38D /* Extensions */,
-				BADECBC027D14CE300EFD009 /* Actions.sks */,
-				BADECBC127D14CE300EFD009 /* GameScene.sks */,
 				BADECBC327D14CE600EFD009 /* Assets.xcassets */,
 			);
 			path = "AvianInvaded Shared";
@@ -270,7 +284,6 @@
 		BADECBCA27D14CE600EFD009 /* AvianInvaded iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BA04A40027D69331004E51EA /* Data */,
 				BA04A3FF27D6932B004E51EA /* Logic */,
 				BA04A3FE27D69324004E51EA /* Views */,
 				BADECBCB27D14CE600EFD009 /* AppDelegate.swift */,
@@ -282,9 +295,7 @@
 		BADECBDA27D14CE600EFD009 /* AvianInvaded tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D1727DA887200E131F4 /* Data */,
 				BAE17D1827DA887900E131F4 /* Logic */,
-				BAE17D1927DA887F00E131F4 /* Views */,
 				BADECBDB27D14CE600EFD009 /* AppDelegate.swift */,
 				BADECBE227D14CE600EFD009 /* LaunchScreen.storyboard */,
 			);
@@ -294,9 +305,7 @@
 		BADECBEA27D14CE600EFD009 /* AvianInvaded macOS */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D1D27DA88BB00E131F4 /* Data */,
 				BAE17D1C27DA88B000E131F4 /* Logic */,
-				BAE17D1B27DA88A400E131F4 /* Views */,
 				BADECBEB27D14CE600EFD009 /* AppDelegate.swift */,
 				BA088F9B27D2846100CCB38D /* main.swift */,
 				BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */,
@@ -346,26 +355,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		BAE17D1727DA887200E131F4 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		BAE17D1827DA887900E131F4 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
 				BAE17D1A27DA889400E131F4 /* ViewControllers */,
 			);
 			path = Logic;
-			sourceTree = "<group>";
-		};
-		BAE17D1927DA887F00E131F4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		BAE17D1A27DA889400E131F4 /* ViewControllers */ = {
@@ -376,26 +371,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		BAE17D1B27DA88A400E131F4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		BAE17D1C27DA88B000E131F4 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
 				BAE17D1E27DA88C100E131F4 /* ViewControllers */,
 			);
 			path = Logic;
-			sourceTree = "<group>";
-		};
-		BAE17D1D27DA88BB00E131F4 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		BAE17D1E27DA88C100E131F4 /* ViewControllers */ = {
@@ -422,20 +403,13 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		BAE17D2927DBB66600E131F4 /* Projectile */ = {
-			isa = PBXGroup;
-			children = (
-				BAE17D2A27DBB66F00E131F4 /* Projectile */,
-			);
-			path = Projectile;
-			sourceTree = "<group>";
-		};
 		BAE17D2A27DBB66F00E131F4 /* Projectile */ = {
 			isa = PBXGroup;
 			children = (
 				BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */,
 			);
-			path = Projectile;
+			name = Projectile;
+			path = Projectile/Projectile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,8 +512,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBF627D14CE600EFD009 /* GameScene.sks in Resources */,
-				BADECBF327D14CE600EFD009 /* Actions.sks in Resources */,
 				BADECBD427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */,
 			);
@@ -549,8 +521,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBF727D14CE600EFD009 /* GameScene.sks in Resources */,
-				BADECBF427D14CE600EFD009 /* Actions.sks in Resources */,
 				BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */,
 			);
@@ -560,9 +530,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBF827D14CE600EFD009 /* GameScene.sks in Resources */,
 				BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */,
-				BADECBF527D14CE600EFD009 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,16 +543,19 @@
 			files = (
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				BAE17D2127DA8A5100E131F4 /* Projectile.swift in Sources */,
 				BA088FB427D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA4C856627D7F479000EBEB2 /* PlayerData.swift in Sources */,
+				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
 				BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BAE17D2C27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */,
 				BA088FA027D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */,
+				5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */,
 				BA088FA627D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FAA27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
@@ -606,6 +577,7 @@
 				BAE17D2D27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA088FAB27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
+				5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */,
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA4C856727D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BADECBDC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
@@ -613,6 +585,8 @@
 				BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */,
+				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
+				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
@@ -625,6 +599,8 @@
 			files = (
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
+				5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */,
 				BAAAFF9527D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
@@ -634,6 +610,7 @@
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
+				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,
 				BAE17D2E27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */,
 				BA088FA227D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,

@@ -20,12 +20,12 @@ class GameViewController: UIViewController {
         
     }
     override func loadView() {
-        let scene = GameSceneIOS()
-        #warning("create specific scene")
+//        let scene = GameSceneIOS()
+//        #warning("create specific scene")
     
         let skView = SKView(frame: .zero)
         
-        skView.presentScene(scene)
+        //skView.presentScene(scene)
         
         skView.ignoresSiblingOrder = true
         skView.showsFPS = true
