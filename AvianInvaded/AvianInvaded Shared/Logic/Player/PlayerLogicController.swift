@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import CoreGraphics
+import SpriteKit
 
 class PlayerLogicController {
     weak var delegate: PlayerLogicDelegate?
@@ -36,11 +37,19 @@ class PlayerLogicController {
 //        return vector * -data.frictionMultiplier
 //    }
     
-    func shoot(_ currentTime: TimeInterval) -> CGVector? {
+    func shoot(_ currentTime: TimeInterval, spriteCenter: CGPoint, spriteSize: CGSize, node: SKNode, scene: SKNode?) -> (from: CGPoint, force: CGVector)? {
         
         if timeLastShot == 0 {
             timeLastShot = currentTime
         }
+        
+        guard let scene = scene else {
+            return nil
+        }
+
+        
+        let projectilePositionInBodySpace: CGPoint = CGPoint(x: 600, y: 1000)
+        let projectilePositionInSceneSpace: CGPoint = node.convert(projectilePositionInBodySpace, to: scene)
         
         let timePast = currentTime - timeLastShot
         print(timePast)
@@ -50,12 +59,13 @@ class PlayerLogicController {
         }
         
         timeLastShot = currentTime
-        let angle: CGFloat = data.facingAngle
-        let shootingMag: CGFloat = 10
+        let angle: CGFloat = data.facingAngle + CGFloat.pi/2
+        
+        let shootingMag: CGFloat = 100
         
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         
-        return shootingForce
+        return (projectilePositionInSceneSpace, shootingForce)
     }
     
 }

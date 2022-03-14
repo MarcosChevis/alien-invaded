@@ -43,7 +43,6 @@ class GameSceneIOS: SKScene {
             .forEach { $0.update(currentTime) }
     }
     
-    
     func setupScene() {
         children
             .compactMap { $0 as? LifeCycleElement }
