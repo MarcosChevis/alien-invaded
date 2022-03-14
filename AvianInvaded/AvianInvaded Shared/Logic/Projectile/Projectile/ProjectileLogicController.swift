@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import CoreGraphics
+import SpriteKit
+
+class ProjectileLogicController: NSObject {
+    
+    
+    
+}
+
+
