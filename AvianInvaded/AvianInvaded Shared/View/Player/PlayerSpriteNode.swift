@@ -49,6 +49,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     func rotate(by angle: CGFloat) {
         let action = SKAction.rotate(toAngle: angle, duration: .zero, shortestUnitArc: true)
         self.run(action)
+        logicController.data.facingAngle = angle
     }
     
     func apply(force vector: CGVector) {
@@ -60,14 +61,14 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     func shoot(_ currentTime: TimeInterval) {
-        guard let force = logicController.shoot(currentTime) else { return }
+        guard let shotData = logicController.shoot(currentTime, spriteCenter: self.bodySprite.position, spriteSize: self.bodySprite.size, node: self.bodySprite, scene: self.parent) else { return }
         
         
-        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
+        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: shotData.from)
         
         self.parent?.addChild(projectile)
         
-        projectile.physicsBody?.applyForce(force)
+        projectile.physicsBody?.applyForce(shotData.force)
         print("piu")
     }
     
