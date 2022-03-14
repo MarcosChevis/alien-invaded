@@ -10,6 +10,7 @@ import SpriteKit
 class GameSceneIOS: SKScene {
     
     let playerNode: PlayerNode
+    private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
     init(gameLogicController: GameLogicController, size: CGSize) {
@@ -17,10 +18,11 @@ class GameSceneIOS: SKScene {
         self.playerNode = PlayerNode()
         
         super.init(size: size)
-        
+        let builder = RoomBuilder()
+        let room = builder.build(room: .test)
         self.gameLogicController.gameLogicDelegate = self
-        
-        self.addChildren([self.playerNode])
+        self.camera = gameCamera
+        self.addChildren([room, self.playerNode])
         self.moveNodeToCenter(playerNode, size: size)
     }
     
@@ -58,6 +60,10 @@ class GameSceneIOS: SKScene {
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
         node.position.x = size.width/2
         node.position.y = size.height/2
+    }
+    
+    override func didSimulatePhysics() {
+        camera?.position = playerNode.position
     }
 }
 

@@ -21,14 +21,14 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
         super.init()
-       
+       zPosition = 10
         let texture = SKTexture(imageNamed: "MainChar")
        self.physicsBody = .init(texture: texture, size: texture.size() * logicController.scale)
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.collisionBitMask = 1
         self.addChildren()
     }
     
@@ -64,7 +64,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         
         let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
-        
+        projectile.zPosition = 9
         self.parent?.addChild(projectile)
         
         projectile.physicsBody?.applyForce(force)
