@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
+		5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
+		5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
+		5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
+		5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
+		5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
+		5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
+		5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
+		5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
+		5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */; };
+		5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */; };
+		5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */; };
 		BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
@@ -63,15 +75,16 @@
 		BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
 		BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
 		BAE17D2827DA8B5A00E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
-		BAE17D2C27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */; };
-		BAE17D2D27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */; };
-		BAE17D2E27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */; };
 		BAE17D3027DBE0FA00E131F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2F27DBE0FA00E131F4 /* Constants.swift */; };
 		BAE17D3127DBE0FA00E131F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2F27DBE0FA00E131F4 /* Constants.swift */; };
 		BAE17D3227DBE0FA00E131F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2F27DBE0FA00E131F4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBuilder.swift; sourceTree = "<group>"; };
+		5BFE7DD927DF9FE500BB9998 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		5BFE7DE027DFA1B700BB9998 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColisionGroup.swift; sourceTree = "<group>"; };
 		BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicDelegate.swift; sourceTree = "<group>"; };
 		BA04A40727D6A274004E51EA /* PlayerLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicController.swift; sourceTree = "<group>"; };
 		BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +115,6 @@
 		BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvianInvaded_macOS.entitlements; sourceTree = "<group>"; };
 		BAE17D2027DA8A5100E131F4 /* Projectile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
 		BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
-		BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileLogicController.swift; sourceTree = "<group>"; };
 		BAE17D2F27DBE0FA00E131F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +143,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BFE7DD527DF9FA700BB9998 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		5BFE7DD827DF9FD700BB9998 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				5BFE7DD927DF9FE500BB9998 /* Room.swift */,
+				5BFE7DE027DFA1B700BB9998 /* Tile.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
 		BA04A3FB27D69281004E51EA /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +172,7 @@
 		BA04A3FC27D692E9004E51EA /* Logic */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D2927DBB66600E131F4 /* Projectile */,
+				5BFE7DD527DF9FA700BB9998 /* Room */,
 				BAE17D1227DA872400E131F4 /* Player */,
 				BAE17D1127DA871400E131F4 /* Game */,
 				BA04A40127D6936D004E51EA /* Input */,
@@ -154,6 +183,7 @@
 		BA04A3FD27D692F2004E51EA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5BFE7DD827DF9FD700BB9998 /* Room */,
 				BAE17D2227DA8A9B00E131F4 /* System */,
 				BA4C856427D7F46A000EBEB2 /* Player */,
 				BA04A40227D6937D004E51EA /* Input */,
@@ -372,17 +402,10 @@
 			isa = PBXGroup;
 			children = (
 				BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */,
+				5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */,
 				BAE17D2F27DBE0FA00E131F4 /* Constants.swift */,
 			);
 			path = System;
-			sourceTree = "<group>";
-		};
-		BAE17D2927DBB66600E131F4 /* Projectile */ = {
-			isa = PBXGroup;
-			children = (
-				BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */,
-			);
-			path = Projectile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,16 +539,19 @@
 			files = (
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
+				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				BAE17D2127DA8A5100E131F4 /* Projectile.swift in Sources */,
 				BA088FB427D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA4C856627D7F479000EBEB2 /* PlayerData.swift in Sources */,
+				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
 				BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
-				BAE17D2C27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */,
 				BA088FA027D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */,
+				5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */,
 				BA088FA627D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FAA27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
@@ -545,9 +571,9 @@
 				BA088FA127D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
-				BAE17D2D27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA088FAB27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
+				5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */,
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA4C856727D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BADECBDC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
@@ -555,6 +581,9 @@
 				BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */,
+				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
+				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
+				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
@@ -569,6 +598,8 @@
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
 				BAE17D3227DBE0FA00E131F4 /* Constants.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
+				5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */,
 				BAAAFF9527D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
@@ -576,9 +607,10 @@
 				BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA4C856827D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
+				5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
-				BAE17D2E27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */,
+				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,
 				BA088FA227D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FA827D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
@@ -728,7 +760,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -759,7 +791,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
