@@ -48,20 +48,25 @@ class PlayerLogicController {
         }
 
         
-        let projectilePositionInBodySpace: CGPoint = CGPoint(x: 600, y: 1000)
+        let x = spriteSize.width * 2
+        let y = spriteSize.height * 3.2
+        
+        //print(x, y)
+        
+        let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
         let projectilePositionInSceneSpace: CGPoint = node.convert(projectilePositionInBodySpace, to: scene)
         
         let timePast = currentTime - timeLastShot
-        print(timePast)
+        //print(timePast)
         
-        if timePast < 0.5 {
+        if timePast < 0.3 {
             return nil
         }
         
         timeLastShot = currentTime
         let angle: CGFloat = data.facingAngle + CGFloat.pi/2
         
-        let shootingMag: CGFloat = 100
+        let shootingMag: CGFloat = 300
         
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         
