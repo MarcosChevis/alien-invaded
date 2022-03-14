@@ -16,6 +16,9 @@
 		5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
 		5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
 		5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE027DFA1B700BB9998 /* Tile.swift */; };
+		5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */; };
+		5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */; };
+		5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */; };
 		BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
@@ -81,6 +84,7 @@
 		5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBuilder.swift; sourceTree = "<group>"; };
 		5BFE7DD927DF9FE500BB9998 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		5BFE7DE027DFA1B700BB9998 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColisionGroup.swift; sourceTree = "<group>"; };
 		BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicDelegate.swift; sourceTree = "<group>"; };
 		BA04A40727D6A274004E51EA /* PlayerLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicController.swift; sourceTree = "<group>"; };
 		BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */,
+				5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 			files = (
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
@@ -587,6 +593,7 @@
 				BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */,
 				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
+				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
@@ -608,6 +615,7 @@
 				BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA4C856827D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
+				5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
 				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,

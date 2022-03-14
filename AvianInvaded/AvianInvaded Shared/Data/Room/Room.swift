@@ -11,8 +11,9 @@ struct Room {
     let tileSize: Double
     let tiles: [[Int]]
     let colision: [[Int]]
+    let tilesName: [String]
     
-    static let test: Room = Room(tileSize: 32,
+    static let test: Room = Room(tileSize: 64,
                                  tiles: [
                                     [5, 1, 1, 1, 1, 1, 1, 8],
                                     [2, 9, 9, 9, 9, 9, 9, 4],
@@ -32,5 +33,17 @@ struct Room {
                                     [1, 0, 0, 0, 0, 0, 0, 1],
                                     [1, 0, 0, 0, 0, 0, 0, 1],
                                     [1, 1, 1, 1, 1, 1, 1, 1]
-                                ])
+                                ],
+                                 tilesName: [
+                                    "",
+                                    "topWall",
+                                    "leftWall",
+                                    "bottomWall",
+                                    "rightWall",
+                                    "topLeftCorner",
+                                    "bottomLeftCorner",
+                                    "bottomRightCorner",
+                                    "topRightCorner",
+                                    "Floor"
+                                 ])
 }
