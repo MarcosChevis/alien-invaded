@@ -9,6 +9,7 @@ import SpriteKit
 
 class GameSceneIOS: SKScene {
     
+    let enemyNode: EnemyNode
     let playerNode: PlayerNode
     var gameLogicController: GameLogicController
     
@@ -16,13 +17,17 @@ class GameSceneIOS: SKScene {
         self.gameLogicController = gameLogicController
         self.playerNode = PlayerNode()
         
+        self.enemyNode = EnemyNode()
+        
         super.init(size: size)
         
         self.gameLogicController.gameLogicDelegate = self
         
-        self.addChildren([self.playerNode])
-        self.moveNodeToCenter(playerNode, size: size)
+        self.addChildren([enemyNode, self.playerNode])
+        moveNodeToCenter(playerNode, size: size)
+        moveNodeToCenter(enemyNode, size: size)
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
