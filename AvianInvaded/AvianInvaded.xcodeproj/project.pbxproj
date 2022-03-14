@@ -53,12 +53,6 @@
 		BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADECBE227D14CE600EFD009 /* LaunchScreen.storyboard */; };
 		BADECBEC27D14CE600EFD009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBEB27D14CE600EFD009 /* AppDelegate.swift */; };
 		BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBED27D14CE600EFD009 /* GameViewController.swift */; };
-		BADECBF327D14CE600EFD009 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC027D14CE300EFD009 /* Actions.sks */; };
-		BADECBF427D14CE600EFD009 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC027D14CE300EFD009 /* Actions.sks */; };
-		BADECBF527D14CE600EFD009 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC027D14CE300EFD009 /* Actions.sks */; };
-		BADECBF627D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
-		BADECBF727D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
-		BADECBF827D14CE600EFD009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC127D14CE300EFD009 /* GameScene.sks */; };
 		BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */; };
 		BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
 		BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
@@ -92,8 +86,6 @@
 		BA4C856527D7F479000EBEB2 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleElement.swift; sourceTree = "<group>"; };
 		BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpriteNode.swift; sourceTree = "<group>"; };
-		BADECBC027D14CE300EFD009 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		BADECBC127D14CE300EFD009 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneIOS.swift; sourceTree = "<group>"; };
 		BADECBC327D14CE600EFD009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BADECBC827D14CE600EFD009 /* AvianInvaded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvianInvaded.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,13 +178,6 @@
 			path = Logic;
 			sourceTree = "<group>";
 		};
-		BA04A40027D69331004E51EA /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		BA04A40127D6936D004E51EA /* Input */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,8 +239,6 @@
 				BA04A3FC27D692E9004E51EA /* Logic */,
 				BA04A3FB27D69281004E51EA /* View */,
 				BA088FB727D2AFC800CCB38D /* Extensions */,
-				BADECBC027D14CE300EFD009 /* Actions.sks */,
-				BADECBC127D14CE300EFD009 /* GameScene.sks */,
 				BADECBC327D14CE600EFD009 /* Assets.xcassets */,
 			);
 			path = "AvianInvaded Shared";
@@ -274,7 +257,6 @@
 		BADECBCA27D14CE600EFD009 /* AvianInvaded iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BA04A40027D69331004E51EA /* Data */,
 				BA04A3FF27D6932B004E51EA /* Logic */,
 				BA04A3FE27D69324004E51EA /* Views */,
 				BADECBCB27D14CE600EFD009 /* AppDelegate.swift */,
@@ -286,9 +268,7 @@
 		BADECBDA27D14CE600EFD009 /* AvianInvaded tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D1727DA887200E131F4 /* Data */,
 				BAE17D1827DA887900E131F4 /* Logic */,
-				BAE17D1927DA887F00E131F4 /* Views */,
 				BADECBDB27D14CE600EFD009 /* AppDelegate.swift */,
 				BADECBE227D14CE600EFD009 /* LaunchScreen.storyboard */,
 			);
@@ -298,9 +278,7 @@
 		BADECBEA27D14CE600EFD009 /* AvianInvaded macOS */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D1D27DA88BB00E131F4 /* Data */,
 				BAE17D1C27DA88B000E131F4 /* Logic */,
-				BAE17D1B27DA88A400E131F4 /* Views */,
 				BADECBEB27D14CE600EFD009 /* AppDelegate.swift */,
 				BA088F9B27D2846100CCB38D /* main.swift */,
 				BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */,
@@ -350,26 +328,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		BAE17D1727DA887200E131F4 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		BAE17D1827DA887900E131F4 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
 				BAE17D1A27DA889400E131F4 /* ViewControllers */,
 			);
 			path = Logic;
-			sourceTree = "<group>";
-		};
-		BAE17D1927DA887F00E131F4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		BAE17D1A27DA889400E131F4 /* ViewControllers */ = {
@@ -380,26 +344,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		BAE17D1B27DA88A400E131F4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		BAE17D1C27DA88B000E131F4 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
 				BAE17D1E27DA88C100E131F4 /* ViewControllers */,
 			);
 			path = Logic;
-			sourceTree = "<group>";
-		};
-		BAE17D1D27DA88BB00E131F4 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		BAE17D1E27DA88C100E131F4 /* ViewControllers */ = {
@@ -428,14 +378,6 @@
 			sourceTree = "<group>";
 		};
 		BAE17D2927DBB66600E131F4 /* Projectile */ = {
-			isa = PBXGroup;
-			children = (
-				BAE17D2A27DBB66F00E131F4 /* Projectile */,
-			);
-			path = Projectile;
-			sourceTree = "<group>";
-		};
-		BAE17D2A27DBB66F00E131F4 /* Projectile */ = {
 			isa = PBXGroup;
 			children = (
 				BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */,
@@ -543,8 +485,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBF627D14CE600EFD009 /* GameScene.sks in Resources */,
-				BADECBF327D14CE600EFD009 /* Actions.sks in Resources */,
 				BADECBD427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */,
 			);
@@ -554,8 +494,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBF727D14CE600EFD009 /* GameScene.sks in Resources */,
-				BADECBF427D14CE600EFD009 /* Actions.sks in Resources */,
 				BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */,
 			);
@@ -565,9 +503,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADECBF827D14CE600EFD009 /* GameScene.sks in Resources */,
 				BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */,
-				BADECBF527D14CE600EFD009 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
