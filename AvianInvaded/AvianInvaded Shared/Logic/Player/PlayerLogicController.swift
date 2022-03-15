@@ -17,7 +17,7 @@ class PlayerLogicController {
     var timeLastShot: TimeInterval
     
     var mass: CGFloat { data.mass }
-    var scale: CGFloat { data.playerScale }
+    var scale: CGFloat { GameConstants.scale }
     
     init(data: PlayerData = .init()) {
         self.data = data
@@ -59,14 +59,14 @@ class PlayerLogicController {
         let timePast = currentTime - timeLastShot
         //print(timePast)
         
-        if timePast < 0.3 {
+        if timePast < 0.2 {
             return nil
         }
         
         timeLastShot = currentTime
         let angle: CGFloat = data.facingAngle + CGFloat.pi/2
         
-        let shootingMag: CGFloat = 300
+        let shootingMag: CGFloat = 8000
         
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         

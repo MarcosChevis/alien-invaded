@@ -30,6 +30,7 @@ final class RoomBuilder {
                     let sprite = buildTile(for: rawvalue, size: room.tileSize, tilesName: room.tilesName)
                     sprite.anchorPoint = CGPoint(x: 0, y: 1)
                     node.addChild(sprite)
+                    sprite.name = "wall"
                     return sprite
                 }
             }
@@ -76,8 +77,16 @@ final class RoomBuilder {
         let physicsBody = SKPhysicsBody(rectangleOf: tile.size, center: CGPoint(x: tile.size.width/2, y: -tile.size.height/2))
         tile.physicsBody = physicsBody
         physicsBody.affectedByGravity = false
-        physicsBody.isResting = true
         physicsBody.collisionBitMask = 0
-        physicsBody.categoryBitMask = ColisionGroup.environment.uInt32
+        physicsBody.isResting = true
+        physicsBody.categoryBitMask = 1
+        
     }
+}
+
+struct PhysicsCategory {
+    static let None : UInt32 = 0
+    static let All : UInt32 = UInt32.max
+    static let block : UInt32 = 0b1
+    
 }

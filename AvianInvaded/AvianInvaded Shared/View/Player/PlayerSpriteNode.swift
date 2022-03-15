@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 class PlayerNode: SKNode, LifeCycleElement {
-
+    
     private let logicController: PlayerLogicController = PlayerLogicController()
     private let bodySprite: SKSpriteNode
     var projectileTexture: SKTexture
@@ -21,14 +21,9 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
         super.init()
-       zPosition = 10
-        let texture = SKTexture(imageNamed: "MainChar")
-       self.physicsBody = .init(texture: texture, size: texture.size() * logicController.scale)
-        self.physicsBody?.mass = logicController.mass
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.allowsRotation = false
-        self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 1
+        
+        self.name = "player"
+        zPosition = 10
         self.addChildren()
     }
     
@@ -37,7 +32,6 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     func update(_ currentTime: TimeInterval) {
-
     }
     
     private func addChildren() {
@@ -67,7 +61,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         guard let shotData = logicController.shoot(currentTime, spriteCenter: self.bodySprite.position, spriteSize: self.bodySprite.size, node: self.bodySprite, scene: self.parent) else { return }
         
         
-        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: self.bodySprite.size.width/10, height: self.bodySprite.size.width/10), team: .player, position: shotData.from)
+        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: self.bodySprite.size.width*logicController.data.projectileSize, height: self.bodySprite.size.width*logicController.data.projectileSize), team: .player, position: shotData.from)
         
         self.parent?.addChild(projectile)
         
@@ -82,7 +76,8 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.collisionBitMask = 1
+        self.physicsBody?.categoryBitMask = 0
     }
     
     private func scaleToScreen() {
@@ -94,10 +89,11 @@ class PlayerNode: SKNode, LifeCycleElement {
         let w = sceneWidth * scale
         let h = w * imageSize.height / imageSize.width
         
+        let size = CGSize(width: w, height: h)
         
         
-        createPhysicsBody(size: CGSize(width: w, height: h))
-        bodySprite.size = CGSize(width: w, height: h)
+        createPhysicsBody(size: size)
+        bodySprite.size = size
     }
     
 }

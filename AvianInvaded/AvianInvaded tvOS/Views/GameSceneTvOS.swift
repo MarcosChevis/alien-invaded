@@ -1,13 +1,11 @@
 //
-//  GameScene.swift
-//  AvianInvaded Shared
+//  GameSceneTvOS.swift
+//  AvianInvaded tvOS
 //
-//  Created by Marcos Chevis on 03/03/22.
-//
-
+//  Created by Marcos Chevis on 15/03/22.
 import SpriteKit
 
-class GameSceneIOS: SKScene {
+class GameSceneTvOS: SKScene {
     
     let playerNode: PlayerNode
     private let gameCamera = SKCameraNode()
@@ -68,7 +66,7 @@ class GameSceneIOS: SKScene {
 }
 
 
-extension GameSceneIOS: GameLogicDelegate {
+extension GameSceneTvOS: GameLogicDelegate {
     
     func movePlayer(with vector: CGVector) {
         playerNode.apply(force: vector)
@@ -83,7 +81,7 @@ extension GameSceneIOS: GameLogicDelegate {
     }
 }
 
-extension GameSceneIOS: SKPhysicsContactDelegate {
+extension GameSceneTvOS: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if
             let contactableNodeA = contact.bodyA.node as? Contactable,
