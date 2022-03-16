@@ -75,17 +75,14 @@ extension GameSceneIOS: GameLogicDelegate {
     
     func movePlayer(with vector: CGVector) {
         playerNode.apply(force: vector)
-        enemyNode.apply(force: vector)
     }
     
     func rotatePlayerTo(angle: CGFloat) {
         playerNode.rotate(by: angle)
-        enemyNode.rotate(by: angle)
     }
     
     func shoot(_ currentTime: TimeInterval) {
         playerNode.shoot(currentTime)
-        enemyNode.attack(currentTime)
     }
     
 }
