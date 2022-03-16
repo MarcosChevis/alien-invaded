@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class Projectile: SKSpriteNode {
+class Projectile: SKSpriteNode, LifeCycleElement {
     
     var team: Team
     
@@ -33,6 +33,11 @@ class Projectile: SKSpriteNode {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func update(_ currentTime: TimeInterval) {
+        let action = SKAction.rotate(toAngle: self.physicsBody!.velocity.radAngle - CGFloat.pi/2, duration: 0)
+        self.run(action)
     }
     
 }

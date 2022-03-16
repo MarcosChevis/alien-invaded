@@ -16,7 +16,7 @@ class GameSceneTvOS: SKScene {
         self.playerNode = PlayerNode()
         
         super.init(size: size)
-        let builder = RoomBuilder()
+        let builder = RoomBuilder(sceneSize: self.size)
         let room = builder.build(room: .test)
         self.gameLogicController.gameLogicDelegate = self
         self.camera = gameCamera
@@ -47,6 +47,10 @@ class GameSceneTvOS: SKScene {
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.startup() }
         
+    }
+    override func didChangeSize(_ oldSize: CGSize) {
+        GameConstants.updateForceMultiplaier(screenSize: self.size)
+        print(GameConstants.forceMultiplier)
     }
     
     func addChildren(_ nodes: [SKNode]) {

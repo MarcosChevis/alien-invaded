@@ -36,8 +36,10 @@ class InputControllerTvOS: InputControllerProtocol {
         if rightJoystickData.intensity != 0 {
             inputDelegate?.updateAngle(direction: rightJoystickData.direction)
             inputDelegate?.shoot(currentTime)
-
         }
+//        else if leftJoystickData.intensity != 0 {
+//            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
+//        }
     }
     
     private func getJoystickData(joystick: GCControllerDirectionPad) -> (direction: CGFloat, intensity: CGFloat) {

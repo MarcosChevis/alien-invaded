@@ -13,6 +13,7 @@ class InputControllerIOS: InputControllerProtocol {
     
     private var gamePadRight: GCControllerDirectionPad?
     private var gamePadLeft: GCControllerDirectionPad?
+    private var haptic: GCDeviceHaptics?
     
     var preferedInput: InputType
     
@@ -44,7 +45,10 @@ class InputControllerIOS: InputControllerProtocol {
         if rightJoystickData.intensity != 0 {
             inputDelegate?.updateAngle(direction: rightJoystickData.direction)
             inputDelegate?.shoot(currentTime)
-
+            haptic?.supportedLocalities
+            
+        } else if leftJoystickData.intensity != 0 {
+            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
         }
     }
     
@@ -80,13 +84,20 @@ class InputControllerIOS: InputControllerProtocol {
     //MARK: Input Registrations
     private func registerGameController(_ gameController: GCController) {
         
-        // para mudar a cor do led do controle de PS4
-        // gameController.light?.color = GCColor(red: 0.5, green: 0.5, blue: 0.5)
+        // para mudar a cor do led do controle de PS4 FF008E
+         gameController.light?.color = GCColor(red: 255/255, green: 0, blue: 142/255)
         
+
         if let gamepad = gameController.extendedGamepad {
             self.gamePadLeft = gamepad.leftThumbstick
             self.gamePadRight = gamepad.rightThumbstick
         }
+        
+        if let haptic = gameController.haptics  {
+            self.haptic = haptic
+        }
+        
+        
     }
     
     private func unregisterGameController() {

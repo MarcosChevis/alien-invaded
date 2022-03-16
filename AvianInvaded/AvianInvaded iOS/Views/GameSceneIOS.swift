@@ -18,7 +18,7 @@ class GameSceneIOS: SKScene {
         self.playerNode = PlayerNode()
         
         super.init(size: size)
-        let builder = RoomBuilder()
+        let builder = RoomBuilder(sceneSize: self.size)
         let room = builder.build(room: .test)
         self.gameLogicController.gameLogicDelegate = self
         self.camera = gameCamera
@@ -55,6 +55,9 @@ class GameSceneIOS: SKScene {
         for node in nodes {
             self.addChild(node)
         }
+    }
+    override func didChangeSize(_ oldSize: CGSize) {
+        GameConstants.updateForceMultiplaier(screenSize: self.size)
     }
     
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {

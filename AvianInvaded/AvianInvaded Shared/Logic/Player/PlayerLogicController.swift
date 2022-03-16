@@ -17,7 +17,7 @@ class PlayerLogicController {
     var timeLastShot: TimeInterval
     
     var mass: CGFloat { data.mass }
-    var scale: CGFloat { GameConstants.scale }
+    var scale: CGFloat { data.scale }
     
     init(data: PlayerData = .init()) {
         self.data = data
@@ -25,7 +25,7 @@ class PlayerLogicController {
     }
     
     func move(by vector: CGVector, currentVelocity: CGVector) -> CGVector? {
-        if currentVelocity.magnitude < data.speedLimit {
+        if currentVelocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
             return vector * data.moveMultiplier
         } else {
             return nil
