@@ -28,7 +28,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         super.init()
         
-        self.name = "player"
+        self.colisionGroup = .player
         zPosition = 10
         self.addChildren()
         

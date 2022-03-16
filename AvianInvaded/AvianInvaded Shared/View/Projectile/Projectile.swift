@@ -9,23 +9,12 @@ import Foundation
 import SpriteKit
 
 class Projectile: SKSpriteNode, LifeCycleElement {
-    
-    var team: Team
-    
+        
     init(texture: SKTexture?, size: CGSize, team: Team, position: CGPoint) {
-        self.team = team
         super.init(texture: texture, color: SKColor.clear, size: size)
-        self.physicsBody = .init(rectangleOf: size)
-        
-        self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.linearDamping = 0
-        self.physicsBody?.mass = 0.1
-        
-        self.name = "projectilr"
-        self.physicsBody?.collisionBitMask = .zero
-        self.physicsBody?.contactTestBitMask = 1
-        self.physicsBody?.categoryBitMask = .zero
-        
+       
+        self.setupPhysicsBody()
+        self.setColisionGoup(team: team)
         self.position = CGPoint(x: position.x, y: position.y)
         self.zPosition = 9
         
@@ -35,8 +24,32 @@ class Projectile: SKSpriteNode, LifeCycleElement {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupPhysicsBody() {
+        self.physicsBody = .init(rectangleOf: size)
+        
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.linearDamping = 0
+        self.physicsBody?.mass = 0.1
+        
+        self.physicsBody?.collisionBitMask = .zero
+        self.physicsBody?.contactTestBitMask = 1
+        self.physicsBody?.categoryBitMask = .zero
+    }
+    
+    private func setColisionGoup(team: Team) {
+        switch team {
+        case .none:
+            self.colisionGroup = .neutralProjectile
+        case .player:
+            self.colisionGroup = .playerProjectile
+        case .avian:
+            self.colisionGroup = .enemyProjectile
+        }
+    }
+    
     func update(_ currentTime: TimeInterval) {
-        let action = SKAction.rotate(toAngle: self.physicsBody!.velocity.radAngle - CGFloat.pi/2, duration: 0)
+        guard let angle = self.physicsBody?.velocity.radAngle else { return }
+        let action = SKAction.rotate(toAngle: angle - CGFloat.pi/2, duration: 0)
         self.run(action)
     }
     
