@@ -13,4 +13,5 @@ protocol GameLogicDelegate: AnyObject {
     func movePlayer(with vector: CGVector)
     func rotatePlayerTo(angle: CGFloat)
     func shoot(_ currentTime: TimeInterval)
+
 }

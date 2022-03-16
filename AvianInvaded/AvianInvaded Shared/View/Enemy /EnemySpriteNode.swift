@@ -8,22 +8,59 @@
 import Foundation
 import SpriteKit
 
-class EnemyNode: SKNode {
+class EnemyNode: SKNode, LifeCycleElement {
     
     private let logicController: EnemyLogicController = EnemyLogicController()
     private let bodySprite: SKSpriteNode
-    //var projectileTexture: SKTexture
+    var projectileTexture: SKTexture
     
     override init() {
         bodySprite = .init(imageNamed: "Chicken")
-        bodySprite.setScale(logicController.scale)
+       
+        #warning("mudar para a escala global")
+        let projectileImage = UIImage(named: "Chicken")
+        self.projectileTexture = .init(image: projectileImage ?? .init())
        
         super.init()
+        addChild(bodySprite)
+        
+        bodySprite.setScale(0.01)
+    }
+    
+    func uptade(_ currentTime: TimeInterval) {
+        
+    }
+    
+    private func addChildren() {
         addChild(bodySprite)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func rotate(by angle: CGFloat) {
+        let action = SKAction.rotate(toAngle: angle, duration: .zero, shortestUnitArc: true)
+        self.run(action)
+    }
+    
+    func apply(force vector: CGVector){
+        guard
+            let velocity = physicsBody?.velocity,
+            let vector = logicController.move(by: vector, currentVelocity: velocity)
+        else { return }
+        self.physicsBody?.applyForce(vector)
+    }
+    
+    func attack(_ currentTime: TimeInterval) {
+        guard let force = logicController.attack(currentTime) else { return }
+        
+        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
+        
+        self.parent?.addChild(projectile)
+        
+        projectile.physicsBody?.applyForce(force)
+        print("Có")
     }
     
 }

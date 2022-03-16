@@ -23,8 +23,12 @@ class EnemyLogicController{
         
     }
     
-    func move(){
-        
+    func move(by vector: CGVector, currentVelocity: CGVector) -> CGVector? {
+        if currentVelocity.magnitude < data.speedLimit {
+            return vector * data.moveMultiplier
+        } else {
+            return nil
+        }
     }
     
     func attack(_ currentTime: TimeInterval) -> CGVector? {
@@ -49,3 +53,4 @@ class EnemyLogicController{
         return shootingForce
     }
 }
+
