@@ -11,6 +11,7 @@ class GameSceneIOS: SKScene {
     
     let enemyNode: EnemyNode
     let playerNode: PlayerNode
+    private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
     init(gameLogicController: GameLogicController, size: CGSize) {
@@ -20,12 +21,12 @@ class GameSceneIOS: SKScene {
         self.enemyNode = EnemyNode()
         
         super.init(size: size)
-        
+        let builder = RoomBuilder()
+        let room = builder.build(room: .test)
         self.gameLogicController.gameLogicDelegate = self
-        
-        self.addChildren([enemyNode, self.playerNode])
-        moveNodeToCenter(playerNode, size: size)
-        moveNodeToCenter(enemyNode, size: size)
+        self.camera = gameCamera
+        self.addChildren([room, self.playerNode])
+        self.moveNodeToCenter(playerNode, size: size)
     }
     
     
@@ -46,7 +47,6 @@ class GameSceneIOS: SKScene {
             .forEach { $0.update(currentTime) }
     }
     
-    
     func setupScene() {
         children
             .compactMap { $0 as? LifeCycleElement }
@@ -63,6 +63,10 @@ class GameSceneIOS: SKScene {
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
         node.position.x = size.width/2
         node.position.y = size.height/2
+    }
+    
+    override func didSimulatePhysics() {
+        camera?.position = playerNode.position
     }
 }
 

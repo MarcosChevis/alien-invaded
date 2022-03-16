@@ -21,14 +21,14 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
         super.init()
-       
+       zPosition = 10
         let texture = SKTexture(imageNamed: "MainChar")
        self.physicsBody = .init(texture: texture, size: texture.size() * logicController.scale)
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.collisionBitMask = 1
         self.addChildren()
     }
     
@@ -49,6 +49,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     func rotate(by angle: CGFloat) {
         let action = SKAction.rotate(toAngle: angle, duration: .zero, shortestUnitArc: true)
         self.run(action)
+        logicController.data.facingAngle = angle
     }
     
     func apply(force vector: CGVector) {
@@ -60,14 +61,14 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     func shoot(_ currentTime: TimeInterval) {
-        guard let force = logicController.shoot(currentTime) else { return }
+        guard let shotData = logicController.shoot(currentTime, spriteCenter: self.bodySprite.position, spriteSize: self.bodySprite.size, node: self.bodySprite, scene: self.parent) else { return }
         
         
         let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
-        
+        projectile.zPosition = 9
         self.parent?.addChild(projectile)
         
-        projectile.physicsBody?.applyForce(force)
+        projectile.physicsBody?.applyForce(shotData.force)
         print("piu")
     }
     
