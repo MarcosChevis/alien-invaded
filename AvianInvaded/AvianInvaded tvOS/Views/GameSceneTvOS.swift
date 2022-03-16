@@ -1,15 +1,12 @@
 //
-//  GameScene.swift
-//  AvianInvaded Shared
+//  GameSceneTvOS.swift
+//  AvianInvaded tvOS
 //
-//  Created by Marcos Chevis on 03/03/22.
-//
-
+//  Created by Marcos Chevis on 15/03/22.
 import SpriteKit
 
-class GameSceneIOS: SKScene {
+class GameSceneTvOS: SKScene {
     
-    let enemyNode: EnemyNode
     let playerNode: PlayerNode
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
@@ -17,8 +14,6 @@ class GameSceneIOS: SKScene {
     init(gameLogicController: GameLogicController, size: CGSize) {
         self.gameLogicController = gameLogicController
         self.playerNode = PlayerNode()
-        
-        self.enemyNode = EnemyNode()
         
         super.init(size: size)
         let builder = RoomBuilder(sceneSize: self.size)
@@ -29,7 +24,6 @@ class GameSceneIOS: SKScene {
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,14 +48,15 @@ class GameSceneIOS: SKScene {
             .forEach { $0.startup() }
         
     }
+    override func didChangeSize(_ oldSize: CGSize) {
+        GameConstants.updateForceMultiplaier(screenSize: self.size)
+        print(GameConstants.forceMultiplier)
+    }
     
     func addChildren(_ nodes: [SKNode]) {
         for node in nodes {
             self.addChild(node)
         }
-    }
-    override func didChangeSize(_ oldSize: CGSize) {
-        GameConstants.updateForceMultiplaier(screenSize: self.size)
     }
     
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
@@ -75,7 +70,7 @@ class GameSceneIOS: SKScene {
 }
 
 
-extension GameSceneIOS: GameLogicDelegate {
+extension GameSceneTvOS: GameLogicDelegate {
     
     func movePlayer(with vector: CGVector) {
         playerNode.apply(force: vector)
@@ -88,23 +83,24 @@ extension GameSceneIOS: GameLogicDelegate {
     func shoot(_ currentTime: TimeInterval) {
         playerNode.shoot(currentTime)
     }
-    
 }
 
-extension GameSceneIOS: SKPhysicsContactDelegate {
+extension GameSceneTvOS: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if
             let contactableNodeA = contact.bodyA.node as? Contactable,
-            let colisionGroup = contact.bodyB.node?.colisionGroup {
-            contactableNodeA.contact(with: colisionGroup)
+            let nodeB = contact.bodyB.node {
+            contactableNodeA.contact(with: nodeB)
         }
         
         if
             let contactableNodeB = contact.bodyB.node as? Contactable,
-            let colisionGroup = contact.bodyA.node?.colisionGroup {
-            contactableNodeB.contact(with: colisionGroup)
+            let nodeA = contact.bodyA.node {
+            contactableNodeB.contact(with: nodeA)
         }
     }
 }
 
-
+protocol Contactable {
+    func contact(with node: SKNode)
+}

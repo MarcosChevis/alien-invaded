@@ -17,7 +17,7 @@ class PlayerLogicController {
     var timeLastShot: TimeInterval
     
     var mass: CGFloat { data.mass }
-    var scale: CGFloat { data.playerScale }
+    var scale: CGFloat { data.scale }
     
     init(data: PlayerData = .init()) {
         self.data = data
@@ -25,7 +25,7 @@ class PlayerLogicController {
     }
     
     func move(by vector: CGVector, currentVelocity: CGVector) -> CGVector? {
-        if currentVelocity.magnitude < data.speedLimit {
+        if currentVelocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
             return vector * data.moveMultiplier
         } else {
             return nil
@@ -48,20 +48,25 @@ class PlayerLogicController {
         }
 
         
-        let projectilePositionInBodySpace: CGPoint = CGPoint(x: 600, y: 1000)
+        let x = spriteSize.width * 2
+        let y = spriteSize.height * 3.2
+        
+        //print(x, y)
+        
+        let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
         let projectilePositionInSceneSpace: CGPoint = node.convert(projectilePositionInBodySpace, to: scene)
         
         let timePast = currentTime - timeLastShot
-        print(timePast)
+        //print(timePast)
         
-        if timePast < 0.5 {
+        if timePast < 0.2 {
             return nil
         }
         
         timeLastShot = currentTime
         let angle: CGFloat = data.facingAngle + CGFloat.pi/2
         
-        let shootingMag: CGFloat = 100
+        let shootingMag: CGFloat = 8000
         
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         

@@ -13,7 +13,7 @@ struct Room {
     let colision: [[Int]]
     let tilesName: [String]
     
-    static let test: Room = Room(tileSize: 64,
+    static let test: Room = Room(tileSize: 32,
                                  tiles: [
                                     [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8],
                                     [2, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 4],

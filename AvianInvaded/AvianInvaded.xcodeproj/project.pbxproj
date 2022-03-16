@@ -45,6 +45,20 @@
 		BA088FB427D2AF1200CCB38D /* CGVector+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA088FB327D2AF1200CCB38D /* CGVector+Math.swift */; };
 		BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA088FB327D2AF1200CCB38D /* CGVector+Math.swift */; };
 		BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA088FB327D2AF1200CCB38D /* CGVector+Math.swift */; };
+		BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */; };
+		BA382DC127E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */; };
+		BA382DC227E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */; };
+		BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */; };
+		BA41405A27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */; };
+		BA41405B27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */; };
+		BA41405C27E27A2D006872E8 /* GameSceneIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */; };
+		BA41405D27E27A2D006872E8 /* GameSceneIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */; };
+		BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41405E27E27A3B006872E8 /* Contactable.swift */; };
+		BA41406027E27A3B006872E8 /* Contactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41405E27E27A3B006872E8 /* Contactable.swift */; };
+		BA41406127E27A3B006872E8 /* Contactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41405E27E27A3B006872E8 /* Contactable.swift */; };
+		BA41406327E27B31006872E8 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406227E27B31006872E8 /* ProjectileLogicController.swift */; };
+		BA41406427E27B31006872E8 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406227E27B31006872E8 /* ProjectileLogicController.swift */; };
+		BA41406527E27B31006872E8 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406227E27B31006872E8 /* ProjectileLogicController.swift */; };
 		BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */; };
 		BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */; };
 		BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */; };
@@ -57,6 +71,11 @@
 		BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */; };
 		BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */; };
 		BAAAFF9527D6763300E14409 /* PlayerSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */; };
+		BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
+		BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
+		BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
+		BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */; };
+		BAD0DAF827E10D70005A21B3 /* GameSceneTvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF727E10D70005A21B3 /* GameSceneTvOS.swift */; };
 		BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBCB27D14CE600EFD009 /* AppDelegate.swift */; };
 		BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADECBCD27D14CE600EFD009 /* GameViewController.swift */; };
 		BADECBD427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BADECBD227D14CE600EFD009 /* LaunchScreen.storyboard */; };
@@ -75,9 +94,6 @@
 		BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
 		BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
 		BAE17D2827DA8B5A00E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
-		BAE17D2C27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */; };
-		BAE17D2D27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */; };
-		BAE17D2E27DBB6CD00E131F4 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */; };
 		D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
@@ -90,9 +106,6 @@
 		D65B8A4F27DBC2EE00185928 /* EnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4E27DBC2EE00185928 /* EnemyData.swift */; };
 		D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4E27DBC2EE00185928 /* EnemyData.swift */; };
 		D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4E27DBC2EE00185928 /* EnemyData.swift */; };
-		BAE17D3027DBE0FA00E131F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2F27DBE0FA00E131F4 /* Constants.swift */; };
-		BAE17D3127DBE0FA00E131F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2F27DBE0FA00E131F4 /* Constants.swift */; };
-		BAE17D3227DBE0FA00E131F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2F27DBE0FA00E131F4 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,10 +123,17 @@
 		BA088FA927D2AA8C00CCB38D /* InputControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControllerProtocol.swift; sourceTree = "<group>"; };
 		BA088FAD27D2AB7A00CCB38D /* GameLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicController.swift; sourceTree = "<group>"; };
 		BA088FB327D2AF1200CCB38D /* CGVector+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGVector+Math.swift"; sourceTree = "<group>"; };
+		BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKPhysicsBody+Scale.swift"; sourceTree = "<group>"; };
+		BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+ColisionGroup.swift"; sourceTree = "<group>"; };
+		BA41405E27E27A3B006872E8 /* Contactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contactable.swift; sourceTree = "<group>"; };
+		BA41406227E27B31006872E8 /* ProjectileLogicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectileLogicController.swift; sourceTree = "<group>"; };
 		BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Math.swift"; sourceTree = "<group>"; };
 		BA4C856527D7F479000EBEB2 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleElement.swift; sourceTree = "<group>"; };
 		BAAAFF9227D6763300E14409 /* PlayerSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpriteNode.swift; sourceTree = "<group>"; };
+		BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstantsEnum.swift; sourceTree = "<group>"; };
+		BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControllerTvOS.swift; sourceTree = "<group>"; };
+		BAD0DAF727E10D70005A21B3 /* GameSceneTvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTvOS.swift; sourceTree = "<group>"; };
 		BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneIOS.swift; sourceTree = "<group>"; };
 		BADECBC327D14CE600EFD009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BADECBC827D14CE600EFD009 /* AvianInvaded.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvianInvaded.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,12 +150,10 @@
 		BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvianInvaded_macOS.entitlements; sourceTree = "<group>"; };
 		BAE17D2027DA8A5100E131F4 /* Projectile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
 		BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
-		BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileLogicController.swift; sourceTree = "<group>"; };
 		D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicDelegate.swift; sourceTree = "<group>"; };
 		D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemySpriteNode.swift; sourceTree = "<group>"; };
 		D65B8A4827DBBC7800185928 /* EnemyLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicController.swift; sourceTree = "<group>"; };
 		D65B8A4E27DBC2EE00185928 /* EnemyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyData.swift; sourceTree = "<group>"; };
-		BAE17D2F27DBE0FA00E131F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +272,8 @@
 			children = (
 				BA088FB327D2AF1200CCB38D /* CGVector+Math.swift */,
 				BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */,
+				BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */,
+				BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,8 +290,17 @@
 			isa = PBXGroup;
 			children = (
 				BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */,
+				BA41405E27E27A3B006872E8 /* Contactable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BAD0DAF427E10B8F005A21B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAD0DAF727E10D70005A21B3 /* GameSceneTvOS.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BADECBBA27D14CE300EFD009 = {
@@ -322,6 +351,7 @@
 		BADECBDA27D14CE600EFD009 /* AvianInvaded tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				BAD0DAF427E10B8F005A21B3 /* Views */,
 				BAE17D1827DA887900E131F4 /* Logic */,
 				BADECBDB27D14CE600EFD009 /* AppDelegate.swift */,
 				BADECBE227D14CE600EFD009 /* LaunchScreen.storyboard */,
@@ -385,6 +415,7 @@
 		BAE17D1827DA887900E131F4 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */,
 				BAE17D1A27DA889400E131F4 /* ViewControllers */,
 			);
 			path = Logic;
@@ -427,7 +458,7 @@
 			children = (
 				BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */,
 				5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */,
-				BAE17D2F27DBE0FA00E131F4 /* Constants.swift */,
+				BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -435,15 +466,7 @@
 		BAE17D2927DBB66600E131F4 /* Projectile */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D2A27DBB66F00E131F4 /* Projectile */,
-			);
-			path = Projectile;
-			sourceTree = "<group>";
-		};
-		BAE17D2A27DBB66F00E131F4 /* Projectile */ = {
-			isa = PBXGroup;
-			children = (
-				BAE17D2B27DBB6CD00E131F4 /* ProjectileLogicController.swift */,
+				BA41406227E27B31006872E8 /* ProjectileLogicController.swift */,
 			);
 			path = Projectile;
 			sourceTree = "<group>";
@@ -535,7 +558,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					BADECBC727D14CE600EFD009 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -602,12 +625,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
+				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				D65B8A4427DBBA9800185928 /* EnemySpriteNode.swift in Sources */,
+				BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */,
 				D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
@@ -617,6 +643,7 @@
 				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
 				BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA088FA027D29A6A00CCB38D /* InputDelegate.swift in Sources */,
+				BA41406327E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				D65B8A4F27DBC2EE00185928 /* EnemyData.swift in Sources */,
 				BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */,
@@ -624,11 +651,11 @@
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D65B8A4927DBBC7800185928 /* EnemyLogicController.swift in Sources */,
 				BA088FAA27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
-				BAE17D3027DBE0FA00E131F4 /* Constants.swift in Sources */,
 				BA088FA427D29A7000CCB38D /* InputControllerIOS.swift in Sources */,
 				BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA04A40C27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
+				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +671,8 @@
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA088FAB27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
+				BA41406027E27A3B006872E8 /* Contactable.swift in Sources */,
+				BA382DC127E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */,
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA4C856727D7F479000EBEB2 /* PlayerData.swift in Sources */,
@@ -654,13 +683,18 @@
 				BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */,
+				BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */,
+				BA41405C27E27A2D006872E8 /* GameSceneIOS.swift in Sources */,
+				BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
+				BAD0DAF827E10D70005A21B3 /* GameSceneTvOS.swift in Sources */,
 				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
+				BA41406427E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
-				BAE17D3127DBE0FA00E131F4 /* Constants.swift in Sources */,
+				BA41405A27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,12 +703,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */,
+				BA41405B27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
-				BAE17D3227DBE0FA00E131F4 /* Constants.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
 				5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */,
+				BA382DC227E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				BAAAFF9527D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
+				BA41406127E27A3B006872E8 /* Contactable.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BAE17D2827DA8B5A00E131F4 /* Projectile.swift in Sources */,
@@ -684,11 +720,14 @@
 				D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */,
+				BA41406527E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
+				BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,
 				BA088FA227D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FA827D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
+				BA41405D27E27A2D006872E8 /* GameSceneIOS.swift in Sources */,
 				D65B8A4627DBBA9800185928 /* EnemySpriteNode.swift in Sources */,
 				BA088FAC27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				D65B8A4B27DBBC7800185928 /* EnemyLogicController.swift in Sources */,
@@ -837,7 +876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5LFGK7Q7S9;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -868,7 +907,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5LFGK7Q7S9;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -952,6 +991,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AvianInvaded macOS/AvianInvaded_macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -981,6 +1021,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AvianInvaded macOS/AvianInvaded_macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

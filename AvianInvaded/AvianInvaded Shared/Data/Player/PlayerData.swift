@@ -14,8 +14,9 @@ struct PlayerData {
     private(set) var speedLimit: CGFloat = 500
     var facingAngle: CGFloat = 0
     private(set) var mass: CGFloat = 1
-    private(set) var playerScale: CGFloat = 0.33
-    //var angularVelocity: CGFloat = 0
+    //size compared to size of the player sprite
+    private(set) var projectileSize = 0.1
+    private (set) var scale: CGFloat = 0.14
     
     mutating func reset() {
         frictionMultiplier = 10

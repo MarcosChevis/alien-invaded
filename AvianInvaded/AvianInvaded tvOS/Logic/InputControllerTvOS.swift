@@ -1,29 +1,20 @@
 //
-//  InputController.swift
-//  AvianInvaded macOS
+//  GameScenetvOS.swift
+//  AvianInvaded tvOS
 //
-//  Created by Marcos Chevis on 04/03/22.
-//
+//  Created by Marcos Chevis on 15/03/22.
+
 
 import Foundation
 import GameController
 
-class InputControllerIOS: InputControllerProtocol {
+class InputControllerTvOS: InputControllerProtocol {
     weak var inputDelegate: InputDelegate?
     
     private var gamePadRight: GCControllerDirectionPad?
     private var gamePadLeft: GCControllerDirectionPad?
-    private var haptic: GCDeviceHaptics?
     
     var preferedInput: InputType
-    
-    private lazy var virtualController: GCVirtualController = {
-        let virtualConfiguration = GCVirtualController.Configuration()
-        virtualConfiguration.elements = [GCInputLeftThumbstick, GCInputRightThumbstick]
-        let virtualController = GCVirtualController(configuration: virtualConfiguration)
-        
-        return virtualController
-    }()
     
     init(preferedInput: InputType = .controller) {
         self.preferedInput = preferedInput
@@ -45,11 +36,10 @@ class InputControllerIOS: InputControllerProtocol {
         if rightJoystickData.intensity != 0 {
             inputDelegate?.updateAngle(direction: rightJoystickData.direction)
             inputDelegate?.shoot(currentTime)
-//            haptic?.supportedLocalities
-            
-        } else if leftJoystickData.intensity != 0 {
-            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
         }
+//        else if leftJoystickData.intensity != 0 {
+//            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
+//        }
     }
     
     private func getJoystickData(joystick: GCControllerDirectionPad) -> (direction: CGFloat, intensity: CGFloat) {
@@ -71,10 +61,7 @@ class InputControllerIOS: InputControllerProtocol {
             self, selector: #selector(self.handleControllerDidDisconnect),
             name: NSNotification.Name.GCControllerDidStopBeingCurrent, object: nil)
         
-        
-        if GCController.controllers().isEmpty {
-            self.virtualController.connect()
-        }
+
         
         guard let controller = GCController.controllers().first else { return }
         registerGameController(controller)
@@ -84,20 +71,13 @@ class InputControllerIOS: InputControllerProtocol {
     //MARK: Input Registrations
     private func registerGameController(_ gameController: GCController) {
         
-        // para mudar a cor do led do controle de PS4 FF008E
-         gameController.light?.color = GCColor(red: 255/255, green: 0, blue: 142/255)
+        // para mudar a cor do led do controle de PS4
+        // gameController.light?.color = GCColor(red: 0.5, green: 0.5, blue: 0.5)
         
-
         if let gamepad = gameController.extendedGamepad {
             self.gamePadLeft = gamepad.leftThumbstick
             self.gamePadRight = gamepad.rightThumbstick
         }
-        
-        if let haptic = gameController.haptics  {
-            self.haptic = haptic
-        }
-        
-        
     }
     
     private func unregisterGameController() {
@@ -114,9 +94,7 @@ class InputControllerIOS: InputControllerProtocol {
         }
         
         unregisterGameController()
-        if gameController != virtualController.controller {
-            virtualController.disconnect()
-        }
+        
         
         registerGameController(gameController)
         inputDelegate?.didChangeInputType(to: .controller)
@@ -127,9 +105,7 @@ class InputControllerIOS: InputControllerProtocol {
         unregisterGameController()
         inputDelegate?.didChangeInputType(to: .controller)
         
-        if GCController.controllers().isEmpty {
-            virtualController.connect()
-        }
+        
         
     }
     

@@ -7,10 +7,11 @@
 
 import Foundation
 
-enum ColisionGroup: Int {
-    case environment = 1, player = 2, enemy = 3
-    
-    var uInt32: UInt32 {
-        UInt32(self.rawValue)
-    }
+enum ColisionGroup: String {
+    case environment = "environment"
+    case player = "player"
+    case enemy = "enemy"
+    case playerProjectile = "playerProjectile"
+    case enemyProjectile = "enemyProjectile"
+    case neutralProjectile = "neutralProjectile"
 }

@@ -22,6 +22,8 @@ class EnemyNode: SKNode, LifeCycleElement {
         self.projectileTexture = .init(image: projectileImage ?? .init())
        
         super.init()
+        self.colisionGroup = .enemy
+
         addChild(bodySprite)
         
         bodySprite.setScale(0.01)
@@ -60,7 +62,6 @@ class EnemyNode: SKNode, LifeCycleElement {
         self.parent?.addChild(projectile)
         
         projectile.physicsBody?.applyForce(force)
-        print("Có")
     }
     
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Team: Int{
+enum Team: Int {
     case none
     case player
     case avian
