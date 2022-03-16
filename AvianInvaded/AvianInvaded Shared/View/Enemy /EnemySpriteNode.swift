@@ -62,7 +62,6 @@ class EnemyNode: SKNode, LifeCycleElement {
         self.parent?.addChild(projectile)
         
         projectile.physicsBody?.applyForce(force)
-        print("Có")
     }
     
 }

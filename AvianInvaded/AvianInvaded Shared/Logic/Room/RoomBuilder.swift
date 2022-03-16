@@ -34,7 +34,7 @@ final class RoomBuilder {
                     let sprite = buildTile(for: rawvalue, size: spriteSize, tilesName: room.tilesName)
                     sprite.anchorPoint = CGPoint(x: 0, y: 1)
                     node.addChild(sprite)
-                    sprite.name = "wall"
+                    sprite.colisionGroup = .environment
                     return sprite
                 }
             }

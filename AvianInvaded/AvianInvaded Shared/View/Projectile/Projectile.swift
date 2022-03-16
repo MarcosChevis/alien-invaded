@@ -56,8 +56,8 @@ class Projectile: SKSpriteNode, LifeCycleElement {
 }
 
 extension Projectile: Contactable {
-    func contact(with node: SKNode) {
-        if node.name == "wall" {
+    func contact(with colisionGroup: ColisionGroup) {
+        if colisionGroup == .environment {
             removeFromParent()
         }
     }
