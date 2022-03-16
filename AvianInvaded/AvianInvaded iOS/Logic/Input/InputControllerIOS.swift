@@ -45,7 +45,7 @@ class InputControllerIOS: InputControllerProtocol {
         if rightJoystickData.intensity != 0 {
             inputDelegate?.updateAngle(direction: rightJoystickData.direction)
             inputDelegate?.shoot(currentTime)
-            haptic?.supportedLocalities
+//            haptic?.supportedLocalities
             
         } else if leftJoystickData.intensity != 0 {
             inputDelegate?.updateAngle(direction: leftJoystickData.direction)
