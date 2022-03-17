@@ -57,11 +57,16 @@ class EnemyNode: SKNode, LifeCycleElement {
     func attack(_ currentTime: TimeInterval) {
         guard let force = logicController.attack(currentTime) else { return }
         
-        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
         
         self.parent?.addChild(projectile)
         
         projectile.physicsBody?.applyForce(force)
+    }
+    
+    private func scale() {
+        let size = self.bodySprite.scaleToScreen(scale: logicController.scale)
+        bodySprite.size = size
     }
     
 }

@@ -59,6 +59,9 @@
 		BA41406327E27B31006872E8 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406227E27B31006872E8 /* ProjectileLogicController.swift */; };
 		BA41406427E27B31006872E8 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406227E27B31006872E8 /* ProjectileLogicController.swift */; };
 		BA41406527E27B31006872E8 /* ProjectileLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406227E27B31006872E8 /* ProjectileLogicController.swift */; };
+		BA41406B27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */; };
+		BA41406C27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */; };
+		BA41406D27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */; };
 		BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */; };
 		BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */; };
 		BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */; };
@@ -88,12 +91,12 @@
 		BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
 		BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
 		BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADECBC327D14CE600EFD009 /* Assets.xcassets */; };
-		BAE17D2127DA8A5100E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
+		BAE17D2127DA8A5100E131F4 /* ProjectileSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */; };
 		BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
 		BAE17D2527DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
 		BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
-		BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
-		BAE17D2827DA8B5A00E131F4 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* Projectile.swift */; };
+		BAE17D2727DA8B5900E131F4 /* ProjectileSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */; };
+		BAE17D2827DA8B5A00E131F4 /* ProjectileSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */; };
 		D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
@@ -127,6 +130,7 @@
 		BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKNode+ColisionGroup.swift"; sourceTree = "<group>"; };
 		BA41405E27E27A3B006872E8 /* Contactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contactable.swift; sourceTree = "<group>"; };
 		BA41406227E27B31006872E8 /* ProjectileLogicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectileLogicController.swift; sourceTree = "<group>"; };
+		BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKSpriteNode+Scale.swift"; sourceTree = "<group>"; };
 		BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Math.swift"; sourceTree = "<group>"; };
 		BA4C856527D7F479000EBEB2 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleElement.swift; sourceTree = "<group>"; };
@@ -148,7 +152,7 @@
 		BADECBEB27D14CE600EFD009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BADECBED27D14CE600EFD009 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BADECBF227D14CE600EFD009 /* AvianInvaded_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AvianInvaded_macOS.entitlements; sourceTree = "<group>"; };
-		BAE17D2027DA8A5100E131F4 /* Projectile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
+		BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileSpriteNode.swift; sourceTree = "<group>"; };
 		BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
 		D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicDelegate.swift; sourceTree = "<group>"; };
 		D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemySpriteNode.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 				BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */,
 				BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */,
 				BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */,
+				BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,7 +453,7 @@
 		BAE17D1F27DA8A2500E131F4 /* Projectile */ = {
 			isa = PBXGroup;
 			children = (
-				BAE17D2027DA8A5100E131F4 /* Projectile.swift */,
+				BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */,
 			);
 			path = Projectile;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
+				BA41406B27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
@@ -637,7 +643,7 @@
 				D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
-				BAE17D2127DA8A5100E131F4 /* Projectile.swift in Sources */,
+				BAE17D2127DA8A5100E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BA088FB427D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA4C856627D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
@@ -682,11 +688,12 @@
 				BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
-				BAE17D2727DA8B5900E131F4 /* Projectile.swift in Sources */,
+				BAE17D2727DA8B5900E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */,
 				BA41405C27E27A2D006872E8 /* GameSceneIOS.swift in Sources */,
 				BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
+				BA41406C27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
 				BAD0DAF827E10D70005A21B3 /* GameSceneTvOS.swift in Sources */,
 				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
@@ -703,6 +710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */,
+				BA41406D27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				BA41405B27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
@@ -713,7 +721,7 @@
 				BA41406127E27A3B006872E8 /* Contactable.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
-				BAE17D2827DA8B5A00E131F4 /* Projectile.swift in Sources */,
+				BAE17D2827DA8B5A00E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA4C856827D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,

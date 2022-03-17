@@ -47,9 +47,10 @@ class InputControllerIOS: InputControllerProtocol {
             inputDelegate?.shoot(currentTime)
 //            haptic?.supportedLocalities
             
-        } else if leftJoystickData.intensity != 0 {
-            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
         }
+//        else if leftJoystickData.intensity != 0 {
+//            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
+//        }
     }
     
     private func getJoystickData(joystick: GCControllerDirectionPad) -> (direction: CGFloat, intensity: CGFloat) {
