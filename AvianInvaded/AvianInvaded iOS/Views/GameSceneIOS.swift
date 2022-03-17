@@ -14,16 +14,15 @@ class GameSceneIOS: SKScene {
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
-    init(gameLogicController: GameLogicController, size: CGSize) {
+    init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
         self.gameLogicController = gameLogicController
-        self.playerNode = PlayerNode()
+        self.playerNode = PlayerNode(inputController: inputController)
         
         self.enemyNode = EnemyNode()
         
         super.init(size: size)
         let builder = RoomBuilder(sceneSize: self.size)
         let room = builder.build(room: .test)
-        self.gameLogicController.gameLogicDelegate = self
         self.camera = gameCamera
         self.addChildren([room, self.playerNode])
         self.moveNodeToCenter(playerNode, size: size)
@@ -72,23 +71,6 @@ class GameSceneIOS: SKScene {
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
     }
-}
-
-
-extension GameSceneIOS: GameLogicDelegate {
-    
-    func movePlayer(with vector: CGVector) {
-        playerNode.apply(force: vector)
-    }
-    
-    func rotatePlayerTo(angle: CGFloat) {
-        playerNode.rotate(by: angle)
-    }
-    
-    func shoot(_ currentTime: TimeInterval) {
-        playerNode.shoot(currentTime)
-    }
-    
 }
 
 extension GameSceneIOS: SKPhysicsContactDelegate {
