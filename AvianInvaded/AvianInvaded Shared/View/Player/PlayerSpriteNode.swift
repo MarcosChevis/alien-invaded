@@ -63,10 +63,12 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.initializeWalking()
             self.stopIdle()
         }
-        guard let angle = self.physicsBody?.velocity.radAngle else { return }
-        
-        let action = SKAction.rotate(toAngle: angle - logicController.data.facingAngle + CGFloat.pi/2, duration: .zero, shortestUnitArc: true)
-        legsSprite.run(action)
+        if !isIdle {
+            guard let angle = self.physicsBody?.velocity.radAngle else { return }
+
+            let action = SKAction.rotate(toAngle: angle - logicController.data.facingAngle + CGFloat.pi/2, duration: .zero, shortestUnitArc: true)
+            legsSprite.run(action)
+        }
     }
     
     private func addChildren() {
@@ -123,6 +125,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func stopWalking() {
         legsSprite.removeAllActions()
+        let action = SKAction.rotate(toAngle: .zero, duration: .zero, shortestUnitArc: true)
+        legsSprite.run(action)
     }
     
     private func createTexture(_ name:String) -> [SKTexture] {
