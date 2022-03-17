@@ -10,8 +10,9 @@ import Foundation
 import CoreGraphics
 import SpriteKit
 
-class PlayerLogicController {
+class PlayerLogicController: LifeCycleElement {
     weak var delegate: PlayerLogicDelegate?
+    var inputController: InputControllerProtocol
     var data: PlayerData
     
     var timeLastShot: TimeInterval
@@ -19,12 +20,23 @@ class PlayerLogicController {
     var mass: CGFloat { data.mass }
     var scale: CGFloat { data.scale }
     
-    init(data: PlayerData = .init()) {
+    init(data: PlayerData = .init(), inputController: InputControllerProtocol) {
         self.data = data
+        self.inputController = inputController
         self.timeLastShot = 0
+        self.inputController.delegate = self
     }
     
-    func move(by vector: CGVector, currentVelocity: CGVector) -> CGVector? {
+    func update(_ currentTime: TimeInterval) {
+        inputController.update(currentTime)
+    }
+    
+    func rotate(by angle: CGFloat) {
+        data.facingAngle = angle
+        delegate?.rotate(by: angle)
+    }
+    
+    func apply(force vector: CGVector, currentVelocity: CGVector) -> CGVector? {
         if currentVelocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
             return vector * data.moveMultiplier
         } else {
@@ -32,75 +44,48 @@ class PlayerLogicController {
         }
         
     }
+}
+
+extension PlayerLogicController: InputDelegate {
+    func didChangeInputType(to inputType: InputType?) {
+        print("changed input")
+    }
     
-    func shoot(_ currentTime: TimeInterval, spriteCenter: CGPoint, spriteSize: CGSize, node: SKNode, scene: SKNode?) -> (from: CGPoint, force: CGVector)? {
+    func updateMovement(vector: CGVector) {
+        if data.velocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
+            delegate?.apply(force: vector * data.moveMultiplier)
+        } else {
+            return
+        }
+    }
+    
+    func updateAngle(direction angle: CGFloat) {
+        data.facingAngle = angle
+        delegate?.rotate(by: angle)
+    }
+    
+    func shoot(_ currentTime: TimeInterval) {
         
         if timeLastShot == 0 {
             timeLastShot = currentTime
         }
         
-        guard let scene = scene else {
-            return nil
-        }
-
-        
-        let x = spriteSize.width * 2
-        let y = spriteSize.height * 3.2
-        
-        //print(x, y)
-        
-        let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        let projectilePositionInSceneSpace: CGPoint = node.convert(projectilePositionInBodySpace, to: scene)
-        
         let timePast = currentTime - timeLastShot
-        //print(timePast)
         
-        if timePast < 0.2 {
-            return nil
+        if timePast >= 0 && timePast < 0.2 {
+            return
         }
-        
         timeLastShot = currentTime
-        let angle: CGFloat = data.facingAngle + CGFloat.pi/2
         
+        
+        let angle: CGFloat = self.data.facingAngle + CGFloat.pi/2
+
         let shootingMag: CGFloat = 8000
         
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         
-        return (projectilePositionInSceneSpace, shootingForce)
+        delegate?.shoot(force: shootingForce)
     }
     
 }
-//
-//extension PlayerLogicController: InputDelegate {
-//    func didChangeInputType(to inputType: InputType?) {
-//        guard let inputType = inputType else {
-//            print("no input connected")
-//            return
-//        }
-//        switch inputType {
-//        case .controller:
-//            print("controller connected")
-//        case .keyboard:
-//            print("keyboard connected")
-//        }
-//        
-//    }
-//    
-//    func updateMovement(vector: CGVector) {
-//        if data.velocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
-//            return vector * data.moveMultiplier
-//        } else {
-//            return nil
-//        }
-//    }
-//    
-//    func updateAngle(direction angle: CGFloat) {
-//        gameLogicDelegate?.rotatePlayerTo(angle: angle - (CGFloat.pi/2))
-//    }
-//    
-//    func shoot(_ currentTime: TimeInterval) {
-//        gameLogicDelegate?.shoot(currentTime)
-//    }
-//    
-//    
-//}
+

@@ -9,5 +9,7 @@ import Foundation
 import CoreGraphics
 
 protocol PlayerLogicDelegate: AnyObject {
-    func apply(force: CGVector)
+    func rotate(by angle: CGFloat)
+    func apply(force vector: CGVector)
+    func shoot(force: CGVector)
 }
