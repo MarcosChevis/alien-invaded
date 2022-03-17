@@ -10,7 +10,9 @@ import SpriteKit
 
 extension SKSpriteNode {
     func scaleToScreen(scale: CGFloat) -> CGSize {
-        guard let sceneWidth = self.scene?.size.width else { return .zero }
+        guard let sceneWidth = self.scene?.size.width else {
+            return .zero
+        }
         guard let imageSize = self.texture?.size() else { return .zero }
                 
         let w = sceneWidth * scale

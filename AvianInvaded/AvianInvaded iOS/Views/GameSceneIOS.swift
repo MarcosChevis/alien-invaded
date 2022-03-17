@@ -17,7 +17,6 @@ class GameSceneIOS: SKScene {
     init(gameLogicController: GameLogicController, size: CGSize) {
         self.gameLogicController = gameLogicController
         self.playerNode = PlayerNode()
-        
         self.enemyNode = EnemyNode()
         
         super.init(size: size)
@@ -25,7 +24,8 @@ class GameSceneIOS: SKScene {
         let room = builder.build(room: .test)
         self.gameLogicController.gameLogicDelegate = self
         self.camera = gameCamera
-        self.addChildren([room, self.playerNode])
+        self.addChildren([room, enemyNode])
+        self.moveNodeToCenter(enemyNode, size: size)
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
     }
