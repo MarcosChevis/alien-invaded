@@ -65,7 +65,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         }
         guard let angle = self.physicsBody?.velocity.radAngle else { return }
         
-        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: .zero, shortestUnitArc: true)
+        let action = SKAction.rotate(toAngle: angle - logicController.data.facingAngle + CGFloat.pi/2, duration: .zero, shortestUnitArc: true)
         legsSprite.run(action)
     }
     
@@ -164,7 +164,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         bodySprite.size = size
         self.legsSprite.position = CGPoint(x: self.legsSprite.position.x , y: -size.height*0.20)
         
-        size = self.legsSprite.scaleToScreen(scale: logicController.scale/2)
+        size = self.legsSprite.scaleToScreen(scale: logicController.scale/2.7)
         legsSprite.size = size
     }
     
