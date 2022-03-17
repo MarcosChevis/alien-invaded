@@ -60,8 +60,9 @@ extension PlayerLogicController: InputDelegate {
     }
     
     func updateAngle(direction angle: CGFloat) {
-        data.facingAngle = angle
-        delegate?.rotate(by: angle)
+        let newAngle = angle - CGFloat.pi/2
+        data.facingAngle = newAngle
+        delegate?.rotate(by: newAngle)
     }
     
     func shoot(_ currentTime: TimeInterval) {

@@ -32,7 +32,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         bodySprite = .init(imageNamed: "Player_Body_Idle_0")
         legsSprite = .init(imageNamed: "Player_Legs_Walking-5")
         
-        let projectileImage = UIImage(named: "Chicken")
+        let projectileImage = UIImage(named: "Player_Projectile")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
         super.init()
@@ -167,16 +167,18 @@ extension PlayerNode: PlayerLogicDelegate {
         
         guard let scene = self.scene else { return }
         
-        let x = bodySprite.size.width * 0.2
-        let y = bodySprite.size.height * 0.2
+        
+        print(bodySprite.size)
+        let x = bodySprite.size.width * 0.3
+        let y = bodySprite.size.height * 0.35
+        
         let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        
-        
-        let projectilePositionInSceneSpace: CGPoint = self.convert(projectilePositionInBodySpace, to: scene)
+        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
         
         
         let w = self.bodySprite.size.width*logicController.data.projectileSize
         let h = self.bodySprite.size.width*logicController.data.projectileSize
+        
         let size = CGSize(width: w, height: h)
         
         let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
