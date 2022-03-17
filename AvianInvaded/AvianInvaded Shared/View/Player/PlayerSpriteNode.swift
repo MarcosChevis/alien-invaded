@@ -30,7 +30,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.logicController = PlayerLogicController(inputController: inputController)
         
         bodySprite = .init(imageNamed: "Player_Body_Idle_0")
-        legsSprite = .init(imageNamed: "Player_Legs_Walking_0")
+        legsSprite = .init(imageNamed: "Player_Legs_Walking-5")
         
         let projectileImage = UIImage(named: "Chicken")
         self.projectileTexture = .init(image: projectileImage ?? .init())
@@ -58,7 +58,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         logicController.update(currentTime)
         
         guard let velocityMag = self.physicsBody?.velocity.magnitude else { return }
-        let stoppingMag: CGFloat = 2
+        let stoppingMag: CGFloat = 50
         
         if !isIdle && (velocityMag < stoppingMag) {
             self.isIdle = true
@@ -72,7 +72,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         guard let angle = self.physicsBody?.velocity.radAngle else { return }
         
-        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: .zero, shortestUnitArc: true)
+        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: 0.01, shortestUnitArc: false)
         legsSprite.run(action)
     }
     
@@ -98,7 +98,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeWalking() {
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
-                                                             timePerFrame: TimeInterval(0.1),
+                                                             timePerFrame: TimeInterval(0.05),
                                                              resize: false, restore: true))
         legsSprite.run(action)
     }
@@ -167,8 +167,8 @@ extension PlayerNode: PlayerLogicDelegate {
         
         guard let scene = self.scene else { return }
         
-        let x = bodySprite.size.width * 2
-        let y = bodySprite.size.height * 3.2
+        let x = bodySprite.size.width * 0.2
+        let y = bodySprite.size.height * 0.2
         let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
         
         

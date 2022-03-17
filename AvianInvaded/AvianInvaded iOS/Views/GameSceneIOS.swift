@@ -25,7 +25,7 @@ class GameSceneIOS: SKScene {
         let builder = RoomBuilder(sceneSize: self.size)
         let room = builder.build(room: .test)
         self.camera = gameCamera
-        self.addChildren([room, enemyNode])
+        self.addChildren([room, self.playerNode])
         self.moveNodeToCenter(enemyNode, size: size)
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
