@@ -15,7 +15,7 @@ class EnemyLogicController{
     var timeLastShot: TimeInterval
     
     var mass: CGFloat { data.mass }
-    var scale: CGFloat { data.enemyScale }
+    var scale: CGFloat { data.scale }
     
     init(data: EnemyData = .init()) {
         self.data = data
