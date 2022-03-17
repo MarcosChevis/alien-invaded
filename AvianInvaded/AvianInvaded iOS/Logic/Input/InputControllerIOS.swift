@@ -9,7 +9,7 @@ import Foundation
 import GameController
 
 class InputControllerIOS: InputControllerProtocol {
-    weak var inputDelegate: InputDelegate?
+    weak var delegate: InputDelegate?
     
     private var gamePadRight: GCControllerDirectionPad?
     private var gamePadLeft: GCControllerDirectionPad?
@@ -38,16 +38,17 @@ class InputControllerIOS: InputControllerProtocol {
         let rightJoystickData = getJoystickData(joystick: gamePadRight)
         let leftJoystickData = getJoystickData(joystick: gamePadLeft)
         
-        if leftJoystickData.intensity != 0 {
-            inputDelegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
-        }
-        
         if rightJoystickData.intensity != 0 {
-            inputDelegate?.updateAngle(direction: rightJoystickData.direction)
-            inputDelegate?.shoot(currentTime)
+            delegate?.updateAngle(direction: rightJoystickData.direction)
+            delegate?.shoot(currentTime)
 //            haptic?.supportedLocalities
             
         }
+        
+        if leftJoystickData.intensity != 0 {
+            delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
+        }
+       
 //        else if leftJoystickData.intensity != 0 {
 //            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
 //        }
@@ -120,13 +121,13 @@ class InputControllerIOS: InputControllerProtocol {
         }
         
         registerGameController(gameController)
-        inputDelegate?.didChangeInputType(to: .controller)
+        delegate?.didChangeInputType(to: .controller)
     }
     
     @objc
     private func handleControllerDidDisconnect(_ notification: Notification) {
         unregisterGameController()
-        inputDelegate?.didChangeInputType(to: .controller)
+        delegate?.didChangeInputType(to: .controller)
         
         if GCController.controllers().isEmpty {
             virtualController.connect()

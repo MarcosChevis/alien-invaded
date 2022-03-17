@@ -9,6 +9,8 @@ import Foundation
 
 protocol InputControllerProtocol: AnyObject {
     
+    var delegate: InputDelegate? { get set }
+    
     var preferedInput: InputType { get }
     
     func update(_ currentTime: TimeInterval)
