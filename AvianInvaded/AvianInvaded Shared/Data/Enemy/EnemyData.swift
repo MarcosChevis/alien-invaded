@@ -12,11 +12,12 @@ struct EnemyData{
     
     private(set) var frictionMultiplier: CGFloat = 10
     private(set) var mass: CGFloat = 1
-    private(set) var enemyScale: CGFloat = 0.01
+    private(set) var scale: CGFloat = 0.1
     private(set) var moveMultiplier: CGFloat = 500
     var facingAngle: CGFloat = 0
     private(set) var speedLimit: CGFloat = 500
-    
+    private(set) var projectileSize = 0.1
+  
     
     mutating func reset() {
         frictionMultiplier = 8

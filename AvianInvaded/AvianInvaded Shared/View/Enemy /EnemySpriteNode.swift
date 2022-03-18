@@ -20,17 +20,21 @@ class EnemyNode: SKNode, LifeCycleElement {
         #warning("mudar para a escala global")
         let projectileImage = UIImage(named: "Chicken")
         self.projectileTexture = .init(image: projectileImage ?? .init())
-       
+        
         super.init()
         self.colisionGroup = .enemy
-
+        zPosition = 9
         addChild(bodySprite)
         
-        bodySprite.setScale(0.01)
+       
+    }
+    
+    func startup() {
+        scale()
     }
     
     func uptade(_ currentTime: TimeInterval) {
-        
+        attack(currentTime)
     }
     
     private func addChildren() {
@@ -39,6 +43,23 @@ class EnemyNode: SKNode, LifeCycleElement {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func createPhysicsBody(size: CGSize) {
+        let texture = SKTexture(imageNamed: "Chicken")
+        self.physicsBody = .init(texture: texture, size: size)
+        self.physicsBody?.mass = logicController.mass
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.allowsRotation = false
+        self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
+        self.physicsBody?.collisionBitMask = 1
+        self.physicsBody?.categoryBitMask = 0
+    }
+    
+    private func scale() {
+        let size = self.bodySprite.scaleToScreen(scale: logicController.data.scale)
+        createPhysicsBody(size: size)
+        bodySprite.size = size
     }
     
     func rotate(by angle: CGFloat) {
@@ -57,11 +78,12 @@ class EnemyNode: SKNode, LifeCycleElement {
     func attack(_ currentTime: TimeInterval) {
         guard let force = logicController.attack(currentTime) else { return }
         
-        let projectile = Projectile(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
         
-        self.parent?.addChild(projectile)
+        self.scene?.addChild(projectile)
         
         projectile.physicsBody?.applyForce(force)
     }
+
     
 }

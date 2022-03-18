@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class Projectile: SKSpriteNode, LifeCycleElement {
+class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
         
     init(texture: SKTexture?, size: CGSize, team: Team, position: CGPoint) {
         super.init(texture: texture, color: SKColor.clear, size: size)
@@ -55,7 +55,7 @@ class Projectile: SKSpriteNode, LifeCycleElement {
     
 }
 
-extension Projectile: Contactable {
+extension ProjectileSpriteNode: Contactable {
     func contact(with colisionGroup: ColisionGroup) {
         if colisionGroup == .environment {
             removeFromParent()

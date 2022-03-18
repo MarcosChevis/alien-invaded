@@ -13,6 +13,7 @@ struct PlayerData {
     private(set) var moveMultiplier: CGFloat = 7000
     private(set) var speedLimit: CGFloat = 500
     var facingAngle: CGFloat = 0
+    var velocity: CGVector = .zero
     private(set) var mass: CGFloat = 1
     //size compared to size of the player sprite
     private(set) var projectileSize = 0.1
