@@ -8,33 +8,35 @@
 import Foundation
 import SpriteKit
 
-class EnemyNode: SKNode, LifeCycleElement {
+class ChickenNode: SKNode, Enemy {
     
-    private let logicController: EnemyLogicController = EnemyLogicController()
+    private let logicController: ChickenLogicController = ChickenLogicController()
     private let bodySprite: SKSpriteNode
     var projectileTexture: SKTexture
     
-    override init() {
+    required init(spawnAt initialPosition: CGPoint) {
         bodySprite = .init(imageNamed: "Chicken")
-       
-        #warning("mudar para a escala global")
+        
         let projectileImage = UIImage(named: "Chicken")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
         super.init()
         self.colisionGroup = .enemy
+        position = initialPosition
         zPosition = 9
         addChild(bodySprite)
-        
-       
     }
     
     func startup() {
         scale()
     }
     
-    func uptade(_ currentTime: TimeInterval) {
-        attack(currentTime)
+    func update(_ currentTime: TimeInterval) {
+        
+    }
+    
+    func tearDown() {
+        removeFromParent()
     }
     
     private func addChildren() {
@@ -45,6 +47,16 @@ class EnemyNode: SKNode, LifeCycleElement {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func move(path: [CGPoint], tileSize: CGFloat) {
+        removeAllActions()
+        
+        let moveAction = path.map { point in
+            SKAction.move(to: CGPoint(x: point.x * tileSize, y: point.y * tileSize), duration: 0.2)
+        }
+        
+        self.run(SKAction.sequence(moveAction))
+    }
+    
     private func createPhysicsBody(size: CGSize) {
         let texture = SKTexture(imageNamed: "Chicken")
         self.physicsBody = .init(texture: texture, size: size)
@@ -53,7 +65,7 @@ class EnemyNode: SKNode, LifeCycleElement {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         self.physicsBody?.collisionBitMask = 1
-        self.physicsBody?.categoryBitMask = 0
+        self.physicsBody?.categoryBitMask = 1
     }
     
     private func scale() {
@@ -84,6 +96,37 @@ class EnemyNode: SKNode, LifeCycleElement {
         
         projectile.physicsBody?.applyForce(force)
     }
-
     
+    private func takeDamage() {
+        pulseRed()
+        let isDead = logicController.receiveDamage()
+        
+        if isDead {
+            tearDown()
+        }
+    }
+    
+    private func pulseRed() {
+        bodySprite.removeAllActions()
+        let pulseRed = SKAction.pulseRed()
+        bodySprite.run(pulseRed)
+    }
+    
+    func contact(with colisionGroup: ColisionGroup) {
+        switch colisionGroup {
+        case .environment:
+            return
+        case .player:
+            print("Player")
+        case .enemy:
+            return
+        case .playerProjectile:
+            takeDamage()
+            print("Projectile Hit")
+        case .enemyProjectile:
+            return
+        case .neutralProjectile:
+            return
+        }
+    }
 }
