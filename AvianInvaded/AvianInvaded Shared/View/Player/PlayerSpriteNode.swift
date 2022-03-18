@@ -11,6 +11,7 @@ import SpriteKit
 class PlayerNode: SKNode, LifeCycleElement {
     
     private let logicController: PlayerLogicController
+    private let bodyNode: SKNode
     private let bodySprite: SKSpriteNode
     private let legsSprite: SKSpriteNode
     var projectileTexture: SKTexture
@@ -29,6 +30,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         self.logicController = PlayerLogicController(inputController: inputController)
         
+        bodyNode = SKNode()
         bodySprite = .init(imageNamed: "Player_Body_Idle_0")
         legsSprite = .init(imageNamed: "Player_Legs_Walking-5")
         
@@ -41,7 +43,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.colisionGroup = .player
         zPosition = 10
         self.addChildren()
-        self.scale()
         
     }
     
@@ -70,14 +71,16 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.stopIdle()
         }
         
-        guard let angle = self.physicsBody?.velocity.radAngle else { return }
-        
-        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: 0.01, shortestUnitArc: false)
-        legsSprite.run(action)
+//        guard let angle = self.physicsBody?.velocity.radAngle else { return }
+//
+//        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: 0.01, shortestUnitArc: false)
+//        legsSprite.run(action)
     }
     
     private func addChildren() {
-        addChild(bodySprite)
+        
+        self.addChild(bodyNode)
+        bodyNode.addChild(bodySprite)
         bodySprite.zPosition = 1
         addChild(legsSprite)
         legsSprite.zPosition = 0
@@ -130,14 +133,32 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func createPhysicsBody(size: CGSize) {
-        let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
-        self.physicsBody = .init(texture: texture, size: size)
+        
+        //Tudo
+        self.physicsBody = .init()
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         self.physicsBody?.collisionBitMask = 1
         self.physicsBody?.categoryBitMask = 0
+        
+        //Body - Hitbox
+        let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
+        let body = SKPhysicsBody.init(texture: texture, size: size)
+        self.bodyNode.physicsBody = body
+        self.bodyNode.physicsBody?.affectedByGravity = false
+        self.bodyNode.physicsBody?.allowsRotation = false
+        self.bodyNode.physicsBody?.linearDamping = 0
+        self.bodyNode.physicsBody?.friction = 0
+        self.bodyNode.physicsBody?.categoryBitMask = 0
+        
+        
+        
+        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
+
+        scene?.physicsWorld.add(pinMotherBody)
+        
     }
     
     private func scale() {
@@ -153,9 +174,21 @@ class PlayerNode: SKNode, LifeCycleElement {
 }
 
 extension PlayerNode: PlayerLogicDelegate {
-    func rotate(by angle: CGFloat) {
+    func rotateBody(to angle: CGFloat) {
         let action = SKAction.rotate(toAngle: angle, duration: .zero)
-        self.run(action)
+        
+        let magnitude = self.legsSprite.size.height*0.20
+        
+        let vector = CGVector(angle: angle - CGFloat.pi/2, magnitude: magnitude)
+        
+        self.legsSprite.position = CGPoint(x: vector.dx, y: vector.dy)
+        
+        self.bodyNode.run(action)
+    }
+    
+    func rotateLegs(to angle: CGFloat) {
+        let action = SKAction.rotate(toAngle: angle, duration: .zero)
+        self.legsSprite.run(action)
     }
     
     func apply(force vector: CGVector) {

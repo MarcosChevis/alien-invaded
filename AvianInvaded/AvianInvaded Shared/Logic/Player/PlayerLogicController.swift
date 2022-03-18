@@ -31,9 +31,13 @@ class PlayerLogicController: LifeCycleElement {
         inputController.update(currentTime)
     }
     
-    func rotate(by angle: CGFloat) {
+    func rotateBody(to angle: CGFloat) {
         data.facingAngle = angle
-        delegate?.rotate(by: angle)
+        delegate?.rotateBody(to: angle)
+    }
+    
+    func rotateLegs(to angle: CGFloat) {
+        delegate?.rotateLegs(to: angle)
     }
     
     func apply(force vector: CGVector, currentVelocity: CGVector) -> CGVector? {
@@ -47,6 +51,7 @@ class PlayerLogicController: LifeCycleElement {
 }
 
 extension PlayerLogicController: InputDelegate {
+    
     func didChangeInputType(to inputType: InputType?) {
         print("changed input")
     }
@@ -59,10 +64,15 @@ extension PlayerLogicController: InputDelegate {
         }
     }
     
-    func updateAngle(direction angle: CGFloat) {
+    func updateBodyAngle(direction angle: CGFloat) {
         let newAngle = angle - CGFloat.pi/2
         data.facingAngle = newAngle
-        delegate?.rotate(by: newAngle)
+        delegate?.rotateBody(to: newAngle)
+    }
+    
+    func updateLegsAngle(direction angle: CGFloat) {
+        let newAngle = angle - CGFloat.pi/2
+        delegate?.rotateLegs(to: newAngle)
     }
     
     func shoot(_ currentTime: TimeInterval) {

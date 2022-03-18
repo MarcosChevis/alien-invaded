@@ -17,7 +17,6 @@ class EnemyNode: SKNode, LifeCycleElement {
     override init() {
         bodySprite = .init(imageNamed: "Chicken")
        
-        #warning("mudar para a escala global")
         let projectileImage = UIImage(named: "Chicken")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
