@@ -5,7 +5,6 @@
 //  Created by thais on 11/03/22.
 //
 
-import UIKit
 import Foundation
 import Combine
 import CoreGraphics
