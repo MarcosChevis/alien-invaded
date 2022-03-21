@@ -71,11 +71,10 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.initializeWalking()
             self.stopIdle()
         }
-        
-//        guard let angle = self.physicsBody?.velocity.radAngle else { return }
-//
-//        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: 0.01, shortestUnitArc: false)
-//        legsSprite.run(action)
+    }
+    
+    func didSimulatePhysics() {
+        logicController.sendPlayerDidMove(newPosition: self.position)
     }
     
     private func addChildren() {

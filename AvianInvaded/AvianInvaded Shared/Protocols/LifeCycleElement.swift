@@ -11,10 +11,12 @@ protocol LifeCycleElement {
     func startup()
     func update(_ currentTime: TimeInterval)
     func tearDown()
+    func didSimulatePhysics()
 }
 
 extension LifeCycleElement {
     func startup() {}
     func update(_ currentTime: TimeInterval) {}
     func tearDown() {}
+    func didSimulatePhysics() {}
 }

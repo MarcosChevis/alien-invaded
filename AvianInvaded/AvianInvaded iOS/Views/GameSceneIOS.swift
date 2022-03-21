@@ -87,6 +87,9 @@ class GameSceneIOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.didSimulatePhysics() }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
