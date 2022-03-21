@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 protocol Enemy: SKNode, LifeCycleElement, Contactable {
-    init(spawnAt initialPosition: CGPoint)
+    init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter)
     
     func move(path: [CGPoint], tileSize: CGFloat)
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import Combine
 import CoreGraphics
 
 class ChickenLogicController{
@@ -15,13 +16,38 @@ class ChickenLogicController{
     var timeLastShot: TimeInterval
     
     var mass: CGFloat { data.mass }
+    
     private var life = 10
+    private let notificationCenter: NotificationCenter
+    private var cancellables: Set<AnyCancellable>
+    
     var scale: CGFloat { data.scale }
     
-    init(data: EnemyData = .init()) {
+    init(data: EnemyData = .init(), notificationCenter: NotificationCenter = .default) {
         self.data = data
         self.timeLastShot = 0
-        
+        self.notificationCenter = notificationCenter
+        self.cancellables = .init()
+        setupBindings()
+    }
+    
+    private func setupBindings() {
+        notificationCenter
+            .publisher(for: .playerDidMove, object: nil)
+            .compactMap(getPlayerPosition)
+            .sink(receiveValue: updatePlayerPosition)
+            .store(in: &cancellables)
+    }
+    
+    private func getPlayerPosition(from notification: Notification) -> CGPoint? {
+        guard let position = notification.object as? CGPoint else {
+            return nil
+        }
+        return position
+    }
+    
+    private func updatePlayerPosition(_ position: CGPoint) {
+        #warning("Update Player Position")
     }
     
     func move(by vector: CGVector, currentVelocity: CGVector) -> CGVector? {

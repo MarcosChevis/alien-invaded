@@ -16,6 +16,9 @@
 		5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */; };
 		5BE729DD27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */; };
 		5BE729DE27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */; };
+		5BE729E027E8D70B003C5C48 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DF27E8D70B003C5C48 /* NotificationName.swift */; };
+		5BE729E127E8D70B003C5C48 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DF27E8D70B003C5C48 /* NotificationName.swift */; };
+		5BE729E227E8D70B003C5C48 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DF27E8D70B003C5C48 /* NotificationName.swift */; };
 		5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
 		5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
 		5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
@@ -124,6 +127,7 @@
 		5BE729D327E4F235003C5C48 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		5BE729D727E52255003C5C48 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Utilities.swift"; sourceTree = "<group>"; };
+		5BE729DF27E8D70B003C5C48 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBuilder.swift; sourceTree = "<group>"; };
 		5BFE7DD927DF9FE500BB9998 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		5BFE7DE027DFA1B700BB9998 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */,
 				BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */,
 				5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */,
+				5BE729DF27E8D70B003C5C48 /* NotificationName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 				D65B8A4F27DBC2EE00185928 /* EnemyData.swift in Sources */,
 				BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */,
+				5BE729E027E8D70B003C5C48 /* NotificationName.swift in Sources */,
 				BA088FA627D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D65B8A4927DBBC7800185928 /* ChickenLogicController.swift in Sources */,
@@ -720,6 +726,7 @@
 				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
+				5BE729E127E8D70B003C5C48 /* NotificationName.swift in Sources */,
 				BA41406427E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA41405A27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
@@ -755,6 +762,7 @@
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
 				BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,
+				5BE729E227E8D70B003C5C48 /* NotificationName.swift in Sources */,
 				BA088FA227D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FA827D29B7400CCB38D /* InputTypeEnum.swift in Sources */,

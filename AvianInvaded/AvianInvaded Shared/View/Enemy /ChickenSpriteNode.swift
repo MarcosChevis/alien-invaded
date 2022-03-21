@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import Combine
 
 class ChickenNode: SKNode, Enemy {
     
@@ -14,12 +15,11 @@ class ChickenNode: SKNode, Enemy {
     private let bodySprite: SKSpriteNode
     var projectileTexture: SKTexture
     
-    required init(spawnAt initialPosition: CGPoint) {
+    required init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter) {
         bodySprite = .init(imageNamed: "Chicken")
         
         let projectileImage = UIImage(named: "Chicken")
         self.projectileTexture = .init(image: projectileImage ?? .init())
-        
         super.init()
         self.colisionGroup = .enemy
         position = initialPosition

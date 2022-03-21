@@ -20,10 +20,13 @@ class PlayerLogicController: LifeCycleElement {
     var mass: CGFloat { data.mass }
     var scale: CGFloat { data.scale }
     
-    init(data: PlayerData = .init(), inputController: InputControllerProtocol) {
+    private let notificationCenter: NotificationCenter
+    
+    init(data: PlayerData = .init(), inputController: InputControllerProtocol, notificationCenter: NotificationCenter) {
         self.data = data
         self.inputController = inputController
         self.timeLastShot = 0
+        self.notificationCenter = notificationCenter
         self.inputController.delegate = self
     }
     
@@ -42,7 +45,10 @@ class PlayerLogicController: LifeCycleElement {
         } else {
             return nil
         }
-        
+    }
+    
+    func sendPlayerDidMove(newPosition: CGPoint) {
+        notificationCenter.post(name: .playerDidMove, object: newPosition)
     }
 }
 
@@ -64,6 +70,7 @@ extension PlayerLogicController: InputDelegate {
         data.facingAngle = newAngle
         delegate?.rotate(by: newAngle)
     }
+    #warning("UPDATE PLAYER DATA")
     
     func shoot(_ currentTime: TimeInterval) {
         

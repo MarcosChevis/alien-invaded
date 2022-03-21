@@ -27,7 +27,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     init(inputController: InputControllerProtocol) {
         
-        self.logicController = PlayerLogicController(inputController: inputController)
+        self.logicController = PlayerLogicController(inputController: inputController,
+                                                     notificationCenter: .default)
         
         bodySprite = .init(imageNamed: "Player_Body_Idle_0")
         legsSprite = .init(imageNamed: "Player_Legs_Walking-5")

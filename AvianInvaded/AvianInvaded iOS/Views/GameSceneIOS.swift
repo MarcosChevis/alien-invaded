@@ -37,7 +37,7 @@ class GameSceneIOS: SKScene {
         let builder = RoomBuilder(sceneSize: self.size)
         self.room = builder.build(room: .test)
         let enemyPosition = (room!.children[0] as! SKSpriteNode).size.width*10
-        let enemyNode: Enemy = ChickenNode(spawnAt: .init(x: enemyPosition, y: enemyPosition))
+        let enemyNode: Enemy = ChickenNode(spawnAt: .init(x: enemyPosition, y: enemyPosition), notificationCenter: .default)
         self.enemy = enemyNode
         self.camera = gameCamera
         self.addChildren([room!, self.playerNode, enemyNode])
