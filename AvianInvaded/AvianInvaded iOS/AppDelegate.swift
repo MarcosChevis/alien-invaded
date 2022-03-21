@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let gameLogicController = GameLogicController()
-        window.rootViewController = GameViewController(gameLogicController: gameLogicController, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height) )
+        let sceneSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let gameLogicController = GameLogicController(roomBuilder: RoomBuilder(sceneSize: sceneSize))
+        window.rootViewController = GameViewController(gameLogicController: gameLogicController, size: sceneSize)
         window.makeKeyAndVisible()
         self.window = window
         
