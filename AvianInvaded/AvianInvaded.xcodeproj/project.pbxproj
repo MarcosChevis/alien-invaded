@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BE729D427E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
+		5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
+		5BE729D627E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
+		5BE729D827E52255003C5C48 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D727E52255003C5C48 /* Contact.swift */; };
+		5BE729D927E52255003C5C48 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D727E52255003C5C48 /* Contact.swift */; };
+		5BE729DA27E52255003C5C48 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D727E52255003C5C48 /* Contact.swift */; };
+		5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */; };
+		5BE729DD27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */; };
+		5BE729DE27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */; };
+		5BE729E027E8D70B003C5C48 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DF27E8D70B003C5C48 /* NotificationName.swift */; };
+		5BE729E127E8D70B003C5C48 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DF27E8D70B003C5C48 /* NotificationName.swift */; };
+		5BE729E227E8D70B003C5C48 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729DF27E8D70B003C5C48 /* NotificationName.swift */; };
 		5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
 		5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
 		5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
@@ -100,18 +112,22 @@
 		D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
-		D65B8A4427DBBA9800185928 /* EnemySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */; };
-		D65B8A4527DBBA9800185928 /* EnemySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */; };
-		D65B8A4627DBBA9800185928 /* EnemySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */; };
-		D65B8A4927DBBC7800185928 /* EnemyLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4827DBBC7800185928 /* EnemyLogicController.swift */; };
-		D65B8A4A27DBBC7800185928 /* EnemyLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4827DBBC7800185928 /* EnemyLogicController.swift */; };
-		D65B8A4B27DBBC7800185928 /* EnemyLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4827DBBC7800185928 /* EnemyLogicController.swift */; };
+		D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */; };
+		D65B8A4527DBBA9800185928 /* ChickenSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */; };
+		D65B8A4627DBBA9800185928 /* ChickenSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */; };
+		D65B8A4927DBBC7800185928 /* ChickenLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */; };
+		D65B8A4A27DBBC7800185928 /* ChickenLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */; };
+		D65B8A4B27DBBC7800185928 /* ChickenLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */; };
 		D65B8A4F27DBC2EE00185928 /* EnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4E27DBC2EE00185928 /* EnemyData.swift */; };
 		D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4E27DBC2EE00185928 /* EnemyData.swift */; };
 		D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4E27DBC2EE00185928 /* EnemyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5BE729D327E4F235003C5C48 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		5BE729D727E52255003C5C48 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Utilities.swift"; sourceTree = "<group>"; };
+		5BE729DF27E8D70B003C5C48 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBuilder.swift; sourceTree = "<group>"; };
 		5BFE7DD927DF9FE500BB9998 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		5BFE7DE027DFA1B700BB9998 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
@@ -155,8 +171,8 @@
 		BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileSpriteNode.swift; sourceTree = "<group>"; };
 		BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
 		D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicDelegate.swift; sourceTree = "<group>"; };
-		D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemySpriteNode.swift; sourceTree = "<group>"; };
-		D65B8A4827DBBC7800185928 /* EnemyLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicController.swift; sourceTree = "<group>"; };
+		D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenSpriteNode.swift; sourceTree = "<group>"; };
+		D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenLogicController.swift; sourceTree = "<group>"; };
 		D65B8A4E27DBC2EE00185928 /* EnemyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				BA088FA527D29B7400CCB38D /* InputTypeEnum.swift */,
+				5BE729D727E52255003C5C48 /* Contact.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -279,6 +296,8 @@
 				BA382DBF27E24FAE004F8250 /* SKPhysicsBody+Scale.swift */,
 				BA41405827E27853006872E8 /* SKNode+ColisionGroup.swift */,
 				BA41406A27E280BE006872E8 /* SKSpriteNode+Scale.swift */,
+				5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */,
+				5BE729DF27E8D70B003C5C48 /* NotificationName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +315,7 @@
 			children = (
 				BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */,
 				BA41405E27E27A3B006872E8 /* Contactable.swift */,
+				5BE729D327E4F235003C5C48 /* Enemy.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -479,7 +499,7 @@
 		D65B8A4227DBBA7700185928 /* Enemy  */ = {
 			isa = PBXGroup;
 			children = (
-				D65B8A4327DBBA9800185928 /* EnemySpriteNode.swift */,
+				D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */,
 			);
 			path = "Enemy ";
 			sourceTree = "<group>";
@@ -487,7 +507,7 @@
 		D65B8A4727DBBC5A00185928 /* Enemy */ = {
 			isa = PBXGroup;
 			children = (
-				D65B8A4827DBBC7800185928 /* EnemyLogicController.swift */,
+				D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */,
 				D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */,
 			);
 			path = Enemy;
@@ -632,18 +652,20 @@
 			files = (
 				BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				BA41406B27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
+				5BE729D827E52255003C5C48 /* Contact.swift in Sources */,
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
-				D65B8A4427DBBA9800185928 /* EnemySpriteNode.swift in Sources */,
+				D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */,
 				D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				BAE17D2127DA8A5100E131F4 /* ProjectileSpriteNode.swift in Sources */,
+				5BE729D427E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA088FB427D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA4C856627D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
@@ -653,14 +675,16 @@
 				D65B8A4F27DBC2EE00185928 /* EnemyData.swift in Sources */,
 				BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */,
+				5BE729E027E8D70B003C5C48 /* NotificationName.swift in Sources */,
 				BA088FA627D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
-				D65B8A4927DBBC7800185928 /* EnemyLogicController.swift in Sources */,
+				D65B8A4927DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BA088FAA27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				BA088FA427D29A7000CCB38D /* InputControllerIOS.swift in Sources */,
 				BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA04A40C27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
+				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,7 +694,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA088FB127D2AB8C00CCB38D /* GameLogicController.swift in Sources */,
-				D65B8A4527DBBA9800185928 /* EnemySpriteNode.swift in Sources */,
+				D65B8A4527DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */,
 				BA088FA127D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
@@ -683,7 +707,7 @@
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BA4C856727D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BADECBDC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
-				D65B8A4A27DBBC7800185928 /* EnemyLogicController.swift in Sources */,
+				D65B8A4A27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BAE17D2527DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
@@ -691,14 +715,18 @@
 				BAE17D2727DA8B5900E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */,
 				BA41405C27E27A2D006872E8 /* GameSceneIOS.swift in Sources */,
+				5BE729DD27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
+				5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA41406C27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
+				5BE729D927E52255003C5C48 /* Contact.swift in Sources */,
 				BAD0DAF827E10D70005A21B3 /* GameSceneTvOS.swift in Sources */,
 				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
+				5BE729E127E8D70B003C5C48 /* NotificationName.swift in Sources */,
 				BA41406427E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA41405A27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
@@ -711,6 +739,7 @@
 			files = (
 				D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */,
 				BA41406D27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
+				5BE729DA27E52255003C5C48 /* Contact.swift in Sources */,
 				BA41405B27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
@@ -723,6 +752,7 @@
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BAE17D2827DA8B5A00E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */,
+				5BE729D627E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA4C856827D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
@@ -732,14 +762,16 @@
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
 				BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,
+				5BE729E227E8D70B003C5C48 /* NotificationName.swift in Sources */,
 				BA088FA227D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FA827D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA41405D27E27A2D006872E8 /* GameSceneIOS.swift in Sources */,
-				D65B8A4627DBBA9800185928 /* EnemySpriteNode.swift in Sources */,
+				D65B8A4627DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				BA088FAC27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
-				D65B8A4B27DBBC7800185928 /* EnemyLogicController.swift in Sources */,
+				D65B8A4B27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BA04A40E27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
+				5BE729DE27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BADECBEC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -884,7 +916,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -915,7 +947,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

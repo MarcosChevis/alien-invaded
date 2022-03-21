@@ -28,7 +28,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     init(inputController: InputControllerProtocol) {
         
-        self.logicController = PlayerLogicController(inputController: inputController)
+        self.logicController = PlayerLogicController(inputController: inputController,
+                                                     notificationCenter: .default)
         
         bodyNode = SKNode()
         bodySprite = .init(imageNamed: "Player_Body_Idle_0")
@@ -192,7 +193,6 @@ extension PlayerNode: PlayerLogicDelegate {
     }
     
     func apply(force vector: CGVector) {
-        print(vector)
         self.physicsBody?.applyForce(vector*GameConstants.forceMultiplier)
     }
     
@@ -200,8 +200,6 @@ extension PlayerNode: PlayerLogicDelegate {
         
         guard let scene = self.scene else { return }
         
-        
-        print(bodySprite.size)
         let x = bodySprite.size.width * 0.3
         let y = bodySprite.size.height * 0.35
         
@@ -218,5 +216,24 @@ extension PlayerNode: PlayerLogicDelegate {
         
         self.scene?.addChild(projectile)
         projectile.physicsBody?.applyForceWithMultiplier(force)
+    }
+}
+
+extension PlayerNode: Contactable {
+    func contact(with colisionGroup: ColisionGroup) {
+        switch colisionGroup {
+        case .environment:
+            return
+        case .player:
+            return
+        case .enemy:
+            print("enemy")
+        case .playerProjectile:
+            return
+        case .enemyProjectile:
+            return
+        case .neutralProjectile:
+            return
+        }
     }
 }
