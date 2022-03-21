@@ -39,14 +39,16 @@ class InputControllerIOS: InputControllerProtocol {
         let leftJoystickData = getJoystickData(joystick: gamePadLeft)
         
         if rightJoystickData.intensity != 0 {
-            delegate?.updateAngle(direction: rightJoystickData.direction)
+            delegate?.updateBodyAngle(direction: rightJoystickData.direction)
             delegate?.shoot(currentTime)
 //            haptic?.supportedLocalities
             
         }
         
         if leftJoystickData.intensity != 0 {
+            delegate?.updateLegsAngle(direction: leftJoystickData.direction)
             delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
+            
         }
        
 //        else if leftJoystickData.intensity != 0 {
