@@ -45,7 +45,7 @@ class GameLogicController {
         //SELECT NEW ROOM
         let roomNode = roomBuilder.build(room: currentRoom)
         
-        if let tile = roomNode.children as? SKSpriteNode {
+        if let tile = roomNode.children.first as? SKSpriteNode {
             tileSize = tile.size
         }
         

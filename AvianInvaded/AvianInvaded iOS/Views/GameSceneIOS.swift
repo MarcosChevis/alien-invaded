@@ -47,7 +47,11 @@ class GameSceneIOS: SKScene {
     }
     
     func setupScene() {
-        gameLogicController.spawnEnemies(sceneSize: self.size)
+        gameLogicController
+            .spawnEnemies(sceneSize: self.size)
+            .forEach { enemy in
+                addChild(enemy)
+            }
         
         children
             .compactMap { $0 as? LifeCycleElement }
