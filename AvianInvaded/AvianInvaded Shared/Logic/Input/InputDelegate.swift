@@ -15,7 +15,8 @@ protocol InputDelegate: AnyObject {
     //angle - 0..<2*PI
     //intensity - 0...1
     func updateMovement(vector: CGVector)
-    func updateAngle(direction angle: CGFloat)
+    func updateBodyAngle(direction angle: CGFloat)
+    func updateLegsAngle(direction angle: CGFloat)
     func shoot(_ currentTime: TimeInterval)
     
 }
