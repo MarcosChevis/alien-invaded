@@ -11,12 +11,6 @@ class ChickenFactory: EnemyFactory {
     private var cachedEnemy: ChickenNode?
     
     func build(at initialPosition: CGPoint, notificationCenter: NotificationCenter) -> Enemy {
-        if let cachedEnemy = cachedEnemy {
-            return cachedEnemy
-        }
-        
-        let chickenEnemy = ChickenNode(spawnAt: initialPosition, notificationCenter: notificationCenter)
-        cachedEnemy = chickenEnemy
-        return chickenEnemy
+        ChickenNode(spawnAt: initialPosition, notificationCenter: notificationCenter)
     }
 }

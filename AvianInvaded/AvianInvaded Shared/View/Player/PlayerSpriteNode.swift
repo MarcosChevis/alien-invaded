@@ -125,7 +125,9 @@ class PlayerNode: SKNode, LifeCycleElement {
         let textureAtlas = SKTextureAtlas(named: name)
         var frames = [SKTexture]()
         for i in 0...textureAtlas.textureNames.count - 1 {
-            frames.append(textureAtlas.textureNamed(textureAtlas.textureNames[i]))
+            let texture = textureAtlas.textureNamed(textureAtlas.textureNames[i])
+            texture.filteringMode = .nearest
+            frames.append(texture)
         }
         frames = frames.sorted { text1, text2 in
             text1.description < text2.description
