@@ -26,6 +26,10 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     lazy var isIdle: Bool = true
     
+    lazy var shootingFrames: [SKTexture] = {
+        createTexture("Player_Shoot")
+    }()
+    
     init(inputController: InputControllerProtocol) {
         
         self.logicController = PlayerLogicController(inputController: inputController,
@@ -101,6 +105,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func initializeWalking() {
+        bodySprite.texture = idleBodyFrames[0]
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
                                                              timePerFrame: TimeInterval(0.05),
                                                              resize: false, restore: true))
@@ -109,6 +114,11 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func stopWalking() {
         legsSprite.removeAllActions()
+    }
+    
+    private func initializeShooting() {
+        let action = SKAction.animate(with: shootingFrames, timePerFrame: 0.05, resize: false, restore: true)
+        self.bodySprite.run(action)
     }
     
     private func createTexture(_ name:String) -> [SKTexture] {
@@ -199,6 +209,7 @@ extension PlayerNode: PlayerLogicDelegate {
     func shoot(force: CGVector) {
         
         guard let scene = self.scene else { return }
+        self.initializeShooting()
         
         let x = bodySprite.size.width * 0.3
         let y = bodySprite.size.height * 0.35
