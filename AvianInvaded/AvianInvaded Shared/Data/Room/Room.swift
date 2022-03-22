@@ -7,16 +7,19 @@
 
 import Foundation
 
-struct Room {
+struct Room: Codable {
+    let id: Int
     let tileSize: Double
     let tiles: [[Int]]
     let colision: [[Int]]
     let tilesName: [String]
     let enemyNumber: Int
+    let availableExits: [RoomDirection]
 }
 
 extension Room {
-    static let test: Room = Room(tileSize: 32,
+    static let test: Room = Room(id: 0,
+                                 tileSize: 32,
                                  tiles: [
                                     [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8],
                                     [2, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 4],
@@ -81,6 +84,7 @@ extension Room {
                                     "topRightCorner",
                                     "Floor"
                                  ],
-                                 enemyNumber: 10
+                                 enemyNumber: 10,
+                                 availableExits: RoomDirection.allCases
     )
 }

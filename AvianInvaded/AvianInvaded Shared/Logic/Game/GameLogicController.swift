@@ -13,34 +13,31 @@ import SpriteKit
 class GameLogicController {
     
     weak var gameLogicDelegate: GameLogicDelegate?
-    private var currentRoom: Room
-    private var currentRoomDifficulty: RoomDifficulty
-    private let roomBuilder: RoomBuilder
+    private let roomService: RoomService
     private var tileSize: CGSize
     private let spawner: Spawner
     
-    init(roomBuilder: RoomBuilder, spawner: Spawner = .init()) {
-        self.currentRoom = .test
-        self.currentRoomDifficulty = .standard
+    init(roomService: RoomService, spawner: Spawner = .init()) {
         self.spawner = spawner
         self.tileSize = .zero
-        self.roomBuilder = roomBuilder
+        self.roomService = roomService
     }
     
     func buildNewRoom() -> SKNode {
         //SELECT NEW ROOM
-        let roomNode = roomBuilder.build(room: currentRoom)
+        let roomNode = roomService.buildNewRoom()
         
         if let tile = roomNode.children.first as? SKSpriteNode {
             tileSize = tile.size
         }
         
-        return roomBuilder.build(room: currentRoom)
+        return roomNode
     }
     
     func spawnEnemies() -> [SKNode] {
-        let enemyInfo = selectEnemies(factories: [ChickenFactory()], maxEnemyCount: currentRoom.enemyNumber)
-        let spawnInfo = SpawnInfo(availablePositions: currentRoom.availableSpaces,
+        let enemyInfo = selectEnemies(factories: [ChickenFactory()],
+                                      maxEnemyCount: roomService.currentRoom.enemyNumber)
+        let spawnInfo = SpawnInfo(availablePositions: roomService.currentRoom.availableSpaces,
                                   tileSize: tileSize.width,
                                   enemySpawns: enemyInfo)
         
