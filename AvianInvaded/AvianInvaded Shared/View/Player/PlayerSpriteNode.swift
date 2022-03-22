@@ -105,6 +105,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func initializeWalking() {
+        bodySprite.texture = idleBodyFrames[0]
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
                                                              timePerFrame: TimeInterval(0.05),
                                                              resize: false, restore: true))
@@ -116,7 +117,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func initializeShooting() {
-        let action = SKAction.animate(with: shootingFrames, timePerFrame: TimeInterval(0.2),resize: false, restore: true)
+        let action = SKAction.animate(with: shootingFrames, timePerFrame: 0.05, resize: false, restore: true)
+        self.bodySprite.run(action)
     }
     
     private func createTexture(_ name:String) -> [SKTexture] {
