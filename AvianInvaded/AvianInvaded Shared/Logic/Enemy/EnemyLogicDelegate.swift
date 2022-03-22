@@ -10,4 +10,5 @@ import CoreGraphics
 
 protocol EnemyLogicDelegate: AnyObject {
     func apply(force: CGVector)
+    func rotate(to angle: CGFloat)
 }

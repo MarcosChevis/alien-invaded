@@ -44,6 +44,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.colisionGroup = .player
         zPosition = 10
         self.addChildren()
+        self.initializeIdle()
         
     }
     
@@ -90,7 +91,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeIdle() {
         let action = SKAction.repeatForever(SKAction.animate(with: idleBodyFrames,
-                                                             timePerFrame: TimeInterval(0.3),
+                                                             timePerFrame: 1/TimeInterval(idleBodyFrames.count),
                                                              resize: false, restore: true))
         bodySprite.run(action)
     }
@@ -114,7 +115,10 @@ class PlayerNode: SKNode, LifeCycleElement {
         let textureAtlas = SKTextureAtlas(named: name)
         var frames = [SKTexture]()
         for i in 0...textureAtlas.textureNames.count - 1 {
-            frames.append(textureAtlas.textureNamed(textureAtlas.textureNames[i]))
+            let texture = textureAtlas.textureNamed(textureAtlas.textureNames[i])
+            texture.filteringMode = .nearest
+            frames.append(texture)
+            
         }
         frames = frames.sorted { text1, text2 in
             text1.description < text2.description
@@ -140,10 +144,13 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 1
-        self.physicsBody?.categoryBitMask = 0
+        
+//        self.physicsBody?.collisionBitMask = 0
+//        self.physicsBody?.contactTestBitMask = 0
+//        self.physicsBody?.categoryBitMask = 0
         
         //Body - Hitbox
+        self.bodyNode.colisionGroup = .player
         let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
         let body = SKPhysicsBody.init(texture: texture, size: size)
         self.bodyNode.physicsBody = body
@@ -151,14 +158,14 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.bodyNode.physicsBody?.allowsRotation = false
         self.bodyNode.physicsBody?.linearDamping = 0
         self.bodyNode.physicsBody?.friction = 0
-        self.bodyNode.physicsBody?.categoryBitMask = 0
         
-        
+        self.bodyNode.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask(self.colisionGroup)
+        self.bodyNode.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(self.colisionGroup)
+        self.bodyNode.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(self.colisionGroup)
         
         let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
 
         scene?.physicsWorld.add(pinMotherBody)
-        
     }
     
     private func scale() {
@@ -192,7 +199,7 @@ extension PlayerNode: PlayerLogicDelegate {
     }
     
     func apply(force vector: CGVector) {
-        self.physicsBody?.applyForce(vector*GameConstants.forceMultiplier)
+        self.physicsBody?.applyForceWithMultiplier(vector)
     }
     
     func shoot(force: CGVector) {

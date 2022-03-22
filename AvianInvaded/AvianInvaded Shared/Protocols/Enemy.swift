@@ -11,5 +11,5 @@ import SpriteKit
 protocol Enemy: SKNode, LifeCycleElement, Contactable {
     init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter)
     
-    func move(path: [CGPoint], tileSize: CGFloat)
+//    func move(path: [CGPoint], tileSize: CGFloat)
 }

@@ -32,15 +32,28 @@ class GameSceneIOS: SKScene {
         
         
         super.init(size: size)
+        let f : (Int) -> CGPoint = { val in
+            let enemyPosition = (self.room!.children[0] as! SKSpriteNode).size.width*CGFloat(val)
+            return .init(x: enemyPosition, y: enemyPosition)
+            
+        }
         
         #warning("TESTE")
         let builder = RoomBuilder(sceneSize: self.size)
         self.room = builder.build(room: .test)
-        let enemyPosition = (room!.children[0] as! SKSpriteNode).size.width*10
-        let enemyNode: Enemy = ChickenNode(spawnAt: .init(x: enemyPosition, y: enemyPosition), notificationCenter: .default)
+        let enemyNode: Enemy = ChickenNode(spawnAt: f(10), notificationCenter: .default)
         self.enemy = enemyNode
         self.camera = gameCamera
-        self.addChildren([room!, self.playerNode, enemyNode])
+        
+        
+        
+        let g = ChickenNode(spawnAt: f(8), notificationCenter: .default)
+        
+        let g1 = ChickenNode(spawnAt: f(3), notificationCenter: .default)
+        
+        let g2 = ChickenNode(spawnAt: f(5), notificationCenter: .default)
+        
+        self.addChildren([room!, self.playerNode, enemyNode, g1, g2, g])
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
         
@@ -91,24 +104,7 @@ class GameSceneIOS: SKScene {
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.didSimulatePhysics() }
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let startPosition: CGPoint = .init(x: Int(enemy!.position.x / (room!.children[0] as! SKSpriteNode).size.width) , y: Int(enemy!.position.y / (room!.children[0] as! SKSpriteNode).size.width))
-        let endPosition: CGPoint = .init(x: Int(playerNode.position.x / (room!.children[0] as! SKSpriteNode).size.width) , y: Int(playerNode.position.y / (room!.children[0] as! SKSpriteNode).size.width))
-        
-        let solution = graph.findPath(from:
-                                        graph.node(atGridPosition: .init(x: Int32(startPosition.x),
-                                                                         y: Int32(startPosition.y)))!,
-                                      to: graph.node(atGridPosition: .init(x: Int32(endPosition.x),
-                                                                           y: Int32(endPosition.y)))!
-        ) as! [GKGridGraphNode]
-        print(solution.map(\.gridPosition))
-        
-        self.solution = solution.map { CGPoint(x: Int($0.gridPosition.x), y: Int($0.gridPosition.y)) }
-        self.tileSize = (room!.children[0] as! SKSpriteNode).size.width
-        
-        enemy?.move(path: self.solution!, tileSize: tileSize)
-    }
+
 }
 
 extension GameSceneIOS: SKPhysicsContactDelegate {

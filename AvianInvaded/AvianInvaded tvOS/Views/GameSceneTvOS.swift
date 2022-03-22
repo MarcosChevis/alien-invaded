@@ -50,7 +50,6 @@ class GameSceneTvOS: SKScene {
     }
     override func didChangeSize(_ oldSize: CGSize) {
         GameConstants.updateForceMultiplaier(screenSize: self.size)
-        print(GameConstants.forceMultiplier)
     }
     
     func addChildren(_ nodes: [SKNode]) {
