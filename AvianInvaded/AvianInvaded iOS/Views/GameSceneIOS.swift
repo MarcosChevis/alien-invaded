@@ -14,22 +14,9 @@ class GameSceneIOS: SKScene {
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
-    #warning("TESTE")
-    var graph: GKGridGraph<GKGridGraphNode>
-    var solution: [CGPoint]? = nil
-    var enemy: Enemy? = nil
-    var tileSize: CGFloat = 0
-    var room: SKNode? = nil
-    
     init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
         self.gameLogicController = gameLogicController
-
         self.playerNode = PlayerNode(inputController: inputController)
-        graph = .init(fromGridStartingAt: .init(x: 0, y: 0),
-                      width: Int32(Room.test.tiles[0].count),
-                      height: Int32(Room.test.tiles.count),
-                      diagonalsAllowed: true)
-        
         
         super.init(size: size)
         let f : (Int) -> CGPoint = { val in
@@ -38,22 +25,9 @@ class GameSceneIOS: SKScene {
             
         }
         
-        #warning("TESTE")
-        let builder = RoomBuilder(sceneSize: self.size)
-        self.room = builder.build(room: .test)
-        let enemyNode: Enemy = ChickenNode(spawnAt: f(10), notificationCenter: .default)
-        self.enemy = enemyNode
+        let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
-        
-        
-        
-        let g = ChickenNode(spawnAt: f(8), notificationCenter: .default)
-        
-        let g1 = ChickenNode(spawnAt: f(3), notificationCenter: .default)
-        
-        let g2 = ChickenNode(spawnAt: f(5), notificationCenter: .default)
-        
-        self.addChildren([room!, self.playerNode, enemyNode, g1, g2, g])
+        self.addChildren([initialRoom, self.playerNode])
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
         
@@ -78,6 +52,12 @@ class GameSceneIOS: SKScene {
     }
     
     func setupScene() {
+        gameLogicController
+            .spawnEnemies()
+            .forEach { enemy in
+                addChild(enemy)
+            }
+        
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.startup() }
@@ -104,7 +84,7 @@ class GameSceneIOS: SKScene {
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.didSimulatePhysics() }
     }
-
+    
 }
 
 extension GameSceneIOS: SKPhysicsContactDelegate {
