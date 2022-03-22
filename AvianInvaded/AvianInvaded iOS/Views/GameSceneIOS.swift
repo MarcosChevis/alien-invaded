@@ -19,11 +19,7 @@ class GameSceneIOS: SKScene {
         self.playerNode = PlayerNode(inputController: inputController)
         
         super.init(size: size)
-        let f : (Int) -> CGPoint = { val in
-            let enemyPosition = (self.room!.children[0] as! SKSpriteNode).size.width*CGFloat(val)
-            return .init(x: enemyPosition, y: enemyPosition)
-            
-        }
+        
         
         let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
