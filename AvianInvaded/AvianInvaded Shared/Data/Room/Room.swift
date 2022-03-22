@@ -12,7 +12,10 @@ struct Room {
     let tiles: [[Int]]
     let colision: [[Int]]
     let tilesName: [String]
-    
+    let enemyNumber: Int
+}
+
+extension Room {
     static let test: Room = Room(tileSize: 32,
                                  tiles: [
                                     [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 8],
@@ -65,7 +68,7 @@ struct Room {
                                     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                                     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-                                ],
+                                 ],
                                  tilesName: [
                                     "",
                                     "topWall",
@@ -77,5 +80,7 @@ struct Room {
                                     "bottomRightCorner",
                                     "topRightCorner",
                                     "Floor"
-                                 ])
+                                 ],
+                                 enemyNumber: 10
+    )
 }

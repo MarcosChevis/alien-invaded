@@ -7,8 +7,16 @@
 import Foundation
 import CoreGraphics
 
-struct ChickenFactory: EnemyFactory {
+class ChickenFactory: EnemyFactory {
+    private var cachedEnemy: ChickenNode?
+    
     func build(at initialPosition: CGPoint, notificationCenter: NotificationCenter) -> Enemy {
-        ChickenNode(spawnAt: initialPosition, notificationCenter: notificationCenter)
+        if let cachedEnemy = cachedEnemy {
+            return cachedEnemy
+        }
+        
+        let chickenEnemy = ChickenNode(spawnAt: initialPosition, notificationCenter: notificationCenter)
+        cachedEnemy = chickenEnemy
+        return chickenEnemy
     }
 }

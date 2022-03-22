@@ -48,7 +48,7 @@ class GameSceneIOS: SKScene {
     
     func setupScene() {
         gameLogicController
-            .spawnEnemies(sceneSize: self.size)
+            .spawnEnemies()
             .forEach { enemy in
                 addChild(enemy)
             }
