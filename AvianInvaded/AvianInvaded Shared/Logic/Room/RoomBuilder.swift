@@ -93,7 +93,7 @@ final class RoomBuilder {
     }
     
     private func scaleToScreen(sceneWidth: CGFloat, imageSize: CGSize) -> CGSize {
-        let scale = 0.07
+        let scale = 0.08
         let w = sceneWidth * scale
         let h = w * imageSize.height / imageSize.width
         let size = CGSize(width: w, height: h)
@@ -101,11 +101,4 @@ final class RoomBuilder {
         
         return size
     }
-}
-
-struct PhysicsCategory {
-    static let None : UInt32 = 0
-    static let All : UInt32 = UInt32.max
-    static let block : UInt32 = 0b1
-    
 }

@@ -82,7 +82,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
             let velocity = physicsBody?.velocity,
             let vector = logicController.move(by: vector, currentVelocity: velocity)
         else { return }
-        self.physicsBody?.applyForceWithMultiplier(vector)
+        self.physicsBody?.applyForce(vector)
     }
     
     func attack(_ currentTime: TimeInterval) {
@@ -92,7 +92,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         
         self.scene?.addChild(projectile)
         
-        projectile.physicsBody?.applyForceWithMultiplier(force)
+        projectile.physicsBody?.applyForce(force)
     }
     
     private func takeDamage() {
@@ -115,12 +115,13 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         case .environment:
             return
         case .player:
-            print("Player")
+            //print("Player")
+            return
         case .enemy:
             return
         case .playerProjectile:
             takeDamage()
-            print("Projectile Hit")
+            //print("Projectile Hit")
         case .enemyProjectile:
             return
         case .neutralProjectile:

@@ -4,6 +4,15 @@
 //
 //  Created by Marcos Chevis on 15/03/22.
 import SpriteKit
+//
+//  GameScene.swift
+//  AvianInvaded Shared
+//
+//  Created by Marcos Chevis on 03/03/22.
+//
+
+import SpriteKit
+import GameplayKit
 
 class GameSceneTvOS: SKScene {
     
@@ -11,19 +20,21 @@ class GameSceneTvOS: SKScene {
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
-    init(gameLogicController: GameLogicController, size: CGSize) {
+    init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
         self.gameLogicController = gameLogicController
-        self.playerNode = PlayerNode()
+        self.playerNode = PlayerNode(inputController: inputController)
         
         super.init(size: size)
-        let builder = RoomBuilder(sceneSize: self.size)
-        let room = builder.build(room: .test)
-        self.gameLogicController.gameLogicDelegate = self
+        
+        self.scaleMode = .aspectFill
+        let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
-        self.addChildren([room, self.playerNode])
+        self.addChildren([initialRoom, self.playerNode])
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
+        
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -43,13 +54,16 @@ class GameSceneTvOS: SKScene {
     }
     
     func setupScene() {
+        gameLogicController
+            .spawnEnemies()
+            .forEach { enemy in
+                addChild(enemy)
+            }
+        
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.startup() }
         
-    }
-    override func didChangeSize(_ oldSize: CGSize) {
-        GameConstants.updateForceMultiplaier(screenSize: self.size)
     }
     
     func addChildren(_ nodes: [SKNode]) {
@@ -65,41 +79,25 @@ class GameSceneTvOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
-    }
-}
-
-
-extension GameSceneTvOS: GameLogicDelegate {
-    
-    func movePlayer(with vector: CGVector) {
-        playerNode.apply(force: vector)
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.didSimulatePhysics() }
     }
     
-    func rotatePlayerTo(angle: CGFloat) {
-        playerNode.rotate(by: angle)
-    }
-    
-    func shoot(_ currentTime: TimeInterval) {
-        playerNode.shoot(currentTime)
-    }
 }
 
 extension GameSceneTvOS: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         if
             let contactableNodeA = contact.bodyA.node as? Contactable,
-            let nodeB = contact.bodyB.node {
-            contactableNodeA.contact(with: nodeB)
+            let colisionGroup = contact.bodyB.node?.colisionGroup {
+            contactableNodeA.contact(with: colisionGroup)
         }
         
         if
             let contactableNodeB = contact.bodyB.node as? Contactable,
-            let nodeA = contact.bodyA.node {
-            contactableNodeB.contact(with: nodeA)
+            let colisionGroup = contact.bodyA.node?.colisionGroup {
+            contactableNodeB.contact(with: colisionGroup)
         }
     }
-}
-
-protocol Contactable {
-    func contact(with node: SKNode)
 }

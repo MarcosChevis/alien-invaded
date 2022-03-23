@@ -50,6 +50,10 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.addChildren()
         self.initializeIdle()
         
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -94,8 +98,9 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     
     private func initializeIdle() {
+        let timePerFrame = Double(logicController.data.idleTime)/Double(idleBodyFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: idleBodyFrames,
-                                                             timePerFrame: 1/TimeInterval(idleBodyFrames.count),
+                                                             timePerFrame: timePerFrame,
                                                              resize: false, restore: true))
         bodySprite.run(action)
     }
@@ -106,8 +111,9 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeWalking() {
         bodySprite.texture = idleBodyFrames[0]
+        let timePerFrame = Double(logicController.data.walkingTime)/Double(walkingLegsFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
-                                                             timePerFrame: TimeInterval(0.05),
+                                                             timePerFrame: timePerFrame,
                                                              resize: false, restore: true))
         legsSprite.run(action)
     }
@@ -117,7 +123,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func initializeShooting() {
-        let action = SKAction.animate(with: shootingFrames, timePerFrame: 0.05, resize: false, restore: true)
+        let timePerFrame = Double(logicController.data.shotCadence)/Double(shootingFrames.count)
+        let action = SKAction.animate(with: shootingFrames, timePerFrame: timePerFrame, resize: false, restore: true)
         self.bodySprite.run(action)
     }
     
@@ -208,7 +215,7 @@ extension PlayerNode: PlayerLogicDelegate {
     }
     
     func apply(force vector: CGVector) {
-        self.physicsBody?.applyForceWithMultiplier(vector)
+        self.physicsBody?.applyForce(vector)
     }
     
     func shoot(force: CGVector) {
@@ -231,7 +238,7 @@ extension PlayerNode: PlayerLogicDelegate {
         let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
         
         self.scene?.addChild(projectile)
-        projectile.physicsBody?.applyForceWithMultiplier(force)
+        projectile.physicsBody?.applyForce(force)
     }
 }
 
@@ -243,7 +250,8 @@ extension PlayerNode: Contactable {
         case .player:
             return
         case .enemy:
-            print("enemy")
+            //print("enemy")
+            return
         case .playerProjectile:
             return
         case .enemyProjectile:

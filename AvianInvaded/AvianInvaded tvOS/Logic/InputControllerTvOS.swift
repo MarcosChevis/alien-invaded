@@ -9,7 +9,8 @@ import Foundation
 import GameController
 
 class InputControllerTvOS: InputControllerProtocol {
-    weak var inputDelegate: InputDelegate?
+    
+    weak var delegate: InputDelegate?
     
     private var gamePadRight: GCControllerDirectionPad?
     private var gamePadLeft: GCControllerDirectionPad?
@@ -29,14 +30,19 @@ class InputControllerTvOS: InputControllerProtocol {
         let rightJoystickData = getJoystickData(joystick: gamePadRight)
         let leftJoystickData = getJoystickData(joystick: gamePadLeft)
         
-        if leftJoystickData.intensity != 0 {
-            inputDelegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
+        if rightJoystickData.intensity != 0 {
+            delegate?.updateBodyAngle(direction: rightJoystickData.direction)
+            delegate?.shoot(currentTime)
+//            haptic?.supportedLocalities
+            
         }
         
-        if rightJoystickData.intensity != 0 {
-            inputDelegate?.updateAngle(direction: rightJoystickData.direction)
-            inputDelegate?.shoot(currentTime)
+        if leftJoystickData.intensity != 0 {
+            delegate?.updateLegsAngle(direction: leftJoystickData.direction)
+            delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
+            
         }
+       
 //        else if leftJoystickData.intensity != 0 {
 //            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
 //        }
@@ -97,13 +103,13 @@ class InputControllerTvOS: InputControllerProtocol {
         
         
         registerGameController(gameController)
-        inputDelegate?.didChangeInputType(to: .controller)
+        delegate?.didChangeInputType(to: .controller)
     }
     
     @objc
     private func handleControllerDidDisconnect(_ notification: Notification) {
         unregisterGameController()
-        inputDelegate?.didChangeInputType(to: .controller)
+        delegate?.didChangeInputType(to: .controller)
         
         
         

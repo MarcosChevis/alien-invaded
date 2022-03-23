@@ -9,7 +9,5 @@ import Foundation
 import SpriteKit
 
 extension SKPhysicsBody {
-    func applyForceWithMultiplier(_ force: CGVector) {
-        self.applyForce(force*GameConstants.forceMultiplier)
-    }
+  
 }
