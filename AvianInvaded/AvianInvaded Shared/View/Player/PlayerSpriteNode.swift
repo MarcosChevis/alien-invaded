@@ -26,6 +26,10 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     lazy var isIdle: Bool = true
     
+    lazy var shootingFrames: [SKTexture] = {
+        createTexture("Player_Shoot")
+    }()
+    
     init(inputController: InputControllerProtocol) {
         
         self.logicController = PlayerLogicController(inputController: inputController,
@@ -44,6 +48,11 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.colisionGroup = .player
         zPosition = 10
         self.addChildren()
+        self.initializeIdle()
+        
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
         
     }
     
@@ -71,11 +80,10 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.initializeWalking()
             self.stopIdle()
         }
-        
-//        guard let angle = self.physicsBody?.velocity.radAngle else { return }
-//
-//        let action = SKAction.rotate(toAngle: logicController.data.facingAngle + angle + CGFloat.pi/2, duration: 0.01, shortestUnitArc: false)
-//        legsSprite.run(action)
+    }
+    
+    func didSimulatePhysics() {
+        logicController.sendPlayerDidMove(newPosition: self.position)
     }
     
     private func addChildren() {
@@ -90,8 +98,9 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     
     private func initializeIdle() {
+        let timePerFrame = Double(logicController.data.idleTime)/Double(idleBodyFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: idleBodyFrames,
-                                                             timePerFrame: TimeInterval(0.3),
+                                                             timePerFrame: timePerFrame,
                                                              resize: false, restore: true))
         bodySprite.run(action)
     }
@@ -101,8 +110,10 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func initializeWalking() {
+        bodySprite.texture = idleBodyFrames[0]
+        let timePerFrame = Double(logicController.data.walkingTime)/Double(walkingLegsFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
-                                                             timePerFrame: TimeInterval(0.05),
+                                                             timePerFrame: timePerFrame,
                                                              resize: false, restore: true))
         legsSprite.run(action)
     }
@@ -111,11 +122,19 @@ class PlayerNode: SKNode, LifeCycleElement {
         legsSprite.removeAllActions()
     }
     
+    private func initializeShooting() {
+        let timePerFrame = Double(logicController.data.shotCadence)/Double(shootingFrames.count)
+        let action = SKAction.animate(with: shootingFrames, timePerFrame: timePerFrame, resize: false, restore: true)
+        self.bodySprite.run(action)
+    }
+    
     private func createTexture(_ name:String) -> [SKTexture] {
         let textureAtlas = SKTextureAtlas(named: name)
         var frames = [SKTexture]()
         for i in 0...textureAtlas.textureNames.count - 1 {
-            frames.append(textureAtlas.textureNamed(textureAtlas.textureNames[i]))
+            let texture = textureAtlas.textureNamed(textureAtlas.textureNames[i])
+            texture.filteringMode = .nearest
+            frames.append(texture)
         }
         frames = frames.sorted { text1, text2 in
             text1.description < text2.description
@@ -141,10 +160,13 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 1
-        self.physicsBody?.categoryBitMask = 0
+        
+//        self.physicsBody?.collisionBitMask = 0
+//        self.physicsBody?.contactTestBitMask = 0
+//        self.physicsBody?.categoryBitMask = 0
         
         //Body - Hitbox
+        self.bodyNode.colisionGroup = .player
         let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
         let body = SKPhysicsBody.init(texture: texture, size: size)
         self.bodyNode.physicsBody = body
@@ -152,14 +174,14 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.bodyNode.physicsBody?.allowsRotation = false
         self.bodyNode.physicsBody?.linearDamping = 0
         self.bodyNode.physicsBody?.friction = 0
-        self.bodyNode.physicsBody?.categoryBitMask = 0
         
-        
+        self.bodyNode.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask(self.colisionGroup)
+        self.bodyNode.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(self.colisionGroup)
+        self.bodyNode.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(self.colisionGroup)
         
         let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
 
         scene?.physicsWorld.add(pinMotherBody)
-        
     }
     
     private func scale() {
@@ -193,12 +215,13 @@ extension PlayerNode: PlayerLogicDelegate {
     }
     
     func apply(force vector: CGVector) {
-        self.physicsBody?.applyForce(vector*GameConstants.forceMultiplier)
+        self.physicsBody?.applyForce(vector)
     }
     
     func shoot(force: CGVector) {
         
         guard let scene = self.scene else { return }
+        self.initializeShooting()
         
         let x = bodySprite.size.width * 0.3
         let y = bodySprite.size.height * 0.35
@@ -215,7 +238,7 @@ extension PlayerNode: PlayerLogicDelegate {
         let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
         
         self.scene?.addChild(projectile)
-        projectile.physicsBody?.applyForceWithMultiplier(force)
+        projectile.physicsBody?.applyForce(force)
     }
 }
 
@@ -227,7 +250,8 @@ extension PlayerNode: Contactable {
         case .player:
             return
         case .enemy:
-            print("enemy")
+            //print("enemy")
+            return
         case .playerProjectile:
             return
         case .enemyProjectile:

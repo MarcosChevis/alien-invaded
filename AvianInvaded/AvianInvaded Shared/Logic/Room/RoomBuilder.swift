@@ -92,25 +92,22 @@ final class RoomBuilder {
         let physicsBody = SKPhysicsBody(rectangleOf: tile.size, center: CGPoint(x: tile.size.width/2, y: -tile.size.height/2))
         tile.physicsBody = physicsBody
         physicsBody.affectedByGravity = false
-        physicsBody.collisionBitMask = 0
         physicsBody.isResting = true
-        physicsBody.categoryBitMask = 1
+        physicsBody.isDynamic = false
         
+        
+        
+        physicsBody.collisionBitMask = ColisionGroup.getCollisionMask( tile.colisionGroup)
+        physicsBody.contactTestBitMask = ColisionGroup.getContactMask( tile.colisionGroup)
+        physicsBody.categoryBitMask = ColisionGroup.getCategotyMask( tile.colisionGroup)
     }
     
     func scaleToScreen(sceneWidth: CGFloat, imageSize: CGSize) -> CGSize {
-        let scale = 0.07
+        let scale = 0.08
         let w = sceneWidth * scale
         let h = w * imageSize.height / imageSize.width
         let size = CGSize(width: w, height: h)
         
         return size
     }
-}
-
-struct PhysicsCategory {
-    static let None : UInt32 = 0
-    static let All : UInt32 = UInt32.max
-    static let block : UInt32 = 0b1
-    
 }

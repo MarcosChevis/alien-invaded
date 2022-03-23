@@ -16,7 +16,8 @@ struct EnemyData{
     private(set) var moveMultiplier: CGFloat = 500
     var facingAngle: CGFloat = 0
     private(set) var speedLimit: CGFloat = 500
-    private(set) var projectileSize = 0.1
+    private(set) var projectileSize:CGFloat = 0.1
+    private(set) var attackDistance: CGFloat = 1000
   
     
     mutating func reset() {

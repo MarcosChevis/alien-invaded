@@ -20,6 +20,7 @@ class GameSceneIOS: SKScene {
         
         super.init(size: size)
         
+        self.scaleMode = .aspectFill
         let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
         self.addChildren([initialRoom, self.playerNode])
@@ -65,9 +66,6 @@ class GameSceneIOS: SKScene {
             self.addChild(node)
         }
     }
-    override func didChangeSize(_ oldSize: CGSize) {
-        GameConstants.updateForceMultiplaier(screenSize: self.size)
-    }
     
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
         node.position.x = size.width/2
@@ -76,6 +74,9 @@ class GameSceneIOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.didSimulatePhysics() }
     }
     
 }
