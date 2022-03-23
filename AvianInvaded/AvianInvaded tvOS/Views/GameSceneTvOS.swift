@@ -73,10 +73,7 @@ class GameSceneTvOS: SKScene {
             self.addChild(node)
         }
     }
-    override func didChangeSize(_ oldSize: CGSize) {
-        GameConstants.updateForceMultiplaier(screenSize: self.size)
-    }
-    
+
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
         node.position.x = size.width/2
         node.position.y = size.height/2
