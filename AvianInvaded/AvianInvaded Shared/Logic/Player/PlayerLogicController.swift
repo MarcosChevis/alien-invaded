@@ -44,7 +44,7 @@ class PlayerLogicController: LifeCycleElement {
     }
     
     func apply(force vector: CGVector, currentVelocity: CGVector) -> CGVector? {
-        if currentVelocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
+        if currentVelocity.magnitude < data.speedLimit {
             return vector * data.moveMultiplier
         } else {
             return nil
@@ -63,7 +63,7 @@ extension PlayerLogicController: InputDelegate {
     }
     
     func updateMovement(vector: CGVector) {
-        if data.velocity.magnitude < data.speedLimit*GameConstants.forceMultiplier {
+        if data.velocity.magnitude < data.speedLimit {
             delegate?.apply(force: vector * data.moveMultiplier)
         } else {
             return

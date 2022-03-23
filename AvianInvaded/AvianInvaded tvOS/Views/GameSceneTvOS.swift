@@ -26,6 +26,7 @@ class GameSceneTvOS: SKScene {
         
         super.init(size: size)
         
+        self.scaleMode = .aspectFill
         let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
         self.addChildren([initialRoom, self.playerNode])
@@ -64,16 +65,13 @@ class GameSceneTvOS: SKScene {
             .forEach { $0.startup() }
         
     }
-    override func didChangeSize(_ oldSize: CGSize) {
-        GameConstants.updateForceMultiplaier(screenSize: self.size)
-    }
     
     func addChildren(_ nodes: [SKNode]) {
         for node in nodes {
             self.addChild(node)
         }
     }
-
+    
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
         node.position.x = size.width/2
         node.position.y = size.height/2
@@ -81,6 +79,9 @@ class GameSceneTvOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.didSimulatePhysics() }
     }
     
 }
@@ -100,5 +101,3 @@ extension GameSceneTvOS: SKPhysicsContactDelegate {
         }
     }
 }
-
-

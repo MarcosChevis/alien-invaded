@@ -50,9 +50,9 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.addChildren()
         self.initializeIdle()
         
-        logicController.data.upgradeAcceleration(multiplier: 1)
-        logicController.data.upgradeAcceleration(multiplier: 1)
-        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
+//        logicController.data.upgradeAcceleration(multiplier: 1)
         
     }
     
@@ -159,7 +159,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
-        self.physicsBody?.linearDamping = logicController.data.frictionMultiplier*GameConstants.forceMultiplier
+        self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         
 //        self.physicsBody?.collisionBitMask = 0
 //        self.physicsBody?.contactTestBitMask = 0
@@ -215,7 +215,7 @@ extension PlayerNode: PlayerLogicDelegate {
     }
     
     func apply(force vector: CGVector) {
-        self.physicsBody?.applyForceWithMultiplier(vector)
+        self.physicsBody?.applyForce(vector)
     }
     
     func shoot(force: CGVector) {
@@ -238,7 +238,7 @@ extension PlayerNode: PlayerLogicDelegate {
         let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
         
         self.scene?.addChild(projectile)
-        projectile.physicsBody?.applyForceWithMultiplier(force)
+        projectile.physicsBody?.applyForce(force)
     }
 }
 
@@ -250,7 +250,8 @@ extension PlayerNode: Contactable {
         case .player:
             return
         case .enemy:
-            print("enemy")
+            //print("enemy")
+            return
         case .playerProjectile:
             return
         case .enemyProjectile:
