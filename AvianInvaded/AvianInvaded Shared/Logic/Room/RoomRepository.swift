@@ -19,7 +19,6 @@ final class RoomRepository {
         self.currentRoomPosition = .zero
         self.dungeonMatrix = []
         self.availableRooms = JSONDecoder.decode(to: [Room].self, from: fileName) ?? []
-        startup()
     }
     
     var currentRoom: Room {
@@ -32,11 +31,20 @@ final class RoomRepository {
     func startup() {
         dungeonMatrix = generateDungeon(totalRooms: 10)
         printMatrix(matrix: dungeonMatrix)
+        
+        print("current room position", currentRoomPosition)
+        //nextRoom(direction: .bottom)
         print("current room position", currentRoomPosition)
     }
     
     func nextRoom(direction: RoomDirection) -> Room {
-        currentRoom
+        currentRoomPosition += direction.point
+        
+        if dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX] == -1 {
+            fatalError("ERROR")
+        }
+        
+        return currentRoom
     }
     
     private func printMatrix(matrix: [[Int]]) {
@@ -64,8 +72,9 @@ final class RoomRepository {
                                     count: totalRooms)
         var lastDirection: RoomDirection = .top
         
-        let midPoint = (totalRooms+1)/2
+        let midPoint = ((totalRooms)/2)-1
         var currentPosition: CGPoint = CGPoint(x: midPoint, y: midPoint)
+        
         var count = 0
         
         while count < totalRooms {
@@ -78,8 +87,8 @@ final class RoomRepository {
             currentPosition += direction.point
             lastDirection = direction
             
-            if matrix[currentPosition.intX][currentPosition.intY] == -1 {
-                matrix[currentPosition.intX][currentPosition.intY] = room.id
+            if matrix[currentPosition.intY][currentPosition.intX] == -1 {
+                matrix[currentPosition.intY][currentPosition.intX] = room.id
                 if count == 0 {
                     currentRoomPosition = currentPosition
                 }

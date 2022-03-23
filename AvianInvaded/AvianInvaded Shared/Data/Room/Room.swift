@@ -12,7 +12,10 @@ struct Room: Codable {
     let tileSize: Double
     let tiles: [[Int]]
     let colision: [[Int]]
+    let decoration: [DecorationInfo]
     let tilesName: [String]
+    let decorationName: [String]
+    let startPosition: Point
     let enemyNumber: Int
     let availableExits: [RoomDirection]
 }
@@ -72,6 +75,7 @@ extension Room {
                                     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                                  ],
+                                 decoration: [],
                                  tilesName: [
                                     "",
                                     "topWall",
@@ -84,7 +88,15 @@ extension Room {
                                     "topRightCorner",
                                     "Floor"
                                  ],
+                                 decorationName: ["",
+                                                  "portal"],
+                                 startPosition: .init(x:5, y: 5),
                                  enemyNumber: 10,
                                  availableExits: RoomDirection.allCases
     )
+}
+
+struct Point: Codable {
+    let x: Int
+    let y: Int
 }

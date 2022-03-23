@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B89F82427EB8809005026F7 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82327EB8809005026F7 /* Portal.swift */; };
+		5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82627EB8F4D005026F7 /* Decoration.swift */; };
 		5BE729D427E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
 		5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
 		5BE729D627E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
@@ -160,6 +162,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B89F82327EB8809005026F7 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
+		5B89F82627EB8F4D005026F7 /* Decoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoration.swift; sourceTree = "<group>"; };
 		5BE729D327E4F235003C5C48 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		5BE729D727E52255003C5C48 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Utilities.swift"; sourceTree = "<group>"; };
@@ -249,6 +253,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B89F82227EB87FC005026F7 /* Decoration */ = {
+			isa = PBXGroup;
+			children = (
+				5B89F82327EB8809005026F7 /* Portal.swift */,
+			);
+			path = Decoration;
+			sourceTree = "<group>";
+		};
 		5BE729E827E904A4003C5C48 /* Spawner */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +303,7 @@
 				5BE729FB27EA1527003C5C48 /* RoomDifficulty.swift */,
 				5BE72A0727EA39FF003C5C48 /* rooms.json */,
 				5BE72A1827EA54ED003C5C48 /* RoomDirection.swift */,
+				5B89F82627EB8F4D005026F7 /* Decoration.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -298,6 +311,7 @@
 		BA04A3FB27D69281004E51EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B89F82227EB87FC005026F7 /* Decoration */,
 				D65B8A4227DBBA7700185928 /* Enemy  */,
 				BAE17D1F27DA8A2500E131F4 /* Projectile */,
 				BAE17D1327DA874B00E131F4 /* Player */,
@@ -778,10 +792,12 @@
 				5BE729F327E905C6003C5C48 /* Spawner.swift in Sources */,
 				BA088FA427D29A7000CCB38D /* InputControllerIOS.swift in Sources */,
 				5BE72A0427EA18DE003C5C48 /* Room+Utils.swift in Sources */,
+				5B89F82427EB8809005026F7 /* Portal.swift in Sources */,
 				5BE72A1127EA3EF2003C5C48 /* RoomService.swift in Sources */,
 				BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA04A40C27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
+				5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */,
 				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);

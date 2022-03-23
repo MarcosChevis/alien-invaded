@@ -23,6 +23,14 @@ class GameLogicController {
         self.roomService = roomService
     }
     
+    func getplayerStartPosition(forScreen screenSize: CGSize) -> CGPoint {
+        let tilePos = roomService.currentRoom.startPosition
+        let tileSize = roomService.tileSize(forScreen: screenSize)
+        
+        return CGPoint(x: tileSize.width * CGFloat(tilePos.x),
+                       y: tileSize.height * CGFloat(tilePos.y))
+    }
+    
     func buildNewRoom() -> SKNode {
         //SELECT NEW ROOM
         let roomNode = roomService.buildNewRoom()

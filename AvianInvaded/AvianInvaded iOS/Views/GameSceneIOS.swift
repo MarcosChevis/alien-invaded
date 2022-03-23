@@ -23,7 +23,6 @@ class GameSceneIOS: SKScene {
         let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
         self.addChildren([initialRoom, self.playerNode])
-        self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
         
     }
@@ -56,6 +55,8 @@ class GameSceneIOS: SKScene {
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.startup() }
+        
+        playerNode.position = gameLogicController.getplayerStartPosition(forScreen: self.size)
         
     }
     

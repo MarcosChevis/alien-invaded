@@ -26,5 +26,8 @@ final class RoomService {
         builder.build(room: currentRoom)
     }
     
+    func tileSize(forScreen screenSize: CGSize) -> CGSize {
+        return builder.scaleToScreen(sceneWidth: screenSize.width, imageSize: CGSize(width: currentRoom.tileSize, height: currentRoom.tileSize))
+    }
     
 }

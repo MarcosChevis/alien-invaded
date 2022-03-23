@@ -38,6 +38,12 @@ final class RoomBuilder {
                     return sprite
                 }
             }
+        print(room.decoration)
+        buildDecoration(for: [], tileSize: spriteSize)
+            .forEach { sprite in
+                node.addChild(sprite)
+                sprite.zPosition = 3
+            }
         positionTiles(tiles, tileSize: spriteSize)
         setupTilesPhysics(for: tiles, colisionMatrix: room.colision)
         cashedTiles = [:]
@@ -77,6 +83,10 @@ final class RoomBuilder {
         }
     }
     
+    private func buildDecoration(for decoration: [[Decoration]], tileSize: CGSize) -> [SKSpriteNode] {
+        []
+    }
+    
     private func setupTilePhysics(for tile: SKSpriteNode) {
         
         let physicsBody = SKPhysicsBody(rectangleOf: tile.size, center: CGPoint(x: tile.size.width/2, y: -tile.size.height/2))
@@ -88,12 +98,11 @@ final class RoomBuilder {
         
     }
     
-    private func scaleToScreen(sceneWidth: CGFloat, imageSize: CGSize) -> CGSize {
+    func scaleToScreen(sceneWidth: CGFloat, imageSize: CGSize) -> CGSize {
         let scale = 0.07
         let w = sceneWidth * scale
         let h = w * imageSize.height / imageSize.width
         let size = CGSize(width: w, height: h)
-        
         
         return size
     }
