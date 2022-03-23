@@ -14,7 +14,7 @@ class GameViewControllerTvOS: UIViewController {
     let gameScene: GameSceneTvOS
     
     init(gameLogicController: GameLogicController, size: CGSize) {
-        self.gameScene = GameSceneTvOS(gameLogicController: gameLogicController, size: size)
+        self.gameScene = GameSceneTvOS(gameLogicController: gameLogicController, inputController: InputControllerTvOS(), size: size)
         super.init(nibName: nil, bundle: nil)
         
     }

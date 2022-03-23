@@ -49,6 +49,10 @@ class PlayerNode: SKNode, LifeCycleElement {
         zPosition = 10
         self.addChildren()
         
+        logicController.data.upgradeAcceleration(multiplier: 1)
+        logicController.data.upgradeAcceleration(multiplier: 1)
+        logicController.data.upgradeAcceleration(multiplier: 1)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -155,7 +159,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
-        self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
+        self.physicsBody?.linearDamping = logicController.data.frictionMultiplier*GameConstants.forceMultiplier
         self.physicsBody?.collisionBitMask = 1
         self.physicsBody?.categoryBitMask = 0
         

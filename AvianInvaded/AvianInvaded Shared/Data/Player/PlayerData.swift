@@ -30,4 +30,10 @@ struct PlayerData {
         mass = 1
         facingAngle = 0
     }
+    
+    
+    mutating func upgradeAcceleration(multiplier: CGFloat) {
+        let increase: CGFloat = 1050
+        moveMultiplier += (increase*multiplier)
+    }
 }
