@@ -9,12 +9,12 @@ import Foundation
 import SpriteKit
 
 class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
-        
+    
     init(texture: SKTexture?, size: CGSize, team: Team, position: CGPoint) {
         super.init(texture: texture, color: SKColor.clear, size: size)
-       
-        self.setupPhysicsBody()
+        
         self.setColisionGoup(team: team)
+        self.setupPhysicsBody()
         self.position = CGPoint(x: position.x, y: position.y)
         self.zPosition = 9
         
@@ -31,9 +31,9 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
         self.physicsBody?.linearDamping = 0
         self.physicsBody?.mass = 0.1
         
-        self.physicsBody?.collisionBitMask = .zero
-        self.physicsBody?.contactTestBitMask = 1
-        self.physicsBody?.categoryBitMask = .zero
+        self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask( self.colisionGroup)
+        self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask( self.colisionGroup)
+        self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask( self.colisionGroup)
     }
     
     private func setColisionGoup(team: Team) {
@@ -57,7 +57,30 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
 
 extension ProjectileSpriteNode: Contactable {
     func contact(with colisionGroup: ColisionGroup) {
-        if colisionGroup == .environment || colisionGroup == .enemy {
+       
+        var willHit = false
+        
+        switch colisionGroup {
+            
+        case .environment:
+            willHit = true
+        case .player:
+            if self.colisionGroup == .enemyProjectile {
+                willHit = true
+            }
+        case .enemy:
+            if self.colisionGroup == .playerProjectile {
+                willHit = true
+            }
+        case .playerProjectile:
+            willHit = false
+        case .enemyProjectile:
+            willHit = false
+        case .neutralProjectile:
+            willHit = true
+        }
+        
+        if willHit {
             removeFromParent()
         }
     }
