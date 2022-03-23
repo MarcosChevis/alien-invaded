@@ -20,6 +20,7 @@ class GameSceneIOS: SKScene {
         
         super.init(size: size)
         
+        
         let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
         self.addChildren([initialRoom, self.playerNode])
@@ -75,6 +76,9 @@ class GameSceneIOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.didSimulatePhysics() }
     }
     
 }

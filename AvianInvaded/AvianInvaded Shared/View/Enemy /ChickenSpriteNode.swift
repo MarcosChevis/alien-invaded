@@ -9,18 +9,21 @@ import Foundation
 import SpriteKit
 import Combine
 
-class ChickenNode: SKNode, Enemy {
+class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     
-    private let logicController: ChickenLogicController = ChickenLogicController()
+    private let logicController: ChickenLogicController
     private let bodySprite: SKSpriteNode
     var projectileTexture: SKTexture
     
     required init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter) {
+        logicController = ChickenLogicController()
+        
         bodySprite = .init(imageNamed: "Chicken")
         
         let projectileImage = UIImage(named: "Chicken")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         super.init()
+        logicController.delegate = self
         self.colisionGroup = .enemy
         position = initialPosition
         zPosition = 9
@@ -32,7 +35,8 @@ class ChickenNode: SKNode, Enemy {
     }
     
     func update(_ currentTime: TimeInterval) {
-        
+        logicController.followPoint(initialPoint: self.position)
+        self.attack(currentTime)
     }
     
     func tearDown() {
@@ -47,25 +51,18 @@ class ChickenNode: SKNode, Enemy {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func move(path: [CGPoint], tileSize: CGFloat) {
-        removeAllActions()
-        
-        let moveAction = path.map { point in
-            SKAction.move(to: CGPoint(x: point.x * tileSize, y: point.y * tileSize), duration: 0.2)
-        }
-        
-        self.run(SKAction.sequence(moveAction))
-    }
-    
     private func createPhysicsBody(size: CGSize) {
         let texture = SKTexture(imageNamed: "Chicken")
+        texture.filteringMode = .nearest
         self.physicsBody = .init(texture: texture, size: size)
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
-        self.physicsBody?.collisionBitMask = 1
-        self.physicsBody?.categoryBitMask = 1
+        
+        self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask( self.colisionGroup)
+        self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask( self.colisionGroup)
+        self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask( self.colisionGroup)
     }
     
     private func scale() {
@@ -74,8 +71,9 @@ class ChickenNode: SKNode, Enemy {
         bodySprite.size = size
     }
     
-    func rotate(by angle: CGFloat) {
+    func rotate(to angle: CGFloat) {
         let action = SKAction.rotate(toAngle: angle, duration: .zero, shortestUnitArc: true)
+        logicController.data.facingAngle = angle
         self.run(action)
     }
     
@@ -84,17 +82,17 @@ class ChickenNode: SKNode, Enemy {
             let velocity = physicsBody?.velocity,
             let vector = logicController.move(by: vector, currentVelocity: velocity)
         else { return }
-        self.physicsBody?.applyForce(vector)
+        self.physicsBody?.applyForceWithMultiplier(vector)
     }
     
     func attack(_ currentTime: TimeInterval) {
-        guard let force = logicController.attack(currentTime) else { return }
+        guard let force = logicController.decideAtack(currentTime: currentTime, position: self.position) else { return }
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .player, position: self.position)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .avian, position: self.position)
         
         self.scene?.addChild(projectile)
         
-        projectile.physicsBody?.applyForce(force)
+        projectile.physicsBody?.applyForceWithMultiplier(force)
     }
     
     private func takeDamage() {
