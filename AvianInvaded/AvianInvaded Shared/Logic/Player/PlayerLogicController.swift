@@ -85,12 +85,12 @@ extension PlayerLogicController: InputDelegate {
     func shoot(_ currentTime: TimeInterval) {
         
         if timeLastShot == 0 {
-            timeLastShot = currentTime
+            timeLastShot = currentTime + data.shotCadence
         }
         
         let timePast = currentTime - timeLastShot
         
-        if timePast >= 0 && timePast < 0.2 {
+        if timePast >= 0 && timePast < data.shotCadence {
             return
         }
         timeLastShot = currentTime
@@ -98,8 +98,7 @@ extension PlayerLogicController: InputDelegate {
         
         let angle: CGFloat = self.data.facingAngle + CGFloat.pi/2
 
-        let shootingMag: CGFloat = 8000
-        
+        let shootingMag = data.shootMagnitude
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         
         delegate?.shoot(force: shootingForce)

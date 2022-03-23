@@ -12,6 +12,10 @@ struct PlayerData {
     private(set) var frictionMultiplier: CGFloat = 10
     private(set) var moveMultiplier: CGFloat = 7000
     private(set) var speedLimit: CGFloat = 500
+    var shootMagnitude: CGFloat = 8000
+    var idleTime: CGFloat = 1
+    var walkingTime: CGFloat = 0.4
+    var shotCadence: CGFloat = 0.3
     var facingAngle: CGFloat = 0
     var velocity: CGVector = .zero
     private(set) var mass: CGFloat = 1

@@ -94,8 +94,9 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     
     private func initializeIdle() {
+        let timePerFrame = Double(logicController.data.idleTime)/Double(idleBodyFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: idleBodyFrames,
-                                                             timePerFrame: TimeInterval(0.3),
+                                                             timePerFrame: timePerFrame,
                                                              resize: false, restore: true))
         bodySprite.run(action)
     }
@@ -106,8 +107,9 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeWalking() {
         bodySprite.texture = idleBodyFrames[0]
+        let timePerFrame = Double(logicController.data.walkingTime)/Double(walkingLegsFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
-                                                             timePerFrame: TimeInterval(0.05),
+                                                             timePerFrame: timePerFrame,
                                                              resize: false, restore: true))
         legsSprite.run(action)
     }
@@ -117,7 +119,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func initializeShooting() {
-        let action = SKAction.animate(with: shootingFrames, timePerFrame: 0.05, resize: false, restore: true)
+        let timePerFrame = Double(logicController.data.shotCadence)/Double(shootingFrames.count)
+        let action = SKAction.animate(with: shootingFrames, timePerFrame: timePerFrame, resize: false, restore: true)
         self.bodySprite.run(action)
     }
     
