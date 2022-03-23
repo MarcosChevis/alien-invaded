@@ -13,11 +13,11 @@ struct PlayerData {
     //movement variables
     private(set) var frictionMultiplier: CGFloat = 10
     private(set) var moveMultiplier: CGFloat = 7000
-    private(set) var speedLimit: CGFloat = 500
+    private(set) var speedLimit: CGFloat = 400
 
     //shot variables
-    var shootMagnitude: CGFloat = 8000
-    var shotCadence: CGFloat = 0.3
+    var shootMagnitude: CGFloat = 5000
+    var shotCadence: CGFloat = 0.5
     //size compared to size of the player sprite
     private(set) var projectileSize = 0.1
     
@@ -43,7 +43,32 @@ struct PlayerData {
     
     
     mutating func upgradeAcceleration(multiplier: CGFloat) {
-        let increase: CGFloat = 1050
-        moveMultiplier += (increase*multiplier)
+        //7.14% of initial value
+        let increase: CGFloat = 500
+        moveMultiplier += (increase * multiplier)
+    }
+    
+    mutating func upgradeMaxSpeed(multiplier: CGFloat) {
+        //7% of initial value
+        let increase: CGFloat = 35
+        speedLimit += (increase * multiplier)
+    }
+    
+    mutating func upgradeShotSpeed(multiplier: CGFloat) {
+        //
+        let increase: CGFloat = 225
+        shootMagnitude += (increase * multiplier)
+    }
+    
+    mutating func upgradeShotCadence(multiplier: CGFloat) {
+        let decrease: CGFloat = 0.9
+        
+        shotCadence *= (decrease / multiplier)
+    }
+    
+    mutating func upgradeShotSize(multiplier: CGFloat) {
+        let increase: CGFloat = 0.02
+        
+        projectileSize += (increase * multiplier)
     }
 }

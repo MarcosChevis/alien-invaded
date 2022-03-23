@@ -49,11 +49,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         zPosition = 10
         self.addChildren()
         self.initializeIdle()
-        
-//        logicController.data.upgradeAcceleration(multiplier: 1)
-//        logicController.data.upgradeAcceleration(multiplier: 1)
-//        logicController.data.upgradeAcceleration(multiplier: 1)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -94,8 +89,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         addChild(legsSprite)
         legsSprite.zPosition = 0
     }
-    
-    
     
     private func initializeIdle() {
         let timePerFrame = Double(logicController.data.idleTime)/Double(idleBodyFrames.count)
