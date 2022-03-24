@@ -17,12 +17,12 @@ final class RoomBuilder {
     
     /**
      Receive a loaded Room Structure and transform into SpriteKit Nodes
-        - Parameters:
-            - room: A room data structure containing tile size, position and colision
-        - Returns:
-            A SK node containing all the configured and positioned SKSpriteNodes
+     - Parameters:
+     - room: A room data structure containing tile size, position and colision
+     - Returns:
+     A SK node containing all the configured and positioned SKSpriteNodes
      */
-    func build(room: Room) -> SKNode {
+    func build(room: Room, availableDirections: [RoomDirection]) -> SKNode {
         let node = SKNode()
         let spriteSize = scaleToScreen(sceneWidth: sceneSize.width,
                                        imageSize: CGSize(width: room.tileSize,
@@ -38,12 +38,18 @@ final class RoomBuilder {
                     return sprite
                 }
             }
-        print(room.decoration)
-        buildDecoration(for: [], tileSize: spriteSize)
-            .forEach { sprite in
-                node.addChild(sprite)
-                sprite.zPosition = 3
-            }
+        buildDecorations(for: room.decoration,
+                         tileSize: spriteSize,
+                         gridSize: CGSize(width: room.tiles[0].count, height: room.tiles.count),
+                         spriteSize: spriteSize,
+                         availableDirections: availableDirections
+        )
+        .forEach { sprite in
+            node.addChild(sprite)
+            sprite.zPosition = 3
+        }
+        
+        node.colisionGroup = .environment
         positionTiles(tiles, tileSize: spriteSize)
         setupTilesPhysics(for: tiles, colisionMatrix: room.colision)
         cashedTiles = [:]
@@ -83,8 +89,34 @@ final class RoomBuilder {
         }
     }
     
-    private func buildDecoration(for decoration: [[Decoration]], tileSize: CGSize) -> [SKSpriteNode] {
-        []
+    private func buildDecorations(for decorations: [DecorationInfo],
+                                  tileSize: CGSize,
+                                  gridSize: CGSize,
+                                  spriteSize: CGSize,
+                                  availableDirections: [RoomDirection]
+    ) -> [SKNode] {
+        decorations.compactMap { decorationInfo in
+            let position = CGPoint(x: (CGFloat(decorationInfo.position.x) * tileSize.width),
+                                   y: ((gridSize.height - CGFloat(decorationInfo.position.y)) * tileSize.height))
+            
+            let node = buildDecoration(decoration: decorationInfo.decoration,
+                                       spriteSize: spriteSize,
+                                       availableDirections: availableDirections)
+            
+            node?.position = position
+            return node
+        }
+    }
+    
+    private func buildDecoration(decoration: Decoration,
+                                 spriteSize: CGSize,
+                                 availableDirections: [RoomDirection]
+    ) -> SKNode? {
+        switch decoration {
+        case .portal(let direction):
+            guard availableDirections.contains(direction) else { return nil }
+            return Portal(direction: direction, spriteSize: spriteSize)
+        }
     }
     
     private func setupTilePhysics(for tile: SKSpriteNode) {

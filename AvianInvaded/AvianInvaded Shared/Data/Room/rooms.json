@@ -66,6 +66,42 @@
                     }
                 }
                 
+            },
+            {
+                "position": {
+                    "x": 12,
+                    "y": 21
+                },
+                "decoration": {
+                    "portal": {
+                        "direction": "bottom"
+                    }
+                }
+                
+            },
+            {
+                "position": {
+                    "x": 4,
+                    "y": 12
+                },
+                "decoration": {
+                    "portal": {
+                        "direction": "left"
+                    }
+                }
+                
+            },
+            {
+                "position": {
+                    "x": 20,
+                    "y": 12
+                },
+                "decoration": {
+                    "portal": {
+                        "direction": "right"
+                    }
+                }
+                
             }
         ],
         "tilesName": [
@@ -160,6 +196,41 @@
                         "direction": "top"
                     }
                 }
+            },
+            {
+                "position": {
+                    "x": 12,
+                    "y": 21
+                },
+                "decoration": {
+                    "portal": {
+                        "direction": "bottom"
+                    }
+                }
+                
+            },
+            {
+                "position": {
+                    "x": 4,
+                    "y": 12
+                },
+                "decoration": {
+                    "portal": {
+                        "direction": "left"
+                    }
+                }
+                
+            },
+            {
+                "position": {
+                    "x": 20,
+                    "y": 12
+                },
+                "decoration": {
+                    "portal": {
+                        "direction": "right"
+                    }
+                }
                 
             }
         ],
@@ -179,7 +250,7 @@
                          "portal"],
         "startPosition": {
             "x" : 11,
-            "y": 5
+            "y": 11
         },
         "enemyNumber": 10,
         "availableExits": [

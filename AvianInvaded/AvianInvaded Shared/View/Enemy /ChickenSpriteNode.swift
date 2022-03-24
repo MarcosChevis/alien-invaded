@@ -111,21 +111,5 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     func contact(with colisionGroup: ColisionGroup) {
-        switch colisionGroup {
-        case .environment:
-            return
-        case .player:
-            //print("Player")
-            return
-        case .enemy:
-            return
-        case .playerProjectile:
-            takeDamage()
-            //print("Projectile Hit")
-        case .enemyProjectile:
-            return
-        case .neutralProjectile:
-            return
-        }
     }
 }

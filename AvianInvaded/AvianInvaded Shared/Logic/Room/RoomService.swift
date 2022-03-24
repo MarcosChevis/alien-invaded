@@ -23,7 +23,13 @@ final class RoomService {
     var currentRoom: Room { roomRepository.currentRoom }
     
     func buildNewRoom() -> SKNode {
-        builder.build(room: currentRoom)
+        let directions = roomRepository.currentRoomAvailableDirections
+        return builder.build(room: currentRoom, availableDirections: directions)
+    }
+    
+    func nextRoom(direction: RoomDirection) -> SKNode {
+        let room = roomRepository.nextRoom(direction: direction)
+        return builder.build(room: room, availableDirections: roomRepository.currentRoomAvailableDirections)
     }
     
     func tileSize(forScreen screenSize: CGSize) -> CGSize {

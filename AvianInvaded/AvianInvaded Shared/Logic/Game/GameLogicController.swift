@@ -31,8 +31,11 @@ class GameLogicController {
                        y: tileSize.height * CGFloat(tilePos.y))
     }
     
+    func nextRoom(direction: RoomDirection) -> SKNode {
+        roomService.nextRoom(direction: direction)
+    }
+    
     func buildNewRoom() -> SKNode {
-        //SELECT NEW ROOM
         let roomNode = roomService.buildNewRoom()
         
         if let tile = roomNode.children.first as? SKSpriteNode {

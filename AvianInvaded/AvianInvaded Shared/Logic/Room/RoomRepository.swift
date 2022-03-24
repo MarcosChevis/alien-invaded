@@ -25,16 +25,29 @@ final class RoomRepository {
         availableRooms[dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX]]
     }
     
+    var currentRoomAvailableDirections: [RoomDirection] {
+        var directions: [RoomDirection] = []
+        if dungeonMatrix[currentRoomPosition.intY - 1][currentRoomPosition.intX] != -1 {
+            directions.append(.top)
+        }
+        if dungeonMatrix[currentRoomPosition.intY + 1][currentRoomPosition.intX] != -1 {
+            directions.append(.bottom)
+        }
+        if dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX - 1] != -1 {
+            directions.append(.left)
+        }
+        if dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX + 1] != -1 {
+            directions.append(.right)
+        }
+        return directions
+    }
     /**
      Start the mapGeneration and assign the current Room
      */
     func startup() {
         dungeonMatrix = generateDungeon(totalRooms: 10)
         printMatrix(matrix: dungeonMatrix)
-        
-        print("current room position", currentRoomPosition)
-        //nextRoom(direction: .bottom)
-        print("current room position", currentRoomPosition)
+        print(currentRoomPosition)
     }
     
     func nextRoom(direction: RoomDirection) -> Room {
@@ -44,19 +57,20 @@ final class RoomRepository {
             fatalError("ERROR")
         }
         
+        print(currentRoomPosition)
         return currentRoom
     }
     
     private func printMatrix(matrix: [[Int]]) {
             var string = ""
             
-            for line in matrix {
+            for (line) in matrix {
                 string += "["
-                for item in line {
+                for (item) in line {
                     if item < 0 {
-                        string += "  "
+                        string += "."
                     } else if item >= 0 && item < 10 {
-                        string += " \(item)"
+                        string += "\(item)"
                     } else if item >= 10 {
                         string += "\(item)"
                     }
@@ -125,27 +139,4 @@ final class RoomRepository {
         return isRoomXAxisOutOfBounds || isRoomYAxisOutOfBounds || isDirectionInvertOfPrevious
     }
     
-}
-
-
-extension CGPoint {
-    static func *(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
-        var p = CGPoint(x: lhs.x, y: lhs.y)
-        p.x *= rhs
-        p.y *= rhs
-        return p
-    }
-    
-    static func +=(lhs: inout CGPoint, rhs: CGPoint) {
-        lhs.y += rhs.y
-        lhs.x += rhs.x
-    }
-    
-    var intX: Int {
-        return Int(x)
-    }
-    
-    var intY: Int {
-        return Int(y)
-    }
 }
