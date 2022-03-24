@@ -72,14 +72,13 @@ class ChickenLogicController {
         
         let timePast = currentTime - timeLastShot
         
-        if timePast < 0.7 {
+        if timePast < data.shootCadence  {
             return nil
         }
         
         timeLastShot = currentTime
         let angle: CGFloat = data.facingAngle - CGFloat.pi/2
-        let shootingMag: CGFloat = 700
-        
+        let shootingMag: CGFloat = data.shootingMagnitude
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         
         return shootingForce
@@ -97,7 +96,7 @@ class ChickenLogicController {
     
     func followPoint(initialPoint: CGPoint) {
     
-        let r: CGFloat = 200
+        let r: CGFloat = data.distanceEnemyFromPlayer
         
         let playerVector = CGVector(playerPosition)
         

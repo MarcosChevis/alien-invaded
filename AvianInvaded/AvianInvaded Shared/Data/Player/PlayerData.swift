@@ -16,8 +16,8 @@ struct PlayerData {
     private(set) var speedLimit: CGFloat = 400
 
     //shot variables
-    var shootMagnitude: CGFloat = 5000
-    var shotCadence: CGFloat = 0.5
+    private(set) var shootMagnitude: CGFloat = 5000
+    private(set) var shotCadence: CGFloat = 0.5
     //size compared to size of the player sprite
     private(set) var projectileSize = 0.1
     
@@ -31,16 +31,61 @@ struct PlayerData {
     var walkingTime: CGFloat = 0.4
     var velocity: CGVector = .zero
     
+    private(set) var maxHealth: CGFloat = 10
+    var currentHealth: CGFloat = 10
     
-    
-    mutating func reset() {
+    mutating func resetFrictionMultiplier() {
         frictionMultiplier = 10
-        moveMultiplier = 7000
-        speedLimit = 500
-        mass = 1
-        facingAngle = 0
     }
     
+    mutating func resetMoveMultiplier() {
+        moveMultiplier = 7000
+    }
+    
+    mutating func resetSpeedLimit() {
+        speedLimit = 400
+    }
+    
+    mutating func resetMass() {
+        mass = 1
+    }
+    
+    mutating func resetShootMagnitude() {
+        shootMagnitude = 5000
+    }
+    
+    mutating func resetShotCadence() {
+        shotCadence = 0.5
+    }
+    
+    mutating func resetProjectileSize() {
+        projectileSize = 0.1
+    }
+    
+    mutating func resetMaxHealth() {
+        maxHealth = 10
+    }
+    
+    mutating func resetCurrentHealth() {
+        currentHealth = maxHealth
+    }
+    
+    mutating func resetScale() {
+        scale = 0.14
+    }
+    
+    mutating func resetAll() {
+        resetFrictionMultiplier()
+        resetMoveMultiplier()
+        resetSpeedLimit()
+        resetMass()
+        resetShootMagnitude()
+        resetShotCadence()
+        resetProjectileSize()
+        resetMaxHealth()
+        resetCurrentHealth()
+        resetScale()
+    }
     
     mutating func upgradeAcceleration(multiplier: CGFloat) {
         //7.14% of initial value
@@ -70,5 +115,15 @@ struct PlayerData {
         let increase: CGFloat = 0.02
         
         projectileSize += (increase * multiplier)
+    }
+    
+    mutating func upgradeMaxHealth(multiplier: CGFloat) {
+        let increase: CGFloat = 1
+        maxHealth += (increase * multiplier)
+    }
+    
+    mutating func upgradeCurrentHealth(multiplier: CGFloat) {
+        let increase: CGFloat = 1
+        currentHealth += (increase * multiplier)
     }
 }

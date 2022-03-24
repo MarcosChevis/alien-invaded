@@ -74,6 +74,7 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.isIdle = false
             self.initializeWalking()
             self.stopIdle()
+           
         }
     }
     

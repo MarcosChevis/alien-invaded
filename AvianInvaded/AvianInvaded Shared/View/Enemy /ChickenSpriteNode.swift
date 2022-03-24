@@ -37,6 +37,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     func update(_ currentTime: TimeInterval) {
         logicController.followPoint(initialPoint: self.position)
         self.attack(currentTime)
+    
     }
     
     func tearDown() {
