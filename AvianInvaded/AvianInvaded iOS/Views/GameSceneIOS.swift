@@ -7,13 +7,11 @@
 
 import SpriteKit
 import GameplayKit
-import Combine
 
 class GameSceneIOS: SKScene {
     
     let playerNode: PlayerNode
     private let gameCamera = SKCameraNode()
-    private var cancellables = Set<AnyCancellable>()
     var gameLogicController: GameLogicController
     
     init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
@@ -21,25 +19,17 @@ class GameSceneIOS: SKScene {
         self.playerNode = PlayerNode(inputController: inputController)
         
         super.init(size: size)
+        
         self.scaleMode = .aspectFill
         self.camera = gameCamera
         self.addChildren([self.playerNode])
+        gameLogicController.gameLogicDelegate = self
         self.physicsWorld.contactDelegate = self
         
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupBindings() {
-        NotificationCenter
-            .default
-            .publisher(for: .init(rawValue: "teste.portal"))
-            .compactMap { $0.object as? RoomDirection}
-            .sink(receiveValue: teleport)
-            .store(in: &cancellables)
     }
     
     override func didMove(to view: SKView) {
@@ -48,7 +38,6 @@ class GameSceneIOS: SKScene {
     }
     
     func setupScene() {
-        setupBindings()
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.startup() }
@@ -64,7 +53,12 @@ class GameSceneIOS: SKScene {
         addChild(room)
         
         let enemies = gameLogicController.spawnEnemies()
+        
         addChildren(enemies)
+        
+        enemies
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.startup() }
         
     }
     
@@ -93,17 +87,6 @@ class GameSceneIOS: SKScene {
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.didSimulatePhysics() }
     }
-    
-    private func teleport(direction: RoomDirection) {
-        let newRoom = gameLogicController.nextRoom(direction: direction)
-        children.forEach { node in
-            if node.colisionGroup != .player {
-                node.removeFromParent()
-            }
-        }
-       setupRoom(newRoom)
-    }
-    
 }
 
 extension GameSceneIOS: SKPhysicsContactDelegate {
@@ -119,6 +102,17 @@ extension GameSceneIOS: SKPhysicsContactDelegate {
             let colisionGroup = contact.bodyA.node?.colisionGroup {
             contactableNodeB.contact(with: colisionGroup)
         }
+    }
+}
+
+extension GameSceneIOS: GameLogicDelegate {
+    func teleport(to newRoom: SKNode) {
+        children.forEach { node in
+            if node.colisionGroup != .player {
+                node.removeFromParent()
+            }
+        }
+       setupRoom(newRoom)
     }
 }
 

@@ -22,14 +22,14 @@ final class RoomService {
     
     var currentRoom: Room { roomRepository.currentRoom }
     
-    func buildNewRoom() -> SKNode {
+    func buildNewRoom(portalDelegate: PortalDelegate?) -> SKNode {
         let directions = roomRepository.currentRoomAvailableDirections
-        return builder.build(room: currentRoom, availableDirections: directions)
+        return builder.build(room: currentRoom, availableDirections: directions, portalDelegate: portalDelegate)
     }
     
-    func nextRoom(direction: RoomDirection) -> SKNode {
+    func nextRoom(direction: RoomDirection, portalDelegate: PortalDelegate?) -> SKNode {
         let room = roomRepository.nextRoom(direction: direction)
-        return builder.build(room: room, availableDirections: roomRepository.currentRoomAvailableDirections)
+        return builder.build(room: room, availableDirections: roomRepository.currentRoomAvailableDirections, portalDelegate: portalDelegate)
     }
     
     func tileSize(forScreen screenSize: CGSize) -> CGSize {

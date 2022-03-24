@@ -10,7 +10,7 @@ import SpriteKit
 
 final class Spawner {
     
-    func spawn(for info: SpawnInfo) -> [Enemy] {
+    func spawn(for info: SpawnInfo, delegate: EnemyDelegate? = nil) -> [Enemy] {
         var positions = info.availablePositions.shuffled()
         
         let enemies = info
@@ -21,16 +21,18 @@ final class Spawner {
                         guard let position = positions.popLast() else { return nil }
                         return buildEnemy(enemyInfo: enemyInfo,
                                           position: position,
-                                          tileSize: info.tileSize)
+                                          tileSize: info.tileSize,
+                                          delegate: delegate)
                     }
             }
         
         return enemies
     }
     
-    private func buildEnemy(enemyInfo: EnemySpawn, position: CGPoint, tileSize: CGFloat) -> Enemy {
+    private func buildEnemy(enemyInfo: EnemySpawn, position: CGPoint, tileSize: CGFloat, delegate: EnemyDelegate? = nil) -> Enemy {
         enemyInfo.factory.build(at: CGPoint(x: position.x * tileSize,
                                             y: position.y * tileSize),
-                                notificationCenter: .default)
+                                notificationCenter: .default,
+                                delegate: delegate)
     }
 }

@@ -22,7 +22,7 @@ final class RoomBuilder {
      - Returns:
      A SK node containing all the configured and positioned SKSpriteNodes
      */
-    func build(room: Room, availableDirections: [RoomDirection]) -> SKNode {
+    func build(room: Room, availableDirections: [RoomDirection], portalDelegate: PortalDelegate?) -> SKNode {
         let node = SKNode()
         let spriteSize = scaleToScreen(sceneWidth: sceneSize.width,
                                        imageSize: CGSize(width: room.tileSize,
@@ -42,7 +42,8 @@ final class RoomBuilder {
                          tileSize: spriteSize,
                          gridSize: CGSize(width: room.tiles[0].count, height: room.tiles.count),
                          spriteSize: spriteSize,
-                         availableDirections: availableDirections
+                         availableDirections: availableDirections,
+                         portalDelegate: portalDelegate
         )
         .forEach { sprite in
             node.addChild(sprite)
@@ -93,7 +94,8 @@ final class RoomBuilder {
                                   tileSize: CGSize,
                                   gridSize: CGSize,
                                   spriteSize: CGSize,
-                                  availableDirections: [RoomDirection]
+                                  availableDirections: [RoomDirection],
+                                  portalDelegate: PortalDelegate?
     ) -> [SKNode] {
         decorations.compactMap { decorationInfo in
             let position = CGPoint(x: (CGFloat(decorationInfo.position.x) * tileSize.width),
@@ -101,7 +103,8 @@ final class RoomBuilder {
             
             let node = buildDecoration(decoration: decorationInfo.decoration,
                                        spriteSize: spriteSize,
-                                       availableDirections: availableDirections)
+                                       availableDirections: availableDirections,
+                                       portalDelegate: portalDelegate)
             
             node?.position = position
             return node
@@ -110,12 +113,15 @@ final class RoomBuilder {
     
     private func buildDecoration(decoration: Decoration,
                                  spriteSize: CGSize,
-                                 availableDirections: [RoomDirection]
+                                 availableDirections: [RoomDirection],
+                                 portalDelegate: PortalDelegate?
     ) -> SKNode? {
         switch decoration {
         case .portal(let direction):
             guard availableDirections.contains(direction) else { return nil }
-            return Portal(direction: direction, spriteSize: spriteSize)
+            let portal = Portal(direction: direction, spriteSize: spriteSize)
+            portal.delegate = portalDelegate
+            return portal
         }
     }
     

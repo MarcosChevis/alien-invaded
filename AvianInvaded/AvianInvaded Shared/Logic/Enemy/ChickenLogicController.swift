@@ -18,7 +18,7 @@ class ChickenLogicController {
     
     var mass: CGFloat { data.mass }
     
-    private var life = 10
+    private var life = 1
     var playerPosition: CGPoint = .zero
     private let notificationCenter: NotificationCenter
     private var cancellables: Set<AnyCancellable>

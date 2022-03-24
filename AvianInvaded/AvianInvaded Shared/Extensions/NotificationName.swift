@@ -15,4 +15,16 @@ extension Notification.Name {
     static var playerDidRotate: Notification.Name {
         .init(rawValue: "player.didRotate")
     }
+    
+    static var teleportWasActivated: Notification.Name {
+        .init(rawValue: "portal.activated")
+    }
+    
+    static var enemyDefeated: Notification.Name {
+        .init(rawValue: "enemy.defeated")
+    }
+    
+    static var shouldActivatePortals: Notification.Name {
+        .init(rawValue: "portal.shouldActivate")
+    }
 }
