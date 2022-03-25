@@ -16,11 +16,11 @@ struct EnemyData{
     private(set) var moveMultiplier: CGFloat = 500
     var facingAngle: CGFloat = 0
     private(set) var speedLimit: CGFloat = 500
-    private(set) var projectileSize:CGFloat = 0.2
+    private(set) var projectileSize:CGFloat = 0.3
     private(set) var attackDistance: CGFloat = 1000
     private(set) var distanceEnemyFromPlayer: CGFloat = 200
-    private(set) var shootCadence: CGFloat = 0.7
-    private(set) var shootingMagnitude: CGFloat = 700
+    private(set) var shootCadence: CGFloat = 0.8
+    private(set) var shootingMagnitude: CGFloat = 2000
     private(set) var maxHealth: CGFloat = 10
     var currentHealth: CGFloat = 1
     
