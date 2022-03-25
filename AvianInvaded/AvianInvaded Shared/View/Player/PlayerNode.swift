@@ -248,12 +248,11 @@ extension PlayerNode: Contactable {
         case .player:
             return
         case .enemy:
-            logicController.gainXp()
             return
         case .playerProjectile:
             return
         case .enemyProjectile:
-            logicController.takeDamage()
+            logicController.loseHealth()
         case .neutralProjectile:
             return
         }

@@ -58,16 +58,24 @@ class PlayerLogicController: LifeCycleElement {
         notificationCenter.post(name: .playerDidMove, object: newPosition)
     }
     
-    var a = 1.0
-    func takeDamage() {
-        a -= 0.01
-        hudDelegate?.updateHealth(a)
+    func loseHealth() {
+        data.currentHealth -= 1
+        hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
     }
     
-    var b = 0.0
+    func gainHealth() {
+        data.currentHealth += 1
+        hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
+    }
+    
     func gainXp() {
-        b += 0.1
-        hudDelegate?.updateExperience(b)
+        data.currentXp += 0.1
+        hudDelegate?.updateExperience(data.currentXp)
+    }
+    
+    func loseXp() {
+        data.currentXp -= 0.1
+        hudDelegate?.updateExperience(data.currentXp)
     }
 }
 
@@ -95,7 +103,6 @@ extension PlayerLogicController: InputDelegate {
         let newAngle = angle - CGFloat.pi/2
         delegate?.rotateLegs(to: newAngle)
     }
-    #warning("UPDATE PLAYER DATA")
     
     func shoot(_ currentTime: TimeInterval) {
         
