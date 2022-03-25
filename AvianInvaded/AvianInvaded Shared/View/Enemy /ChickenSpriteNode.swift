@@ -91,8 +91,8 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         
         guard let scene = self.scene else { return }
         
-        let x = bodySprite.size.width * 0.3
-        let y = bodySprite.size.height * 0.35
+        let x: CGFloat = 0
+        let y: CGFloat = -bodySprite.size.height*0.45
         
         let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
         let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
