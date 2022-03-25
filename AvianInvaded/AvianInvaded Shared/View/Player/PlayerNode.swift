@@ -78,6 +78,7 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.isIdle = false
             self.initializeWalking()
             self.stopIdle()
+           
         }
     }
     
@@ -93,8 +94,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         addChild(legsSprite)
         legsSprite.zPosition = 0
     }
-    
-    
     
     private func initializeIdle() {
         let timePerFrame = Double(logicController.data.idleTime)/Double(idleBodyFrames.count)
