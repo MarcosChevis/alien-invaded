@@ -11,7 +11,10 @@ import CoreGraphics
 import SpriteKit
 
 class PlayerLogicController: LifeCycleElement {
+    
     weak var delegate: PlayerLogicDelegate?
+    weak var hudDelegate: PlayerHudDelegate?
+    
     var inputController: InputControllerProtocol
     var data: PlayerData
     
@@ -53,6 +56,18 @@ class PlayerLogicController: LifeCycleElement {
     
     func sendPlayerDidMove(newPosition: CGPoint) {
         notificationCenter.post(name: .playerDidMove, object: newPosition)
+    }
+    
+    var a = 1.0
+    func takeDamage() {
+        a -= 0.01
+        hudDelegate?.updateHealth(a)
+    }
+    
+    var b = 0.0
+    func gainXp() {
+        b += 0.1
+        hudDelegate?.updateExperience(b)
     }
 }
 

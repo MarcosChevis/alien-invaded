@@ -8,6 +8,6 @@
 import Foundation
 import SpriteKit
 
-protocol Contactable {
+protocol Contactable: AnyObject {
     func contact(with colisionGroup: ColisionGroup)
 }

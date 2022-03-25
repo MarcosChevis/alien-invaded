@@ -11,7 +11,7 @@ import SpriteKit
 class PlayerNode: SKNode, LifeCycleElement {
     
     private let logicController: PlayerLogicController
-    private let bodyNode: SKNode
+    private let bodyNode: PlayerBodyNode
     private let bodySprite: SKSpriteNode
     private let legsSprite: SKSpriteNode
     var projectileTexture: SKTexture
@@ -30,12 +30,14 @@ class PlayerNode: SKNode, LifeCycleElement {
         createTexture("Player_Shoot")
     }()
     
-    init(inputController: InputControllerProtocol) {
+    init(inputController: InputControllerProtocol, hudDelegate: PlayerHudDelegate) {
         
         self.logicController = PlayerLogicController(inputController: inputController,
                                                      notificationCenter: .default)
+        logicController.hudDelegate = hudDelegate
         
-        bodyNode = SKNode()
+        bodyNode = .init()
+        
         bodySprite = .init(imageNamed: "Player_Body_Idle_0")
         legsSprite = .init(imageNamed: "Player_Legs_Walking-5")
         
@@ -44,15 +46,12 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         super.init()
         
+        bodyNode.contactDelegate = self
         self.logicController.delegate = self
         self.colisionGroup = .player
         zPosition = 10
         self.addChildren()
         self.initializeIdle()
-        
-//        logicController.data.upgradeAcceleration(multiplier: 1)
-//        logicController.data.upgradeAcceleration(multiplier: 1)
-//        logicController.data.upgradeAcceleration(multiplier: 1)
         
     }
     
@@ -250,12 +249,12 @@ extension PlayerNode: Contactable {
         case .player:
             return
         case .enemy:
-            //print("enemy")
+            logicController.gainXp()
             return
         case .playerProjectile:
             return
         case .enemyProjectile:
-            return
+            logicController.takeDamage()
         case .neutralProjectile:
             return
         }
