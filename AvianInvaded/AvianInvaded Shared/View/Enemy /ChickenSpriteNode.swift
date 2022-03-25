@@ -89,7 +89,21 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     func attack(_ currentTime: TimeInterval) {
         guard let force = logicController.decideAtack(currentTime: currentTime, position: self.position) else { return }
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: CGSize(width: 10, height: 10), team: .avian, position: self.position)
+        guard let scene = self.scene else { return }
+        
+        let x = bodySprite.size.width * 0.3
+        let y = bodySprite.size.height * 0.35
+        
+        let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
+        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
+        
+        let w = self.bodySprite.size.width*logicController.data.projectileSize
+        
+        let h = self.bodySprite.size.width*logicController.data.projectileSize
+        
+        let size = CGSize(width: w, height: h)
+        
+        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team:.avian, position: projectilePositionInSceneSpace)
         
         self.scene?.addChild(projectile)
         

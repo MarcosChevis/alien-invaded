@@ -21,6 +21,8 @@ struct EnemyData{
     private(set) var distanceEnemyFromPlayer: CGFloat = 200
     private(set) var shootCadence: CGFloat = 0.7
     private(set) var shootingMagnitude: CGFloat = 700
+    private(set) var maxHealth: CGFloat = 10
+    var currentHealth: CGFloat = 1
     
     mutating func resetFrictionMultiplier() {
         frictionMultiplier = 10
@@ -62,6 +64,14 @@ struct EnemyData{
         shootingMagnitude = 700
     }
     
+    mutating func resetMaxHealth() {
+        maxHealth = 10
+    }
+    
+    mutating func resetCurrentHealth() {
+        currentHealth = 1
+    }
+    
     mutating func resetAll() {
         resetFrictionMultiplier()
         resetMass()
@@ -73,7 +83,10 @@ struct EnemyData{
         resetDistanceEnemyFromPlayer()
         resetShootCadence()
         resetShootingMagnitude()
+        resetMaxHealth()
+        resetCurrentHealth()
     }
+    
     
     mutating func upgradeAcceleration(multiplier: CGFloat) {
         let increase: CGFloat = 0.2
@@ -95,5 +108,14 @@ struct EnemyData{
         attackDistance += (increase * multiplier)
     }
     
+    mutating func upgradeMaxHealth(multiplier: CGFloat) {
+        let increase: CGFloat = 0.1
+        maxHealth += (increase * multiplier)
+    }
+    
+    mutating func upgradeCurrentHealth(multiplier: CGFloat) {
+        let increase: CGFloat = 0.2
+        currentHealth += (increase * multiplier)
+    }
 }
 

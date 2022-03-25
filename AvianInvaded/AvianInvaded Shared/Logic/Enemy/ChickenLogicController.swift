@@ -18,7 +18,6 @@ class ChickenLogicController {
     
     var mass: CGFloat { data.mass }
     
-    private var life = 10
     var playerPosition: CGPoint = .zero
     private let notificationCenter: NotificationCenter
     private var cancellables: Set<AnyCancellable>
@@ -85,9 +84,9 @@ class ChickenLogicController {
     }
     
     func receiveDamage() -> Bool {
-        life -= 1
+        data.currentHealth -= 1
         
-        if life <= 0 {
+        if data.currentHealth <= 0 {
             return true
         } else {
             return false
