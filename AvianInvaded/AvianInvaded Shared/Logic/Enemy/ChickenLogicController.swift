@@ -18,7 +18,6 @@ class ChickenLogicController {
     
     var mass: CGFloat { data.mass }
     
-    private var life = 10
     var playerPosition: CGPoint = .zero
     private let notificationCenter: NotificationCenter
     private var cancellables: Set<AnyCancellable>
@@ -72,23 +71,22 @@ class ChickenLogicController {
         
         let timePast = currentTime - timeLastShot
         
-        if timePast < 0.7 {
+        if timePast < data.shootCadence  {
             return nil
         }
         
         timeLastShot = currentTime
         let angle: CGFloat = data.facingAngle - CGFloat.pi/2
-        let shootingMag: CGFloat = 700
-        
+        let shootingMag: CGFloat = data.shootingMagnitude
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         
         return shootingForce
     }
     
     func receiveDamage() -> Bool {
-        life -= 1
+        data.currentHealth -= 1
         
-        if life <= 0 {
+        if data.currentHealth <= 0 {
             return true
         } else {
             return false
@@ -97,7 +95,7 @@ class ChickenLogicController {
     
     func followPoint(initialPoint: CGPoint) {
     
-        let r: CGFloat = 200
+        let r: CGFloat = data.distanceEnemyFromPlayer
         
         let playerVector = CGVector(playerPosition)
         
