@@ -6,46 +6,51 @@
 //
 
 import Foundation
-import GameplayKit
-import CoreGraphics
 import SpriteKit
 
 class GameLogicController {
     
     weak var gameLogicDelegate: GameLogicDelegate?
-    private var currentRoom: Room
-    private var currentRoomDifficulty: RoomDifficulty
-    private let roomBuilder: RoomBuilder
+    private let roomService: RoomService
     private var tileSize: CGSize
+    private var enemyCount: Int
     private let spawner: Spawner
     
-    init(roomBuilder: RoomBuilder, spawner: Spawner = .init()) {
-        self.currentRoom = .test
-        self.currentRoomDifficulty = .standard
+    init(roomService: RoomService, spawner: Spawner = .init()) {
         self.spawner = spawner
         self.tileSize = .zero
-        self.roomBuilder = roomBuilder
+        self.enemyCount = 0
+        self.roomService = roomService
+    }
+    
+    func getplayerStartPosition(forScreen screenSize: CGSize) -> CGPoint {
+        let tilePos = roomService.currentRoom.startPosition
+        let tileSize = roomService.tileSize(forScreen: screenSize)
+        
+        return CGPoint(x: tileSize.width * CGFloat(tilePos.x),
+                       y: tileSize.height * CGFloat(tilePos.y))
     }
     
     func buildNewRoom() -> SKNode {
-        //SELECT NEW ROOM
-        let roomNode = roomBuilder.build(room: currentRoom)
-        
+        let roomNode = roomService.buildNewRoom(portalDelegate: self)
         if let tile = roomNode.children.first as? SKSpriteNode {
             tileSize = tile.size
         }
         
-        return roomBuilder.build(room: currentRoom)
+        return roomNode
     }
     
     func spawnEnemies() -> [SKNode] {
-        let enemyInfo = selectEnemies(factories: [ChickenFactory()], maxEnemyCount: currentRoom.enemyNumber)
-        let spawnInfo = SpawnInfo(availablePositions: currentRoom.availableSpaces,
+        let enemyInfo = selectEnemies(factories: [ChickenFactory()],
+                                      maxEnemyCount: roomService.currentRoom.enemyNumber)
+        let spawnInfo = SpawnInfo(availablePositions: roomService.currentRoom.availableSpaces,
                                   tileSize: tileSize.width,
                                   enemySpawns: enemyInfo)
         
+        let enemies = spawner.spawn(for: spawnInfo, delegate: self)
+        enemyCount = enemies.count
         
-        return spawner.spawn(for: spawnInfo)
+        return enemies
     }
     
     private func selectEnemies(factories: [EnemyFactory], maxEnemyCount: Int) -> [EnemySpawn] {
@@ -58,6 +63,26 @@ class GameLogicController {
     }
     
     func update(_ currentTime: TimeInterval) {
+        
     }
-    
+}
+
+extension GameLogicController: PortalDelegate {
+    func teleport(to direction: RoomDirection) {
+        let newRoom = roomService.nextRoom(direction: direction, portalDelegate: self)
+        gameLogicDelegate?.teleport(to: newRoom)
+    }
+}
+
+extension GameLogicController: EnemyDelegate {
+    func enemyWasDefeatead() {
+        enemyCount -= 1
+        
+        if enemyCount == 0 {
+            NotificationCenter
+                .default
+                .post(name: .shouldActivatePortals,
+                      object: nil)
+        }
+    }
 }

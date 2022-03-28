@@ -21,14 +21,12 @@ class GameSceneIOS: SKScene {
         super.init(size: size)
         
         self.scaleMode = .aspectFill
-        let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
-        self.addChildren([initialRoom, self.playerNode])
-        self.moveNodeToCenter(playerNode, size: size)
+        self.addChildren([self.playerNode])
+        gameLogicController.gameLogicDelegate = self
         self.physicsWorld.contactDelegate = self
         
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,25 +37,37 @@ class GameSceneIOS: SKScene {
         self.setupScene()
     }
     
+    func setupScene() {
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.startup() }
+        
+        let initialRoom = gameLogicController.buildNewRoom()
+        setupRoom(initialRoom)
+    }
+    
+    private func setupRoom(_ room: SKNode) {
+        let move = SKAction.move(to: gameLogicController.getplayerStartPosition(forScreen: self.size),
+                                  duration: .zero)
+        playerNode.run(move)
+        addChild(room)
+        
+        let enemies = gameLogicController.spawnEnemies()
+        
+        addChildren(enemies)
+        
+        enemies
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.startup() }
+        
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         gameLogicController.update(currentTime)
         
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.update(currentTime) }
-    }
-    
-    func setupScene() {
-        gameLogicController
-            .spawnEnemies()
-            .forEach { enemy in
-                addChild(enemy)
-            }
-        
-        children
-            .compactMap { $0 as? LifeCycleElement }
-            .forEach { $0.startup() }
-        
     }
     
     func addChildren(_ nodes: [SKNode]) {
@@ -77,7 +87,6 @@ class GameSceneIOS: SKScene {
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.didSimulatePhysics() }
     }
-    
 }
 
 extension GameSceneIOS: SKPhysicsContactDelegate {
@@ -93,6 +102,17 @@ extension GameSceneIOS: SKPhysicsContactDelegate {
             let colisionGroup = contact.bodyA.node?.colisionGroup {
             contactableNodeB.contact(with: colisionGroup)
         }
+    }
+}
+
+extension GameSceneIOS: GameLogicDelegate {
+    func teleport(to newRoom: SKNode) {
+        children.forEach { node in
+            if node.colisionGroup != .player {
+                node.removeFromParent()
+            }
+        }
+       setupRoom(newRoom)
     }
 }
 
