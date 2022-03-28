@@ -25,7 +25,7 @@ extension CGVector {
         self.init(dx: dx, dy: dy)
     }
     
-    static func *(lhs: CGVector, rhs: CGFloat) -> CGVector {
+    static func * (lhs: CGVector, rhs: CGFloat) -> CGVector {
         
         var vector: CGVector = .zero
         
@@ -35,11 +35,11 @@ extension CGVector {
         return vector
     }
     
-    static func +(lhs: CGVector, rhs: CGVector) -> CGVector {
+    static func + (lhs: CGVector, rhs: CGVector) -> CGVector {
         return CGVector(dx: lhs.dx + rhs.dx, dy: lhs.dy + rhs.dy)
     }
     
-    static func -(lhs: CGVector, rhs: CGVector) -> CGVector {
+    static func - (lhs: CGVector, rhs: CGVector) -> CGVector {
         return CGVector(dx: lhs.dx - rhs.dx, dy: lhs.dy - rhs.dy)
     }
     
@@ -67,11 +67,10 @@ extension CGVector {
         var resp = atan(dy/dx)
         
         if dx < 0 {
-            resp = resp + (CGFloat.pi)
+            resp += CGFloat.pi
         }
         
         return resp
     }
     
-   
 }

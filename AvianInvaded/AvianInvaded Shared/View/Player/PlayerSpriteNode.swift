@@ -11,9 +11,9 @@ import SpriteKit
 class PlayerNode: SKNode, LifeCycleElement {
     
     private let logicController: PlayerLogicController
-    private let bodyNode: SKNode
-    private let bodySprite: SKSpriteNode
-    private let legsSprite: SKSpriteNode
+    let bodyNode: SKNode
+    let bodySprite: SKSpriteNode
+    let legsSprite: SKSpriteNode
     var projectileTexture: SKTexture
     
     lazy var idleBodyFrames: [SKTexture] = {
@@ -238,20 +238,6 @@ extension PlayerNode: PlayerLogicDelegate {
 
 extension PlayerNode: Contactable {
     func contact(with colisionGroup: ColisionGroup) {
-        switch colisionGroup {
-        case .environment:
-            return
-        case .player:
-            return
-        case .enemy:
-            //print("enemy")
-            return
-        case .playerProjectile:
-            return
-        case .enemyProjectile:
-            return
-        case .neutralProjectile:
-            return
-        }
+        
     }
 }

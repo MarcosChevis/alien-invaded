@@ -54,14 +54,13 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
     }
     
 }
-
+#warning("REFATORAR")
 extension ProjectileSpriteNode: Contactable {
     func contact(with colisionGroup: ColisionGroup) {
        
         var willHit = false
         
         switch colisionGroup {
-            
         case .environment:
             willHit = true
         case .player:
@@ -75,6 +74,8 @@ extension ProjectileSpriteNode: Contactable {
         case .playerProjectile:
             willHit = false
         case .enemyProjectile:
+            willHit = false
+        case .portal:
             willHit = false
         case .neutralProjectile:
             willHit = true
