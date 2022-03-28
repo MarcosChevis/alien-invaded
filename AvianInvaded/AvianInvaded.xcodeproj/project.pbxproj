@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B89F82427EB8809005026F7 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82327EB8809005026F7 /* Portal.swift */; };
+		5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82627EB8F4D005026F7 /* Decoration.swift */; };
+		5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
+		5BBA8BE927F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
+		5BBA8BEA27F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
+		5BC8AF5727ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
+		5BC8AF5827ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
+		5BC8AF5927ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
+		5BC8AF6527ED069300870B03 /* PortalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF6427ED069300870B03 /* PortalDelegate.swift */; };
+		5BC8AF6627ED069300870B03 /* PortalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF6427ED069300870B03 /* PortalDelegate.swift */; };
+		5BC8AF6727ED069300870B03 /* PortalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF6427ED069300870B03 /* PortalDelegate.swift */; };
+		5BC8AF6A27ED0A1100870B03 /* EnemyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */; };
+		5BC8AF6B27ED0A1100870B03 /* EnemyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */; };
+		5BC8AF6C27ED0A1100870B03 /* EnemyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */; };
+		5BC8AF6D27ED10DD00870B03 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82627EB8F4D005026F7 /* Decoration.swift */; };
+		5BC8AF6E27ED10DD00870B03 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82627EB8F4D005026F7 /* Decoration.swift */; };
+		5BC8AF6F27ED10EC00870B03 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82327EB8809005026F7 /* Portal.swift */; };
+		5BC8AF7027ED10ED00870B03 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82327EB8809005026F7 /* Portal.swift */; };
 		5BE729D427E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
 		5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
 		5BE729D627E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
@@ -40,6 +58,21 @@
 		5BE72A0427EA18DE003C5C48 /* Room+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */; };
 		5BE72A0527EA18DE003C5C48 /* Room+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */; };
 		5BE72A0627EA18DE003C5C48 /* Room+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */; };
+		5BE72A0827EA39FF003C5C48 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE72A0727EA39FF003C5C48 /* rooms.json */; };
+		5BE72A0927EA39FF003C5C48 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE72A0727EA39FF003C5C48 /* rooms.json */; };
+		5BE72A0A27EA39FF003C5C48 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE72A0727EA39FF003C5C48 /* rooms.json */; };
+		5BE72A0D27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */; };
+		5BE72A0E27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */; };
+		5BE72A0F27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */; };
+		5BE72A1127EA3EF2003C5C48 /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1027EA3EF2003C5C48 /* RoomService.swift */; };
+		5BE72A1227EA3EF2003C5C48 /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1027EA3EF2003C5C48 /* RoomService.swift */; };
+		5BE72A1327EA3EF2003C5C48 /* RoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1027EA3EF2003C5C48 /* RoomService.swift */; };
+		5BE72A1527EA4A01003C5C48 /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1427EA4A01003C5C48 /* RoomRepository.swift */; };
+		5BE72A1627EA4A01003C5C48 /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1427EA4A01003C5C48 /* RoomRepository.swift */; };
+		5BE72A1727EA4A01003C5C48 /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1427EA4A01003C5C48 /* RoomRepository.swift */; };
+		5BE72A1927EA54ED003C5C48 /* RoomDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1827EA54ED003C5C48 /* RoomDirection.swift */; };
+		5BE72A1A27EA54ED003C5C48 /* RoomDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1827EA54ED003C5C48 /* RoomDirection.swift */; };
+		5BE72A1B27EA54ED003C5C48 /* RoomDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE72A1827EA54ED003C5C48 /* RoomDirection.swift */; };
 		5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */; };
 		5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
 		5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE7DD927DF9FE500BB9998 /* Room.swift */; };
@@ -160,6 +193,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B89F82327EB8809005026F7 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
+		5B89F82627EB8F4D005026F7 /* Decoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoration.swift; sourceTree = "<group>"; };
+		5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+SKAtlas.swift"; sourceTree = "<group>"; };
+		5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Math.swift"; sourceTree = "<group>"; };
+		5BC8AF6427ED069300870B03 /* PortalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalDelegate.swift; sourceTree = "<group>"; };
+		5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyDelegate.swift; sourceTree = "<group>"; };
 		5BE729D327E4F235003C5C48 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		5BE729D727E52255003C5C48 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		5BE729DB27E522C7003C5C48 /* SKAction+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Utilities.swift"; sourceTree = "<group>"; };
@@ -171,6 +210,11 @@
 		5BE729FB27EA1527003C5C48 /* RoomDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDifficulty.swift; sourceTree = "<group>"; };
 		5BE729FF27EA180C003C5C48 /* Int+RandomList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+RandomList.swift"; sourceTree = "<group>"; };
 		5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+Utils.swift"; sourceTree = "<group>"; };
+		5BE72A0727EA39FF003C5C48 /* rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms.json; sourceTree = "<group>"; };
+		5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Utils.swift"; sourceTree = "<group>"; };
+		5BE72A1027EA3EF2003C5C48 /* RoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomService.swift; sourceTree = "<group>"; };
+		5BE72A1427EA4A01003C5C48 /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
+		5BE72A1827EA54ED003C5C48 /* RoomDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDirection.swift; sourceTree = "<group>"; };
 		5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBuilder.swift; sourceTree = "<group>"; };
 		5BFE7DD927DF9FE500BB9998 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		5BFE7DE027DFA1B700BB9998 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
@@ -250,6 +294,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B89F82227EB87FC005026F7 /* Decoration */ = {
+			isa = PBXGroup;
+			children = (
+				5B89F82327EB8809005026F7 /* Portal.swift */,
+			);
+			path = Decoration;
+			sourceTree = "<group>";
+		};
 		5BE729E827E904A4003C5C48 /* Spawner */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				5BFE7DD627DF9FC100BB9998 /* RoomBuilder.swift */,
+				5BE72A1027EA3EF2003C5C48 /* RoomService.swift */,
+				5BE72A1427EA4A01003C5C48 /* RoomRepository.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -288,6 +342,9 @@
 				5BFE7DD927DF9FE500BB9998 /* Room.swift */,
 				5BFE7DE027DFA1B700BB9998 /* Tile.swift */,
 				5BE729FB27EA1527003C5C48 /* RoomDifficulty.swift */,
+				5BE72A0727EA39FF003C5C48 /* rooms.json */,
+				5BE72A1827EA54ED003C5C48 /* RoomDirection.swift */,
+				5B89F82627EB8F4D005026F7 /* Decoration.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -295,6 +352,7 @@
 		BA04A3FB27D69281004E51EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B89F82227EB87FC005026F7 /* Decoration */,
 				D65B8A4227DBBA7700185928 /* Enemy  */,
 				BAE17D1F27DA8A2500E131F4 /* Projectile */,
 				BAE17D1327DA874B00E131F4 /* Player */,
@@ -376,6 +434,9 @@
 				5BE729DF27E8D70B003C5C48 /* NotificationName.swift */,
 				5BE729FF27EA180C003C5C48 /* Int+RandomList.swift */,
 				5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */,
+				5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */,
+				5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */,
+				5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,6 +551,8 @@
 			children = (
 				BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */,
 				BA088FAD27D2AB7A00CCB38D /* GameLogicController.swift */,
+				5BC8AF6427ED069300870B03 /* PortalDelegate.swift */,
+				5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -717,6 +780,7 @@
 			files = (
 				BADECBD427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				5BE72A0827EA39FF003C5C48 /* rooms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +790,7 @@
 			files = (
 				BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				5BE72A0927EA39FF003C5C48 /* rooms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +798,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE72A0A27EA39FF003C5C48 /* rooms.json in Resources */,
 				BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,19 +812,26 @@
 			files = (
 				BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				BA41406B27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
+				5BC8AF5727ECEF3F00870B03 /* CGPoint+Math.swift in Sources */,
 				5BE729D827E52255003C5C48 /* Contact.swift in Sources */,
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
+				5BE72A1927EA54ED003C5C48 /* RoomDirection.swift in Sources */,
 				5BE72A0027EA180C003C5C48 /* Int+RandomList.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BA73533C27ED101E0088A77B /* PlayerBodyNode.swift in Sources */,
 				5BE729EE27E904DA003C5C48 /* EnemyFactory.swift in Sources */,
 				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
+				5BE72A1527EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */,
+				5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
+				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */,
 				D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
+				5BE72A0D27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
+				5BC8AF6527ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				5BE729FC27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
@@ -782,14 +855,18 @@
 				BA088FA627D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D65B8A4927DBBC7800185928 /* ChickenLogicController.swift in Sources */,
+				5BC8AF6A27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				BA088FAA27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				5BE729F327E905C6003C5C48 /* Spawner.swift in Sources */,
 				BA73534027ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				BA088FA427D29A7000CCB38D /* InputControllerIOS.swift in Sources */,
 				5BE72A0427EA18DE003C5C48 /* Room+Utils.swift in Sources */,
+				5B89F82427EB8809005026F7 /* Portal.swift in Sources */,
+				5BE72A1127EA3EF2003C5C48 /* RoomService.swift in Sources */,
 				BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA04A40C27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
+				5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */,
 				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
@@ -801,15 +878,18 @@
 			files = (
 				BA088FB127D2AB8C00CCB38D /* GameLogicController.swift in Sources */,
 				BA73533927ED07ED0088A77B /* PlayerHudDelegate.swift in Sources */,
+				5BBA8BE927F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
 				D65B8A4527DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */,
 				5BE729EF27E904DA003C5C48 /* EnemyFactory.swift in Sources */,
 				BA088FA127D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BE72A0E27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5BE729F427E905C6003C5C48 /* Spawner.swift in Sources */,
 				BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
+				5BC8AF6627ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA088FAB27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				BA41406027E27A3B006872E8 /* Contactable.swift in Sources */,
 				BA382DC127E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
@@ -818,6 +898,7 @@
 				5BE729F927E90E48003C5C48 /* ChickenFactory.swift in Sources */,
 				BA73534127ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
+				5BC8AF6B27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				BA4C856727D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				BADECBDC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 				D65B8A4A27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
@@ -830,11 +911,14 @@
 				5BE72A0527EA18DE003C5C48 /* Room+Utils.swift in Sources */,
 				BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */,
 				BA41405C27E27A2D006872E8 /* GameSceneIOS.swift in Sources */,
+				5BC8AF5827ECEF3F00870B03 /* CGPoint+Math.swift in Sources */,
 				5BE729DD27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
 				5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA41406C27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
+				5BC8AF6F27ED10EC00870B03 /* Portal.swift in Sources */,
+				5BE72A1627EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
 				5BE729D927E52255003C5C48 /* Contact.swift in Sources */,
 				5BE72A0127EA180C003C5C48 /* Int+RandomList.swift in Sources */,
@@ -847,7 +931,10 @@
 				BA73533D27ED101E0088A77B /* PlayerBodyNode.swift in Sources */,
 				BA41406427E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				BAAAFF9427D6763300E14409 /* PlayerNode.swift in Sources */,
+				5BE72A1A27EA54ED003C5C48 /* RoomDirection.swift in Sources */,
+				5BE72A1227EA3EF2003C5C48 /* RoomService.swift in Sources */,
 				BA41405A27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
+				5BC8AF6D27ED10DD00870B03 /* Decoration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,21 +942,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC8AF6E27ED10DD00870B03 /* Decoration.swift in Sources */,
 				D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */,
+				5BC8AF6727ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA41406D27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BE729DA27E52255003C5C48 /* Contact.swift in Sources */,
 				BA41405B27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
+				5BE72A1B27EA54ED003C5C48 /* RoomDirection.swift in Sources */,
 				5BE72A0227EA180C003C5C48 /* Int+RandomList.swift in Sources */,
+				5BC8AF5927ECEF3F00870B03 /* CGPoint+Math.swift in Sources */,
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
 				BA73533E27ED101E0088A77B /* PlayerBodyNode.swift in Sources */,
+				5BC8AF6C27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				5BE729F027E904DA003C5C48 /* EnemyFactory.swift in Sources */,
+				5BBA8BEA27F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
+				5BE72A1727EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
 				5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */,
 				BA382DC227E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				BAAAFF9527D6763300E14409 /* PlayerNode.swift in Sources */,
 				BA41406127E27A3B006872E8 /* Contactable.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
+				5BE72A0F27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BAE17D2827DA8B5A00E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				5BE729FE27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
@@ -898,6 +993,8 @@
 				BA73534227ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				D65B8A4627DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				5BE72A0627EA18DE003C5C48 /* Room+Utils.swift in Sources */,
+				5BC8AF7027ED10ED00870B03 /* Portal.swift in Sources */,
+				5BE72A1327EA3EF2003C5C48 /* RoomService.swift in Sources */,
 				BA088FAC27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				D65B8A4B27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BA04A40E27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
@@ -1046,7 +1143,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1077,7 +1174,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1109,7 +1206,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -1135,7 +1232,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;

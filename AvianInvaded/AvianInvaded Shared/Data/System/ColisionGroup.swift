@@ -14,6 +14,7 @@ enum ColisionGroup: String {
     case playerProjectile = "playerProjectile"
     case enemyProjectile = "enemyProjectile"
     case neutralProjectile = "neutralProjectile"
+    case portal = "portal"
     
     
     
@@ -36,6 +37,8 @@ enum ColisionGroup: String {
                 return 0b0
             case .neutralProjectile:
                 return 0b0
+            case .portal:
+                return 0b0
             case .none:
                 return 0b0
         }
@@ -51,7 +54,8 @@ enum ColisionGroup: String {
             case .player:
                 return (  getCategotyMask(.neutralProjectile)
                         | getCategotyMask(.enemy)
-                        | getCategotyMask(.enemyProjectile))
+                        | getCategotyMask(.enemyProjectile)
+                        | getCategotyMask(.portal))
             case .enemy:
                 return (  getCategotyMask(.neutralProjectile)
                         | getCategotyMask(.player)
@@ -66,6 +70,8 @@ enum ColisionGroup: String {
                 return (  getCategotyMask(.environment)
                         | getCategotyMask(.player)
                         | getCategotyMask(.enemy))
+            case .portal:
+                return (getCategotyMask(.player))
             case .none:
                 return 0b0
         }
@@ -87,6 +93,8 @@ enum ColisionGroup: String {
                 return (1 << 5)
             case .neutralProjectile:
                 return (1 << 6)
+            case .portal:
+                return (1 << 7)
             case .none:
                 return 0b0
         }

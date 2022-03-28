@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let window = UIWindow(frame: UIScreen.main.bounds)
         let sceneSize = CGSize(width: 1080, height: 810)
-        let gameLogicController = GameLogicController(roomBuilder: RoomBuilder(sceneSize: sceneSize))
+        let roomService = RoomService(builder: RoomBuilder(sceneSize: sceneSize),
+                                      roomRepository: RoomRepository(),
+                                      currentRoomDifficulty: .standard)
+        let gameLogicController = GameLogicController(roomService: roomService)
         window.rootViewController = GameViewControllerTvOS(gameLogicController: gameLogicController, size: sceneSize)
         window.makeKeyAndVisible()
         self.window = window

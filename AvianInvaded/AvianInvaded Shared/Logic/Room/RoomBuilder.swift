@@ -17,12 +17,12 @@ final class RoomBuilder {
     
     /**
      Receive a loaded Room Structure and transform into SpriteKit Nodes
-        - Parameters:
-            - room: A room data structure containing tile size, position and colision
-        - Returns:
-            A SK node containing all the configured and positioned SKSpriteNodes
+     - Parameters:
+     - room: A room data structure containing tile size, position and colision
+     - Returns:
+     A SKNode containing all the configured and positioned SKSpriteNodes
      */
-    func build(room: Room) -> SKNode {
+    func build(room: Room, availableDirections: [RoomDirection], portalDelegate: PortalDelegate?) -> SKNode {
         let node = SKNode()
         let spriteSize = scaleToScreen(sceneWidth: sceneSize.width,
                                        imageSize: CGSize(width: room.tileSize,
@@ -38,6 +38,19 @@ final class RoomBuilder {
                     return sprite
                 }
             }
+        buildDecorations(for: room.decoration,
+                         tileSize: spriteSize,
+                         gridSize: CGSize(width: room.tiles[0].count, height: room.tiles.count),
+                         spriteSize: spriteSize,
+                         availableDirections: availableDirections,
+                         portalDelegate: portalDelegate
+        )
+        .forEach { sprite in
+            node.addChild(sprite)
+            sprite.zPosition = 3
+        }
+        
+        node.colisionGroup = .environment
         positionTiles(tiles, tileSize: spriteSize)
         setupTilesPhysics(for: tiles, colisionMatrix: room.colision)
         cashedTiles = [:]
@@ -77,6 +90,42 @@ final class RoomBuilder {
         }
     }
     
+    private func buildDecorations(for decorations: [DecorationInfo],
+                                  tileSize: CGSize,
+                                  gridSize: CGSize,
+                                  spriteSize: CGSize,
+                                  availableDirections: [RoomDirection],
+                                  portalDelegate: PortalDelegate?
+    ) -> [SKNode] {
+        decorations.compactMap { decorationInfo in
+            let position = CGPoint(x: (CGFloat(decorationInfo.position.x) * tileSize.width),
+                                   y: ((gridSize.height - CGFloat(decorationInfo.position.y))
+                                       * tileSize.height))
+            
+            let node = buildDecoration(decoration: decorationInfo.decoration,
+                                       spriteSize: spriteSize,
+                                       availableDirections: availableDirections,
+                                       portalDelegate: portalDelegate)
+            
+            node?.position = position
+            return node
+        }
+    }
+    
+    private func buildDecoration(decoration: Decoration,
+                                 spriteSize: CGSize,
+                                 availableDirections: [RoomDirection],
+                                 portalDelegate: PortalDelegate?
+    ) -> SKNode? {
+        switch decoration {
+        case .portal(let direction):
+            guard availableDirections.contains(direction) else { return nil }
+            let portal = Portal(direction: direction, spriteSize: spriteSize)
+            portal.delegate = portalDelegate
+            return portal
+        }
+    }
+    
     private func setupTilePhysics(for tile: SKSpriteNode) {
         
         let physicsBody = SKPhysicsBody(rectangleOf: tile.size, center: CGPoint(x: tile.size.width/2, y: -tile.size.height/2))
@@ -92,12 +141,11 @@ final class RoomBuilder {
         physicsBody.categoryBitMask = ColisionGroup.getCategotyMask( tile.colisionGroup)
     }
     
-    private func scaleToScreen(sceneWidth: CGFloat, imageSize: CGSize) -> CGSize {
+    func scaleToScreen(sceneWidth: CGFloat, imageSize: CGSize) -> CGSize {
         let scale = 0.08
         let w = sceneWidth * scale
         let h = w * imageSize.height / imageSize.width
         let size = CGSize(width: w, height: h)
-        
         
         return size
     }

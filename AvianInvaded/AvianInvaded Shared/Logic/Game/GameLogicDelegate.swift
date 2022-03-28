@@ -9,5 +9,5 @@ import Foundation
 import SpriteKit
 
 protocol GameLogicDelegate: AnyObject {
-
+    func teleport(to newRoom: SKNode)
 }

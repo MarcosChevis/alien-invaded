@@ -14,6 +14,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     private let logicController: ChickenLogicController
     private let bodySprite: SKSpriteNode
     var projectileTexture: SKTexture
+    weak var delegate: EnemyDelegate?
     
     required init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter) {
         logicController = ChickenLogicController()
@@ -41,6 +42,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     func tearDown() {
+        delegate?.enemyWasDefeatead()
         removeFromParent()
     }
     
@@ -126,21 +128,11 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     func contact(with colisionGroup: ColisionGroup) {
-        switch colisionGroup {
-        case .environment:
-            return
-        case .player:
-            //print("Player")
-            return
-        case .enemy:
-            return
-        case .playerProjectile:
-            takeDamage()
-            //print("Projectile Hit")
-        case .enemyProjectile:
-            return
-        case .neutralProjectile:
-            return
+        if colisionGroup == .playerProjectile {
+            pulseRed()
+            let isDead = logicController.receiveDamage()
+            
+            if isDead { tearDown() }
         }
     }
 }

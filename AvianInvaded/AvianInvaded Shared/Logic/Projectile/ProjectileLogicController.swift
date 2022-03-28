@@ -11,8 +11,4 @@ import SpriteKit
 
 class ProjectileLogicController: NSObject {
     
-    
-    
 }
-
-
