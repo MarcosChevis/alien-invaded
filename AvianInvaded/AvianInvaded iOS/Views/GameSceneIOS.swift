@@ -24,9 +24,9 @@ class GameSceneIOS: SKScene {
         super.init(size: size)
         
         self.scaleMode = .aspectFill
-        //let initialRoom = gameLogicController.buildNewRoom()
+        let initialRoom = gameLogicController.buildNewRoom()
         self.camera = gameCamera
-        self.addChildren([self.playerNode, playerHudNode])
+        self.addChildren([self.playerNode, playerHudNode, initialRoom])
         self.moveNodeToCenter(playerNode, size: size)
         self.physicsWorld.contactDelegate = self
     }

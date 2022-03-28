@@ -11,4 +11,5 @@ import CoreGraphics
 protocol PlayerHudDelegate: AnyObject {
     func updateHealth(_ percentOfMaxHealth: CGFloat)
     func updateExperience(_ percentOfMaxExperience: CGFloat)
+    func updateUpgradeLabel(upgrades: [PlayerUpgrade:Float])
 }

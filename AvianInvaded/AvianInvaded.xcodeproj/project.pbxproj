@@ -119,6 +119,9 @@
 		BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerNode.swift */; };
 		BAAAFF9427D6763300E14409 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerNode.swift */; };
 		BAAAFF9527D6763300E14409 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerNode.swift */; };
+		BAAC082E27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
+		BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
+		BAAC083027F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
 		BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
@@ -195,6 +198,8 @@
 		BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBodyNode.swift; sourceTree = "<group>"; };
 		BA73533F27ED10BF0088A77B /* BodyNodeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyNodeDelegate.swift; sourceTree = "<group>"; };
 		BAAAFF9227D6763300E14409 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUpgrade.swift; sourceTree = "<group>"; };
+		BAAC083227F228D900C9C676 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
 		BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstantsEnum.swift; sourceTree = "<group>"; };
 		BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControllerTvOS.swift; sourceTree = "<group>"; };
 		BAD0DAF727E10D70005A21B3 /* GameSceneTvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTvOS.swift; sourceTree = "<group>"; };
@@ -379,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				BA4C856527D7F479000EBEB2 /* PlayerData.swift */,
+				BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -392,6 +398,14 @@
 				5BE729ED27E904DA003C5C48 /* EnemyFactory.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BAAC083127F228C300C9C676 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BAAC083227F228D900C9C676 /* munro.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		BAD0DAF427E10B8F005A21B3 /* Views */ = {
@@ -422,6 +436,7 @@
 				BA04A3FC27D692E9004E51EA /* Logic */,
 				BA04A3FB27D69281004E51EA /* View */,
 				BA088FB727D2AFC800CCB38D /* Extensions */,
+				BAAC083127F228C300C9C676 /* fonts */,
 				BADECBC327D14CE600EFD009 /* Assets.xcassets */,
 			);
 			path = "AvianInvaded Shared";
@@ -748,6 +763,7 @@
 				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				5BE729FC27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
 				BAE17D2127DA8A5100E131F4 /* ProjectileSpriteNode.swift in Sources */,
+				BAAC082E27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
 				BA73533427ECFD750088A77B /* PlayerHudNode.swift in Sources */,
 				BA73533827ED07ED0088A77B /* PlayerHudDelegate.swift in Sources */,
 				5BE729D427E4F235003C5C48 /* Enemy.swift in Sources */,
@@ -792,6 +808,7 @@
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5BE729F427E905C6003C5C48 /* Spawner.swift in Sources */,
+				BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA088FAB27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				BA41406027E27A3B006872E8 /* Contactable.swift in Sources */,
@@ -857,6 +874,7 @@
 				BAE17D2827DA8B5A00E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				5BE729FE27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
 				BAE17D2627DA8AF100E131F4 /* TeamEnum.swift in Sources */,
+				BAAC083027F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
 				BA73533627ECFD750088A77B /* PlayerHudNode.swift in Sources */,
 				BA73533A27ED07ED0088A77B /* PlayerHudDelegate.swift in Sources */,
 				5BE729D627E4F235003C5C48 /* Enemy.swift in Sources */,
