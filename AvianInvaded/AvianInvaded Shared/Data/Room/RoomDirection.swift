@@ -25,6 +25,19 @@ enum RoomDirection: String, CaseIterable, Codable {
         }
     }
     
+    var angle: Double {
+        switch self {
+        case .top:
+            return 0
+        case .left:
+            return .pi/2
+        case .right:
+            return .pi * 1.5
+        case .bottom:
+            return .pi
+        }
+    }
+    
     static func getRandomPoint() -> CGPoint {
         return (RoomDirection.allCases.randomElement() ?? .top).point
     }

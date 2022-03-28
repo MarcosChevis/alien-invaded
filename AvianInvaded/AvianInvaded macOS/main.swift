@@ -17,4 +17,3 @@ let app: NSApplication =  {
 }()
 
 _ = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)
-

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5B89F82427EB8809005026F7 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82327EB8809005026F7 /* Portal.swift */; };
 		5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82627EB8F4D005026F7 /* Decoration.swift */; };
+		5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
+		5BBA8BE927F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
+		5BBA8BEA27F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
 		5BC8AF5727ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
 		5BC8AF5827ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
 		5BC8AF5927ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
@@ -177,6 +180,7 @@
 /* Begin PBXFileReference section */
 		5B89F82327EB8809005026F7 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
 		5B89F82627EB8F4D005026F7 /* Decoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoration.swift; sourceTree = "<group>"; };
+		5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+SKAtlas.swift"; sourceTree = "<group>"; };
 		5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Math.swift"; sourceTree = "<group>"; };
 		5BC8AF6427ED069300870B03 /* PortalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalDelegate.swift; sourceTree = "<group>"; };
 		5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyDelegate.swift; sourceTree = "<group>"; };
@@ -411,6 +415,7 @@
 				5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */,
 				5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */,
 				5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */,
+				5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				5BFE7DE527DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				5BE72A1527EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
+				5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerSpriteNode.swift in Sources */,
 				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
@@ -830,6 +836,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA088FB127D2AB8C00CCB38D /* GameLogicController.swift in Sources */,
+				5BBA8BE927F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
 				D65B8A4527DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */,
 				5BE729EF27E904DA003C5C48 /* EnemyFactory.swift in Sources */,
@@ -901,6 +908,7 @@
 				BA088FB227D2AB8D00CCB38D /* GameLogicController.swift in Sources */,
 				5BC8AF6C27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				5BE729F027E904DA003C5C48 /* EnemyFactory.swift in Sources */,
+				5BBA8BEA27F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BE72A1727EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
@@ -1147,7 +1155,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -1173,7 +1181,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;

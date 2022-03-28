@@ -20,7 +20,7 @@ final class RoomBuilder {
      - Parameters:
      - room: A room data structure containing tile size, position and colision
      - Returns:
-     A SK node containing all the configured and positioned SKSpriteNodes
+     A SKNode containing all the configured and positioned SKSpriteNodes
      */
     func build(room: Room, availableDirections: [RoomDirection], portalDelegate: PortalDelegate?) -> SKNode {
         let node = SKNode()
@@ -99,7 +99,8 @@ final class RoomBuilder {
     ) -> [SKNode] {
         decorations.compactMap { decorationInfo in
             let position = CGPoint(x: (CGFloat(decorationInfo.position.x) * tileSize.width),
-                                   y: ((gridSize.height - CGFloat(decorationInfo.position.y)) * tileSize.height))
+                                   y: ((gridSize.height - CGFloat(decorationInfo.position.y))
+                                       * tileSize.height))
             
             let node = buildDecoration(decoration: decorationInfo.decoration,
                                        spriteSize: spriteSize,

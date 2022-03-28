@@ -121,19 +121,30 @@ final class RoomRepository {
         return filteredRooms.randomElement() ?? availableRooms[0]
     }
     
-    private func getRandomDirection(currentPosition: CGPoint, totalRooms: Int, lastDirection: RoomDirection, possibleDirections: [RoomDirection]) -> RoomDirection {
+    private func getRandomDirection(currentPosition: CGPoint,
+                                    totalRooms: Int,
+                                    lastDirection: RoomDirection,
+                                    possibleDirections: [RoomDirection]) -> RoomDirection {
         var direction = possibleDirections.randomElement() ?? possibleDirections[0]
         
-        while isDirectionInValid(currentPosition: currentPosition, totalRooms: totalRooms, lastDirection: lastDirection.point, direction: direction.point) {
+        while isDirectionInValid(currentPosition: currentPosition,
+                                 totalRooms: totalRooms,
+                                 lastDirection: lastDirection.point,
+                                 direction: direction.point) {
             direction = possibleDirections.randomElement() ?? possibleDirections[0]
         }
         
         return direction
     }
     
-    private func isDirectionInValid(currentPosition: CGPoint, totalRooms: Int, lastDirection: CGPoint, direction: CGPoint) -> Bool {
-        let isRoomXAxisOutOfBounds = currentPosition.intX + direction.intX >= totalRooms || currentPosition.intX + direction.intX < 0
-        let isRoomYAxisOutOfBounds = currentPosition.intY + direction.intY >= totalRooms || currentPosition.intY + direction.intY < 0
+    private func isDirectionInValid(currentPosition: CGPoint,
+                                    totalRooms: Int,
+                                    lastDirection: CGPoint,
+                                    direction: CGPoint) -> Bool {
+        let isRoomXAxisOutOfBounds = currentPosition.intX + direction.intX >= totalRooms
+        || currentPosition.intX + direction.intX < 0
+        let isRoomYAxisOutOfBounds = currentPosition.intY + direction.intY >= totalRooms
+        || currentPosition.intY + direction.intY < 0
         let isDirectionInvertOfPrevious = direction == lastDirection * -1
         
         return isRoomXAxisOutOfBounds || isRoomYAxisOutOfBounds || isDirectionInvertOfPrevious

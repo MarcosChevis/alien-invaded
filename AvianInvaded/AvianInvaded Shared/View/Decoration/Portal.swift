@@ -13,10 +13,14 @@ final class Portal: SKNode {
     private var cancellables: Set<AnyCancellable>
     private var isActive: Bool
     
+    private lazy var portalTexture: [SKTexture] = {
+        SKTexture.loadCyclicalFromAtlas(named: "Portal")
+    }()
+    
     weak var delegate: PortalDelegate?
     
     init(direction: RoomDirection, spriteSize: CGSize) {
-        let texture = SKTexture(imageNamed: "Portal")
+        let texture = SKTexture(imageNamed: "Portal_5")
         self.sprite = SKSpriteNode(texture: texture, color: .clear, size: spriteSize)
         self.isActive = false
         self.direction = direction
@@ -36,10 +40,13 @@ final class Portal: SKNode {
         addChild(sprite)
         sprite.position = CGPoint(x: sprite.position.x - spriteSize.width/2,
                                   y: sprite.position.y - spriteSize.height/2)
+        
+        let action = SKAction.rotate(byAngle: direction.angle, duration: 0)
+        sprite.run(action)
     }
     
     private func setupColision(spriteSize: CGSize) {
-        physicsBody = SKPhysicsBody(rectangleOf: spriteSize, center: sprite.position)
+        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 10), center: sprite.position)
         physicsBody?.affectedByGravity = false
         physicsBody?.isDynamic = false
         colisionGroup = .portal
@@ -52,8 +59,22 @@ final class Portal: SKNode {
         NotificationCenter
             .default
             .publisher(for: .shouldActivatePortals)
-            .sink { [weak self] _ in self?.isActive = true }
+            .sink(receiveValue: shouldActivatePortal)
             .store(in: &cancellables)
+    }
+    
+    private func shouldActivatePortal(_ notification: Notification) {
+        isActive = true
+        runActivePortalAnimation()
+    }
+    
+    private func runActivePortalAnimation() {
+        let timePerFrame: TimeInterval = 1.5/Double(portalTexture.count)
+        let action = SKAction.repeatForever(SKAction.animate(with: portalTexture,
+                                                             timePerFrame: timePerFrame,
+                                                             resize: false,
+                                                             restore: true))
+        sprite.run(action)
     }
 }
 
