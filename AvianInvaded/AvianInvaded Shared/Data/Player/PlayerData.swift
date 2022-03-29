@@ -20,7 +20,7 @@ struct PlayerData {
     private(set) var shotCadence: CGFloat = 0.5
     // size compared to size of the player sprite
     private(set) var projectileSize: CGFloat = 0.1
-    private(set) var projectileDamage: CGFloat = 1
+    private(set) var projectileDamage: CGFloat = 5
     
     // others
     private (set) var scale: CGFloat = 0.14

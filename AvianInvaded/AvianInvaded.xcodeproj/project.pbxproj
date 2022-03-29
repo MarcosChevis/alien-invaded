@@ -847,7 +847,6 @@
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */,
 				5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
-				BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */,
 				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */,

@@ -47,7 +47,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         super.init()
         
-        self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
+        self.lightNode.ambientColor = .init(white: 0.1, alpha: 1)
         self.lightNode.lightColor = .init(white: 0.7, alpha: 0.8)
         self.lightNode.falloff = 0.5
         
