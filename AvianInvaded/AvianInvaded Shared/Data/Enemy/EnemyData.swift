@@ -22,7 +22,9 @@ struct EnemyData {
     private(set) var shootCadence: CGFloat = 0.8
     private(set) var shootingMagnitude: CGFloat = 2000
     private(set) var maxHealth: CGFloat = 10
-    var currentHealth: CGFloat = 1
+    var currentHealth: CGFloat = 10
+    private(set) var projectileDamage: CGFloat = 1
+
     
     mutating func resetFrictionMultiplier() {
         frictionMultiplier = 10
@@ -72,6 +74,10 @@ struct EnemyData {
         currentHealth = 1
     }
     
+    mutating func resetProjectileDemage() {
+        projectileDamage = 1
+    }
+    
     mutating func resetAll() {
         resetFrictionMultiplier()
         resetMass()
@@ -85,6 +91,7 @@ struct EnemyData {
         resetShootingMagnitude()
         resetMaxHealth()
         resetCurrentHealth()
+        resetProjectileDemage()
     }
     
     mutating func upgradeAcceleration(multiplier: CGFloat) {
@@ -115,5 +122,10 @@ struct EnemyData {
     mutating func upgradeCurrentHealth(multiplier: CGFloat) {
         let increase: CGFloat = 0.2
         currentHealth += (increase * multiplier)
+    }
+    
+    mutating func upgradeProjectileDamage(multiplier: CGFloat) {
+        let increase: CGFloat = 0.5
+        projectileDamage += (increase * multiplier)
     }
 }

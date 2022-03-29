@@ -8,6 +8,15 @@
 import Foundation
 import SpriteKit
 
-protocol Contactable {
-    func contact(with colisionGroup: ColisionGroup)
+protocol Contactable: AnyObject {
+    var damage: CGFloat? { get }
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?)
+}
+
+extension Contactable {
+    var damage: CGFloat? {
+        get {
+            return nil
+        }
+    }
 }

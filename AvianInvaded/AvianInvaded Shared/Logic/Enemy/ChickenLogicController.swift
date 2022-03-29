@@ -83,8 +83,8 @@ class ChickenLogicController {
         return shootingForce
     }
     
-    func receiveDamage() -> Bool {
-        data.currentHealth -= 1
+    func receiveDamage(_ amount: CGFloat) -> Bool {
+        data.currentHealth -= amount
         
         if data.currentHealth <= 0 {
             return true

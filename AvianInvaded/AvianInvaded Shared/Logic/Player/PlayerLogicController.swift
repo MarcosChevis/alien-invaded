@@ -11,7 +11,10 @@ import CoreGraphics
 import SpriteKit
 
 class PlayerLogicController: LifeCycleElement {
+    
     weak var delegate: PlayerLogicDelegate?
+    weak var hudDelegate: PlayerHudDelegate?
+    
     var inputController: InputControllerProtocol
     var data: PlayerData
     
@@ -57,6 +60,50 @@ class PlayerLogicController: LifeCycleElement {
     func sendPlayerDidMove(newPosition: CGPoint) {
         notificationCenter.post(name: .playerDidMove, object: newPosition)
     }
+    
+    func loseHealth(_ amount: CGFloat) {
+        data.currentHealth -= amount
+        hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
+    }
+    
+    func gainHealth(_ amount: CGFloat) {
+        data.currentHealth += amount
+        hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
+    }
+    
+    func gainXp() {
+        data.currentXp += 0.1
+        hudDelegate?.updateExperience(data.currentXp)
+        if data.currentXp >= 1 {
+            upgrade()
+            data.currentXp = 0
+            hudDelegate?.updateExperience(data.currentXp)
+        }
+    }
+    
+    func loseXp() {
+        data.currentXp -= 0.1
+        hudDelegate?.updateExperience(data.currentXp)
+    }
+    
+    func upgrade() {
+        guard let type = PlayerUpgrade.allCases.randomElement() else { return }
+        
+        switch type {  
+            case .acceleration:
+                data.upgradeAcceleration(multiplier: 1)
+            case .maxSpeed:
+                data.upgradeMaxSpeed(multiplier: 1)
+            case .shotSpeed:
+                data.upgradeShotSpeed(multiplier: 1)
+            case .rateOfFire:
+                data.upgradeShotCadence(multiplier: 1)
+            case .shotSize:
+                data.upgradeShotSize(multiplier: 1)
+            case .maxHealth:
+                data.upgradeMaxHealth(multiplier: 1)
+        }
+    }
 }
 
 extension PlayerLogicController: InputDelegate {
@@ -83,7 +130,6 @@ extension PlayerLogicController: InputDelegate {
         let newAngle = angle - CGFloat.pi/2
         delegate?.rotateLegs(to: newAngle)
     }
-    #warning("UPDATE PLAYER DATA")
     
     func shoot(_ currentTime: TimeInterval) {
         

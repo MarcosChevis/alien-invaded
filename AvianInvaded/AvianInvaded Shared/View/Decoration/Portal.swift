@@ -12,6 +12,7 @@ final class Portal: SKNode {
     private let direction: RoomDirection
     private var cancellables: Set<AnyCancellable>
     private var isActive: Bool
+    private var lightNode: SKLightNode = .init()
     
     private lazy var portalTexture: [SKTexture] = {
         SKTexture.loadCyclicalFromAtlas(named: "Portal")
@@ -30,6 +31,17 @@ final class Portal: SKNode {
         setupSpriteOnScene(spriteSize: spriteSize)
         setupColision(spriteSize: spriteSize)
         setupBindings()
+        
+        self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
+        self.lightNode.lightColor = .cyan.withAlphaComponent(0.2)
+        self.lightNode.falloff = 0.5
+        self.lightNode.zPosition = 10
+        
+        lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
+        lightNode.zPosition = 3
+        lightNode.position = CGPoint(x: -spriteSize.width/2, y: -spriteSize.width/2)
+        
+        self.addChild(lightNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,6 +65,9 @@ final class Portal: SKNode {
         physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(colisionGroup)
         physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask(colisionGroup)
         physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(colisionGroup)
+        self.sprite.lightingBitMask = ColisionGroup.getLightMask(colisionGroup)
+        
+
     }
     
     private func setupBindings() {
@@ -79,7 +94,7 @@ final class Portal: SKNode {
 }
 
 extension Portal: Contactable {
-    func contact(with colisionGroup: ColisionGroup) {
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
         if isActive {
             delegate?.teleport(to: direction)
             isActive = false

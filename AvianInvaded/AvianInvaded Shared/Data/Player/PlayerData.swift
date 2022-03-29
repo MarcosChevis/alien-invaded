@@ -19,7 +19,8 @@ struct PlayerData {
     private(set) var shootMagnitude: CGFloat = 5000
     private(set) var shotCadence: CGFloat = 0.5
     // size compared to size of the player sprite
-    private(set) var projectileSize = 0.1
+    private(set) var projectileSize: CGFloat = 0.1
+    private(set) var projectileDamage: CGFloat = 1
     
     // others
     private (set) var scale: CGFloat = 0.14
@@ -30,6 +31,8 @@ struct PlayerData {
     var idleTime: CGFloat = 1
     var walkingTime: CGFloat = 0.4
     var velocity: CGVector = .zero
+    
+    var currentXp: CGFloat = 0.0
     
     private(set) var maxHealth: CGFloat = 10
     var currentHealth: CGFloat = 10
@@ -74,6 +77,10 @@ struct PlayerData {
         scale = 0.14
     }
     
+    mutating func resetProjectileDemage() {
+        projectileDamage = 1
+    }
+    
     mutating func resetAll() {
         resetFrictionMultiplier()
         resetMoveMultiplier()
@@ -85,6 +92,7 @@ struct PlayerData {
         resetMaxHealth()
         resetCurrentHealth()
         resetScale()
+        resetProjectileDemage()
     }
     
     mutating func upgradeAcceleration(multiplier: CGFloat) {
@@ -126,4 +134,11 @@ struct PlayerData {
         let increase: CGFloat = 1
         currentHealth += (increase * multiplier)
     }
+    
+    mutating func upgradeProjectileDamage(multiplier: CGFloat) {
+        let increase: CGFloat = 0.5
+        projectileDamage += (increase * multiplier)
+    }
 }
+
+
