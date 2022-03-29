@@ -20,7 +20,7 @@ extension CGSize {
         return size
     }
     
-    static func /(lhs: CGSize, rhs: CGFloat) -> CGSize {
+    static func / (lhs: CGSize, rhs: CGFloat) -> CGSize {
         
         var size: CGSize = .zero
         

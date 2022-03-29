@@ -140,5 +140,3 @@ struct PlayerData {
         projectileDamage += (increase * multiplier)
     }
 }
-
-

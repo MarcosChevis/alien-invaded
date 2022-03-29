@@ -67,7 +67,6 @@ final class Portal: SKNode {
         physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(colisionGroup)
         self.sprite.lightingBitMask = ColisionGroup.getLightMask(colisionGroup)
         
-
     }
     
     private func setupBindings() {

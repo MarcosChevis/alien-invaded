@@ -47,7 +47,6 @@ class PlayerHudNode: SKNode {
         
         upgradeLabel = .init(text: "")
         
-        
         super.init()
         
         self.zPosition = 10
@@ -94,7 +93,7 @@ extension PlayerHudNode: PlayerHudDelegate {
         }
     }
     
-    func updateUpgradeLabel(upgrades: [PlayerUpgrade:Float]) {
+    func updateUpgradeLabel(upgrades: [PlayerUpgrade: Float]) {
         var string: String = ""
         for upgrade in upgrades {
             var i: Float = 0

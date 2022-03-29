@@ -112,7 +112,11 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         
         let size = CGSize(width: w, height: h)
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team:.avian, position: projectilePositionInSceneSpace, damage: logicController.data.projectileDamage)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture,
+                                              size: size,
+                                              team: .avian,
+                                              position: projectilePositionInSceneSpace,
+                                              damage: logicController.data.projectileDamage)
         
         self.scene?.addChild(projectile)
         

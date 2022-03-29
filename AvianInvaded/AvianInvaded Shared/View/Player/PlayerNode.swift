@@ -45,8 +45,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         let projectileImage = UIImage(named: "Player_Projectile")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
-        
-        
         super.init()
         
         self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
@@ -63,7 +61,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
         lightNode.zPosition = 3
 
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -190,7 +187,9 @@ class PlayerNode: SKNode, LifeCycleElement {
 
         self.legsSprite.lightingBitMask = ColisionGroup.getLightMask(self.colisionGroup)
 
-        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
+        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!,
+                                                    bodyB: body,
+                                                    anchor: convert(self.bodyNode.position, to: scene!))
 
         scene?.physicsWorld.add(pinMotherBody)
     }
@@ -246,7 +245,11 @@ extension PlayerNode: PlayerLogicDelegate {
         
         let size = CGSize(width: w, height: h)
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace, damage: logicController.data.projectileDamage)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture,
+                                              size: size,
+                                              team: .player,
+                                              position: projectilePositionInSceneSpace,
+                                              damage: logicController.data.projectileDamage)
         
         self.scene?.addChild(projectile)
         projectile.physicsBody?.applyForce(force)

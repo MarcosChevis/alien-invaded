@@ -25,7 +25,6 @@ struct EnemyData {
     var currentHealth: CGFloat = 10
     private(set) var projectileDamage: CGFloat = 1
 
-    
     mutating func resetFrictionMultiplier() {
         frictionMultiplier = 10
     }
