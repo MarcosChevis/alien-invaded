@@ -84,29 +84,7 @@ enum ColisionGroup: String {
     }
     
     static func getLightMask(_ colisionGroup: ColisionGroup?) -> UInt32 {
-        
         return getCategotyMask(.light) | getCategotyMask(.portal)
-        switch colisionGroup {
-            
-        case .environment:
-            return getCategotyMask(.light) | getCategotyMask(.portal)
-        case .player:
-            return getCategotyMask(.light) | getCategotyMask(.portal)
-        case .enemy:
-            return getCategotyMask(.light) | getCategotyMask(.portal)
-        case .playerProjectile:
-            return getCategotyMask(.light)
-        case .enemyProjectile:
-            return getCategotyMask(.light)
-        case .neutralProjectile:
-            return getCategotyMask(.light)
-        case .portal:
-            return getCategotyMask(.light)
-        case .light:
-            return getCategotyMask(.light)
-        case .none:
-            return getCategotyMask(.light)
-        }
     }
     
     static func getCategotyMask(_ colisionGroup: ColisionGroup?) -> UInt32 {

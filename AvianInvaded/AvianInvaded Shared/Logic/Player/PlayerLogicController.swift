@@ -58,13 +58,13 @@ class PlayerLogicController: LifeCycleElement {
         notificationCenter.post(name: .playerDidMove, object: newPosition)
     }
     
-    func loseHealth() {
-        data.currentHealth -= 1
+    func loseHealth(_ amount: CGFloat) {
+        data.currentHealth -= amount
         hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
     }
     
-    func gainHealth() {
-        data.currentHealth += 1
+    func gainHealth(_ amount: CGFloat) {
+        data.currentHealth += amount
         hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
     }
     

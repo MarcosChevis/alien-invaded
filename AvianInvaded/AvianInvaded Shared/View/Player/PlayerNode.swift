@@ -245,7 +245,7 @@ extension PlayerNode: PlayerLogicDelegate {
         
         let size = CGSize(width: w, height: h)
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace, damage: logicController.data.projectileDamage)
         
         self.scene?.addChild(projectile)
         projectile.physicsBody?.applyForce(force)
@@ -253,7 +253,8 @@ extension PlayerNode: PlayerLogicDelegate {
 }
 
 extension PlayerNode: Contactable {
-    func contact(with colisionGroup: ColisionGroup) {
+    
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
         switch colisionGroup {
         case .environment:
             return
@@ -264,7 +265,7 @@ extension PlayerNode: Contactable {
         case .playerProjectile:
             return
         case .enemyProjectile:
-            logicController.loseHealth()
+            logicController.loseHealth(damage ?? 0)
         case .neutralProjectile:
             return
         case .portal:

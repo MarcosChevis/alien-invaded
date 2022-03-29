@@ -10,7 +10,11 @@ import SpriteKit
 
 class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
     
-    init(texture: SKTexture?, size: CGSize, team: Team, position: CGPoint) {
+    var damage: CGFloat?
+    
+    init(texture: SKTexture?, size: CGSize, team: Team, position: CGPoint, damage: CGFloat) {
+        
+        self.damage = damage
         super.init(texture: texture, color: SKColor.clear, size: size)
         
         self.setColisionGoup(team: team)
@@ -56,38 +60,13 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
     }
     
 }
-#warning("REFATORAR")
+
 extension ProjectileSpriteNode: Contactable {
-    func contact(with colisionGroup: ColisionGroup) {
-       
-        var willHit = false
-        
-        switch colisionGroup {
-        case .environment:
-            willHit = true
-        case .player:
-            if self.colisionGroup == .enemyProjectile {
-                willHit = true
-            }
-        case .enemy:
-            if self.colisionGroup == .playerProjectile {
-                willHit = true
-            }
-        case .playerProjectile:
-            willHit = false
-        case .enemyProjectile:
-            willHit = false
-        case .portal:
-            willHit = false
-        case .neutralProjectile:
-            willHit = true
-        case .light:
-            return
-        }
-        
-        if willHit {
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
+        if colisionGroup == .environment
+        || self.colisionGroup == .enemyProjectile && colisionGroup == .player
+        || self.colisionGroup == .playerProjectile && colisionGroup == .enemy {
             removeFromParent()
         }
     }
-    
 }

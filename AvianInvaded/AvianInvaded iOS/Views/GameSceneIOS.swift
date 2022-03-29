@@ -96,16 +96,19 @@ class GameSceneIOS: SKScene {
 
 extension GameSceneIOS: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        if
-            let contactableNodeA = contact.bodyA.node as? Contactable,
-            let colisionGroup = contact.bodyB.node?.colisionGroup {
-            contactableNodeA.contact(with: colisionGroup)
+        
+        guard let colisionGroupA = contact.bodyA.node?.colisionGroup,
+              let colisionGroupB = contact.bodyB.node?.colisionGroup else { return }
+        
+        let aDamage = (contact.bodyA.node as? Contactable)?.damage
+        let bDamage = (contact.bodyB.node as? Contactable)?.damage
+               
+        if let contactableNodeA = contact.bodyA.node as? Contactable {
+            contactableNodeA.contact(with: colisionGroupB, damage: bDamage)
         }
         
-        if
-            let contactableNodeB = contact.bodyB.node as? Contactable,
-            let colisionGroup = contact.bodyA.node?.colisionGroup {
-            contactableNodeB.contact(with: colisionGroup)
+        if let contactableNodeB = contact.bodyB.node as? Contactable {
+            contactableNodeB.contact(with: colisionGroupA, damage: aDamage)
         }
     }
 }
