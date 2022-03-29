@@ -67,9 +67,6 @@ class PlayerHudNode: SKNode {
         
         upgradeLabel.run(SKAction.fadeOut(withDuration: 0))
         
-        
-        updateUpgradeLabel(upgrades: [.maxHealth:2, .acceleration:1])
-        
         self.addChildren([lostLifeBar, lifeBar, emptyXpBar, xpBar, upgradeLabel])
     }
     
@@ -103,7 +100,7 @@ extension PlayerHudNode: PlayerHudDelegate {
             var i: Float = 0
             while i < upgrade.value {
                 string += "+"
-                i += 1
+                i += 0.5
             }
             string += " " + upgrade.key.rawValue
             string += "  "
