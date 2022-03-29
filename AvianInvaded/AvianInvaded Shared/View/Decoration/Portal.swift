@@ -27,8 +27,6 @@ final class Portal: SKNode {
         self.cancellables = .init()
         super.init()
         
-        #warning("DEBUG_REMOVER")
-        runActivePortalAnimation()
         setupSpriteOnScene(spriteSize: spriteSize)
         setupColision(spriteSize: spriteSize)
         setupBindings()

@@ -8,7 +8,7 @@
 import SpriteKit
 
 final class RoomBuilder {
-    private var cashedTiles: [Int : SKSpriteNode]
+    private var cashedTiles: [Int: SKSpriteNode]
     private var sceneSize: CGSize
     init(sceneSize: CGSize) {
         cashedTiles = [:]
@@ -39,12 +39,11 @@ final class RoomBuilder {
                 }
             }
         
-        #warning("DEBUG_REMOVER")
         buildDecorations(for: room.decoration,
                          tileSize: spriteSize,
                          gridSize: CGSize(width: room.tiles[0].count, height: room.tiles.count),
                          spriteSize: spriteSize,
-                         availableDirections: RoomDirection.allCases,
+                         availableDirections: availableDirections,
                          portalDelegate: portalDelegate
         )
         .forEach { sprite in

@@ -125,7 +125,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.bodySprite.run(action)
     }
     
-    private func createTexture(_ name:String) -> [SKTexture] {
+    private func createTexture(_ name: String) -> [SKTexture] {
         let textureAtlas = SKTextureAtlas(named: name)
         var frames = [SKTexture]()
         for i in 0...textureAtlas.textureNames.count - 1 {
