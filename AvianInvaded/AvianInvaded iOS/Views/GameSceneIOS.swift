@@ -25,9 +25,10 @@ class GameSceneIOS: SKScene {
         
         self.scaleMode = .aspectFill
         self.camera = gameCamera
-        self.addChildren([self.playerNode, playerHudNode, initialRoom])
+        self.addChildren([self.playerNode, playerHudNode])
         gameLogicController.gameLogicDelegate = self
         self.physicsWorld.contactDelegate = self
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

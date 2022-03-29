@@ -50,6 +50,8 @@ class PlayerHudNode: SKNode {
         
         super.init()
         
+        self.zPosition = 10
+        
         lifeBar.position = CGPoint(x: 0, y: -(sceneSize.height)*0.25)
         lostLifeBar.position = CGPoint(x: 0, y: -(sceneSize.height)*0.25)
         
@@ -68,7 +70,6 @@ class PlayerHudNode: SKNode {
         
         updateUpgradeLabel(upgrades: [.maxHealth:2, .acceleration:1])
         
-        self.zPosition = 11
         self.addChildren([lostLifeBar, lifeBar, emptyXpBar, xpBar, upgradeLabel])
     }
     

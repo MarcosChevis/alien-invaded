@@ -14,7 +14,8 @@ class PlayerNode: SKNode, LifeCycleElement {
     private let bodyNode: PlayerBodyNode
     private let bodySprite: SKSpriteNode
     private let legsSprite: SKSpriteNode
-    var projectileTexture: SKTexture
+    private var projectileTexture: SKTexture
+    private let lightNode: SKLightNode = .init()
     
     lazy var idleBodyFrames: [SKTexture] = {
         createTexture("Player_Body_Idle")
@@ -44,14 +45,24 @@ class PlayerNode: SKNode, LifeCycleElement {
         let projectileImage = UIImage(named: "Player_Projectile")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
+        
+        
         super.init()
+        
+        self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
+        self.lightNode.lightColor = .init(white: 0.7, alpha: 0.8)
+        self.lightNode.falloff = 0.5
         
         bodyNode.contactDelegate = self
         self.logicController.delegate = self
         self.colisionGroup = .player
-        zPosition = 10
+        zPosition = 2
         self.addChildren()
         self.initializeIdle()
+        
+        lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
+        lightNode.zPosition = 3
+
         
     }
     
@@ -88,11 +99,12 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func addChildren() {
         
+        self.addChild(lightNode)
         self.addChild(bodyNode)
         bodyNode.addChild(bodySprite)
-        bodySprite.zPosition = 1
+        bodySprite.zPosition = 2
         addChild(legsSprite)
-        legsSprite.zPosition = 0
+        legsSprite.zPosition = 1
     }
     
     private func initializeIdle() {
@@ -159,10 +171,6 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         
-//        self.physicsBody?.collisionBitMask = 0
-//        self.physicsBody?.contactTestBitMask = 0
-//        self.physicsBody?.categoryBitMask = 0
-        
         //Body - Hitbox
         self.bodyNode.colisionGroup = .player
         let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
@@ -177,6 +185,10 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.bodyNode.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(self.colisionGroup)
         self.bodyNode.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(self.colisionGroup)
         
+        self.bodySprite.lightingBitMask = ColisionGroup.getLightMask(self.colisionGroup)
+
+        self.legsSprite.lightingBitMask = ColisionGroup.getLightMask(self.colisionGroup)
+
         let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
 
         scene?.physicsWorld.add(pinMotherBody)
@@ -254,6 +266,10 @@ extension PlayerNode: Contactable {
         case .enemyProjectile:
             logicController.loseHealth()
         case .neutralProjectile:
+            return
+        case .portal:
+            return
+        case .light:
             return
         }
     }

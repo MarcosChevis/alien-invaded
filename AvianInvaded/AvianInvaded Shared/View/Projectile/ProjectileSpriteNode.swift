@@ -16,7 +16,7 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
         self.setColisionGoup(team: team)
         self.setupPhysicsBody()
         self.position = CGPoint(x: position.x, y: position.y)
-        self.zPosition = 9
+        self.zPosition = 2
         
     }
     
@@ -34,6 +34,8 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
         self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask( self.colisionGroup)
         self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask( self.colisionGroup)
         self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask( self.colisionGroup)
+        
+        self.lightingBitMask = ColisionGroup.getLightMask(colisionGroup)
     }
     
     private func setColisionGoup(team: Team) {
@@ -79,6 +81,8 @@ extension ProjectileSpriteNode: Contactable {
             willHit = false
         case .neutralProjectile:
             willHit = true
+        case .light:
+            return
         }
         
         if willHit {
