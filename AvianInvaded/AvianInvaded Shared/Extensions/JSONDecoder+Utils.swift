@@ -23,8 +23,8 @@ extension JSONDecoder {
     }
     
     static func decodeThrowing<T: Decodable>(to type: T.Type,
-                                     from fileName: String,
-                                     decoder: JSONDecoder = .init()) throws -> T {
+                                             from fileName: String,
+                                             decoder: JSONDecoder = .init()) throws -> T {
         guard
             let url = Bundle.main.url(forResource: fileName, withExtension: "json")
         else {

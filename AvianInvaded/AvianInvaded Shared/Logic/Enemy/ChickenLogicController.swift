@@ -71,7 +71,7 @@ class ChickenLogicController {
         
         let timePast = currentTime - timeLastShot
         
-        if timePast < data.shootCadence  {
+        if timePast < data.shootCadence {
             return nil
         }
         
@@ -110,10 +110,7 @@ class ChickenLogicController {
 
         let finalVector = CGVector(dx: px, dy: py)
         
-        
-        
         let forceVector: CGVector = (finalVector - initialVector).normalized
-        
         
         if abs(initialVector.magnitude - finalVector.magnitude) > 10 {
             delegate?.apply(force: forceVector * 7)

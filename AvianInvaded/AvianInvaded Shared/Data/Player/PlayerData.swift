@@ -10,22 +10,22 @@ import CoreGraphics
 
 struct PlayerData {
     
-    //movement variables
+    // movement variables
     private(set) var frictionMultiplier: CGFloat = 10
     private(set) var moveMultiplier: CGFloat = 7000
     private(set) var speedLimit: CGFloat = 400
 
-    //shot variables
+    // shot variables
     private(set) var shootMagnitude: CGFloat = 5000
     private(set) var shotCadence: CGFloat = 0.5
-    //size compared to size of the player sprite
+    // size compared to size of the player sprite
     private(set) var projectileSize = 0.1
     
-    //others
+    // others
     private (set) var scale: CGFloat = 0.14
     private(set) var mass: CGFloat = 1
     
-    //animation and logic variables
+    // animation and logic variables
     var facingAngle: CGFloat = 0
     var idleTime: CGFloat = 1
     var walkingTime: CGFloat = 0.4
@@ -88,13 +88,13 @@ struct PlayerData {
     }
     
     mutating func upgradeAcceleration(multiplier: CGFloat) {
-        //7.14% of initial value
+        // 7.14% of initial value
         let increase: CGFloat = 500
         moveMultiplier += (increase * multiplier)
     }
     
     mutating func upgradeMaxSpeed(multiplier: CGFloat) {
-        //7% of initial value
+        // 7% of initial value
         let increase: CGFloat = 35
         speedLimit += (increase * multiplier)
     }

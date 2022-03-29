@@ -16,7 +16,7 @@ extension SKAction {
             SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.05),
             SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: 0.05),
             SKAction.wait(forDuration: 0.03),
-            SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.05),
+            SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.05)
         ])
     }
 }

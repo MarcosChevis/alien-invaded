@@ -8,14 +8,14 @@
 import CoreGraphics
 
 extension CGPoint {
-    static func *(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+    static func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
         var p = CGPoint(x: lhs.x, y: lhs.y)
         p.x *= rhs
         p.y *= rhs
         return p
     }
     
-    static func +=(lhs: inout CGPoint, rhs: CGPoint) {
+    static func += (lhs: inout CGPoint, rhs: CGPoint) {
         lhs.y += rhs.y
         lhs.x += rhs.x
     }

@@ -22,7 +22,10 @@ final class RoomRepository {
     }
     
     var currentRoom: Room {
-        availableRooms[dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX]]
+        // availableRooms[dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX]]
+        
+        #warning("DEBUG_REMOVER")
+        return availableRooms[1]
     }
     
     var currentRoomAvailableDirections: [RoomDirection] {

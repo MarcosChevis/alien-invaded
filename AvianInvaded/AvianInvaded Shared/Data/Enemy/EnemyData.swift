@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 
-struct EnemyData{
+struct EnemyData {
     
     private(set) var frictionMultiplier: CGFloat = 10
     private(set) var mass: CGFloat = 1
@@ -87,7 +87,6 @@ struct EnemyData{
         resetCurrentHealth()
     }
     
-    
     mutating func upgradeAcceleration(multiplier: CGFloat) {
         let increase: CGFloat = 0.2
         moveMultiplier += (increase * multiplier)
@@ -118,4 +117,3 @@ struct EnemyData{
         currentHealth += (increase * multiplier)
     }
 }
-

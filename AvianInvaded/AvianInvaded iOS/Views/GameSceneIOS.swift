@@ -115,5 +115,3 @@ extension GameSceneIOS: GameLogicDelegate {
        setupRoom(newRoom)
     }
 }
-
-

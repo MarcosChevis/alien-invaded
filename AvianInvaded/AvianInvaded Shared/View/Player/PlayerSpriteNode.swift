@@ -118,7 +118,10 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeShooting() {
         let timePerFrame = Double(logicController.data.shotCadence)/Double(shootingFrames.count)
-        let action = SKAction.animate(with: shootingFrames, timePerFrame: timePerFrame, resize: false, restore: true)
+        let action = SKAction.animate(with: shootingFrames,
+                                      timePerFrame: timePerFrame,
+                                      resize: false,
+                                      restore: true)
         self.bodySprite.run(action)
     }
     
@@ -142,24 +145,18 @@ class PlayerNode: SKNode, LifeCycleElement {
         reversed.removeFirst()
         reversed = reversed.reversed()
         
-        
         return frames + reversed
     }
     
     private func createPhysicsBody(size: CGSize) {
         
-        //Tudo
         self.physicsBody = .init()
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         
-//        self.physicsBody?.collisionBitMask = 0
-//        self.physicsBody?.contactTestBitMask = 0
-//        self.physicsBody?.categoryBitMask = 0
-        
-        //Body - Hitbox
+        // Body - Hitbox
         self.bodyNode.colisionGroup = .player
         let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
         let body = SKPhysicsBody.init(texture: texture, size: size)
@@ -173,7 +170,10 @@ class PlayerNode: SKNode, LifeCycleElement {
         self.bodyNode.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(self.colisionGroup)
         self.bodyNode.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(self.colisionGroup)
         
-        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
+        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!,
+                                                    bodyB: body,
+                                                    anchor: convert(self.bodyNode.position,
+                                                                    to: scene!))
 
         scene?.physicsWorld.add(pinMotherBody)
     }
@@ -221,15 +221,18 @@ extension PlayerNode: PlayerLogicDelegate {
         let y = bodySprite.size.height * 0.35
         
         let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
-        
+        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace,
+                                                                         to: scene)
         
         let w = self.bodySprite.size.width*logicController.data.projectileSize
         let h = self.bodySprite.size.width*logicController.data.projectileSize
         
         let size = CGSize(width: w, height: h)
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture,
+                                              size: size,
+                                              team: .player,
+                                              position: projectilePositionInSceneSpace)
         
         self.scene?.addChild(projectile)
         projectile.physicsBody?.applyForce(force)

@@ -22,7 +22,10 @@ class PlayerLogicController: LifeCycleElement {
     
     private let notificationCenter: NotificationCenter
     
-    init(data: PlayerData = .init(), inputController: InputControllerProtocol, notificationCenter: NotificationCenter) {
+    init(data: PlayerData = .init(),
+         inputController: InputControllerProtocol,
+         notificationCenter: NotificationCenter) {
+        
         self.data = data
         self.inputController = inputController
         self.timeLastShot = 0
@@ -95,7 +98,6 @@ extension PlayerLogicController: InputDelegate {
         }
         timeLastShot = currentTime
         
-        
         let angle: CGFloat = self.data.facingAngle + CGFloat.pi/2
 
         let shootingMag = data.shootMagnitude
@@ -105,4 +107,3 @@ extension PlayerLogicController: InputDelegate {
     }
     
 }
-

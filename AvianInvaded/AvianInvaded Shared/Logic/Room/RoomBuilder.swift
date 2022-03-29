@@ -38,11 +38,13 @@ final class RoomBuilder {
                     return sprite
                 }
             }
+        
+        #warning("DEBUG_REMOVER")
         buildDecorations(for: room.decoration,
                          tileSize: spriteSize,
                          gridSize: CGSize(width: room.tiles[0].count, height: room.tiles.count),
                          spriteSize: spriteSize,
-                         availableDirections: availableDirections,
+                         availableDirections: RoomDirection.allCases,
                          portalDelegate: portalDelegate
         )
         .forEach { sprite in
@@ -64,6 +66,7 @@ final class RoomBuilder {
             tileSprite = tileCopy
         } else {
             let texture = SKTexture(imageNamed: tilesName[tile])
+            texture.filteringMode = .nearest
             tileSprite = SKSpriteNode(texture: texture, color: SKColor.clear, size: size)
             cashedTiles[tile] = tileSprite
         }
@@ -90,6 +93,7 @@ final class RoomBuilder {
         }
     }
     
+    // swiftlint:disable function_parameter_count
     private func buildDecorations(for decorations: [DecorationInfo],
                                   tileSize: CGSize,
                                   gridSize: CGSize,
@@ -98,7 +102,7 @@ final class RoomBuilder {
                                   portalDelegate: PortalDelegate?
     ) -> [SKNode] {
         decorations.compactMap { decorationInfo in
-            let position = CGPoint(x: (CGFloat(decorationInfo.position.x) * tileSize.width),
+            let position = CGPoint(x: (CGFloat(decorationInfo.position.x+1) * tileSize.width),
                                    y: ((gridSize.height - CGFloat(decorationInfo.position.y))
                                        * tileSize.height))
             
@@ -128,13 +132,13 @@ final class RoomBuilder {
     
     private func setupTilePhysics(for tile: SKSpriteNode) {
         
-        let physicsBody = SKPhysicsBody(rectangleOf: tile.size, center: CGPoint(x: tile.size.width/2, y: -tile.size.height/2))
+        let physicsBody = SKPhysicsBody(rectangleOf: tile.size,
+                                        center: CGPoint(x: tile.size.width/2,
+                                                        y: -tile.size.height/2))
         tile.physicsBody = physicsBody
         physicsBody.affectedByGravity = false
         physicsBody.isResting = true
         physicsBody.isDynamic = false
-        
-        
         
         physicsBody.collisionBitMask = ColisionGroup.getCollisionMask( tile.colisionGroup)
         physicsBody.contactTestBitMask = ColisionGroup.getContactMask( tile.colisionGroup)

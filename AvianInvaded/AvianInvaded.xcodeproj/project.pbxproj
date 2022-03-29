@@ -650,6 +650,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BADECC0127D14CE600EFD009 /* Build configuration list for PBXNativeTarget "AvianInvaded iOS" */;
 			buildPhases = (
+				5BBA8BEB27F375F300B50DA2 /* Run Linter */,
 				BADECBC427D14CE600EFD009 /* Sources */,
 				BADECBC527D14CE600EFD009 /* Frameworks */,
 				BADECBC627D14CE600EFD009 /* Resources */,
@@ -769,6 +770,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BBA8BEB27F375F300B50DA2 /* Run Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Linter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BADECBC427D14CE600EFD009 /* Sources */ = {

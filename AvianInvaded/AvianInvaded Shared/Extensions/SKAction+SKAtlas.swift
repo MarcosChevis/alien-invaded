@@ -29,7 +29,6 @@ extension SKTexture {
         reversed.removeFirst()
         reversed = reversed.reversed()
         
-        
         return frames + reversed
     }
 }

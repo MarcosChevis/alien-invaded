@@ -14,7 +14,9 @@ class GameViewController: UIViewController {
     let gameScene: GameSceneIOS
     
     init(gameLogicController: GameLogicController, size: CGSize) {
-        self.gameScene = GameSceneIOS(gameLogicController: gameLogicController, inputController: InputControllerIOS(), size: size)
+        self.gameScene = GameSceneIOS(gameLogicController: gameLogicController,
+                                      inputController: InputControllerIOS(),
+                                      size: size)
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -34,7 +36,7 @@ class GameViewController: UIViewController {
         let skView = SKView(frame: .zero)
         
         skView.presentScene(scene)
-//        skView.showsPhysics = true
+        skView.showsPhysics = true
         
         skView.ignoresSiblingOrder = true
         skView.showsFPS = true
