@@ -94,7 +94,7 @@ final class Portal: SKNode {
 }
 
 extension Portal: Contactable {
-    func contact(with colisionGroup: ColisionGroup) {
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
         if isActive {
             delegate?.teleport(to: direction)
             isActive = false
