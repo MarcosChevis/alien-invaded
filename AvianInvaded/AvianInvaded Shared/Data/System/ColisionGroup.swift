@@ -15,6 +15,7 @@ enum ColisionGroup: String {
     case enemyProjectile = "enemyProjectile"
     case neutralProjectile = "neutralProjectile"
     case portal = "portal"
+    case light = "light"
     
     
     
@@ -38,6 +39,8 @@ enum ColisionGroup: String {
             case .neutralProjectile:
                 return 0b0
             case .portal:
+                return 0b0
+            case .light:
                 return 0b0
             case .none:
                 return 0b0
@@ -72,10 +75,38 @@ enum ColisionGroup: String {
                         | getCategotyMask(.enemy))
             case .portal:
                 return (getCategotyMask(.player))
+            case .light:
+                return 0b0
             case .none:
                 return 0b0
         }
       
+    }
+    
+    static func getLightMask(_ colisionGroup: ColisionGroup?) -> UInt32 {
+        
+        return getCategotyMask(.light) | getCategotyMask(.portal)
+        switch colisionGroup {
+            
+        case .environment:
+            return getCategotyMask(.light) | getCategotyMask(.portal)
+        case .player:
+            return getCategotyMask(.light) | getCategotyMask(.portal)
+        case .enemy:
+            return getCategotyMask(.light) | getCategotyMask(.portal)
+        case .playerProjectile:
+            return getCategotyMask(.light)
+        case .enemyProjectile:
+            return getCategotyMask(.light)
+        case .neutralProjectile:
+            return getCategotyMask(.light)
+        case .portal:
+            return getCategotyMask(.light)
+        case .light:
+            return getCategotyMask(.light)
+        case .none:
+            return getCategotyMask(.light)
+        }
     }
     
     static func getCategotyMask(_ colisionGroup: ColisionGroup?) -> UInt32 {
@@ -95,6 +126,8 @@ enum ColisionGroup: String {
                 return (1 << 6)
             case .portal:
                 return (1 << 7)
+            case .light:
+                return (1 << 8)
             case .none:
                 return 0b0
         }

@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
         let skView = SKView(frame: .zero)
         
         skView.presentScene(scene)
-//        skView.showsPhysics = true
+        skView.showsPhysics = true
         
         skView.ignoresSiblingOrder = true
         skView.showsFPS = true
@@ -55,5 +55,9 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
+        return .bottom
     }
 }

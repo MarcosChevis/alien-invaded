@@ -31,6 +31,8 @@ struct PlayerData {
     var walkingTime: CGFloat = 0.4
     var velocity: CGVector = .zero
     
+    var currentXp = 0.0
+    
     private(set) var maxHealth: CGFloat = 10
     var currentHealth: CGFloat = 10
     
@@ -127,3 +129,5 @@ struct PlayerData {
         currentHealth += (increase * multiplier)
     }
 }
+
+

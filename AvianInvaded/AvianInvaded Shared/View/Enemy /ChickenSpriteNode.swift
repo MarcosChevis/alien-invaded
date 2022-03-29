@@ -27,7 +27,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         logicController.delegate = self
         self.colisionGroup = .enemy
         position = initialPosition
-        zPosition = 9
+        zPosition = 2
         addChild(bodySprite)
     }
     
@@ -63,9 +63,11 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         
-        self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask( self.colisionGroup)
-        self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask( self.colisionGroup)
-        self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask( self.colisionGroup)
+        self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask(self.colisionGroup)
+        self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(self.colisionGroup)
+        self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(self.colisionGroup)
+        
+        self.bodySprite.lightingBitMask = ColisionGroup.getLightMask(colisionGroup)
     }
     
     private func scale() {

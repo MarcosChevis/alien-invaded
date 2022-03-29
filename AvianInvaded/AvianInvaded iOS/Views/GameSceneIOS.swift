@@ -11,18 +11,21 @@ import GameplayKit
 class GameSceneIOS: SKScene {
     
     let playerNode: PlayerNode
+    let playerHudNode: PlayerHudNode
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
     init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
         self.gameLogicController = gameLogicController
-        self.playerNode = PlayerNode(inputController: inputController)
+        
+        self.playerHudNode = .init(sceneSize: size)
+        self.playerNode = PlayerNode(inputController: inputController, hudDelegate: playerHudNode)
         
         super.init(size: size)
         
         self.scaleMode = .aspectFill
         self.camera = gameCamera
-        self.addChildren([self.playerNode])
+        self.addChildren([self.playerNode, playerHudNode])
         gameLogicController.gameLogicDelegate = self
         self.physicsWorld.contactDelegate = self
         
@@ -83,6 +86,8 @@ class GameSceneIOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
+        playerHudNode.position = playerNode.position
+        
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.didSimulatePhysics() }

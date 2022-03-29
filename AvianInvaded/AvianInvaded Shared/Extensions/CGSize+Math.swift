@@ -19,4 +19,14 @@ extension CGSize {
         
         return size
     }
+    
+    static func /(lhs: CGSize, rhs: CGFloat) -> CGSize {
+        
+        var size: CGSize = .zero
+        
+        size.width = lhs.width / rhs
+        size.height = lhs.height / rhs
+        
+        return size
+    }
 }

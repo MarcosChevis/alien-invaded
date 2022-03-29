@@ -34,6 +34,7 @@ final class RoomBuilder {
                     let sprite = buildTile(for: rawvalue, size: spriteSize, tilesName: room.tilesName)
                     sprite.anchorPoint = CGPoint(x: 0, y: 1)
                     node.addChild(sprite)
+                    node.zPosition = 0
                     sprite.colisionGroup = .environment
                     return sprite
                 }
@@ -47,7 +48,7 @@ final class RoomBuilder {
         )
         .forEach { sprite in
             node.addChild(sprite)
-            sprite.zPosition = 3
+            sprite.zPosition = 1
         }
         
         node.colisionGroup = .environment
@@ -83,6 +84,8 @@ final class RoomBuilder {
     private func setupTilesPhysics(for tiles: [[SKSpriteNode]], colisionMatrix: [[Int]]) {
         for (row, tileRow) in tiles.enumerated() {
             for (column, tile) in tileRow.enumerated() {
+                tile.lightingBitMask = ColisionGroup.getLightMask(tile.colisionGroup)
+                
                 if colisionMatrix[row][column] == 1 {
                     setupTilePhysics(for: tile)
                 }
