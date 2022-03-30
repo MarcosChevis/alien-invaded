@@ -13,21 +13,24 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     
     private let logicController: FlamingoLogicController
     private let bodySprite: SKSpriteNode
+    private let attackNode: SKNode
     var projectileTexture: SKTexture
+    weak var delegate: EnemyDelegate?
+    
+    
     
     lazy var idleBodyFrames: [SKTexture] = {
-        createTexture("Flamingo_Attack-3")
+        SKTexture.loadCyclicalFromAtlas(named: "Flamingo_Attack-1")
     }()
-    
-    lazy var attackFrames: 
     
     required init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter) {
         logicController = FlamingoLogicController()
         
-        bodySprite = .init(imageNamed: "Flamingo_Attack-3")
+        bodySprite = .init(imageNamed: "Flamingo_Attack-1")
         
-        let projectileImage = UIImage(named: "Flamingo_Attack-3")
+        let projectileImage = UIImage(named: "Flamingo_Attack-1")
         self.projectileTexture = .init(image: projectileImage ?? .init())
+        attackNode = SKNode()
         
         super.init()
         
@@ -35,7 +38,7 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
         self.colisionGroup = .enemy
         position = initialPosition
         zPosition = 10
-        addChild(bodySprite)
+        addChildren()
     }
     
     func startup() {
@@ -54,6 +57,7 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     
     private func addChildren() {
         addChild(bodySprite)
+        bodySprite.addChild(attackNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,13 +65,22 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     private func createPhysicsBody(size: CGSize) {
-        let texture = SKTexture(imageNamed: "Flamingo_Attack-3")
+        let texture = SKTexture(imageNamed: "Flamingo_Attack-1")
         texture.filteringMode = .nearest
         self.physicsBody = .init(texture: texture, size: size)
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
+        attackNode.position = .zero
+        attackNode.physicsBody?.mass = 0
+        attackNode.physicsBody = .init(circleOfRadius: 30)
+        attackNode.physicsBody?.affectedByGravity = false
+        attackNode.physicsBody?.allowsRotation = false
+        attackNode.physicsBody?.isDynamic = true
+       
+        attackNode.physicsBody?.collisionBitMask = 0b0
+        attackNode.physicsBody?.categoryBitMask = 0b0
         
         self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask( self.colisionGroup)
         self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask( self.colisionGroup)
@@ -75,7 +88,7 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     private func scale() {
-        let size = self.bodySprite.scaleToScreen(scale: logicController.data.scale)
+        let size = self.bodySprite.scaleToScreen(scale: 0.17)
         createPhysicsBody(size: size)
         bodySprite.size = size
     }
@@ -95,27 +108,7 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     func attack(_ currentTime: TimeInterval) {
-        guard let force = logicController.decideAtack(currentTime: currentTime, position: self.position) else { return }
         
-        guard let scene = self.scene else { return }
-        
-        let x: CGFloat = 0
-        let y: CGFloat = -bodySprite.size.height*0.45
-        
-        let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
-        
-        let w = self.bodySprite.size.width*logicController.data.projectileSize
-        
-        let h = self.bodySprite.size.width*logicController.data.projectileSize
-        
-        let size = CGSize(width: w, height: h)
-        
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team:.avian, position: projectilePositionInSceneSpace)
-        
-        self.scene?.addChild(projectile)
-        
-        projectile.physicsBody?.applyForce(force)
     }
     
     private func takeDamage() {
@@ -148,6 +141,8 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
         case .enemyProjectile:
             return
         case .neutralProjectile:
+            return
+        case .portal:
             return
         }
     }

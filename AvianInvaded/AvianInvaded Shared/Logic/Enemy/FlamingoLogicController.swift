@@ -101,7 +101,7 @@ class FlamingoLogicController{
         
         let initialVector = CGVector(initialPoint)
         
-        let angle = (playerVector - initialVector).radAngle - CGFloat.pi
+        let angle = (playerVector - initialVector).radAngle
         
         delegate?.rotate(to: angle - CGFloat.pi/2)
         

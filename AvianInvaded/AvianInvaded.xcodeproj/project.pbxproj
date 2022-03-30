@@ -91,6 +91,9 @@
 		825DFCDC27F223870096E5AF /* FlamingoSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DFCDB27F223870096E5AF /* FlamingoSpriteNode.swift */; };
 		825DFCDD27F223870096E5AF /* FlamingoSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DFCDB27F223870096E5AF /* FlamingoSpriteNode.swift */; };
 		825DFCDE27F223870096E5AF /* FlamingoSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DFCDB27F223870096E5AF /* FlamingoSpriteNode.swift */; };
+		825DFCE027F380A00096E5AF /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DFCDF27F380A00096E5AF /* FlamingoFactory.swift */; };
+		825DFCE127F380A00096E5AF /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DFCDF27F380A00096E5AF /* FlamingoFactory.swift */; };
+		825DFCE227F380A00096E5AF /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DFCDF27F380A00096E5AF /* FlamingoFactory.swift */; };
 		BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
 		BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */; };
@@ -212,6 +215,7 @@
 		5BFE7DE427DFD42700BB9998 /* ColisionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColisionGroup.swift; sourceTree = "<group>"; };
 		825DFCD727F223500096E5AF /* FlamingoLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoLogicController.swift; sourceTree = "<group>"; };
 		825DFCDB27F223870096E5AF /* FlamingoSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoSpriteNode.swift; sourceTree = "<group>"; };
+		825DFCDF27F380A00096E5AF /* FlamingoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoFactory.swift; sourceTree = "<group>"; };
 		BA04A40327D69A35004E51EA /* GameLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogicDelegate.swift; sourceTree = "<group>"; };
 		BA04A40727D6A274004E51EA /* PlayerLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicController.swift; sourceTree = "<group>"; };
 		BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogicDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE729F727E90E48003C5C48 /* ChickenFactory.swift */,
+				825DFCDF27F380A00096E5AF /* FlamingoFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -838,6 +843,7 @@
 				BA04A40C27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 				5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */,
+				825DFCE027F380A00096E5AF /* FlamingoFactory.swift in Sources */,
 				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
@@ -872,6 +878,7 @@
 				BADECBDC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 				D65B8A4A27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BAE17D2527DA8AF100E131F4 /* TeamEnum.swift in Sources */,
+				825DFCE127F380A00096E5AF /* FlamingoFactory.swift in Sources */,
 				BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
@@ -963,6 +970,7 @@
 				BA088FAC27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				D65B8A4B27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BA04A40E27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
+				825DFCE227F380A00096E5AF /* FlamingoFactory.swift in Sources */,
 				5BE729DE27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BADECBEC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 			);
@@ -1140,7 +1148,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5LFGK7Q7S9;
-
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

@@ -22,7 +22,7 @@ extension SKTexture {
         }
         return frames
     }
-    
+
     static func loadCyclicalFromAtlas(named name: String) -> [SKTexture] {
         let frames = loadFromAtlas(named: name)
         var reversed = frames
