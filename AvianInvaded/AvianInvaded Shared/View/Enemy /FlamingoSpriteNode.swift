@@ -17,8 +17,6 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     var projectileTexture: SKTexture
     weak var delegate: EnemyDelegate?
     
-    
-    
     lazy var idleBodyFrames: [SKTexture] = {
         SKTexture.loadCyclicalFromAtlas(named: "Flamingo_Attack-1")
     }()

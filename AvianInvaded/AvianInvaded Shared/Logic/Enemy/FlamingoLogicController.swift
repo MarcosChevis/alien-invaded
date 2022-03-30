@@ -10,7 +10,7 @@ import Combine
 import CoreGraphics
 import SpriteKit
 
-class FlamingoLogicController{
+class FlamingoLogicController {
     var data: EnemyData
     weak var delegate: EnemyLogicDelegate?
     
@@ -24,7 +24,7 @@ class FlamingoLogicController{
     
     var scale: CGFloat { data.scale }
     
-    init(data: EnemyData = .init(), notificationCenter: NotificationCenter = .default) {
+    init(data: EnemyData = .init(.flamingo), notificationCenter: NotificationCenter = .default) {
         self.data = data
         self.timeLastShot = 0
         self.notificationCenter = notificationCenter

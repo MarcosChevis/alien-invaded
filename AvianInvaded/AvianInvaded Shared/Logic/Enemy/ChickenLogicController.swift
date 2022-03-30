@@ -24,7 +24,7 @@ class ChickenLogicController {
     
     var scale: CGFloat { data.scale }
     
-    init(data: EnemyData = .init(), notificationCenter: NotificationCenter = .default) {
+    init(data: EnemyData = .init(.chicken), notificationCenter: NotificationCenter = .default) {
         self.data = data
         self.timeLastShot = 0
         self.notificationCenter = notificationCenter

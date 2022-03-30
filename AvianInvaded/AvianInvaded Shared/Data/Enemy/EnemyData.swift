@@ -8,21 +8,63 @@
 import Foundation
 import CoreGraphics
 
-struct EnemyData{
+struct EnemyData {
     
-    private(set) var frictionMultiplier: CGFloat = 10
-    private(set) var mass: CGFloat = 1
-    private(set) var scale: CGFloat = 0.1
-    private(set) var moveMultiplier: CGFloat = 500
+    private(set) var frictionMultiplier: CGFloat = 0
+    private(set) var mass: CGFloat = 0
+    private(set) var scale: CGFloat = 0
+    private(set) var moveMultiplier: CGFloat = 0
     var facingAngle: CGFloat = 0
-    private(set) var speedLimit: CGFloat = 500
-    private(set) var projectileSize:CGFloat = 0.3
-    private(set) var attackDistance: CGFloat = 1000
-    private(set) var distanceEnemyFromPlayer: CGFloat = 200
-    private(set) var shootCadence: CGFloat = 0.8
-    private(set) var shootingMagnitude: CGFloat = 2000
-    private(set) var maxHealth: CGFloat = 10
-    var currentHealth: CGFloat = 1
+    private(set) var speedLimit: CGFloat = 0
+    private(set) var projectileSize:CGFloat = 0
+    private(set) var attackDistance: CGFloat = 0
+    private(set) var distanceEnemyFromPlayer: CGFloat = 0
+    private(set) var shootCadence: CGFloat = 0
+    private(set) var shootingMagnitude: CGFloat = 0
+    private(set) var maxHealth: CGFloat = 0
+    var currentHealth: CGFloat = 0
+    
+    init(_ enemie: Enemies) {
+        switch enemie {
+        case .chicken:
+            setupChickenValues()
+        case .flamingo:
+            setupFlamingoValues()
+        }
+    }
+    
+    private mutating func setupFlamingoValues() {
+        
+        mass = 1
+        scale = 0.1
+        moveMultiplier = 400
+        facingAngle = 0
+        speedLimit = 400
+        projectileSize = 0.3
+        attackDistance = 100
+        distanceEnemyFromPlayer = 200
+        shootCadence = 0.4
+        shootingMagnitude = 2000
+        maxHealth = 10
+        currentHealth = 10
+    }
+    
+    private mutating func setupChickenValues() {
+        
+        mass = 1
+        scale = 0.1
+        moveMultiplier = 500
+        facingAngle = 0
+        speedLimit = 500
+        projectileSize = 0.3
+        attackDistance = 1000
+        distanceEnemyFromPlayer = 200
+        shootCadence = 0.8
+        shootingMagnitude = 2000
+        maxHealth = 10
+        currentHealth = 10
+    }
+    
     
     mutating func resetFrictionMultiplier() {
         frictionMultiplier = 10
