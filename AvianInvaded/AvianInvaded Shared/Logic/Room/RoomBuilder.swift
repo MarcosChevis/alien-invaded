@@ -134,13 +134,15 @@ final class RoomBuilder {
     
     private func setupTilePhysics(for tile: SKSpriteNode) {
         
-        let physicsBody = SKPhysicsBody(rectangleOf: tile.size,
+        let physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: tile.size.width - 1,
+                                                            height: tile.size.height - 1),
                                         center: CGPoint(x: tile.size.width/2,
                                                         y: -tile.size.height/2))
         tile.physicsBody = physicsBody
         physicsBody.affectedByGravity = false
         physicsBody.isResting = true
         physicsBody.isDynamic = false
+        tile.zPosition = 15
         
         physicsBody.collisionBitMask = ColisionGroup.getCollisionMask( tile.colisionGroup)
         physicsBody.contactTestBitMask = ColisionGroup.getContactMask( tile.colisionGroup)

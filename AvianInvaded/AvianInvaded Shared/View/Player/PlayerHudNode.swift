@@ -49,7 +49,7 @@ class PlayerHudNode: SKNode {
         
         super.init()
         
-        self.zPosition = 10
+        self.zPosition = 16
         
         lifeBar.position = CGPoint(x: 0, y: -(sceneSize.height)*0.25)
         lostLifeBar.position = CGPoint(x: 0, y: -(sceneSize.height)*0.25)

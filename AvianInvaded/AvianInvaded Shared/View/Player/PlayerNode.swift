@@ -15,7 +15,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     private let bodySprite: SKSpriteNode
     private let legsSprite: SKSpriteNode
     private var projectileTexture: SKTexture
-    private let lightNode: SKLightNode = .init()
+    private var lightNode: SKLightNode?
     
     lazy var idleBodyFrames: [SKTexture] = {
         createTexture("Player_Body_Idle")
@@ -47,19 +47,13 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         super.init()
         
-        self.lightNode.ambientColor = .init(white: 0.1, alpha: 1)
-        self.lightNode.lightColor = .init(white: 0.7, alpha: 0.8)
-        self.lightNode.falloff = 0.5
-        
         bodyNode.contactDelegate = self
         self.logicController.delegate = self
         self.colisionGroup = .player
         zPosition = 2
         self.addChildren()
         self.initializeIdle()
-        
-        lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
-        lightNode.zPosition = 3
+        setupLighting()
 
     }
     
@@ -69,6 +63,22 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     func startup() {
         scale()
+    }
+    
+    func setupLighting() {
+        if let current = self.lightNode {
+            removeChildren(in: [current])
+            self.lightNode = nil
+        }
+        
+        let lightNode = SKLightNode()
+        lightNode.ambientColor = .init(white: 0.15, alpha: 1)
+        lightNode.lightColor = .init(white: 1, alpha: 0.7)
+        lightNode.falloff = 0.7
+        lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
+        lightNode.zPosition = 3
+        addChild(lightNode)
+        self.lightNode = lightNode
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -95,8 +105,6 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func addChildren() {
-        
-        self.addChild(lightNode)
         self.addChild(bodyNode)
         bodyNode.addChild(bodySprite)
         bodySprite.zPosition = 2

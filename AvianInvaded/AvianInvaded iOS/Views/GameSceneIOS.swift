@@ -122,5 +122,6 @@ extension GameSceneIOS: GameLogicDelegate {
         }
         addChild(playerHudNode)
        setupRoom(newRoom)
+        playerNode.setupLighting()
     }
 }

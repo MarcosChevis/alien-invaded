@@ -32,9 +32,9 @@ final class Portal: SKNode {
         setupColision(spriteSize: spriteSize)
         setupBindings()
         
-        self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
-        self.lightNode.lightColor = .cyan.withAlphaComponent(0.2)
-        self.lightNode.falloff = 0.5
+        self.lightNode.ambientColor = .init(white: 0, alpha: 1)
+        self.lightNode.lightColor = .cyan.withAlphaComponent(0.05)
+        self.lightNode.falloff = 1
         self.lightNode.zPosition = 10
         
         lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
