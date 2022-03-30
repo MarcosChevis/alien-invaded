@@ -14,7 +14,6 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     private let logicController: FlamingoLogicController
     private let bodySprite: SKSpriteNode
     private let attackNode: SKNode
-    var projectileTexture: SKTexture
     weak var delegate: EnemyDelegate?
     
     lazy var idleBodyFrames: [SKTexture] = {
@@ -24,11 +23,10 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     required init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter) {
         logicController = FlamingoLogicController()
         
-        bodySprite = .init(imageNamed: "Flamingo_Attack-1")
-        
-        let projectileImage = UIImage(named: "Flamingo_Attack-1")
-        self.projectileTexture = .init(image: projectileImage ?? .init())
-        attackNode = SKNode()
+        let texture = SKTexture(imageNamed: "Flamingo_Attack-1")
+        texture.filteringMode = .nearest
+        bodySprite = .init(texture: texture)
+        attackNode = .init()
         
         super.init()
         
@@ -55,15 +53,27 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
     
     private func addChildren() {
         addChild(bodySprite)
-        bodySprite.addChild(attackNode)
+        addChild(attackNode)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func createAttackPath() -> CGPath {
+        let path = CGMutablePath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: 70, y: 50))
+        path.addLine(to: CGPoint(x: 75, y: 75))
+        path.addLine(to: CGPoint(x: 0, y: 100))
+        path.addLine(to: CGPoint(x: -75, y: 75))
+        path.addLine(to: CGPoint(x: -70, y: 50))
+        path.addLine(to: CGPoint(x: 0, y: 0))
+        return path
+    }
+    
     private func createPhysicsBody(size: CGSize) {
-        let texture = SKTexture(imageNamed: "Flamingo_Attack-1")
+        let texture = SKTexture(imageNamed: "Flamingo_Body")
         texture.filteringMode = .nearest
         self.physicsBody = .init(texture: texture, size: size)
         self.physicsBody?.mass = logicController.mass
@@ -72,17 +82,18 @@ class FlamingoNode: SKNode, Enemy, EnemyLogicDelegate {
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         attackNode.position = .zero
         attackNode.physicsBody?.mass = 0
-        attackNode.physicsBody = .init(circleOfRadius: 30)
+        attackNode.physicsBody = .init(polygonFrom: createAttackPath())
         attackNode.physicsBody?.affectedByGravity = false
         attackNode.physicsBody?.allowsRotation = false
         attackNode.physicsBody?.isDynamic = true
+        attackNode.physicsBody?.pinned = true
        
         attackNode.physicsBody?.collisionBitMask = 0b0
         attackNode.physicsBody?.categoryBitMask = 0b0
         
-        self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask( self.colisionGroup)
-        self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask( self.colisionGroup)
-        self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask( self.colisionGroup)
+        self.physicsBody?.collisionBitMask = ColisionGroup.getCollisionMask(self.colisionGroup)
+        self.physicsBody?.contactTestBitMask = ColisionGroup.getContactMask(self.colisionGroup)
+        self.physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(self.colisionGroup)
     }
     
     private func scale() {

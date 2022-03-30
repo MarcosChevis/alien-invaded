@@ -42,7 +42,7 @@ struct EnemyData {
         speedLimit = 400
         projectileSize = 0.3
         attackDistance = 100
-        distanceEnemyFromPlayer = 200
+        distanceEnemyFromPlayer = 2000
         shootCadence = 0.4
         shootingMagnitude = 2000
         maxHealth = 10
@@ -58,7 +58,7 @@ struct EnemyData {
         speedLimit = 500
         projectileSize = 0.3
         attackDistance = 1000
-        distanceEnemyFromPlayer = 200
+        distanceEnemyFromPlayer = 2000
         shootCadence = 0.8
         shootingMagnitude = 2000
         maxHealth = 10
