@@ -18,30 +18,32 @@ class PlayerHudNode: SKNode {
     
     var upgradeLabel: SKLabelNode
     
-    init(sceneSize: CGSize) {
+    init(screenSize: CGSize, sceneSize: CGSize = CGSize(width: 1080, height: 810)) {
         
-        lifeBar = .init(rectOf: CGSize(width: sceneSize.width*0.4,
-                                       height: sceneSize.height*0.05))
+        let ratioHightByWidthScreen = screenSize.height/screenSize.width
+        
+        let ySize = sceneSize.width * ratioHightByWidthScreen
+        let dif = (sceneSize.height - ySize)/2
+        
+        let rectLife = CGRect(origin: .zero, size: CGSize(width: sceneSize.width * 0.4,
+                                                          height: sceneSize.height*0.05))
+        
+        let rectXp = CGRect(origin: .zero, size: CGSize(width: sceneSize.width * 0.7,
+                                                        height: sceneSize.height*0.02))
+        
+        lifeBar = .init(rect: rectLife)
         lifeBar.fillColor = SKColor.red.withAlphaComponent(0.7)
         lifeBar.strokeColor = .clear
         
-        lostLifeBar = .init(rectOf: CGSize(width: sceneSize.width*0.4,
-                                           height: sceneSize.height*0.05))
+        lostLifeBar = .init(rect: rectLife)
         lostLifeBar.fillColor = SKColor.darkGray.withAlphaComponent(0.7)
         lostLifeBar.strokeColor = .clear
         
-        let rect = CGRect(x: -(sceneSize.width*0.90)/2,
-                          y: -sceneSize.height*0.01,
-                          width: sceneSize.width*0.90,
-                          height: sceneSize.height*0.01)
-        
-        emptyXpBar = .init(rect: rect,
-                           cornerRadius: sceneSize.height*0.01)
+        emptyXpBar = .init(rect: rectXp, cornerRadius: sceneSize.height*0.01)
         emptyXpBar.fillColor = SKColor.gray.withAlphaComponent(0.7)
         emptyXpBar.strokeColor = .clear
         
-        xpBar = .init(rect: rect,
-                      cornerRadius: sceneSize.height*0.01)
+        xpBar = .init(rect: rectXp, cornerRadius: sceneSize.height*0.01)
         xpBar.fillColor = SKColor.green.withAlphaComponent(0.7)
         xpBar.strokeColor = .clear
         
@@ -51,20 +53,25 @@ class PlayerHudNode: SKNode {
         
         self.zPosition = 16
         
-        lifeBar.position = CGPoint(x: 0, y: -(sceneSize.height)*0.25)
-        lostLifeBar.position = CGPoint(x: 0, y: -(sceneSize.height)*0.25)
+        lifeBar.position = CGPoint(x: -rectLife.width/2,
+                                   y: +(dif + rectXp.height) - sceneSize.height/2)
         
-        xpBar.position = CGPoint(x: 0, y: (sceneSize.height)*0.30)
-        emptyXpBar.position = CGPoint(x: 0, y: (sceneSize.height)*0.30)
+        lostLifeBar.position = CGPoint(x: -rectLife.width/2,
+                                       y: +(dif + rectXp.height) - sceneSize.height/2)
         
-        xpBar.run(SKAction.scaleX(to: 0, duration: 0))
+        xpBar.position = CGPoint(x: -rectXp.width*0.5,
+                                 y: -(dif + rectXp.height + 5) + sceneSize.height/2)
         
-        upgradeLabel.position = CGPoint(x: 0, y: (sceneSize.height)*0.25)
+        emptyXpBar.position = CGPoint(x: -rectXp.width*0.5,
+                                      y: -(dif + rectXp.height + 5) + sceneSize.height/2)
+        
+        upgradeLabel.position = CGPoint(x: 0, y: (ySize)*0.35)
         upgradeLabel.fontColor = SKColor.green
         upgradeLabel.fontName = "munro"
         upgradeLabel.color = .red
         
         upgradeLabel.run(SKAction.fadeOut(withDuration: 0))
+        updateUpgradeLabel(upgrades: [.acceleration: 1])
         
         self.addChildren([lostLifeBar, lifeBar, emptyXpBar, xpBar, upgradeLabel])
     }

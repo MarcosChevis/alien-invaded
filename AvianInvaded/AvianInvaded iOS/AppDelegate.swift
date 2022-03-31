@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                       currentRoomDifficulty: .standard)
         let gameLogicController = GameLogicController(roomService: roomService)
         window.rootViewController = GameViewController(gameLogicController: gameLogicController,
-                                                       size: sceneSize)
+                                                       sceneSize: sceneSize)
         window.makeKeyAndVisible()
         self.window = window
         

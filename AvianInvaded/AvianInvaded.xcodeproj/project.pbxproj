@@ -137,6 +137,9 @@
 		BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */; };
 		BA4C856C27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */; };
 		BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */; };
+		BA57604A27F6152400688B2F /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAC083227F228D900C9C676 /* munro.ttf */; };
+		BA57604B27F6152400688B2F /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAC083227F228D900C9C676 /* munro.ttf */; };
+		BA57604C27F6152500688B2F /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAC083227F228D900C9C676 /* munro.ttf */; };
 		BA73533427ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
 		BA73533527ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
 		BA73533627ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
@@ -237,6 +240,9 @@
 		BA4C856027D7C5A2000EBEB2 /* CGSize+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Math.swift"; sourceTree = "<group>"; };
 		BA4C856527D7F479000EBEB2 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		BA4C856A27D7F749000EBEB2 /* LifeCycleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleElement.swift; sourceTree = "<group>"; };
+		BA57604927F614ED00688B2F /* AvianInvaded-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AvianInvaded-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BA57604D27F6153100688B2F /* AvianInvaded-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AvianInvaded-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BA57604E27F6153600688B2F /* AvianInvaded-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AvianInvaded-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BA73533327ECFD750088A77B /* PlayerHudNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHudNode.swift; sourceTree = "<group>"; };
 		BA73533727ED07ED0088A77B /* PlayerHudDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHudDelegate.swift; sourceTree = "<group>"; };
 		BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBodyNode.swift; sourceTree = "<group>"; };
@@ -516,6 +522,7 @@
 		BADECBCA27D14CE600EFD009 /* AvianInvaded iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BA57604927F614ED00688B2F /* AvianInvaded-iOS-Info.plist */,
 				BA04A3FF27D6932B004E51EA /* Logic */,
 				BA04A3FE27D69324004E51EA /* Views */,
 				BADECBCB27D14CE600EFD009 /* AppDelegate.swift */,
@@ -527,6 +534,7 @@
 		BADECBDA27D14CE600EFD009 /* AvianInvaded tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				BA57604D27F6153100688B2F /* AvianInvaded-tvOS-Info.plist */,
 				BAD0DAF427E10B8F005A21B3 /* Views */,
 				BAE17D1827DA887900E131F4 /* Logic */,
 				BADECBDB27D14CE600EFD009 /* AppDelegate.swift */,
@@ -538,6 +546,7 @@
 		BADECBEA27D14CE600EFD009 /* AvianInvaded macOS */ = {
 			isa = PBXGroup;
 			children = (
+				BA57604E27F6153600688B2F /* AvianInvaded-macOS-Info.plist */,
 				BAE17D1C27DA88B000E131F4 /* Logic */,
 				BADECBEB27D14CE600EFD009 /* AppDelegate.swift */,
 				BA088F9B27D2846100CCB38D /* main.swift */,
@@ -781,6 +790,7 @@
 			files = (
 				BADECBD427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				BA57604A27F6152400688B2F /* munro.ttf in Resources */,
 				5BE72A0827EA39FF003C5C48 /* rooms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,6 +801,7 @@
 			files = (
 				BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				BA57604B27F6152400688B2F /* munro.ttf in Resources */,
 				5BE72A0927EA39FF003C5C48 /* rooms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,6 +812,7 @@
 			files = (
 				5BE72A0A27EA39FF003C5C48 /* rooms.json in Resources */,
 				BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				BA57604C27F6152500688B2F /* munro.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,8 +1176,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WK7599VNDW;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -1195,8 +1208,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WK7599VNDW;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -1227,8 +1241,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WK7599VNDW;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AvianInvaded-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1253,8 +1268,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WK7599VNDW;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AvianInvaded-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1286,6 +1302,7 @@
 				DEVELOPMENT_TEAM = QRB568C47A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AvianInvaded-macOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1316,6 +1333,7 @@
 				DEVELOPMENT_TEAM = QRB568C47A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AvianInvaded-macOS-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
