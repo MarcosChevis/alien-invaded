@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                       roomRepository: RoomRepository(),
                                       currentRoomDifficulty: .standard)
         let gameLogicController = GameLogicController(roomService: roomService)
-        window.rootViewController = GameViewController(gameLogicController: gameLogicController, size: sceneSize)
+        window.rootViewController = GameViewController(gameLogicController: gameLogicController, sceneSize: sceneSize)
         window.makeKeyAndVisible()
         self.window = window
         

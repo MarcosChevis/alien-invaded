@@ -46,8 +46,8 @@ final class RoomRepository {
      */
     func startup() {
         dungeonMatrix = generateDungeon(totalRooms: 10)
-        printMatrix(matrix: dungeonMatrix)
-        print(currentRoomPosition)
+        //printMatrix(matrix: dungeonMatrix)
+        //print(currentRoomPosition)
     }
     
     func nextRoom(direction: RoomDirection) -> Room {
@@ -57,7 +57,7 @@ final class RoomRepository {
             fatalError("ERROR")
         }
         
-        print(currentRoomPosition)
+        //print(currentRoomPosition)
         return currentRoom
     }
     

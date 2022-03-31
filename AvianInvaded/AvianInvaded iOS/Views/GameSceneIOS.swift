@@ -15,13 +15,14 @@ class GameSceneIOS: SKScene {
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
-    init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
+    init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, sceneSize: CGSize, screenSize: CGSize) {
         self.gameLogicController = gameLogicController
         
-        self.playerHudNode = .init(sceneSize: size)
+        self.playerHudNode = .init(screenSize: screenSize)
         self.playerNode = PlayerNode(inputController: inputController, hudDelegate: playerHudNode)
         
-        super.init(size: size)
+        super.init(size: sceneSize)
+        print(self.size)
         
         self.scaleMode = .aspectFill
         self.camera = gameCamera
@@ -77,6 +78,9 @@ class GameSceneIOS: SKScene {
         for node in nodes {
             self.addChild(node)
         }
+    }
+    override func didChangeSize(_ oldSize: CGSize) {
+        print(self.size)
     }
     
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {

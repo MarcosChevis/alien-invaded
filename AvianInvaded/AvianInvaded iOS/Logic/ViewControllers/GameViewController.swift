@@ -13,8 +13,8 @@ class GameViewController: UIViewController {
     
     let gameScene: GameSceneIOS
     
-    init(gameLogicController: GameLogicController, size: CGSize) {
-        self.gameScene = GameSceneIOS(gameLogicController: gameLogicController, inputController: InputControllerIOS(), size: size)
+    init(gameLogicController: GameLogicController, sceneSize: CGSize) {
+        self.gameScene = GameSceneIOS(gameLogicController: gameLogicController, inputController: InputControllerIOS(), sceneSize: sceneSize, screenSize: UIScreen.main.bounds.size)
         super.init(nibName: nil, bundle: nil)
         
     }
