@@ -46,8 +46,6 @@ final class RoomRepository {
      */
     func startup() {
         dungeonMatrix = generateDungeon(totalRooms: 10)
-        //printMatrix(matrix: dungeonMatrix)
-        //print(currentRoomPosition)
     }
     
     func nextRoom(direction: RoomDirection) -> Room {
@@ -57,29 +55,28 @@ final class RoomRepository {
             fatalError("ERROR")
         }
         
-        //print(currentRoomPosition)
         return currentRoom
     }
     
     private func printMatrix(matrix: [[Int]]) {
-            var string = ""
-            
-            for (line) in matrix {
-                string += "["
-                for (item) in line {
-                    if item < 0 {
-                        string += "."
-                    } else if item >= 0 && item < 10 {
-                        string += "\(item)"
-                    } else if item >= 10 {
-                        string += "\(item)"
-                    }
-                    string += " "
+        var string = ""
+        
+        for (line) in matrix {
+            string += "["
+            for (item) in line {
+                if item < 0 {
+                    string += "."
+                } else if item >= 0 && item < 10 {
+                    string += "\(item)"
+                } else if item >= 10 {
+                    string += "\(item)"
                 }
-                string += "]\n"
+                string += " "
             }
-            print(string)
+            string += "]\n"
         }
+        print(string)
+    }
     
     private func generateDungeon(totalRooms: Int) -> [[Int]] {
         var matrix: [[Int]] = Array(repeating: Array(repeating: -1, count: totalRooms),

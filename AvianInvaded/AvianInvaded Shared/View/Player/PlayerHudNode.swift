@@ -24,10 +24,9 @@ class PlayerHudNode: SKNode {
         
         let ySize = sceneSize.width * ratioHightByWidthScreen
         let dif = (sceneSize.height - ySize)/2
-        print(ySize)
         
         let rectLife = CGRect(origin: .zero, size: CGSize(width: sceneSize.width * 0.4,
-                                                          height: sceneSize.height*0.1))
+                                                          height: sceneSize.height*0.05))
         
         let rectXp = CGRect(origin: .zero, size: CGSize(width: sceneSize.width * 0.7,
                                                         height: sceneSize.height*0.02))
@@ -65,9 +64,7 @@ class PlayerHudNode: SKNode {
         xpBar.position = CGPoint(x: -rectXp.width*0.5, y: -(dif + rectXp.height + 5) + sceneSize.height/2)
         emptyXpBar.position = CGPoint(x: -rectXp.width*0.5 , y: -(dif + rectXp.height + 5) + sceneSize.height/2)
         
-        xpBar.run(SKAction.scaleX(to: 0, duration: 10))
-        
-        upgradeLabel.position = CGPoint(x: 0, y: (ySize)*0.25)
+        upgradeLabel.position = CGPoint(x: 0, y: (ySize)*0.35)
         upgradeLabel.fontColor = SKColor.green
         upgradeLabel.fontName = "munro"
         upgradeLabel.color = .red

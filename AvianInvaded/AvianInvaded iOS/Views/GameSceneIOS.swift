@@ -22,7 +22,6 @@ class GameSceneIOS: SKScene {
         self.playerNode = PlayerNode(inputController: inputController, hudDelegate: playerHudNode)
         
         super.init(size: sceneSize)
-        print(self.size)
         
         self.scaleMode = .aspectFill
         self.camera = gameCamera
@@ -80,7 +79,6 @@ class GameSceneIOS: SKScene {
         }
     }
     override func didChangeSize(_ oldSize: CGSize) {
-        print(self.size)
     }
     
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
