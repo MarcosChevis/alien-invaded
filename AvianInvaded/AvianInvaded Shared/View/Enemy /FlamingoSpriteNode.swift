@@ -1,31 +1,35 @@
 //
-//  EnemySpriteNode.swift
+//  FlamingoSpriteNode.swift
 //  AvianInvaded
 //
-//  Created by thais on 11/03/22.
+//  Created by Marcos Chevis on 31/03/22.
 //
 
 import Foundation
 import SpriteKit
-import Combine
 
-class ChickenNode: SKNode, EnemyNodeProtocol {
+class FlamingoNode: SKNode, EnemyNodeProtocol {
     
-    private let logicController: ChickenLogicController
+    private let logicController: FlamingoLogicController
     let bodySprite: SKSpriteNode
-    var projectileTexture: SKTexture
     weak var delegate: EnemyDelegate?
+    var attackIsActive: Bool
+    
+    lazy var attackBodyFrames: [SKTexture] = {
+        createCyclicalTexture("Flamingo_Body_Attack")
+    }()
 
     required init(spawnAt initialPosition: CGPoint,
                   notificationCenter: NotificationCenter,
                   initialData: EnemyData) {
-        logicController = ChickenLogicController(data: initialData,
-                                                 notificationCenter: notificationCenter)
+        logicController = FlamingoLogicController(data: initialData,
+                                                  notificationCenter: notificationCenter)
 
-        bodySprite = .init(imageNamed: "Chicken")
+        let tex = SKTexture(imageNamed: "Flamingo_Body_Attack-1")
+        tex.filteringMode = .nearest
+        bodySprite = .init(texture: tex)
+        self.attackIsActive = false
 
-        let projectileImage = UIImage(named: "Chicken")
-        self.projectileTexture = .init(image: projectileImage ?? .init())
         super.init()
         logicController.delegate = self
         self.colisionGroup = .enemy
@@ -60,7 +64,7 @@ class ChickenNode: SKNode, EnemyNodeProtocol {
     private func scale() {
         let size = self.bodySprite.scaleToScreen(scale: logicController.data.scale)
         self.physicsBody = createPhysicsBody(size: size,
-                                             imageName: "Chicken",
+                                             imageName: "Flamingo_Hitbox",
                                              colisionGroup: self.colisionGroup ?? .enemy,
                                              mass: logicController.data.mass,
                                              frictionMultiplier: logicController.data.frictionMultiplier)
@@ -69,36 +73,21 @@ class ChickenNode: SKNode, EnemyNodeProtocol {
     }
 
     func attack(_ currentTime: TimeInterval) {
+        
         guard let force = logicController.decideAtack(currentTime: currentTime,
-                                                      position: self.position)
-        else {
-            return
+                                                      position: self.position) else { return }
+        
+        let action = SKAction.animate(with: self.attackBodyFrames,
+                                      timePerFrame: 0.1,
+                                      resize: false,
+                                      restore: true)
+
+        if !attackIsActive {
+            attackIsActive = true
+            bodySprite.run(action) {
+                self.attackIsActive = false
+            }
         }
-
-        guard let scene = self.scene else { return }
-
-        let x: CGFloat = 0
-        let y: CGFloat = -bodySprite.size.height*0.45
-
-        let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace,
-                                                                         to: scene)
-
-        let w = self.bodySprite.size.width*logicController.data.projectileSize
-
-        let h = self.bodySprite.size.width*logicController.data.projectileSize
-
-        let size = CGSize(width: w, height: h)
-
-        let projectile = ProjectileSpriteNode(texture: projectileTexture,
-                                              size: size,
-                                              team: .avian,
-                                              position: projectilePositionInSceneSpace,
-                                              damage: logicController.data.projectileDamage)
-
-        self.scene?.addChild(projectile)
-
-        projectile.physicsBody?.applyForce(force)
     }
 
     func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
