@@ -25,6 +25,7 @@ class GameLogicController {
     
     func getplayerStartPosition(forScreen screenSize: CGSize) -> CGPoint {
         let tilePos = roomService.currentRoom.startPosition
+        print("Player Position", tilePos)
         let tileSize = roomService.tileSize(forScreen: screenSize)
         
         return CGPoint(x: tileSize.width * CGFloat(tilePos.x),

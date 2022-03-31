@@ -4,14 +4,6 @@
 //
 //  Created by Marcos Chevis on 15/03/22.
 import SpriteKit
-//
-//  GameScene.swift
-//  AvianInvaded Shared
-//
-//  Created by Marcos Chevis on 03/03/22.
-//
-
-import SpriteKit
 import GameplayKit
 
 class GameSceneTvOS: SKScene {
@@ -33,7 +25,6 @@ class GameSceneTvOS: SKScene {
         self.physicsWorld.contactDelegate = self
         
     }
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

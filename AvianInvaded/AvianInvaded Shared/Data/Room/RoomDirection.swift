@@ -11,7 +11,6 @@ import CoreGraphics
 enum RoomDirection: String, CaseIterable, Codable {
     case top, left, right, bottom
     
-    
     var point: CGPoint {
         switch self {
         case .top:
@@ -42,16 +41,16 @@ enum RoomDirection: String, CaseIterable, Codable {
         return (RoomDirection.allCases.randomElement() ?? .top).point
     }
     
-    static prefix func !(op: RoomDirection) -> RoomDirection {
+    static prefix func ! (op: RoomDirection) -> RoomDirection {
         switch op {
-            case top:
-                return self.bottom
-            case .bottom:
-                return self.top
-            case .left:
-                return self.right
-            case .right:
-                return self.left
+        case top:
+            return self.bottom
+        case .bottom:
+            return self.top
+        case .left:
+            return self.right
+        case .right:
+            return self.left
         }
     }
 }

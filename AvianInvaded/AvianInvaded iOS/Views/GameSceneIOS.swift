@@ -120,8 +120,8 @@ extension GameSceneIOS: GameLogicDelegate {
                 node.removeFromParent()
             }
         }
+        addChild(playerHudNode)
        setupRoom(newRoom)
+        playerNode.setupLighting()
     }
 }
-
-

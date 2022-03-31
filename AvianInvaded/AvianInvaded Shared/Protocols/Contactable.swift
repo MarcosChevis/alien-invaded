@@ -15,8 +15,6 @@ protocol Contactable: AnyObject {
 
 extension Contactable {
     var damage: CGFloat? {
-        get {
-            return nil
-        }
+        return nil
     }
 }

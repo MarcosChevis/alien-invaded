@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 
-struct EnemyData{
+struct EnemyData {
     
     private(set) var frictionMultiplier: CGFloat = 10
     private(set) var mass: CGFloat = 1
@@ -16,7 +16,7 @@ struct EnemyData{
     private(set) var moveMultiplier: CGFloat = 500
     var facingAngle: CGFloat = 0
     private(set) var speedLimit: CGFloat = 500
-    private(set) var projectileSize:CGFloat = 0.3
+    private(set) var projectileSize: CGFloat = 0.3
     private(set) var attackDistance: CGFloat = 1000
     private(set) var distanceEnemyFromPlayer: CGFloat = 200
     private(set) var shootCadence: CGFloat = 0.8
@@ -25,7 +25,6 @@ struct EnemyData{
     var currentHealth: CGFloat = 10
     private(set) var projectileDamage: CGFloat = 1
 
-    
     mutating func resetFrictionMultiplier() {
         frictionMultiplier = 10
     }
@@ -94,7 +93,6 @@ struct EnemyData{
         resetProjectileDemage()
     }
     
-    
     mutating func upgradeAcceleration(multiplier: CGFloat) {
         let increase: CGFloat = 0.2
         moveMultiplier += (increase * multiplier)
@@ -130,4 +128,3 @@ struct EnemyData{
         projectileDamage += (increase * multiplier)
     }
 }
-
