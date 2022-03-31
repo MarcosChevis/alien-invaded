@@ -52,10 +52,9 @@ class PlayerHudNode: SKNode {
         
         upgradeLabel = .init(text: "")
         
-        
         super.init()
         
-        self.zPosition = 10
+        self.zPosition = 16
         
         lifeBar.position = CGPoint(x: -rectLife.width/2, y: +(dif + rectXp.height) - sceneSize.height/2)
         lostLifeBar.position = CGPoint(x: -rectLife.width/2, y: +(dif + rectXp.height) - sceneSize.height/2)
@@ -101,7 +100,7 @@ extension PlayerHudNode: PlayerHudDelegate {
         }
     }
     
-    func updateUpgradeLabel(upgrades: [PlayerUpgrade:Float]) {
+    func updateUpgradeLabel(upgrades: [PlayerUpgrade: Float]) {
         var string: String = ""
         for upgrade in upgrades {
             var i: Float = 0

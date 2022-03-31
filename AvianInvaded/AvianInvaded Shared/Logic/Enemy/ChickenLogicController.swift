@@ -71,7 +71,7 @@ class ChickenLogicController {
         
         let timePast = currentTime - timeLastShot
         
-        if timePast < data.shootCadence  {
+        if timePast < data.shootCadence {
             return nil
         }
         
@@ -83,8 +83,8 @@ class ChickenLogicController {
         return shootingForce
     }
     
-    func receiveDamage() -> Bool {
-        data.currentHealth -= 1
+    func receiveDamage(_ amount: CGFloat) -> Bool {
+        data.currentHealth -= amount
         
         if data.currentHealth <= 0 {
             return true
@@ -110,10 +110,7 @@ class ChickenLogicController {
 
         let finalVector = CGVector(dx: px, dy: py)
         
-        
-        
         let forceVector: CGVector = (finalVector - initialVector).normalized
-        
         
         if abs(initialVector.magnitude - finalVector.magnitude) > 10 {
             delegate?.apply(force: forceVector * 7)

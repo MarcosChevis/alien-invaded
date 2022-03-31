@@ -11,14 +11,14 @@ import GameplayKit
 
 class GameViewController: NSViewController {
     
-    
-    
     override func loadView() {
         let scene = GameSceneIOS()
         #warning("create specific scene")
         
         // Present the scene
-        let skView = SKView(frame: NSRect(x: 0, y: 0, width: NSScreen.main?.frame.width ?? 100, height: NSScreen.main?.frame.height ?? 100))
+        let skView = SKView(frame: NSRect(x: 0,
+                                          y: 0, width: NSScreen.main?.frame.width ?? 100,
+                                          height: NSScreen.main?.frame.height ?? 100))
         skView.presentScene(scene)
         
         skView.ignoresSiblingOrder = true

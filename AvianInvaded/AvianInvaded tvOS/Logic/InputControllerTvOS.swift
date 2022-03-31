@@ -4,7 +4,6 @@
 //
 //  Created by Marcos Chevis on 15/03/22.
 
-
 import Foundation
 import GameController
 
@@ -39,20 +38,18 @@ class InputControllerTvOS: InputControllerProtocol {
         
         if leftJoystickData.intensity != 0 {
             delegate?.updateLegsAngle(direction: leftJoystickData.direction)
-            delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
+            delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value,
+                                                      dy: gamePadLeft.yAxis.value))
             
         }
-       
-//        else if leftJoystickData.intensity != 0 {
-//            inputDelegate?.updateAngle(direction: leftJoystickData.direction)
-//        }
     }
     
-    private func getJoystickData(joystick: GCControllerDirectionPad) -> (direction: CGFloat, intensity: CGFloat) {
+    private func getJoystickData(joystick: GCControllerDirectionPad) -> (direction: CGFloat,
+                                                                         intensity: CGFloat) {
+        
         let vector: CGVector = CGVector.init(dx: joystick.xAxis.value, dy: joystick.yAxis.value)
         let direction: CGFloat = vector.radAngle
         let intensity: CGFloat = vector.magnitude
-        
         
         return (direction, intensity)
     }
@@ -67,14 +64,12 @@ class InputControllerTvOS: InputControllerProtocol {
             self, selector: #selector(self.handleControllerDidDisconnect),
             name: NSNotification.Name.GCControllerDidStopBeingCurrent, object: nil)
         
-
-        
         guard let controller = GCController.controllers().first else { return }
         registerGameController(controller)
         
     }
     
-    //MARK: Input Registrations
+    // MARK: Input Registrations
     private func registerGameController(_ gameController: GCController) {
         
         // para mudar a cor do led do controle de PS4
@@ -91,8 +86,7 @@ class InputControllerTvOS: InputControllerProtocol {
         gamePadRight = nil
     }
     
-    
-    //MARK: Connection Handlers
+    // MARK: Connection Handlers
     @objc
     private func handleControllerDidConnect(_ notification: Notification) {
         guard let gameController = notification.object as? GCController else {
@@ -100,7 +94,6 @@ class InputControllerTvOS: InputControllerProtocol {
         }
         
         unregisterGameController()
-        
         
         registerGameController(gameController)
         delegate?.didChangeInputType(to: .controller)
@@ -110,11 +103,5 @@ class InputControllerTvOS: InputControllerProtocol {
     private func handleControllerDidDisconnect(_ notification: Notification) {
         unregisterGameController()
         delegate?.didChangeInputType(to: .controller)
-        
-        
-        
     }
-    
-    
-    
 }

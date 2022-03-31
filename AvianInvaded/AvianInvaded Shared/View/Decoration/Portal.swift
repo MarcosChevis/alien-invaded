@@ -32,9 +32,9 @@ final class Portal: SKNode {
         setupColision(spriteSize: spriteSize)
         setupBindings()
         
-        self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
-        self.lightNode.lightColor = .cyan.withAlphaComponent(0.2)
-        self.lightNode.falloff = 0.5
+        self.lightNode.ambientColor = .init(white: 0, alpha: 1)
+        self.lightNode.lightColor = .cyan.withAlphaComponent(0.05)
+        self.lightNode.falloff = 1
         self.lightNode.zPosition = 10
         
         lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
@@ -67,7 +67,6 @@ final class Portal: SKNode {
         physicsBody?.categoryBitMask = ColisionGroup.getCategotyMask(colisionGroup)
         self.sprite.lightingBitMask = ColisionGroup.getLightMask(colisionGroup)
         
-
     }
     
     private func setupBindings() {
@@ -94,7 +93,7 @@ final class Portal: SKNode {
 }
 
 extension Portal: Contactable {
-    func contact(with colisionGroup: ColisionGroup) {
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
         if isActive {
             delegate?.teleport(to: direction)
             isActive = false

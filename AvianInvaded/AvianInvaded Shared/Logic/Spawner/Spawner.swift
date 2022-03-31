@@ -29,7 +29,11 @@ final class Spawner {
         return enemies
     }
     
-    private func buildEnemy(enemyInfo: EnemySpawn, position: CGPoint, tileSize: CGFloat, delegate: EnemyDelegate? = nil) -> Enemy {
+    private func buildEnemy(enemyInfo: EnemySpawn,
+                            position: CGPoint,
+                            tileSize: CGFloat,
+                            delegate: EnemyDelegate? = nil) -> Enemy {
+        
         enemyInfo.factory.build(at: CGPoint(x: position.x * tileSize,
                                             y: position.y * tileSize),
                                 notificationCenter: .default,

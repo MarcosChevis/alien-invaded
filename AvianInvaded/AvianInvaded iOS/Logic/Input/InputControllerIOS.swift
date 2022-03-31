@@ -47,7 +47,8 @@ class InputControllerIOS: InputControllerProtocol {
         
         if leftJoystickData.intensity != 0 {
             delegate?.updateLegsAngle(direction: leftJoystickData.direction)
-            delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value, dy: gamePadLeft.yAxis.value))
+            delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value,
+                                                      dy: gamePadLeft.yAxis.value))
             
         }
        
@@ -56,11 +57,11 @@ class InputControllerIOS: InputControllerProtocol {
 //        }
     }
     
-    private func getJoystickData(joystick: GCControllerDirectionPad) -> (direction: CGFloat, intensity: CGFloat) {
+    private func getJoystickData(joystick: GCControllerDirectionPad)
+    -> (direction: CGFloat, intensity: CGFloat) {
         let vector: CGVector = CGVector.init(dx: joystick.xAxis.value, dy: joystick.yAxis.value)
         let direction: CGFloat = vector.radAngle
         let intensity: CGFloat = vector.magnitude
-        
         
         return (direction, intensity)
     }
@@ -75,7 +76,6 @@ class InputControllerIOS: InputControllerProtocol {
             self, selector: #selector(self.handleControllerDidDisconnect),
             name: NSNotification.Name.GCControllerDidStopBeingCurrent, object: nil)
         
-        
         if GCController.controllers().isEmpty {
             self.virtualController.connect()
         }
@@ -85,23 +85,19 @@ class InputControllerIOS: InputControllerProtocol {
         
     }
     
-    //MARK: Input Registrations
+    // MARK: Input Registrations
     private func registerGameController(_ gameController: GCController) {
-        
         // para mudar a cor do led do controle de PS4 FF008E
          gameController.light?.color = GCColor(red: 255/255, green: 0, blue: 142/255)
         
-
         if let gamepad = gameController.extendedGamepad {
             self.gamePadLeft = gamepad.leftThumbstick
             self.gamePadRight = gamepad.rightThumbstick
         }
         
-        if let haptic = gameController.haptics  {
+        if let haptic = gameController.haptics {
             self.haptic = haptic
         }
-        
-        
     }
     
     private func unregisterGameController() {
@@ -109,8 +105,7 @@ class InputControllerIOS: InputControllerProtocol {
         gamePadRight = nil
     }
     
-    
-    //MARK: Connection Handlers
+    // MARK: Connection Handlers
     @objc
     private func handleControllerDidConnect(_ notification: Notification) {
         guard let gameController = notification.object as? GCController else {
@@ -136,7 +131,4 @@ class InputControllerIOS: InputControllerProtocol {
         }
         
     }
-    
-    
-    
 }

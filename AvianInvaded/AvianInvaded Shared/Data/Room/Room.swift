@@ -90,7 +90,7 @@ extension Room {
                                  ],
                                  decorationName: ["",
                                                   "portal"],
-                                 startPosition: .init(x:5, y: 5),
+                                 startPosition: .init(x: 5, y: 5),
                                  enemyNumber: 10,
                                  availableExits: RoomDirection.allCases
     )

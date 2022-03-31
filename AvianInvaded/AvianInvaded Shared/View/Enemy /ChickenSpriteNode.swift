@@ -82,7 +82,7 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         self.run(action)
     }
     
-    func apply(force vector: CGVector){
+    func apply(force vector: CGVector) {
         guard
             let velocity = physicsBody?.velocity,
             let vector = logicController.move(by: vector, currentVelocity: velocity)
@@ -91,7 +91,11 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
     }
     
     func attack(_ currentTime: TimeInterval) {
-        guard let force = logicController.decideAtack(currentTime: currentTime, position: self.position) else { return }
+        guard let force = logicController.decideAtack(currentTime: currentTime,
+                                                      position: self.position)
+        else {
+            return
+        }
         
         guard let scene = self.scene else { return }
         
@@ -99,7 +103,8 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         let y: CGFloat = -bodySprite.size.height*0.45
         
         let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
+        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace,
+                                                                         to: scene)
         
         let w = self.bodySprite.size.width*logicController.data.projectileSize
         
@@ -107,16 +112,20 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         
         let size = CGSize(width: w, height: h)
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team:.avian, position: projectilePositionInSceneSpace)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture,
+                                              size: size,
+                                              team: .avian,
+                                              position: projectilePositionInSceneSpace,
+                                              damage: logicController.data.projectileDamage)
         
         self.scene?.addChild(projectile)
         
         projectile.physicsBody?.applyForce(force)
     }
     
-    private func takeDamage() {
+    private func takeDamage(_ amount: CGFloat) {
         pulseRed()
-        let isDead = logicController.receiveDamage()
+        let isDead = logicController.receiveDamage(amount)
         
         if isDead {
             tearDown()
@@ -129,10 +138,10 @@ class ChickenNode: SKNode, Enemy, EnemyLogicDelegate {
         bodySprite.run(pulseRed)
     }
     
-    func contact(with colisionGroup: ColisionGroup) {
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
         if colisionGroup == .playerProjectile {
             pulseRed()
-            let isDead = logicController.receiveDamage()
+            let isDead = logicController.receiveDamage(damage ?? 0)
             
             if isDead { tearDown() }
         }

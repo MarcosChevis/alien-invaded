@@ -15,7 +15,7 @@ class PlayerNode: SKNode, LifeCycleElement {
     private let bodySprite: SKSpriteNode
     private let legsSprite: SKSpriteNode
     private var projectileTexture: SKTexture
-    private let lightNode: SKLightNode = .init()
+    private var lightNode: SKLightNode?
     
     lazy var idleBodyFrames: [SKTexture] = {
         createTexture("Player_Body_Idle")
@@ -45,13 +45,7 @@ class PlayerNode: SKNode, LifeCycleElement {
         let projectileImage = UIImage(named: "Player_Projectile")
         self.projectileTexture = .init(image: projectileImage ?? .init())
         
-        
-        
         super.init()
-        
-        self.lightNode.ambientColor = .init(white: 0.2, alpha: 1)
-        self.lightNode.lightColor = .init(white: 0.7, alpha: 0.8)
-        self.lightNode.falloff = 0.5
         
         bodyNode.contactDelegate = self
         self.logicController.delegate = self
@@ -59,11 +53,8 @@ class PlayerNode: SKNode, LifeCycleElement {
         zPosition = 2
         self.addChildren()
         self.initializeIdle()
-        
-        lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
-        lightNode.zPosition = 3
+        setupLighting()
 
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,6 +63,22 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     func startup() {
         scale()
+    }
+    
+    func setupLighting() {
+        if let current = self.lightNode {
+            removeChildren(in: [current])
+            self.lightNode = nil
+        }
+        
+        let lightNode = SKLightNode()
+        lightNode.ambientColor = .init(white: 0.15, alpha: 1)
+        lightNode.lightColor = .init(white: 1, alpha: 0.7)
+        lightNode.falloff = 0.7
+        lightNode.categoryBitMask = ColisionGroup.getCategotyMask(.light)
+        lightNode.zPosition = 3
+        addChild(lightNode)
+        self.lightNode = lightNode
     }
     
     func update(_ currentTime: TimeInterval) {
@@ -98,8 +105,6 @@ class PlayerNode: SKNode, LifeCycleElement {
     }
     
     private func addChildren() {
-        
-        self.addChild(lightNode)
         self.addChild(bodyNode)
         bodyNode.addChild(bodySprite)
         bodySprite.zPosition = 2
@@ -134,11 +139,14 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeShooting() {
         let timePerFrame = Double(logicController.data.shotCadence)/Double(shootingFrames.count)
-        let action = SKAction.animate(with: shootingFrames, timePerFrame: timePerFrame, resize: false, restore: true)
+        let action = SKAction.animate(with: shootingFrames,
+                                      timePerFrame: timePerFrame,
+                                      resize: false,
+                                      restore: true)
         self.bodySprite.run(action)
     }
     
-    private func createTexture(_ name:String) -> [SKTexture] {
+    private func createTexture(_ name: String) -> [SKTexture] {
         let textureAtlas = SKTextureAtlas(named: name)
         var frames = [SKTexture]()
         for i in 0...textureAtlas.textureNames.count - 1 {
@@ -158,20 +166,18 @@ class PlayerNode: SKNode, LifeCycleElement {
         reversed.removeFirst()
         reversed = reversed.reversed()
         
-        
         return frames + reversed
     }
     
     private func createPhysicsBody(size: CGSize) {
         
-        //Tudo
         self.physicsBody = .init()
         self.physicsBody?.mass = logicController.mass
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.linearDamping = logicController.data.frictionMultiplier
         
-        //Body - Hitbox
+        // Body - Hitbox
         self.bodyNode.colisionGroup = .player
         let texture = SKTexture(imageNamed: "Player_Body_Idle_0")
         let body = SKPhysicsBody.init(texture: texture, size: size)
@@ -189,7 +195,9 @@ class PlayerNode: SKNode, LifeCycleElement {
 
         self.legsSprite.lightingBitMask = ColisionGroup.getLightMask(self.colisionGroup)
 
-        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!, bodyB: body, anchor: convert(self.bodyNode.position, to: scene!))
+        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!,
+                                                    bodyB: body,
+                                                    anchor: convert(self.bodyNode.position, to: scene!))
 
         scene?.physicsWorld.add(pinMotherBody)
     }
@@ -237,15 +245,19 @@ extension PlayerNode: PlayerLogicDelegate {
         let y = bodySprite.size.height * 0.35
         
         let projectilePositionInBodySpace: CGPoint = CGPoint(x: x, y: y)
-        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace, to: scene)
-        
+        let projectilePositionInSceneSpace: CGPoint = bodySprite.convert(projectilePositionInBodySpace,
+                                                                         to: scene)
         
         let w = self.bodySprite.size.width*logicController.data.projectileSize
         let h = self.bodySprite.size.width*logicController.data.projectileSize
         
         let size = CGSize(width: w, height: h)
         
-        let projectile = ProjectileSpriteNode(texture: projectileTexture, size: size, team: .player, position: projectilePositionInSceneSpace)
+        let projectile = ProjectileSpriteNode(texture: projectileTexture,
+                                              size: size,
+                                              team: .player,
+                                              position: projectilePositionInSceneSpace,
+                                              damage: logicController.data.projectileDamage)
         
         self.scene?.addChild(projectile)
         projectile.physicsBody?.applyForce(force)
@@ -253,7 +265,8 @@ extension PlayerNode: PlayerLogicDelegate {
 }
 
 extension PlayerNode: Contactable {
-    func contact(with colisionGroup: ColisionGroup) {
+    
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
         switch colisionGroup {
         case .environment:
             return
@@ -264,7 +277,7 @@ extension PlayerNode: Contactable {
         case .playerProjectile:
             return
         case .enemyProjectile:
-            logicController.loseHealth()
+            logicController.loseHealth(damage ?? 0)
         case .neutralProjectile:
             return
         case .portal:

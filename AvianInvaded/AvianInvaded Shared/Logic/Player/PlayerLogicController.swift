@@ -25,7 +25,10 @@ class PlayerLogicController: LifeCycleElement {
     
     private let notificationCenter: NotificationCenter
     
-    init(data: PlayerData = .init(), inputController: InputControllerProtocol, notificationCenter: NotificationCenter) {
+    init(data: PlayerData = .init(),
+         inputController: InputControllerProtocol,
+         notificationCenter: NotificationCenter) {
+        
         self.data = data
         self.inputController = inputController
         self.timeLastShot = 0
@@ -58,13 +61,13 @@ class PlayerLogicController: LifeCycleElement {
         notificationCenter.post(name: .playerDidMove, object: newPosition)
     }
     
-    func loseHealth() {
-        data.currentHealth -= 1
+    func loseHealth(_ amount: CGFloat) {
+        data.currentHealth -= amount
         hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
     }
     
-    func gainHealth() {
-        data.currentHealth += 1
+    func gainHealth(_ amount: CGFloat) {
+        data.currentHealth += amount
         hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
     }
     
@@ -87,18 +90,18 @@ class PlayerLogicController: LifeCycleElement {
         guard let type = PlayerUpgrade.allCases.randomElement() else { return }
         
         switch type {  
-            case .acceleration:
-                data.upgradeAcceleration(multiplier: 1)
-            case .maxSpeed:
-                data.upgradeMaxSpeed(multiplier: 1)
-            case .shotSpeed:
-                data.upgradeShotSpeed(multiplier: 1)
-            case .rateOfFire:
-                data.upgradeShotCadence(multiplier: 1)
-            case .shotSize:
-                data.upgradeShotSize(multiplier: 1)
-            case .maxHealth:
-                data.upgradeMaxHealth(multiplier: 1)
+        case .acceleration:
+            data.upgradeAcceleration(multiplier: 1)
+        case .maxSpeed:
+            data.upgradeMaxSpeed(multiplier: 1)
+        case .shotSpeed:
+            data.upgradeShotSpeed(multiplier: 1)
+        case .rateOfFire:
+            data.upgradeShotCadence(multiplier: 1)
+        case .shotSize:
+            data.upgradeShotSize(multiplier: 1)
+        case .maxHealth:
+            data.upgradeMaxHealth(multiplier: 1)
         }
     }
 }
@@ -141,9 +144,8 @@ extension PlayerLogicController: InputDelegate {
         }
         timeLastShot = currentTime
         
-        
         let angle: CGFloat = self.data.facingAngle + CGFloat.pi/2
-
+        
         let shootingMag = data.shootMagnitude
         let shootingForce = CGVector(angle: angle, magnitude: shootingMag)
         

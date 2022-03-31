@@ -9,7 +9,9 @@ import Foundation
 import CoreGraphics
 
 protocol EnemyFactory {
-    func build(at initialPosition: CGPoint, notificationCenter: NotificationCenter, delegate: EnemyDelegate?) -> Enemy
+    func build(at initialPosition: CGPoint,
+               notificationCenter: NotificationCenter,
+               delegate: EnemyDelegate?) -> Enemy
 }
 
 extension EnemyFactory {

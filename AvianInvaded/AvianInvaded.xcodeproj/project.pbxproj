@@ -694,6 +694,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BADECC0127D14CE600EFD009 /* Build configuration list for PBXNativeTarget "AvianInvaded iOS" */;
 			buildPhases = (
+				5BBA8BEB27F375F300B50DA2 /* Run Linter */,
 				BADECBC427D14CE600EFD009 /* Sources */,
 				BADECBC527D14CE600EFD009 /* Frameworks */,
 				BADECBC627D14CE600EFD009 /* Resources */,
@@ -817,6 +818,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5BBA8BEB27F375F300B50DA2 /* Run Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Linter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BADECBC427D14CE600EFD009 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -837,7 +859,6 @@
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */,
 				5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
-				BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */,
 				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */,
@@ -1155,7 +1176,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1187,7 +1208,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

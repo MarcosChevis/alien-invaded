@@ -20,9 +20,6 @@ extension SKSpriteNode {
         
         let size = CGSize(width: w, height: h)
         
-        
         return size
     }
 }
-
-

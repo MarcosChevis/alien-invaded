@@ -9,9 +9,10 @@ import Foundation
 import SpriteKit
 
 class PlayerBodyNode: SKNode, Contactable {
+    
     weak var contactDelegate: Contactable?
     
-    func contact(with colisionGroup: ColisionGroup) {
-        contactDelegate?.contact(with: colisionGroup)
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {
+        contactDelegate?.contact(with: colisionGroup, damage: damage)
     }
 }
