@@ -31,7 +31,6 @@ class PlayerHudNode: SKNode {
         let rectXp = CGRect(origin: .zero, size: CGSize(width: sceneSize.width * 0.7,
                                                         height: sceneSize.height*0.02))
         
-        
         lifeBar = .init(rect: rectLife)
         lifeBar.fillColor = SKColor.red.withAlphaComponent(0.7)
         lifeBar.strokeColor = .clear
@@ -39,8 +38,6 @@ class PlayerHudNode: SKNode {
         lostLifeBar = .init(rect: rectLife)
         lostLifeBar.fillColor = SKColor.darkGray.withAlphaComponent(0.7)
         lostLifeBar.strokeColor = .clear
-        
-        
         
         emptyXpBar = .init(rect: rectXp, cornerRadius: sceneSize.height*0.01)
         emptyXpBar.fillColor = SKColor.gray.withAlphaComponent(0.7)
@@ -56,12 +53,17 @@ class PlayerHudNode: SKNode {
         
         self.zPosition = 16
         
-        lifeBar.position = CGPoint(x: -rectLife.width/2, y: +(dif + rectXp.height) - sceneSize.height/2)
-        lostLifeBar.position = CGPoint(x: -rectLife.width/2, y: +(dif + rectXp.height) - sceneSize.height/2)
+        lifeBar.position = CGPoint(x: -rectLife.width/2,
+                                   y: +(dif + rectXp.height) - sceneSize.height/2)
         
+        lostLifeBar.position = CGPoint(x: -rectLife.width/2,
+                                       y: +(dif + rectXp.height) - sceneSize.height/2)
         
-        xpBar.position = CGPoint(x: -rectXp.width*0.5, y: -(dif + rectXp.height + 5) + sceneSize.height/2)
-        emptyXpBar.position = CGPoint(x: -rectXp.width*0.5 , y: -(dif + rectXp.height + 5) + sceneSize.height/2)
+        xpBar.position = CGPoint(x: -rectXp.width*0.5,
+                                 y: -(dif + rectXp.height + 5) + sceneSize.height/2)
+        
+        emptyXpBar.position = CGPoint(x: -rectXp.width*0.5,
+                                      y: -(dif + rectXp.height + 5) + sceneSize.height/2)
         
         upgradeLabel.position = CGPoint(x: 0, y: (ySize)*0.35)
         upgradeLabel.fontColor = SKColor.green
@@ -83,8 +85,6 @@ class PlayerHudNode: SKNode {
             self.addChild(node)
         }
     }
-    
-    
 }
 
 extension PlayerHudNode: PlayerHudDelegate {

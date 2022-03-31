@@ -15,7 +15,10 @@ class GameSceneIOS: SKScene {
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
-    init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, sceneSize: CGSize, screenSize: CGSize) {
+    init(gameLogicController: GameLogicController,
+         inputController: InputControllerProtocol,
+         sceneSize: CGSize,
+         screenSize: CGSize) {
         self.gameLogicController = gameLogicController
         
         self.playerHudNode = .init(screenSize: screenSize)
