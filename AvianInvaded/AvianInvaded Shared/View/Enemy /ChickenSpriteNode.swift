@@ -24,8 +24,9 @@ class ChickenNode: SKNode, EnemyNodeProtocol {
 
         bodySprite = .init(imageNamed: "Chicken")
 
-        let projectileImage = UIImage(named: "Chicken")
+        let projectileImage = UIImage(named: "Chicken_Egg")
         self.projectileTexture = .init(image: projectileImage ?? .init())
+        self.projectileTexture.filteringMode = .nearest
         super.init()
         logicController.delegate = self
         self.colisionGroup = .enemy

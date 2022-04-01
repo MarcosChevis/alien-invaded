@@ -29,7 +29,8 @@ class ProjectileSpriteNode: SKSpriteNode, LifeCycleElement {
     }
     
     private func setupPhysicsBody() {
-        self.physicsBody = .init(rectangleOf: size)
+        
+        self.physicsBody = .init(circleOfRadius: size.height/2)
         
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.linearDamping = 0

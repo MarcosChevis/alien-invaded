@@ -155,6 +155,9 @@
 		BA57606027F6418D00688B2F /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605F27F6418D00688B2F /* FlamingoFactory.swift */; };
 		BA57606127F6418D00688B2F /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605F27F6418D00688B2F /* FlamingoFactory.swift */; };
 		BA57606227F6418D00688B2F /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605F27F6418D00688B2F /* FlamingoFactory.swift */; };
+		BA675A1E27F7666400754193 /* FlamingoAttackNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */; };
+		BA675A1F27F7666400754193 /* FlamingoAttackNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */; };
+		BA675A2027F7666400754193 /* FlamingoAttackNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */; };
 		BA73533427ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
 		BA73533527ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
 		BA73533627ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
@@ -263,6 +266,7 @@
 		BA57605727F637E300688B2F /* FlamingoLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoLogicController.swift; sourceTree = "<group>"; };
 		BA57605B27F63B3C00688B2F /* EnemiesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemiesEnum.swift; sourceTree = "<group>"; };
 		BA57605F27F6418D00688B2F /* FlamingoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoFactory.swift; sourceTree = "<group>"; };
+		BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoAttackNode.swift; sourceTree = "<group>"; };
 		BA73533327ECFD750088A77B /* PlayerHudNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHudNode.swift; sourceTree = "<group>"; };
 		BA73533727ED07ED0088A77B /* PlayerHudDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHudDelegate.swift; sourceTree = "<group>"; };
 		BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBodyNode.swift; sourceTree = "<group>"; };
@@ -662,6 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */,
+				BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */,
 			);
 			path = Projectile;
 			sourceTree = "<group>";
@@ -931,6 +936,7 @@
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 				5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */,
 				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
+				BA675A1E27F7666400754193 /* FlamingoAttackNode.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -985,6 +991,7 @@
 				5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA41406C27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BC8AF6F27ED10EC00870B03 /* Portal.swift in Sources */,
+				BA675A1F27F7666400754193 /* FlamingoAttackNode.swift in Sources */,
 				5BE72A1627EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
 				5BE729D927E52255003C5C48 /* Contact.swift in Sources */,
@@ -1072,6 +1079,7 @@
 				D65B8A4B27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BA04A40E27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				5BE729DE27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
+				BA675A2027F7666400754193 /* FlamingoAttackNode.swift in Sources */,
 				BADECBEC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
