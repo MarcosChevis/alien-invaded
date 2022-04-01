@@ -18,17 +18,17 @@ class PlayerNode: SKNode, LifeCycleElement {
     private var lightNode: SKLightNode?
     
     lazy var idleBodyFrames: [SKTexture] = {
-        createTexture("Player_Body_Idle")
+        SKTexture.loadFromAtlas(named: "Player_Body_Idle")
     }()
     
     lazy var walkingLegsFrames: [SKTexture] = {
-        createCyclicalTexture("Player_Legs_Walking")
+        SKTexture.loadCyclicalFromAtlas(named: "Player_Legs_Walking")
     }()
     
     lazy var isIdle: Bool = true
     
     lazy var shootingFrames: [SKTexture] = {
-        createTexture("Player_Shoot")
+        SKTexture.loadFromAtlas(named: "Player_Shoot")
     }()
     
     init(inputController: InputControllerProtocol, hudDelegate: PlayerHudDelegate) {

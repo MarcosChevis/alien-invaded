@@ -18,28 +18,3 @@ extension SKNode {
         }
     }
 }
-
-extension SKNode {
-    func createTexture(_ name: String) -> [SKTexture] {
-        let textureAtlas = SKTextureAtlas(named: name)
-        var frames = [SKTexture]()
-        for i in 0...textureAtlas.textureNames.count - 1 {
-            let texture = textureAtlas.textureNamed(textureAtlas.textureNames[i])
-            texture.filteringMode = .nearest
-            frames.append(texture)
-        }
-        frames = frames.sorted { text1, text2 in
-            text1.description < text2.description
-        }
-        return frames
-    }
-    
-    func createCyclicalTexture(_ name: String) -> [SKTexture] {
-        let frames = createTexture(name)
-        var reversed = frames
-        reversed.removeFirst()
-        reversed = reversed.reversed()
-        
-        return frames + reversed
-    }
-}

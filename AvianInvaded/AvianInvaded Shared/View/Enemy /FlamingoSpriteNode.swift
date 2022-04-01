@@ -27,7 +27,7 @@ class FlamingoNode: SKNode, EnemyNodeProtocol {
     lazy var attackDamage = logicController.data.projectileDamage
     
     lazy var attackBodyFrames: [SKTexture] = {
-        createCyclicalTexture("Flamingo_Body_Attack")
+        SKTexture.loadCyclicalFromAtlas(named: "Flamingo_Body_Attack")
     }()
 
     required init(spawnAt initialPosition: CGPoint,
