@@ -42,7 +42,7 @@ class GameLogicController {
     }
     
     func spawnEnemies() -> [SKNode] {
-        let enemyInfo = selectEnemies(factories: [ChickenFactory()],
+        let enemyInfo = selectEnemies(factories: [FlamingoFactory(), ChickenFactory()],
                                       maxEnemyCount: roomService.currentRoom.enemyNumber)
         let spawnInfo = SpawnInfo(availablePositions: roomService.currentRoom.availableSpaces,
                                   tileSize: tileSize.width,

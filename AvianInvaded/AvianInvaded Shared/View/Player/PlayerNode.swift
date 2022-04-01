@@ -18,17 +18,17 @@ class PlayerNode: SKNode, LifeCycleElement {
     private var lightNode: SKLightNode?
     
     lazy var idleBodyFrames: [SKTexture] = {
-        createTexture("Player_Body_Idle")
+        SKTexture.loadFromAtlas(named: "Player_Body_Idle")
     }()
     
     lazy var walkingLegsFrames: [SKTexture] = {
-        createCyclicalTexture("Player_Legs_Walking")
+        SKTexture.loadCyclicalFromAtlas(named: "Player_Legs_Walking")
     }()
     
     lazy var isIdle: Bool = true
     
     lazy var shootingFrames: [SKTexture] = {
-        createTexture("Player_Shoot")
+        SKTexture.loadFromAtlas(named: "Player_Shoot")
     }()
     
     init(inputController: InputControllerProtocol, hudDelegate: PlayerHudDelegate) {
@@ -145,30 +145,6 @@ class PlayerNode: SKNode, LifeCycleElement {
                                       restore: true)
         self.bodySprite.run(action)
     }
-    
-    private func createTexture(_ name: String) -> [SKTexture] {
-        let textureAtlas = SKTextureAtlas(named: name)
-        var frames = [SKTexture]()
-        for i in 0...textureAtlas.textureNames.count - 1 {
-            let texture = textureAtlas.textureNamed(textureAtlas.textureNames[i])
-            texture.filteringMode = .nearest
-            frames.append(texture)
-        }
-        frames = frames.sorted { text1, text2 in
-            text1.description < text2.description
-        }
-        return frames
-    }
-    
-    private func createCyclicalTexture(_ name: String) -> [SKTexture] {
-        let frames = createTexture(name)
-        var reversed = frames
-        reversed.removeFirst()
-        reversed = reversed.reversed()
-        
-        return frames + reversed
-    }
-    
     private func createPhysicsBody(size: CGSize) {
         
         self.physicsBody = .init()

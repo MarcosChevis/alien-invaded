@@ -1,8 +1,8 @@
 //
-//  EnemyLogicController.swift
+//  FlamingoLogicController.swift
 //  AvianInvaded
 //
-//  Created by thais on 11/03/22.
+//  Created by Marcos Chevis on 31/03/22.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Combine
 import CoreGraphics
 import SpriteKit
 
-class ChickenLogicController {
+class FlamingoLogicController {
     var data: EnemyData
     weak var delegate: EnemyLogicDelegate?
     
@@ -24,7 +24,7 @@ class ChickenLogicController {
     
     var scale: CGFloat { data.scale }
     
-    init(data: EnemyData, notificationCenter: NotificationCenter = .default) {
+    init(data: EnemyData = .init(), notificationCenter: NotificationCenter = .default) {
         self.data = data
         self.timeLastShot = 0
         self.notificationCenter = notificationCenter
@@ -104,8 +104,8 @@ class ChickenLogicController {
         let angle = ((playerVector - initialVector).radAngle - CGFloat.pi)
         let nAngle = angle - CGFloat.pi/2
         
-        data.facingAngle = nAngle
-        delegate?.rotate(to: nAngle )
+        data.facingAngle = nAngle + CGFloat.pi
+        delegate?.rotate(to: nAngle + CGFloat.pi)
         
         let px = playerVector.dx + r * cos(angle)
         let py = playerVector.dy + r * sin(angle)
