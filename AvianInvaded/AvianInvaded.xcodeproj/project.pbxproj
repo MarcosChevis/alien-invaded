@@ -7,11 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B3CE7F827F619D7007C69FD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3CE7F727F619D7007C69FD /* HomeViewController.swift */; };
+		5B3CE7FA27F619F3007C69FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3CE7F927F619F3007C69FD /* HomeView.swift */; };
 		5B89F82427EB8809005026F7 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82327EB8809005026F7 /* Portal.swift */; };
 		5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89F82627EB8F4D005026F7 /* Decoration.swift */; };
-		5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
-		5BBA8BE927F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
-		5BBA8BEA27F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */; };
+		5B977B4527F7341B00A2F8E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B977B4927F7341B00A2F8E5 /* Localizable.strings */; };
+		5B977B4627F7341B00A2F8E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B977B4927F7341B00A2F8E5 /* Localizable.strings */; };
+		5B977B4727F7341B00A2F8E5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B977B4927F7341B00A2F8E5 /* Localizable.strings */; };
+		5B977B4E27F73A3100A2F8E5 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B4D27F73A3100A2F8E5 /* CoordinatorProtocol.swift */; };
+		5B977B5027F73AD900A2F8E5 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B4F27F73AD900A2F8E5 /* MainCoordinator.swift */; };
+		5B977B5327F7439D00A2F8E5 /* AvianInvasionTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B977B5227F7439D00A2F8E5 /* AvianInvasionTheme.mp3 */; };
+		5B977B5427F7439D00A2F8E5 /* AvianInvasionTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B977B5227F7439D00A2F8E5 /* AvianInvasionTheme.mp3 */; };
+		5B977B5527F7439D00A2F8E5 /* AvianInvasionTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B977B5227F7439D00A2F8E5 /* AvianInvasionTheme.mp3 */; };
+		5B977B5727F7456E00A2F8E5 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5627F7456E00A2F8E5 /* GameOverView.swift */; };
+		5B977B5827F7456E00A2F8E5 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5627F7456E00A2F8E5 /* GameOverView.swift */; };
+		5B977B5927F7456E00A2F8E5 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5627F7456E00A2F8E5 /* GameOverView.swift */; };
+		5B977B5C27F762C400A2F8E5 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5B27F762C400A2F8E5 /* UIComponents.swift */; };
+		5B977B5D27F762C400A2F8E5 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5B27F762C400A2F8E5 /* UIComponents.swift */; };
+		5B977B6027F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5F27F76BB400A2F8E5 /* UIViews+Utilities.swift */; };
+		5B977B6127F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5F27F76BB400A2F8E5 /* UIViews+Utilities.swift */; };
+		5B977B6227F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B5F27F76BB400A2F8E5 /* UIViews+Utilities.swift */; };
+		5B977B6827F76CB100A2F8E5 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B6727F76CB100A2F8E5 /* GameOverViewController.swift */; };
+		5B977B6927F76CB100A2F8E5 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B6727F76CB100A2F8E5 /* GameOverViewController.swift */; };
+		5B977B6A27F76CB100A2F8E5 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B6727F76CB100A2F8E5 /* GameOverViewController.swift */; };
+		5BBA8BE827F2208E00B50DA2 /* SKTexture+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKTexture+SKAtlas.swift */; };
+		5BBA8BE927F2208E00B50DA2 /* SKTexture+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKTexture+SKAtlas.swift */; };
+		5BBA8BEA27F2208E00B50DA2 /* SKTexture+SKAtlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBA8BE727F2208E00B50DA2 /* SKTexture+SKAtlas.swift */; };
 		5BC8AF5727ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
 		5BC8AF5827ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
 		5BC8AF5927ECEF3F00870B03 /* CGPoint+Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */; };
@@ -196,9 +217,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B3CE7F727F619D7007C69FD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5B3CE7F927F619F3007C69FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5B89F82327EB8809005026F7 /* Portal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portal.swift; sourceTree = "<group>"; };
 		5B89F82627EB8F4D005026F7 /* Decoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoration.swift; sourceTree = "<group>"; };
-		5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+SKAtlas.swift"; sourceTree = "<group>"; };
+		5B977B4827F7341B00A2F8E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5B977B4A27F7344700A2F8E5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5B977B4B27F7344700A2F8E5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5B977B4C27F7344700A2F8E5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5B977B4D27F73A3100A2F8E5 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		5B977B4F27F73AD900A2F8E5 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5B977B5227F7439D00A2F8E5 /* AvianInvasionTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AvianInvasionTheme.mp3; sourceTree = "<group>"; };
+		5B977B5627F7456E00A2F8E5 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		5B977B5B27F762C400A2F8E5 /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
+		5B977B5F27F76BB400A2F8E5 /* UIViews+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViews+Utilities.swift"; sourceTree = "<group>"; };
+		5B977B6727F76CB100A2F8E5 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		5BBA8BE727F2208E00B50DA2 /* SKTexture+SKAtlas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKTexture+SKAtlas.swift"; sourceTree = "<group>"; };
 		5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Math.swift"; sourceTree = "<group>"; };
 		5BC8AF6427ED069300870B03 /* PortalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalDelegate.swift; sourceTree = "<group>"; };
 		5BC8AF6927ED0A1100870B03 /* EnemyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyDelegate.swift; sourceTree = "<group>"; };
@@ -300,12 +334,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B3CE7FB27F61A3B007C69FD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5B977B4D27F73A3100A2F8E5 /* CoordinatorProtocol.swift */,
+				5B977B4F27F73AD900A2F8E5 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5B3CE7FC27F61B0F007C69FD /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				5B977B4927F7341B00A2F8E5 /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		5B89F82227EB87FC005026F7 /* Decoration */ = {
 			isa = PBXGroup;
 			children = (
 				5B89F82327EB8809005026F7 /* Portal.swift */,
 			);
 			path = Decoration;
+			sourceTree = "<group>";
+		};
+		5B977B5127F7435700A2F8E5 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				5B977B5227F7439D00A2F8E5 /* AvianInvasionTheme.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		5B977B5A27F762B500A2F8E5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5B977B5B27F762C400A2F8E5 /* UIComponents.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		5BE729E827E904A4003C5C48 /* Spawner */ = {
@@ -358,6 +425,7 @@
 		BA04A3FB27D69281004E51EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B977B5A27F762B500A2F8E5 /* Components */,
 				5B89F82227EB87FC005026F7 /* Decoration */,
 				D65B8A4227DBBA7700185928 /* Enemy  */,
 				BAE17D1F27DA8A2500E131F4 /* Projectile */,
@@ -397,6 +465,8 @@
 			isa = PBXGroup;
 			children = (
 				BADECBC227D14CE300EFD009 /* GameSceneIOS.swift */,
+				5B3CE7F927F619F3007C69FD /* HomeView.swift */,
+				5B977B5627F7456E00A2F8E5 /* GameOverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,7 +512,8 @@
 				5BE72A0327EA18DE003C5C48 /* Room+Utils.swift */,
 				5BE72A0C27EA3A19003C5C48 /* JSONDecoder+Utils.swift */,
 				5BC8AF5627ECEF3F00870B03 /* CGPoint+Math.swift */,
-				5BBA8BE727F2208E00B50DA2 /* SKAction+SKAtlas.swift */,
+				5BBA8BE727F2208E00B50DA2 /* SKTexture+SKAtlas.swift */,
+				5B977B5F27F76BB400A2F8E5 /* UIViews+Utilities.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +568,9 @@
 		BADECBBF27D14CE300EFD009 /* AvianInvaded Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5B977B5127F7435700A2F8E5 /* Audio */,
+				5B3CE7FC27F61B0F007C69FD /* Strings */,
+				5B3CE7FB27F61A3B007C69FD /* Coordinator */,
 				5BE729F627E90E3B003C5C48 /* Factories */,
 				BA4C856927D7F70B000EBEB2 /* Protocols */,
 				BA04A3FD27D692F2004E51EA /* Data */,
@@ -599,6 +673,8 @@
 			isa = PBXGroup;
 			children = (
 				BADECBCD27D14CE600EFD009 /* GameViewController.swift */,
+				5B3CE7F727F619D7007C69FD /* HomeViewController.swift */,
+				5B977B6727F76CB100A2F8E5 /* GameOverViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -770,6 +846,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = BADECBBA27D14CE300EFD009;
 			productRefGroup = BADECBC927D14CE600EFD009 /* Products */;
@@ -788,8 +865,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B977B4527F7341B00A2F8E5 /* Localizable.strings in Resources */,
 				BADECBD427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFC27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				5B977B5327F7439D00A2F8E5 /* AvianInvasionTheme.mp3 in Resources */,
 				BA57604A27F6152400688B2F /* munro.ttf in Resources */,
 				5BE72A0827EA39FF003C5C48 /* rooms.json in Resources */,
 			);
@@ -799,8 +878,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B977B4627F7341B00A2F8E5 /* Localizable.strings in Resources */,
 				BADECBE427D14CE600EFD009 /* LaunchScreen.storyboard in Resources */,
 				BADECBFD27D14CE600EFD009 /* Assets.xcassets in Resources */,
+				5B977B5427F7439D00A2F8E5 /* AvianInvasionTheme.mp3 in Resources */,
 				BA57604B27F6152400688B2F /* munro.ttf in Resources */,
 				5BE72A0927EA39FF003C5C48 /* rooms.json in Resources */,
 			);
@@ -811,6 +892,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BE72A0A27EA39FF003C5C48 /* rooms.json in Resources */,
+				5B977B5527F7439D00A2F8E5 /* AvianInvasionTheme.mp3 in Resources */,
+				5B977B4727F7341B00A2F8E5 /* Localizable.strings in Resources */,
 				BADECBFE27D14CE600EFD009 /* Assets.xcassets in Resources */,
 				BA57604C27F6152500688B2F /* munro.ttf in Resources */,
 			);
@@ -845,12 +928,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
+				5B977B6827F76CB100A2F8E5 /* GameOverViewController.swift in Sources */,
 				BA41406B27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BC8AF5727ECEF3F00870B03 /* CGPoint+Math.swift in Sources */,
 				5BE729D827E52255003C5C48 /* Contact.swift in Sources */,
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				5BE72A1927EA54ED003C5C48 /* RoomDirection.swift in Sources */,
 				5BE72A0027EA180C003C5C48 /* Int+RandomList.swift in Sources */,
+				5B977B5727F7456E00A2F8E5 /* GameOverView.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BA73533C27ED101E0088A77B /* PlayerBodyNode.swift in Sources */,
 				5BE729EE27E904DA003C5C48 /* EnemyFactory.swift in Sources */,
@@ -858,11 +943,12 @@
 				5BE72A1527EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDA27DF9FE500BB9998 /* Room.swift in Sources */,
 				BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */,
-				5BBA8BE827F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
+				5BBA8BE827F2208E00B50DA2 /* SKTexture+SKAtlas.swift in Sources */,
 				BA382DC027E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				BA41405F27E27A3B006872E8 /* Contactable.swift in Sources */,
 				D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
+				5B977B4E27F73A3100A2F8E5 /* CoordinatorProtocol.swift in Sources */,
 				5BE72A0D27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				5BC8AF6527ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
@@ -877,6 +963,7 @@
 				5BE729EA27E904B2003C5C48 /* SpawnInfo.swift in Sources */,
 				BA4C856627D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				5BE729F827E90E48003C5C48 /* ChickenFactory.swift in Sources */,
+				5B3CE7FA27F619F3007C69FD /* HomeView.swift in Sources */,
 				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
 				BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA088FA027D29A6A00CCB38D /* InputDelegate.swift in Sources */,
@@ -889,16 +976,20 @@
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				D65B8A4927DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				5BC8AF6A27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
+				5B977B6027F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */,
 				BA088FAA27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
+				5B977B5C27F762C400A2F8E5 /* UIComponents.swift in Sources */,
 				5BE729F327E905C6003C5C48 /* Spawner.swift in Sources */,
 				BA73534027ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				BA088FA427D29A7000CCB38D /* InputControllerIOS.swift in Sources */,
+				5B977B5027F73AD900A2F8E5 /* MainCoordinator.swift in Sources */,
 				5BE72A0427EA18DE003C5C48 /* Room+Utils.swift in Sources */,
 				5B89F82427EB8809005026F7 /* Portal.swift in Sources */,
 				5BE72A1127EA3EF2003C5C48 /* RoomService.swift in Sources */,
 				BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */,
 				BA04A40C27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				BADECBCC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
+				5B3CE7F827F619D7007C69FD /* HomeViewController.swift in Sources */,
 				5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */,
 				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
@@ -911,7 +1002,7 @@
 			files = (
 				BA088FB127D2AB8C00CCB38D /* GameLogicController.swift in Sources */,
 				BA73533927ED07ED0088A77B /* PlayerHudDelegate.swift in Sources */,
-				5BBA8BE927F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
+				5BBA8BE927F2208E00B50DA2 /* SKTexture+SKAtlas.swift in Sources */,
 				D65B8A4527DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */,
 				5BE729EF27E904DA003C5C48 /* EnemyFactory.swift in Sources */,
@@ -919,7 +1010,9 @@
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BE72A0E27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
+				5B977B5827F7456E00A2F8E5 /* GameOverView.swift in Sources */,
 				5BE729F427E905C6003C5C48 /* Spawner.swift in Sources */,
+				5B977B6927F76CB100A2F8E5 /* GameOverViewController.swift in Sources */,
 				BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				5BC8AF6627ED069300870B03 /* PortalDelegate.swift in Sources */,
@@ -953,9 +1046,11 @@
 				5BC8AF6F27ED10EC00870B03 /* Portal.swift in Sources */,
 				5BE72A1627EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
+				5B977B5D27F762C400A2F8E5 /* UIComponents.swift in Sources */,
 				5BE729D927E52255003C5C48 /* Contact.swift in Sources */,
 				5BE72A0127EA180C003C5C48 /* Int+RandomList.swift in Sources */,
 				BAD0DAF827E10D70005A21B3 /* GameSceneTvOS.swift in Sources */,
+				5B977B6127F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */,
 				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
@@ -977,6 +1072,7 @@
 			files = (
 				5BC8AF6E27ED10DD00870B03 /* Decoration.swift in Sources */,
 				D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */,
+				5B977B6A27F76CB100A2F8E5 /* GameOverViewController.swift in Sources */,
 				5BC8AF6727ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA41406D27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BE729DA27E52255003C5C48 /* Contact.swift in Sources */,
@@ -988,7 +1084,7 @@
 				BA73533E27ED101E0088A77B /* PlayerBodyNode.swift in Sources */,
 				5BC8AF6C27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				5BE729F027E904DA003C5C48 /* EnemyFactory.swift in Sources */,
-				5BBA8BEA27F2208E00B50DA2 /* SKAction+SKAtlas.swift in Sources */,
+				5BBA8BEA27F2208E00B50DA2 /* SKTexture+SKAtlas.swift in Sources */,
 				BA04A40627D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BE72A1727EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
@@ -1008,7 +1104,9 @@
 				5BE729D627E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA4C856827D7F479000EBEB2 /* PlayerData.swift in Sources */,
 				5BE729EC27E904B2003C5C48 /* SpawnInfo.swift in Sources */,
+				5B977B6227F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */,
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
+				5B977B5927F7456E00A2F8E5 /* GameOverView.swift in Sources */,
 				5BE729FA27E90E48003C5C48 /* ChickenFactory.swift in Sources */,
 				D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */,
@@ -1039,10 +1137,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5B977B4927F7341B00A2F8E5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B977B4827F7341B00A2F8E5 /* en */,
+				5B977B4C27F7344700A2F8E5 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		BADECBD227D14CE600EFD009 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BADECBD327D14CE600EFD009 /* Base */,
+				5B977B4A27F7344700A2F8E5 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1051,6 +1159,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BADECBE327D14CE600EFD009 /* Base */,
+				5B977B4B27F7344700A2F8E5 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1062,6 +1171,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1121,6 +1231,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -1176,7 +1287,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1208,7 +1319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRB568C47A;
+				DEVELOPMENT_TEAM = WK7599VNDW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

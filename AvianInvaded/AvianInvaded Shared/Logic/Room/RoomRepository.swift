@@ -52,7 +52,7 @@ final class RoomRepository {
         currentRoomPosition += direction.point
         
         if dungeonMatrix[currentRoomPosition.intY][currentRoomPosition.intX] == -1 {
-            fatalError("ERROR")
+            preconditionFailure("An Incorrect portal was instatiated")
         }
         
         return currentRoom
