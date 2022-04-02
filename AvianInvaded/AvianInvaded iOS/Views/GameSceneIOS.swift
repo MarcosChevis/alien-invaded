@@ -116,20 +116,6 @@ extension GameSceneIOS: SKPhysicsContactDelegate {
             contactableNodeB.contact(with: colisionGroupA, damage: aDamage)
         }
     }
-    
-    func didEnd(_ contact: SKPhysicsContact) {
-        guard let colisionGroupA = contact.bodyA.node?.colisionGroup,
-              let colisionGroupB = contact.bodyB.node?.colisionGroup else { return }
-        
-        if let contactableNodeA = contact.bodyA.node as? Contactable {
-            contactableNodeA.endContact(with: colisionGroupB)
-        }
-        
-        if let contactableNodeB = contact.bodyB.node as? Contactable {
-            contactableNodeB.endContact(with: colisionGroupA)
-        }
-    }
-    
 }
 
 extension GameSceneIOS: GameLogicDelegate {

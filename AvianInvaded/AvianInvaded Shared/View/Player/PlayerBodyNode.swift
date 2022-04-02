@@ -16,7 +16,4 @@ class PlayerBodyNode: SKNode, Contactable {
         contactDelegate?.contact(with: colisionGroup, damage: damage)
     }
     
-    func endContact(with colisionGroup: ColisionGroup) {
-        contactDelegate?.endContact(with: colisionGroup)
-    }
 }

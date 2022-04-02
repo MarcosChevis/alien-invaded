@@ -11,7 +11,6 @@ import SpriteKit
 protocol Contactable: AnyObject {
     var damage: CGFloat? { get }
     func contact(with colisionGroup: ColisionGroup, damage: CGFloat?)
-    func endContact(with colisionGroup: ColisionGroup)
 }
 
 extension Contactable {
@@ -19,5 +18,4 @@ extension Contactable {
         return nil
     }
     func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {}
-    func endContact(with colisionGroup: ColisionGroup) {}
 }

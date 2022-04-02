@@ -279,18 +279,8 @@ extension PlayerNode: Contactable {
         case .light:
             return
         case .enemyMeleeAttack:
-            if let damage = damage {
-//                logicController.meleeAttacks.append(damage)
-            }
+            return
         }
     }
-    
-    func endContact(with colisionGroup: ColisionGroup) {
-        if colisionGroup == .enemyMeleeAttack {
-//            if !logicController.meleeAttacks.isEmpty {
-//                logicController.meleeAttacks.removeLast()
-//
-//            }
-        }
-    }
+
 }
