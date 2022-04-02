@@ -32,15 +32,12 @@ class InputControllerTvOS: InputControllerProtocol {
         if rightJoystickData.intensity != 0 {
             delegate?.updateBodyAngle(direction: rightJoystickData.direction)
             delegate?.shoot(currentTime)
-//            haptic?.supportedLocalities
-            
         }
         
         if leftJoystickData.intensity != 0 {
             delegate?.updateLegsAngle(direction: leftJoystickData.direction)
             delegate?.updateMovement(vector: CGVector(dx: gamePadLeft.xAxis.value,
                                                       dy: gamePadLeft.yAxis.value))
-            
         }
     }
     

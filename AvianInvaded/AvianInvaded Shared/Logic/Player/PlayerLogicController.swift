@@ -9,22 +9,27 @@ import UIKit
 import Foundation
 import CoreGraphics
 import SpriteKit
+import GameplayKit
 
 class PlayerLogicController: LifeCycleElement {
     
     weak var delegate: PlayerLogicDelegate?
     weak var hudDelegate: PlayerHudDelegate?
+    weak var playerStateDelegate: PlayerStateDelegate?
     
     var inputController: InputControllerProtocol
     var data: PlayerData
     
-    var timeLastShot: TimeInterval
+    private var timeLastShot: TimeInterval
     
     var mass: CGFloat { data.mass }
     var scale: CGFloat { data.scale }
     
     private let notificationCenter: NotificationCenter
     
+    private var timeLastDamageTaken: TimeInterval
+    private var currentTime: TimeInterval
+        
     init(data: PlayerData = .init(),
          inputController: InputControllerProtocol,
          notificationCenter: NotificationCenter) {
@@ -33,11 +38,15 @@ class PlayerLogicController: LifeCycleElement {
         self.inputController = inputController
         self.timeLastShot = 0
         self.notificationCenter = notificationCenter
+        self.currentTime = 0
+        self.timeLastDamageTaken = -.greatestFiniteMagnitude
         self.inputController.delegate = self
     }
     
     func update(_ currentTime: TimeInterval) {
+        self.currentTime = currentTime
         inputController.update(currentTime)
+        
     }
     
     func rotateBody(to angle: CGFloat) {
@@ -62,8 +71,15 @@ class PlayerLogicController: LifeCycleElement {
     }
     
     func loseHealth(_ amount: CGFloat) {
-        data.currentHealth -= amount
-        hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
+        if abs(currentTime - timeLastDamageTaken) > data.timeInvulnerable {
+            delegate?.takeDamage(duration: data.timeInvulnerable)
+            timeLastDamageTaken = currentTime
+            data.currentHealth -= amount
+            hudDelegate?.updateHealth(data.currentHealth/data.maxHealth)
+            if data.currentHealth <= 0 {
+                playerStateDelegate?.playerDidDie()
+            }
+        }
     }
     
     func gainHealth(_ amount: CGFloat) {
@@ -77,6 +93,7 @@ class PlayerLogicController: LifeCycleElement {
         if data.currentXp >= 1 {
             upgrade()
             data.currentXp = 0
+            playerStateDelegate?.playerDidUpgrade()
             hudDelegate?.updateExperience(data.currentXp)
         }
     }
@@ -87,21 +104,25 @@ class PlayerLogicController: LifeCycleElement {
     }
     
     func upgrade() {
-        guard let type = PlayerUpgrade.allCases.randomElement() else { return }
-        
-        switch type {  
-        case .acceleration:
+        let types = PlayerUpgrade.allCases
+        let distribution = GKRandomDistribution(lowestValue: 0, highestValue: types.count-1)
+        let result = distribution.nextInt()
+
+        switch result {
+        case 1:
             data.upgradeAcceleration(multiplier: 1)
-        case .maxSpeed:
+        case 2:
             data.upgradeMaxSpeed(multiplier: 1)
-        case .shotSpeed:
+        case 3:
             data.upgradeShotSpeed(multiplier: 1)
-        case .rateOfFire:
+        case 4:
             data.upgradeShotCadence(multiplier: 1)
-        case .shotSize:
+        case 5:
             data.upgradeShotSize(multiplier: 1)
-        case .maxHealth:
+        case 6:
             data.upgradeMaxHealth(multiplier: 1)
+        default:
+            return
         }
     }
 }

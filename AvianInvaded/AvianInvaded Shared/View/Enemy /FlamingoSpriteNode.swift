@@ -128,9 +128,9 @@ class FlamingoNode: SKNode, EnemyNodeProtocol {
         phB.isDynamic = true
         phB.pinned = true
            
-        phB.contactTestBitMask = ColisionGroup.getContactMask(.enemyProjectile)
-        phB.collisionBitMask = ColisionGroup.getCollisionMask(.enemyProjectile)
-        phB.categoryBitMask = ColisionGroup.getCategotyMask(.enemyProjectile)
+        phB.contactTestBitMask = ColisionGroup.getContactMask(.enemyMeleeAttack)
+        phB.collisionBitMask = ColisionGroup.getCollisionMask(.enemyMeleeAttack)
+        phB.categoryBitMask = ColisionGroup.getCategotyMask(.enemyMeleeAttack)
         
         return phB
     }
