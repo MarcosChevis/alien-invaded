@@ -9,6 +9,7 @@ import Foundation
 import CoreGraphics
 
 protocol EnemyLogicDelegate: AnyObject {
-    func apply(force: CGVector)
+    func apply(force vector: CGVector,
+               calculateForce: (CGVector, CGVector) -> CGVector?) 
     func rotate(to angle: CGFloat)
 }

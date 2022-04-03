@@ -18,23 +18,26 @@ class PlayerNode: SKNode, LifeCycleElement {
     private var lightNode: SKLightNode?
     
     lazy var idleBodyFrames: [SKTexture] = {
-        createTexture("Player_Body_Idle")
+        SKTexture.loadFromAtlas(named: "Player_Body_Idle")
     }()
     
     lazy var walkingLegsFrames: [SKTexture] = {
-        createCyclicalTexture("Player_Legs_Walking")
+        SKTexture.loadCyclicalFromAtlas(named: "Player_Legs_Walking")
     }()
     
     lazy var isIdle: Bool = true
     
     lazy var shootingFrames: [SKTexture] = {
-        createTexture("Player_Shoot")
+        SKTexture.loadFromAtlas(named: "Player_Shoot") + [idleBodyFrames[0]]
     }()
     
-    init(inputController: InputControllerProtocol, hudDelegate: PlayerHudDelegate) {
+    init(inputController: InputControllerProtocol,
+         hudDelegate: PlayerHudDelegate,
+         playerStateDelegate: PlayerStateDelegate) {
         
         self.logicController = PlayerLogicController(inputController: inputController,
                                                      notificationCenter: .default)
+        logicController.playerStateDelegate = playerStateDelegate
         logicController.hudDelegate = hudDelegate
         
         bodyNode = .init()
@@ -85,6 +88,8 @@ class PlayerNode: SKNode, LifeCycleElement {
         
         logicController.update(currentTime)
         
+        testMeleeAttacks()
+
         guard let velocityMag = self.physicsBody?.velocity.magnitude else { return }
         let stoppingMag: CGFloat = 50
         
@@ -96,7 +101,14 @@ class PlayerNode: SKNode, LifeCycleElement {
             self.isIdle = false
             self.initializeWalking()
             self.stopIdle()
-           
+        }
+    }
+    
+    private func testMeleeAttacks() {
+        if let attackDamage = bodyNode.physicsBody?.allContactedBodies()
+            .compactMap({ ($0.node?.colisionGroup, ($0.node as? Contactable)?.damage) })
+            .first(where: { $0.0 == .enemyMeleeAttack })?.1 {
+            self.logicController.loseHealth(attackDamage)
         }
     }
     
@@ -114,27 +126,27 @@ class PlayerNode: SKNode, LifeCycleElement {
     
     private func initializeIdle() {
         let timePerFrame = Double(logicController.data.idleTime)/Double(idleBodyFrames.count)
+        
         let action = SKAction.repeatForever(SKAction.animate(with: idleBodyFrames,
                                                              timePerFrame: timePerFrame,
-                                                             resize: false, restore: true))
-        bodySprite.run(action)
+                                                             resize: false, restore: false))
+        bodySprite.run(action, withKey: "Idle_Animation")
     }
     
     private func stopIdle() {
-        bodySprite.removeAllActions()
+        bodySprite.removeAction(forKey: "Idle_Animation")
     }
     
     private func initializeWalking() {
-        bodySprite.texture = idleBodyFrames[0]
         let timePerFrame = Double(logicController.data.walkingTime)/Double(walkingLegsFrames.count)
         let action = SKAction.repeatForever(SKAction.animate(with: walkingLegsFrames,
                                                              timePerFrame: timePerFrame,
-                                                             resize: false, restore: true))
-        legsSprite.run(action)
+                                                             resize: false, restore: false))
+        legsSprite.run(action, withKey: "Walking_Animation")
     }
     
     private func stopWalking() {
-        legsSprite.removeAllActions()
+        legsSprite.removeAction(forKey: "Walking_Animation")
     }
     
     private func initializeShooting() {
@@ -142,33 +154,9 @@ class PlayerNode: SKNode, LifeCycleElement {
         let action = SKAction.animate(with: shootingFrames,
                                       timePerFrame: timePerFrame,
                                       resize: false,
-                                      restore: true)
+                                      restore: false)
         self.bodySprite.run(action)
     }
-    
-    private func createTexture(_ name: String) -> [SKTexture] {
-        let textureAtlas = SKTextureAtlas(named: name)
-        var frames = [SKTexture]()
-        for i in 0...textureAtlas.textureNames.count - 1 {
-            let texture = textureAtlas.textureNamed(textureAtlas.textureNames[i])
-            texture.filteringMode = .nearest
-            frames.append(texture)
-        }
-        frames = frames.sorted { text1, text2 in
-            text1.description < text2.description
-        }
-        return frames
-    }
-    
-    private func createCyclicalTexture(_ name: String) -> [SKTexture] {
-        let frames = createTexture(name)
-        var reversed = frames
-        reversed.removeFirst()
-        reversed = reversed.reversed()
-        
-        return frames + reversed
-    }
-    
     private func createPhysicsBody(size: CGSize) {
         
         self.physicsBody = .init()
@@ -195,11 +183,13 @@ class PlayerNode: SKNode, LifeCycleElement {
 
         self.legsSprite.lightingBitMask = ColisionGroup.getLightMask(self.colisionGroup)
 
-        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: self.physicsBody!,
+        guard let physicsBody = self.physicsBody,
+              let scene = self.scene else { return }
+        let pinMotherBody = SKPhysicsJointPin.joint(withBodyA: physicsBody,
                                                     bodyB: body,
-                                                    anchor: convert(self.bodyNode.position, to: scene!))
+                                                    anchor: convert(self.bodyNode.position, to: scene))
 
-        scene?.physicsWorld.add(pinMotherBody)
+        scene.physicsWorld.add(pinMotherBody)
     }
     
     private func scale() {
@@ -215,6 +205,10 @@ class PlayerNode: SKNode, LifeCycleElement {
 }
 
 extension PlayerNode: PlayerLogicDelegate {
+    func takeDamage(duration: CGFloat) {
+        self.bodySprite.run(SKAction.pulseRed(duration: duration))
+    }
+    
     func rotateBody(to angle: CGFloat) {
         let action = SKAction.rotate(toAngle: angle, duration: .zero)
         
@@ -284,6 +278,9 @@ extension PlayerNode: Contactable {
             return
         case .light:
             return
+        case .enemyMeleeAttack:
+            return
         }
     }
+
 }

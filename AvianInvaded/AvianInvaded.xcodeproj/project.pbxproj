@@ -172,6 +172,27 @@
 		BA57604A27F6152400688B2F /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAC083227F228D900C9C676 /* munro.ttf */; };
 		BA57604B27F6152400688B2F /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAC083227F228D900C9C676 /* munro.ttf */; };
 		BA57604C27F6152500688B2F /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAC083227F228D900C9C676 /* munro.ttf */; };
+		BA57605027F6366200688B2F /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57604F27F6366200688B2F /* EnemyNode.swift */; };
+		BA57605127F6366200688B2F /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57604F27F6366200688B2F /* EnemyNode.swift */; };
+		BA57605227F6366200688B2F /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57604F27F6366200688B2F /* EnemyNode.swift */; };
+		BA57605427F6378F00688B2F /* FlamingoSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605327F6378F00688B2F /* FlamingoSpriteNode.swift */; };
+		BA57605527F6378F00688B2F /* FlamingoSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605327F6378F00688B2F /* FlamingoSpriteNode.swift */; };
+		BA57605627F6378F00688B2F /* FlamingoSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605327F6378F00688B2F /* FlamingoSpriteNode.swift */; };
+		BA57605827F637E300688B2F /* FlamingoLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605727F637E300688B2F /* FlamingoLogicController.swift */; };
+		BA57605927F637E300688B2F /* FlamingoLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605727F637E300688B2F /* FlamingoLogicController.swift */; };
+		BA57605A27F637E300688B2F /* FlamingoLogicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605727F637E300688B2F /* FlamingoLogicController.swift */; };
+		BA57605C27F63B3C00688B2F /* EnemiesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605B27F63B3C00688B2F /* EnemiesEnum.swift */; };
+		BA57605D27F63B3C00688B2F /* EnemiesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605B27F63B3C00688B2F /* EnemiesEnum.swift */; };
+		BA57605E27F63B3C00688B2F /* EnemiesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605B27F63B3C00688B2F /* EnemiesEnum.swift */; };
+		BA57606027F6418D00688B2F /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605F27F6418D00688B2F /* FlamingoFactory.swift */; };
+		BA57606127F6418D00688B2F /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605F27F6418D00688B2F /* FlamingoFactory.swift */; };
+		BA57606227F6418D00688B2F /* FlamingoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA57605F27F6418D00688B2F /* FlamingoFactory.swift */; };
+		BA675A1E27F7666400754193 /* FlamingoAttackNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */; };
+		BA675A1F27F7666400754193 /* FlamingoAttackNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */; };
+		BA675A2027F7666400754193 /* FlamingoAttackNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */; };
+		BA675A2227F776E700754193 /* PlayerStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A2127F776E700754193 /* PlayerStateDelegate.swift */; };
+		BA675A2327F776E700754193 /* PlayerStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A2127F776E700754193 /* PlayerStateDelegate.swift */; };
+		BA675A2427F776E700754193 /* PlayerStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA675A2127F776E700754193 /* PlayerStateDelegate.swift */; };
 		BA73533427ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
 		BA73533527ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
 		BA73533627ECFD750088A77B /* PlayerHudNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533327ECFD750088A77B /* PlayerHudNode.swift */; };
@@ -181,9 +202,6 @@
 		BA73533C27ED101E0088A77B /* PlayerBodyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */; };
 		BA73533D27ED101E0088A77B /* PlayerBodyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */; };
 		BA73533E27ED101E0088A77B /* PlayerBodyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */; };
-		BA73534027ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533F27ED10BF0088A77B /* BodyNodeDelegate.swift */; };
-		BA73534127ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533F27ED10BF0088A77B /* BodyNodeDelegate.swift */; };
-		BA73534227ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA73533F27ED10BF0088A77B /* BodyNodeDelegate.swift */; };
 		BAAAFF9327D6763300E14409 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerNode.swift */; };
 		BAAAFF9427D6763300E14409 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerNode.swift */; };
 		BAAAFF9527D6763300E14409 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAAFF9227D6763300E14409 /* PlayerNode.swift */; };
@@ -294,10 +312,16 @@
 		BA57604927F614ED00688B2F /* AvianInvaded-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AvianInvaded-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BA57604D27F6153100688B2F /* AvianInvaded-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AvianInvaded-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BA57604E27F6153600688B2F /* AvianInvaded-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AvianInvaded-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BA57604F27F6366200688B2F /* EnemyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
+		BA57605327F6378F00688B2F /* FlamingoSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoSpriteNode.swift; sourceTree = "<group>"; };
+		BA57605727F637E300688B2F /* FlamingoLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoLogicController.swift; sourceTree = "<group>"; };
+		BA57605B27F63B3C00688B2F /* EnemiesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemiesEnum.swift; sourceTree = "<group>"; };
+		BA57605F27F6418D00688B2F /* FlamingoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoFactory.swift; sourceTree = "<group>"; };
+		BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlamingoAttackNode.swift; sourceTree = "<group>"; };
+		BA675A2127F776E700754193 /* PlayerStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateDelegate.swift; sourceTree = "<group>"; };
 		BA73533327ECFD750088A77B /* PlayerHudNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHudNode.swift; sourceTree = "<group>"; };
 		BA73533727ED07ED0088A77B /* PlayerHudDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHudDelegate.swift; sourceTree = "<group>"; };
 		BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBodyNode.swift; sourceTree = "<group>"; };
-		BA73533F27ED10BF0088A77B /* BodyNodeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyNodeDelegate.swift; sourceTree = "<group>"; };
 		BAAAFF9227D6763300E14409 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUpgrade.swift; sourceTree = "<group>"; };
 		BAAC083227F228D900C9C676 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
@@ -437,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE729F727E90E48003C5C48 /* ChickenFactory.swift */,
+				BA57605F27F6418D00688B2F /* FlamingoFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -578,6 +603,7 @@
 				BA41405E27E27A3B006872E8 /* Contactable.swift */,
 				5BE729D327E4F235003C5C48 /* Enemy.swift */,
 				5BE729ED27E904DA003C5C48 /* EnemyFactory.swift */,
+				BA57604F27F6366200688B2F /* EnemyNode.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -690,9 +716,10 @@
 		BAE17D1227DA872400E131F4 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */,
 				BA04A40727D6A274004E51EA /* PlayerLogicController.swift */,
+				BA04A40B27D6A678004E51EA /* PlayerLogicDelegate.swift */,
 				BA73533727ED07ED0088A77B /* PlayerHudDelegate.swift */,
+				BA675A2127F776E700754193 /* PlayerStateDelegate.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -703,7 +730,6 @@
 				BAAAFF9227D6763300E14409 /* PlayerNode.swift */,
 				BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */,
 				BA73533327ECFD750088A77B /* PlayerHudNode.swift */,
-				BA73533F27ED10BF0088A77B /* BodyNodeDelegate.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -763,6 +789,7 @@
 			isa = PBXGroup;
 			children = (
 				BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */,
+				BA675A1D27F7666400754193 /* FlamingoAttackNode.swift */,
 			);
 			path = Projectile;
 			sourceTree = "<group>";
@@ -789,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */,
+				BA57605327F6378F00688B2F /* FlamingoSpriteNode.swift */,
 			);
 			path = "Enemy ";
 			sourceTree = "<group>";
@@ -797,6 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */,
+				BA57605727F637E300688B2F /* FlamingoLogicController.swift */,
 				D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */,
 			);
 			path = Enemy;
@@ -806,6 +835,7 @@
 			isa = PBXGroup;
 			children = (
 				D65B8A4E27DBC2EE00185928 /* EnemyData.swift */,
+				BA57605B27F63B3C00688B2F /* EnemiesEnum.swift */,
 			);
 			path = Enemy;
 			sourceTree = "<group>";
@@ -979,6 +1009,8 @@
 				BA41406B27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BC8AF5727ECEF3F00870B03 /* CGPoint+Math.swift in Sources */,
 				5BE729D827E52255003C5C48 /* Contact.swift in Sources */,
+				BA57606027F6418D00688B2F /* FlamingoFactory.swift in Sources */,
+				BA675A2227F776E700754193 /* PlayerStateDelegate.swift in Sources */,
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				5BE72A1927EA54ED003C5C48 /* RoomDirection.swift in Sources */,
 				5BE72A0027EA180C003C5C48 /* Int+RandomList.swift in Sources */,
@@ -1000,6 +1032,8 @@
 				5BC8AF6527ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameScene.swift in Sources */,
+				BA57605027F6366200688B2F /* EnemyNode.swift in Sources */,
+				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
 				5BE729FC27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
 				BAE17D2127DA8A5100E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BAAC082E27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
@@ -1015,14 +1049,17 @@
 				5BFE7DE127DFA1B700BB9998 /* Tile.swift in Sources */,
 				BA4C856127D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				BA088FA027D29A6A00CCB38D /* InputDelegate.swift in Sources */,
+				BA57605427F6378F00688B2F /* FlamingoSpriteNode.swift in Sources */,
 				BA41406327E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				D65B8A4F27DBC2EE00185928 /* EnemyData.swift in Sources */,
 				BADECBCE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5BFE7DD727DF9FC100BB9998 /* RoomBuilder.swift in Sources */,
 				5B3AE41F27F78F5A00CC2B48 /* UIFont+Munro.swift in Sources */,
 				5BE729E027E8D70B003C5C48 /* NotificationName.swift in Sources */,
+				BA57605C27F63B3C00688B2F /* EnemiesEnum.swift in Sources */,
 				BA088FA627D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				BA4C856B27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
+				BA57605827F637E300688B2F /* FlamingoLogicController.swift in Sources */,
 				D65B8A4927DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				5BC8AF6A27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				5B977B6027F76BB400A2F8E5 /* UIViews+Utilities.swift in Sources */,
@@ -1030,7 +1067,6 @@
 				5B977B5C27F762C400A2F8E5 /* UIComponents.swift in Sources */,
 				5BDC598327F94E9E002D52E0 /* Settings.swift in Sources */,
 				5BE729F327E905C6003C5C48 /* Spawner.swift in Sources */,
-				BA73534027ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				BA088FA427D29A7000CCB38D /* InputControllerIOS.swift in Sources */,
 				5B977B5027F73AD900A2F8E5 /* MainCoordinator.swift in Sources */,
 				5BE72A0427EA18DE003C5C48 /* Room+Utils.swift in Sources */,
@@ -1042,6 +1078,7 @@
 				5B3CE7F827F619D7007C69FD /* HomeViewController.swift in Sources */,
 				5B89F82727EB8F4D005026F7 /* Decoration.swift in Sources */,
 				5BE729DC27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
+				BA675A1E27F7666400754193 /* FlamingoAttackNode.swift in Sources */,
 				BA41405927E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,12 +1093,14 @@
 				5B3AE42827F790B400CC2B48 /* UIButton + Focus.swift in Sources */,
 				D65B8A4527DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				D65B8A5027DBC2EE00185928 /* EnemyData.swift in Sources */,
+				BA57605D27F63B3C00688B2F /* EnemiesEnum.swift in Sources */,
 				5BE729EF27E904DA003C5C48 /* EnemyFactory.swift in Sources */,
 				BA088FA127D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA04A40527D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				5BE72A0E27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5B977B6B27F7708B00A2F8E5 /* CoordinatorProtocol.swift in Sources */,
+				BA57605127F6366200688B2F /* EnemyNode.swift in Sources */,
 				5BE729F427E905C6003C5C48 /* Spawner.swift in Sources */,
 				BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
 				BA088FA727D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
@@ -1076,10 +1115,13 @@
 				5BDC597B27F94641002D52E0 /* GameOverView.swift in Sources */,
 				5B977B6C27F7708F00A2F8E5 /* MainCoordinator.swift in Sources */,
 				BA73534127ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
+				BA675A2327F776E700754193 /* PlayerStateDelegate.swift in Sources */,
+				5BE729F927E90E48003C5C48 /* ChickenFactory.swift in Sources */,
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				5BDC598427F94E9E002D52E0 /* Settings.swift in Sources */,
 				5BC8AF6B27ED0A1100870B03 /* EnemyDelegate.swift in Sources */,
 				BA4C856727D7F479000EBEB2 /* PlayerData.swift in Sources */,
+				BA57605927F637E300688B2F /* FlamingoLogicController.swift in Sources */,
 				BADECBDC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 				5B3AE42527F7908E00CC2B48 /* HomeViewTV.swift in Sources */,
 				D65B8A4A27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
@@ -1098,9 +1140,11 @@
 				5BE729DD27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
 				BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
 				5BFE7DDB27DFA10B00BB9998 /* Room.swift in Sources */,
+				BA57605527F6378F00688B2F /* FlamingoSpriteNode.swift in Sources */,
 				5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */,
 				BA41406C27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
 				5BC8AF6F27ED10EC00870B03 /* Portal.swift in Sources */,
+				BA675A1F27F7666400754193 /* FlamingoAttackNode.swift in Sources */,
 				5BE72A1627EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDD27DFA11200BB9998 /* RoomBuilder.swift in Sources */,
 				5B977B5D27F762C400A2F8E5 /* UIComponents.swift in Sources */,
@@ -1111,6 +1155,7 @@
 				5BDC598727F958E1002D52E0 /* HomeViewController.swift in Sources */,
 				5BFE7DE627DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BA088FB527D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
+				BA57606127F6418D00688B2F /* FlamingoFactory.swift in Sources */,
 				BA04A40D27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				5BE729FD27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
 				5BE729E127E8D70B003C5C48 /* NotificationName.swift in Sources */,
@@ -1132,6 +1177,8 @@
 				D65B8A5127DBC2EE00185928 /* EnemyData.swift in Sources */,
 				5BC8AF6727ED069300870B03 /* PortalDelegate.swift in Sources */,
 				BA41406D27E280BE006872E8 /* SKSpriteNode+Scale.swift in Sources */,
+				BA57606227F6418D00688B2F /* FlamingoFactory.swift in Sources */,
+				BA675A2427F776E700754193 /* PlayerStateDelegate.swift in Sources */,
 				5BE729DA27E52255003C5C48 /* Contact.swift in Sources */,
 				BA41405B27E27853006872E8 /* SKNode+ColisionGroup.swift in Sources */,
 				5BE72A1B27EA54ED003C5C48 /* RoomDirection.swift in Sources */,
@@ -1153,6 +1200,7 @@
 				BAAAFF9527D6763300E14409 /* PlayerNode.swift in Sources */,
 				BA41406127E27A3B006872E8 /* Contactable.swift in Sources */,
 				BA04A40A27D6A274004E51EA /* PlayerLogicController.swift in Sources */,
+				BA57605227F6366200688B2F /* EnemyNode.swift in Sources */,
 				5BE72A0F27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				BA088FB627D2AF1200CCB38D /* CGVector+Math.swift in Sources */,
 				BAE17D2827DA8B5A00E131F4 /* ProjectileSpriteNode.swift in Sources */,
@@ -1168,18 +1216,20 @@
 				BA4C856327D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
 				5BE729FA27E90E48003C5C48 /* ChickenFactory.swift in Sources */,
 				D621E33C27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
+				BA57605627F6378F00688B2F /* FlamingoSpriteNode.swift in Sources */,
 				5BFE7DE727DFD42700BB9998 /* ColisionGroup.swift in Sources */,
 				BADECBEE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				BA41406527E27B31006872E8 /* ProjectileLogicController.swift in Sources */,
 				BA088F9C27D2846100CCB38D /* main.swift in Sources */,
 				BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */,
+				BA57605E27F63B3C00688B2F /* EnemiesEnum.swift in Sources */,
 				5BFE7DDE27DFA11300BB9998 /* RoomBuilder.swift in Sources */,
 				5BE729E227E8D70B003C5C48 /* NotificationName.swift in Sources */,
+				BA57605A27F637E300688B2F /* FlamingoLogicController.swift in Sources */,
 				BA088FA227D29A6A00CCB38D /* InputDelegate.swift in Sources */,
 				BA4C856D27D7F749000EBEB2 /* LifeCycleElement.swift in Sources */,
 				BA088FA827D29B7400CCB38D /* InputTypeEnum.swift in Sources */,
 				5BE729F527E905C6003C5C48 /* Spawner.swift in Sources */,
-				BA73534227ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				D65B8A4627DBBA9800185928 /* ChickenSpriteNode.swift in Sources */,
 				5BE72A0627EA18DE003C5C48 /* Room+Utils.swift in Sources */,
 				5BC8AF7027ED10ED00870B03 /* Portal.swift in Sources */,
@@ -1188,6 +1238,7 @@
 				D65B8A4B27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BA04A40E27D6A678004E51EA /* PlayerLogicDelegate.swift in Sources */,
 				5BE729DE27E522C7003C5C48 /* SKAction+Utilities.swift in Sources */,
+				BA675A2027F7666400754193 /* FlamingoAttackNode.swift in Sources */,
 				BADECBEC27D14CE600EFD009 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

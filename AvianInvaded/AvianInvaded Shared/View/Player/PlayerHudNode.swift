@@ -71,7 +71,7 @@ class PlayerHudNode: SKNode {
         upgradeLabel.color = .red
         
         upgradeLabel.run(SKAction.fadeOut(withDuration: 0))
-        updateUpgradeLabel(upgrades: [.acceleration: 1])
+        xpBar.run(SKAction.scaleX(to: 0, duration: 0))
         
         self.addChildren([lostLifeBar, lifeBar, emptyXpBar, xpBar, upgradeLabel])
     }
@@ -91,6 +91,8 @@ extension PlayerHudNode: PlayerHudDelegate {
     func updateHealth(_ percentOfMaxHealth: CGFloat) {
         if percentOfMaxHealth >= 0 && percentOfMaxHealth <= 1 {
             lifeBar.run(SKAction.scaleX(to: percentOfMaxHealth, duration: 0.3))
+        } else if percentOfMaxHealth < 0 {
+            lifeBar.run(SKAction.scaleX(to: 0, duration: 0.3))
         }
     }
     

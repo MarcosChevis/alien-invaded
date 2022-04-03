@@ -13,6 +13,7 @@ enum ColisionGroup: String {
     case enemy
     case playerProjectile
     case enemyProjectile
+    case enemyMeleeAttack
     case neutralProjectile
     case portal
     case light
@@ -32,6 +33,8 @@ enum ColisionGroup: String {
         case .playerProjectile:
             return 0b0
         case .enemyProjectile:
+            return 0b0
+        case .enemyMeleeAttack:
             return 0b0
         case .neutralProjectile:
             return 0b0
@@ -53,7 +56,9 @@ enum ColisionGroup: String {
             return (  getCategotyMask(.neutralProjectile)
                       | getCategotyMask(.enemy)
                       | getCategotyMask(.enemyProjectile)
-                      | getCategotyMask(.portal))
+                      | getCategotyMask(.portal)
+                      | getCategotyMask(.enemyMeleeAttack))
+                    
         case .enemy:
             return (  getCategotyMask(.neutralProjectile)
                       | getCategotyMask(.player)
@@ -64,6 +69,8 @@ enum ColisionGroup: String {
         case .enemyProjectile:
             return (  getCategotyMask(.environment)
                       | getCategotyMask(.player))
+        case .enemyMeleeAttack:
+            return( getCategotyMask(.player))
         case .neutralProjectile:
             return (  getCategotyMask(.environment)
                       | getCategotyMask(.player)
@@ -95,12 +102,14 @@ enum ColisionGroup: String {
             return (1 << 4)
         case .enemyProjectile:
             return (1 << 5)
-        case .neutralProjectile:
+        case .enemyMeleeAttack:
             return (1 << 6)
-        case .portal:
+        case .neutralProjectile:
             return (1 << 7)
-        case .light:
+        case .portal:
             return (1 << 8)
+        case .light:
+            return (1 << 9)
         case .none:
             return 0b0
         }

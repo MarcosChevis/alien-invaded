@@ -10,5 +10,5 @@ import SpriteKit
 
 protocol Enemy: SKNode, LifeCycleElement, Contactable {
     var delegate: EnemyDelegate? { get set }
-    init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter)
+    init(spawnAt initialPosition: CGPoint, notificationCenter: NotificationCenter, initialData: EnemyData)
 }

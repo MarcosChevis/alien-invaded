@@ -17,4 +17,5 @@ extension Contactable {
     var damage: CGFloat? {
         return nil
     }
+    func contact(with colisionGroup: ColisionGroup, damage: CGFloat?) {}
 }

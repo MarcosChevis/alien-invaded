@@ -25,7 +25,6 @@ class GameLogicController {
     
     func getplayerStartPosition(forScreen screenSize: CGSize) -> CGPoint {
         let tilePos = roomService.currentRoom.startPosition
-        print("Player Position", tilePos)
         let tileSize = roomService.tileSize(forScreen: screenSize)
         
         return CGPoint(x: tileSize.width * CGFloat(tilePos.x),
@@ -42,7 +41,7 @@ class GameLogicController {
     }
     
     func spawnEnemies() -> [SKNode] {
-        let enemyInfo = selectEnemies(factories: [ChickenFactory()],
+        let enemyInfo = selectEnemies(factories: [FlamingoFactory()],
                                       maxEnemyCount: roomService.currentRoom.enemyNumber)
         let spawnInfo = SpawnInfo(availablePositions: roomService.currentRoom.availableSpaces,
                                   tileSize: tileSize.width,
@@ -61,10 +60,6 @@ class GameLogicController {
         return factories.enumerated().map {index, factory in
             EnemySpawn(quantity: enemyNumbers[index], factory: factory)
         }
-    }
-    
-    func update(_ currentTime: TimeInterval) {
-        
     }
 }
 
@@ -86,4 +81,15 @@ extension GameLogicController: EnemyDelegate {
                       object: nil)
         }
     }
+}
+
+extension GameLogicController: PlayerStateDelegate {
+    func playerDidDie() {
+        print("Player Died")
+    }
+    
+    func playerDidUpgrade() {
+        print("Player Upgraded")
+    }
+    
 }

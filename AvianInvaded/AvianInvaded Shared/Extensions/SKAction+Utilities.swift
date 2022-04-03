@@ -9,14 +9,18 @@ import SpriteKit
 
 extension SKAction {
     
-    static func pulseRed() -> SKAction {
-        SKAction.sequence([
-            SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: 0.05),
-            SKAction.wait(forDuration: 0.03),
-            SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.05),
-            SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: 0.05),
-            SKAction.wait(forDuration: 0.03),
-            SKAction.colorize(withColorBlendFactor: 0.0, duration: 0.05)
+    static func pulseRed(duration: CGFloat = 0.26) -> SKAction {
+        
+        let pulseDuration = duration * 0.19
+        let waitDuration = duration * 0.11
+        
+        return SKAction.sequence([
+            SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: pulseDuration),
+            SKAction.wait(forDuration: waitDuration),
+            SKAction.colorize(withColorBlendFactor: 0.0, duration: pulseDuration),
+            SKAction.colorize(with: SKColor.red, colorBlendFactor: 1.0, duration: pulseDuration),
+            SKAction.wait(forDuration: waitDuration),
+            SKAction.colorize(withColorBlendFactor: 0.0, duration: pulseDuration)
         ])
     }
 }
