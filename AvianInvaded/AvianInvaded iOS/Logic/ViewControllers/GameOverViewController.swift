@@ -22,7 +22,7 @@ class GameOverViewController: UIViewController {
     }
     
     private func setupBindings() {
-        //contentView.playAction = { [weak self] in self?.startGame() }
+        
     }
     
     private func startGame() {

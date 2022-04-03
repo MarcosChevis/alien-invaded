@@ -9,18 +9,24 @@ import GameplayKit
 class GameSceneTvOS: SKScene {
     
     let playerNode: PlayerNode
+    let playerHudNode: PlayerHudNode
     private let gameCamera = SKCameraNode()
     var gameLogicController: GameLogicController
     
-    init(gameLogicController: GameLogicController, inputController: InputControllerProtocol, size: CGSize) {
+    init(gameLogicController: GameLogicController,
+         inputController: InputControllerProtocol,
+         sceneSize: CGSize,
+         screenSize: CGSize) {
         self.gameLogicController = gameLogicController
-        self.playerNode = PlayerNode(inputController: inputController)
         
-        super.init(size: size)
+        self.playerHudNode = .init(screenSize: screenSize)
+        self.playerNode = PlayerNode(inputController: inputController, hudDelegate: playerHudNode)
+        
+        super.init(size: sceneSize)
         
         self.scaleMode = .aspectFill
         self.camera = gameCamera
-        self.addChildren([self.playerNode])
+        self.addChildren([self.playerNode, playerHudNode])
         gameLogicController.gameLogicDelegate = self
         self.physicsWorld.contactDelegate = self
         
@@ -33,14 +39,6 @@ class GameSceneTvOS: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         self.setupScene()
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        gameLogicController.update(currentTime)
-        
-        children
-            .compactMap { $0 as? LifeCycleElement }
-            .forEach { $0.update(currentTime) }
     }
     
     func setupScene() {
@@ -68,10 +66,20 @@ class GameSceneTvOS: SKScene {
         
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        gameLogicController.update(currentTime)
+        
+        children
+            .compactMap { $0 as? LifeCycleElement }
+            .forEach { $0.update(currentTime) }
+    }
+    
     func addChildren(_ nodes: [SKNode]) {
         for node in nodes {
             self.addChild(node)
         }
+    }
+    override func didChangeSize(_ oldSize: CGSize) {
     }
     
     func moveNodeToCenter(_ node: SKNode, size: CGSize) {
@@ -81,25 +89,29 @@ class GameSceneTvOS: SKScene {
     
     override func didSimulatePhysics() {
         camera?.position = playerNode.position
+        playerHudNode.position = playerNode.position
+        
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.didSimulatePhysics() }
     }
-    
 }
 
 extension GameSceneTvOS: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
-        if
-            let contactableNodeA = contact.bodyA.node as? Contactable,
-            let colisionGroup = contact.bodyB.node?.colisionGroup {
-            contactableNodeA.contact(with: colisionGroup)
+        
+        guard let colisionGroupA = contact.bodyA.node?.colisionGroup,
+              let colisionGroupB = contact.bodyB.node?.colisionGroup else { return }
+        
+        let aDamage = (contact.bodyA.node as? Contactable)?.damage
+        let bDamage = (contact.bodyB.node as? Contactable)?.damage
+               
+        if let contactableNodeA = contact.bodyA.node as? Contactable {
+            contactableNodeA.contact(with: colisionGroupB, damage: bDamage)
         }
         
-        if
-            let contactableNodeB = contact.bodyB.node as? Contactable,
-            let colisionGroup = contact.bodyA.node?.colisionGroup {
-            contactableNodeB.contact(with: colisionGroup)
+        if let contactableNodeB = contact.bodyB.node as? Contactable {
+            contactableNodeB.contact(with: colisionGroupA, damage: aDamage)
         }
     }
 }
@@ -111,6 +123,8 @@ extension GameSceneTvOS: GameLogicDelegate {
                 node.removeFromParent()
             }
         }
+        addChild(playerHudNode)
        setupRoom(newRoom)
+        playerNode.setupLighting()
     }
 }

@@ -18,7 +18,7 @@ class MainCoordinator: MainCoordinatorProtocol {
     }
     
     func start() {
-        let viewController = HomeViewController()
+        let viewController = HomeViewController(contentView: HomeView())
         viewController.coordinator = self
         navigationController.isNavigationBarHidden = true
         navigationController.pushViewController(viewController, animated: false)

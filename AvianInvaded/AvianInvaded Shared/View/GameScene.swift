@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameSceneIOS: SKScene {
+class GameScene: SKScene {
     
     let playerNode: PlayerNode
     let playerHudNode: PlayerHudNode
@@ -99,7 +99,7 @@ class GameSceneIOS: SKScene {
     }
 }
 
-extension GameSceneIOS: SKPhysicsContactDelegate {
+extension GameScene: SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
         guard let colisionGroupA = contact.bodyA.node?.colisionGroup,
@@ -118,7 +118,7 @@ extension GameSceneIOS: SKPhysicsContactDelegate {
     }
 }
 
-extension GameSceneIOS: GameLogicDelegate {
+extension GameScene: GameLogicDelegate {
     func teleport(to newRoom: SKNode) {
         children.forEach { node in
             if node.colisionGroup != .player {

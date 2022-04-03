@@ -9,14 +9,15 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewControllerTvOS: UIViewController {
+class GameViewController: UIViewController {
     
     let gameScene: GameSceneTvOS
     
-    init(gameLogicController: GameLogicController, size: CGSize) {
+    init(gameLogicController: GameLogicController, sceneSize: CGSize) {
         self.gameScene = GameSceneTvOS(gameLogicController: gameLogicController,
                                        inputController: InputControllerTvOS(),
-                                       size: size)
+                                       sceneSize: sceneSize,
+                                       screenSize: UIScreen.main.bounds.size)
         super.init(nibName: nil, bundle: nil)
         
     }

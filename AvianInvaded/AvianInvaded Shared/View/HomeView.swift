@@ -13,11 +13,11 @@ class HomeView: UIView {
     var musicAction: (() -> Void)?
     var sfxAction: (() -> Void)?
     
-    private lazy var title: UILabel = UIComponents.menuLabel(withContent: "Avian Invasion")
-    private lazy var playButton: UIButton = UIComponents.menuButton(withTitle: "Play")
-    private lazy var musicButton: UIButton = UIComponents.menuButton(withTitle: "Music")
-    private lazy var sfxButton: UIButton = UIComponents.menuButton(withTitle: "SFX")
-    private lazy var buttonsStackView: UIStackView = UIComponents.verticalStack(arrangedSubviews:
+    lazy var title: UILabel = UIComponents.menuLabel(withContent: "Avian Invasion")
+    lazy var playButton: UIButton = UIComponents.menuButton(withTitle: "Play")
+    lazy var musicButton: UIButton = UIComponents.menuButton(withTitle: "Music")
+    lazy var sfxButton: UIButton = UIComponents.menuButton(withTitle: "SFX")
+    lazy var buttonsStackView: UIStackView = UIComponents.verticalStack(arrangedSubviews:
                                                                                     playButton,
                                                                                     musicButton,
                                                                                     sfxButton)
@@ -33,6 +33,24 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateMusicButtonText(isActive: Bool) {
+        updateButtonText(musicButton, title: "Music", isActive: isActive)
+    }
+    
+    func updateSFXButtonText(isActive: Bool) {
+        updateButtonText(sfxButton, title: "SFX", isActive: isActive)
+    }
+    
+    private func updateButtonText(_ button: UIButton,
+                                  title: String,
+                                  isActive: Bool) {
+        let localizedTitle = NSLocalizedString(title, comment: "")
+        let state = isActive ? "On" : "Off"
+        let localizedState = NSLocalizedString(state, comment: "")
+        
+        button.setTitle(localizedTitle + ": " + localizedState, for: .normal)
+    }
+    
     private func setupHierarchy() {
         addSubview(title)
         addSubview(buttonsStackView)
@@ -41,7 +59,8 @@ class HomeView: UIView {
     private func setupConstraints() {
         let titleConstraints: [NSLayoutConstraint] = [
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
-            title.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50)
+            title.topAnchor.constraint(equalTo: topAnchor, constant: 32),
+            title.bottomAnchor.constraint(equalTo: centerYAnchor)
         ]
         
         let stackViewContraints: [NSLayoutConstraint] = [
@@ -69,16 +88,33 @@ class HomeView: UIView {
             guard
                 let self = self,
                 let action = self.playAction
-            else { return }
+            else {
+                return
+            }
             action()
         }
-        playButton.addAction(playUIAction, for: .touchUpInside)
-    }
-    
-}
-
-extension UIFont {
-    static func munro(size: CGFloat) -> UIFont? {
-        UIFont(name: "munro", size: size)
+        playButton.addAction(playUIAction, for: .primaryActionTriggered)
+        
+        let musicUIAction = UIAction { [weak self] _ in
+            guard
+                let self = self,
+                let action = self.musicAction
+            else {
+                return
+            }
+            action()
+        }
+        musicButton.addAction(musicUIAction, for: .primaryActionTriggered)
+        
+        let sfxUIAction = UIAction { [weak self] _ in
+            guard
+                let self = self,
+                let action = self.sfxAction
+            else {
+                return
+            }
+            action()
+        }
+        sfxButton.addAction(sfxUIAction, for: .primaryActionTriggered)
     }
 }
