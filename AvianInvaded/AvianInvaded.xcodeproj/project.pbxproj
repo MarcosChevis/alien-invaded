@@ -532,13 +532,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		BA04A3FE27D69324004E51EA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		BA04A3FF27D6932B004E51EA /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,7 +663,6 @@
 			children = (
 				BA57604927F614ED00688B2F /* AvianInvaded-iOS-Info.plist */,
 				BA04A3FF27D6932B004E51EA /* Logic */,
-				BA04A3FE27D69324004E51EA /* Views */,
 				BADECBCB27D14CE600EFD009 /* AppDelegate.swift */,
 				BADECBD227D14CE600EFD009 /* LaunchScreen.storyboard */,
 			);
@@ -1033,7 +1025,7 @@
 				BA04A40827D6A274004E51EA /* PlayerLogicController.swift in Sources */,
 				BADECBF927D14CE600EFD009 /* GameScene.swift in Sources */,
 				BA57605027F6366200688B2F /* EnemyNode.swift in Sources */,
-				BADECBF927D14CE600EFD009 /* GameSceneIOS.swift in Sources */,
+				BADECBF927D14CE600EFD009 /* GameScene.swift in Sources */,
 				5BE729FC27EA1527003C5C48 /* RoomDifficulty.swift in Sources */,
 				BAE17D2127DA8A5100E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				BAAC082E27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
@@ -1114,7 +1106,6 @@
 				5BE729F927E90E48003C5C48 /* ChickenFactory.swift in Sources */,
 				5BDC597B27F94641002D52E0 /* GameOverView.swift in Sources */,
 				5B977B6C27F7708F00A2F8E5 /* MainCoordinator.swift in Sources */,
-				BA73534127ED10BF0088A77B /* BodyNodeDelegate.swift in Sources */,
 				BA675A2327F776E700754193 /* PlayerStateDelegate.swift in Sources */,
 				5BE729F927E90E48003C5C48 /* ChickenFactory.swift in Sources */,
 				BA04A40927D6A274004E51EA /* PlayerLogicController.swift in Sources */,
