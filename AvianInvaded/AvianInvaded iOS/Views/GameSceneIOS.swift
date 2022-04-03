@@ -22,7 +22,9 @@ class GameSceneIOS: SKScene {
         self.gameLogicController = gameLogicController
         
         self.playerHudNode = .init(screenSize: screenSize)
-        self.playerNode = PlayerNode(inputController: inputController, hudDelegate: playerHudNode)
+        self.playerNode = PlayerNode(inputController: inputController,
+                                     hudDelegate: playerHudNode,
+                                     playerStateDelegate: gameLogicController)
         
         super.init(size: sceneSize)
         
@@ -54,7 +56,7 @@ class GameSceneIOS: SKScene {
     
     private func setupRoom(_ room: SKNode) {
         let move = SKAction.move(to: gameLogicController.getplayerStartPosition(forScreen: self.size),
-                                  duration: .zero)
+                                 duration: .zero)
         playerNode.run(move)
         addChild(room)
         
@@ -69,8 +71,6 @@ class GameSceneIOS: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        gameLogicController.update(currentTime)
-        
         children
             .compactMap { $0 as? LifeCycleElement }
             .forEach { $0.update(currentTime) }
@@ -107,7 +107,7 @@ extension GameSceneIOS: SKPhysicsContactDelegate {
         
         let aDamage = (contact.bodyA.node as? Contactable)?.damage
         let bDamage = (contact.bodyB.node as? Contactable)?.damage
-               
+        
         if let contactableNodeA = contact.bodyA.node as? Contactable {
             contactableNodeA.contact(with: colisionGroupB, damage: bDamage)
         }
@@ -126,7 +126,7 @@ extension GameSceneIOS: GameLogicDelegate {
             }
         }
         addChild(playerHudNode)
-       setupRoom(newRoom)
+        setupRoom(newRoom)
         playerNode.setupLighting()
     }
 }

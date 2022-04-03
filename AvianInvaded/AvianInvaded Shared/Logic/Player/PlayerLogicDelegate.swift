@@ -13,4 +13,5 @@ protocol PlayerLogicDelegate: AnyObject {
     func rotateLegs(to angle: CGFloat)
     func apply(force vector: CGVector)
     func shoot(force: CGVector)
+    func takeDamage(duration: CGFloat)
 }

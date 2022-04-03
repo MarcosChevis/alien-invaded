@@ -14,7 +14,7 @@ class FlamingoAttackNode: SKNode, LifeCycleElement {
     init(damage: CGFloat) {
         self.damage = damage
         super.init()
-        colisionGroup = .enemyProjectile
+        colisionGroup = .enemyMeleeAttack
     }
     
     required init?(coder aDecoder: NSCoder) {

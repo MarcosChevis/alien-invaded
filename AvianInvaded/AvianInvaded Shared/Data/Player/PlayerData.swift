@@ -34,6 +34,8 @@ struct PlayerData {
     
     var currentXp: CGFloat = 0.0
     
+    private(set) var timeInvulnerable: CGFloat = 1
+    
     private(set) var maxHealth: CGFloat = 10
     var currentHealth: CGFloat = 10
     

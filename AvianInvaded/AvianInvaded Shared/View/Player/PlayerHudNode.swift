@@ -71,7 +71,7 @@ class PlayerHudNode: SKNode {
         upgradeLabel.color = .red
         
         upgradeLabel.run(SKAction.fadeOut(withDuration: 0))
-        updateUpgradeLabel(upgrades: [.acceleration: 1])
+        xpBar.run(SKAction.scaleX(to: 0, duration: 0))
         
         self.addChildren([lostLifeBar, lifeBar, emptyXpBar, xpBar, upgradeLabel])
     }
