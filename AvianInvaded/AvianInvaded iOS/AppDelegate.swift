@@ -11,19 +11,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var coordinator: CoordinatorProtocol?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
     -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let sceneSize = CGSize(width: 1080, height: 810)
-        let roomService = RoomService(builder: RoomBuilder(sceneSize: sceneSize),
-                                      roomRepository: RoomRepository(),
-                                      currentRoomDifficulty: .standard)
-        let gameLogicController = GameLogicController(roomService: roomService)
-        window.rootViewController = GameViewController(gameLogicController: gameLogicController,
-                                                       sceneSize: sceneSize)
+        self.coordinator = MainCoordinator()
+        coordinator?.start()
+        window.rootViewController = coordinator?.navigationController
         window.makeKeyAndVisible()
         self.window = window
         

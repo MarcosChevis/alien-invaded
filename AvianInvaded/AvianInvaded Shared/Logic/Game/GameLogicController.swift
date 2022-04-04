@@ -11,9 +11,13 @@ import SpriteKit
 class GameLogicController {
     
     weak var gameLogicDelegate: GameLogicDelegate?
+    weak var coordinator: GameCoordinatorProtocol?
     private let roomService: RoomService
     private var tileSize: CGSize
+    private var difficultyMultiplier: Double = 0.9
+    private var score: Int = 0
     private var enemyCount: Int
+    private var isGameOver: Bool = false
     private let spawner: Spawner
     
     init(roomService: RoomService, spawner: Spawner = .init()) {
@@ -41,7 +45,9 @@ class GameLogicController {
     }
     
     func spawnEnemies() -> [SKNode] {
-        let enemyInfo = selectEnemies(factories: [FlamingoFactory()],
+        difficultyMultiplier += 0.1
+        let enemyInfo = selectEnemies(factories: [FlamingoFactory(multiplier: difficultyMultiplier),
+                                                  ChickenFactory(multiplier: difficultyMultiplier)],
                                       maxEnemyCount: roomService.currentRoom.enemyNumber)
         let spawnInfo = SpawnInfo(availablePositions: roomService.currentRoom.availableSpaces,
                                   tileSize: tileSize.width,
@@ -80,16 +86,34 @@ extension GameLogicController: EnemyDelegate {
                 .post(name: .shouldActivatePortals,
                       object: nil)
         }
+        
+        score += Int(100 * difficultyMultiplier)
+        gameLogicDelegate?.enemyKilled()
     }
 }
 
 extension GameLogicController: PlayerStateDelegate {
     func playerDidDie() {
-        print("Player Died")
+        if !isGameOver {
+            coordinator?.gameOver(score: 10)
+            isGameOver = true
+            gameLogicDelegate?.gameOver()
+        }
+        
     }
     
     func playerDidUpgrade() {
         print("Player Upgraded")
     }
     
+}
+
+extension GameLogicController: GameNavigationDelegate {
+    func restartGame() {
+        score = 0
+        difficultyMultiplier = 1
+        isGameOver = false
+        roomService.startUp()
+        gameLogicDelegate?.restart()
+    }
 }

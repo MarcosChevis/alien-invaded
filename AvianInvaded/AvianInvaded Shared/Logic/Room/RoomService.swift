@@ -44,4 +44,8 @@ final class RoomService {
                                                        height: currentRoom.tileSize))
     }
     
+    func startUp() {
+        roomRepository.startup()
+    }
+    
 }

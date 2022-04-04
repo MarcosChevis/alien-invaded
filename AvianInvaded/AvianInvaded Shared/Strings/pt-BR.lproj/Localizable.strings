@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  AvianInvaded
+
+  Created by Gabriel Ferreira de Carvalho on 31/03/22.
+  
+*/
+
+"Play"="Jogar";
+"Music"="Musica";
+"SFX"="SFX";
+"On" = "Lig";
+"Off" = "Des";

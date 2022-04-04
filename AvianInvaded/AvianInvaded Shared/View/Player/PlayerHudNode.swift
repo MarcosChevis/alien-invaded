@@ -18,6 +18,8 @@ class PlayerHudNode: SKNode {
     
     var upgradeLabel: SKLabelNode
     
+    private let screenSize: CGSize
+    
     init(screenSize: CGSize, sceneSize: CGSize = CGSize(width: 1080, height: 810)) {
         
         let ratioHightByWidthScreen = screenSize.height/screenSize.width
@@ -48,6 +50,8 @@ class PlayerHudNode: SKNode {
         xpBar.strokeColor = .clear
         
         upgradeLabel = .init(text: "")
+        
+        self.screenSize = screenSize
         
         super.init()
         
@@ -85,13 +89,18 @@ class PlayerHudNode: SKNode {
             self.addChild(node)
         }
     }
+    
+    func reset() {
+        lifeBar.run(SKAction.resize(toWidth: screenSize.width * 0.4, duration: 0))
+    }
 }
 
 extension PlayerHudNode: PlayerHudDelegate {
     func updateHealth(_ percentOfMaxHealth: CGFloat) {
+        print("percentage: ", percentOfMaxHealth * 100)
         if percentOfMaxHealth >= 0 && percentOfMaxHealth <= 1 {
             lifeBar.run(SKAction.scaleX(to: percentOfMaxHealth, duration: 0.3))
-        } else if percentOfMaxHealth < 0 {
+        } else {
             lifeBar.run(SKAction.scaleX(to: 0, duration: 0.3))
         }
     }

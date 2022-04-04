@@ -12,7 +12,7 @@ import GameplayKit
 class GameViewController: NSViewController {
     
     override func loadView() {
-        let scene = GameSceneIOS()
+        let scene = GameScene()
         #warning("create specific scene")
         
         // Present the scene

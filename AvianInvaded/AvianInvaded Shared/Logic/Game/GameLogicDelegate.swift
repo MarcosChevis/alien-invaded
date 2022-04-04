@@ -10,4 +10,7 @@ import SpriteKit
 
 protocol GameLogicDelegate: AnyObject {
     func teleport(to newRoom: SKNode)
+    func enemyKilled()
+    func gameOver()
+    func restart()
 }
