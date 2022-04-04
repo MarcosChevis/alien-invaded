@@ -14,7 +14,22 @@ protocol CoordinatorProtocol: AnyObject {
     func start()
 }
 
-protocol MainCoordinatorProtocol: CoordinatorProtocol {
+protocol MainMenuCoordinatorProtocol: CoordinatorProtocol {
     func startGame()
-    func endGame()
 }
+
+protocol GameCoordinatorProtocol: CoordinatorProtocol {
+    func goToMainMenu()
+    func gameOver(score: Int)
+}
+
+protocol GameOverCoordinatorProtocol: CoordinatorProtocol {
+    func goToMainMenu()
+    func restartGame()
+}
+
+protocol GameNavigationDelegate: AnyObject {
+    func restartGame()
+}
+
+typealias Coordinator = MainMenuCoordinatorProtocol & GameCoordinatorProtocol & GameOverCoordinatorProtocol

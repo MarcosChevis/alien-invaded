@@ -9,13 +9,8 @@ import Foundation
 import CoreGraphics
 
 protocol EnemyFactory {
+    init(multiplier: Double)
     func build(at initialPosition: CGPoint,
                notificationCenter: NotificationCenter,
                delegate: EnemyDelegate?) -> Enemy
-}
-
-extension EnemyFactory {
-    static var availableFactories: [EnemyFactory] {
-        [ChickenFactory()]
-    }
 }

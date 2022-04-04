@@ -49,6 +49,10 @@ class PlayerLogicController: LifeCycleElement {
         
     }
     
+    func reset() {
+        data.resetAll()
+    }
+    
     func rotateBody(to angle: CGFloat) {
         data.facingAngle = angle
         delegate?.rotateBody(to: angle)
@@ -79,6 +83,7 @@ class PlayerLogicController: LifeCycleElement {
             if data.currentHealth <= 0 {
                 playerStateDelegate?.playerDidDie()
             }
+            print(data.currentHealth)
         }
     }
     
@@ -94,7 +99,6 @@ class PlayerLogicController: LifeCycleElement {
             upgrade()
             data.currentXp = 0
             playerStateDelegate?.playerDidUpgrade()
-            hudDelegate?.updateExperience(data.currentXp)
         }
     }
     
@@ -104,26 +108,27 @@ class PlayerLogicController: LifeCycleElement {
     }
     
     func upgrade() {
-        let types = PlayerUpgrade.allCases
-        let distribution = GKRandomDistribution(lowestValue: 0, highestValue: types.count-1)
+        let type = PlayerUpgrade.allCases.randomElement() ?? .shotSize
+        let distribution = GKRandomDistribution(lowestValue: 50, highestValue: 100)
         let result = distribution.nextInt()
-
-        switch result {
-        case 1:
-            data.upgradeAcceleration(multiplier: 1)
-        case 2:
-            data.upgradeMaxSpeed(multiplier: 1)
-        case 3:
-            data.upgradeShotSpeed(multiplier: 1)
-        case 4:
-            data.upgradeShotCadence(multiplier: 1)
-        case 5:
-            data.upgradeShotSize(multiplier: 1)
-        case 6:
-            data.upgradeMaxHealth(multiplier: 1)
-        default:
-            return
+        let multiplier = Double(result)/100
+        
+        switch type {
+        case .acceleration:
+            data.upgradeAcceleration(multiplier: multiplier)
+        case .maxSpeed:
+            data.upgradeMaxSpeed(multiplier: multiplier)
+        case .shotSpeed:
+            data.upgradeShotSpeed(multiplier: multiplier)
+        case .rateOfFire:
+            data.upgradeShotCadence(multiplier: multiplier)
+        case .shotSize:
+            data.upgradeShotSize(multiplier: multiplier)
+        case .maxHealth:
+            data.upgradeMaxHealth(multiplier: multiplier)
         }
+        
+        hudDelegate?.updateUpgradeLabel(upgrades: [type: Float(multiplier)])
     }
 }
 

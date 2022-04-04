@@ -8,8 +8,12 @@
 import Foundation
 import CoreGraphics
 
-class FlamingoFactory: EnemyFactory {
-    private var cachedEnemy: FlamingoNode?
+struct FlamingoFactory: EnemyFactory {
+    private let multiplier: Double
+    
+    init(multiplier: Double) {
+        self.multiplier = multiplier
+    }
     
     func build(at initialPosition: CGPoint,
                notificationCenter: NotificationCenter,
@@ -18,17 +22,17 @@ class FlamingoFactory: EnemyFactory {
         let initialData = EnemyData(frictionMultiplier: 10,
                                     mass: 1,
                                     scale: 0.15,
-                                    moveMultiplier: 500,
+                                    moveMultiplier: 500 * multiplier,
                                     facingAngle: 0,
-                                    speedLimit: 700,
+                                    speedLimit: 700 * multiplier,
                                     projectileSize: 0.3,
                                     attackDistance: 150,
                                     distanceEnemyFromPlayer: 80,
-                                    shootCadence: 0.8,
-                                    shootingMagnitude: 2000,
-                                    maxHealth: 10,
-                                    currentHealth: 10,
-                                    projectileDamage: 0.3)
+                                    shootCadence: 0.8 * multiplier,
+                                    shootingMagnitude: 2000 * multiplier,
+                                    maxHealth: 10 * multiplier,
+                                    currentHealth: 10 * multiplier,
+                                    projectileDamage: 0.3 * multiplier)
         
         let flamingo = FlamingoNode(spawnAt: initialPosition,
                                   notificationCenter: notificationCenter,

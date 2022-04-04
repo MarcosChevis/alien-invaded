@@ -9,7 +9,7 @@ import UIKit
 
 class GameOverViewController: UIViewController {
     private let contentView = GameOverView()
-    weak var coordinator: MainCoordinatorProtocol?
+    weak var coordinator: GameOverCoordinatorProtocol?
     
     override func loadView() {
         view = contentView
@@ -17,15 +17,25 @@ class GameOverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBindings()
         // Do any additional setup after loading the view.
     }
     
     private func setupBindings() {
+        contentView.restartAction = { [weak self] in
+            self?.restart()
+        }
         
+        contentView.mainAction = { [weak self] in
+            self?.mainMenu()
+        }
     }
     
-    private func startGame() {
-        coordinator?.startGame()
+    private func restart() {
+        coordinator?.restartGame()
+    }
+    
+    private func mainMenu() {
+        coordinator?.goToMainMenu()
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     private let contentView = HomeView()
-    weak var coordinator: MainCoordinatorProtocol?
+    weak var coordinator: MainMenuCoordinatorProtocol?
     private let audioService: AudioServiceProtocol
     
     init(audioService: AudioServiceProtocol = AudioService(), contentView: HomeView) {
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
     }
     
     private func startGame() {
-        audioService.stop(music: .main)
+        // audioService.stop(music: .main)
         coordinator?.startGame()
     }
 

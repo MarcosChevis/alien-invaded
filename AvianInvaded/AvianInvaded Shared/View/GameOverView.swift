@@ -17,10 +17,14 @@ class GameOverView: UIView {
                                                                                 restartButton,
                                                                                 mainMenuButton)
     
+    var restartAction: (() -> Void)?
+    var mainAction: (() -> Void)?
+    
     init() {
         super.init(frame: .zero)
         setupHierarchy()
         setupConstraints()
+        setupActions()
     }
     
     required init?(coder: NSCoder) {
@@ -63,7 +67,27 @@ class GameOverView: UIView {
     }
     
     private func setupActions() {
+        let restartUIAction = UIAction { [weak self] _ in
+            guard
+                let self = self,
+                let action = self.restartAction
+            else {
+                return
+            }
+            action()
+        }
+        restartButton.addAction(restartUIAction, for: .primaryActionTriggered)
         
+        let mainMenuUIAction = UIAction { [weak self] _ in
+            guard
+                let self = self,
+                let action = self.mainAction
+            else {
+                return
+            }
+            action()
+        }
+        mainMenuButton.addAction(mainMenuUIAction, for: .primaryActionTriggered)
     }
     
 }

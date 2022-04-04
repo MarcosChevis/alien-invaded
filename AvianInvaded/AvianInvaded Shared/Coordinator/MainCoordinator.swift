@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: MainCoordinatorProtocol {
+class MainCoordinator: Coordinator {
+    weak var gameDelegate: GameNavigationDelegate?
     var navigationController: UINavigationController
     var childCoordinators: [CoordinatorProtocol]
     
@@ -30,12 +31,25 @@ class MainCoordinator: MainCoordinatorProtocol {
                                       roomRepository: RoomRepository(),
                                       currentRoomDifficulty: .standard)
         let gameLogicController = GameLogicController(roomService: roomService)
+        gameLogicController.coordinator = self
+        gameDelegate = gameLogicController
         let viewController = GameViewController(gameLogicController: gameLogicController,
                                                 sceneSize: sceneSize)
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func endGame() {
-        
+    func goToMainMenu() {
+        navigationController.popToRootViewController(animated: true)
+    }
+    
+    func gameOver(score: Int) {
+        let gameOverViewController = GameOverViewController()
+        gameOverViewController.coordinator = self
+        navigationController.pushViewController(gameOverViewController, animated: true)
+    }
+    
+    func restartGame() {
+        navigationController.popToRootViewController(animated: false)
+        startGame()
     }
 }

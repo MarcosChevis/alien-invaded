@@ -116,6 +116,16 @@ class PlayerNode: SKNode, LifeCycleElement {
         logicController.sendPlayerDidMove(newPosition: self.position)
     }
     
+    func reset() {
+        let rotation = SKAction.rotate(toAngle: 0, duration: 0)
+        bodyNode.run(rotation)
+        logicController.reset()
+    }
+    
+    func enemyWasKilled() {
+        logicController.gainXp()
+    }
+    
     private func addChildren() {
         self.addChild(bodyNode)
         bodyNode.addChild(bodySprite)

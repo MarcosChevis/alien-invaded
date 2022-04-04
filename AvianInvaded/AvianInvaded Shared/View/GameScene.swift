@@ -119,14 +119,34 @@ extension GameScene: SKPhysicsContactDelegate {
 }
 
 extension GameScene: GameLogicDelegate {
+    func enemyKilled() {
+        playerNode.enemyWasKilled()
+    }
+    
     func teleport(to newRoom: SKNode) {
+        cleanupScene()
+        addChild(playerHudNode)
+        setupRoom(newRoom)
+        playerNode.setupLighting()
+    }
+    
+    func gameOver() {
+        isPaused = true
+        cleanupScene()
+    }
+    
+    func restart() {
+        isPaused = false
+        cleanupScene()
+        setupScene()
+        playerNode.reset()
+    }
+    
+    private func cleanupScene() {
         children.forEach { node in
             if node.colisionGroup != .player {
                 node.removeFromParent()
             }
         }
-        addChild(playerHudNode)
-        setupRoom(newRoom)
-        playerNode.setupLighting()
     }
 }
