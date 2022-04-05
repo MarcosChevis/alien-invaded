@@ -151,10 +151,8 @@
 		BAC3A65127FB6C51002B2CF8 /* GameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65027FB6C51002B2CF8 /* GameCenterControllerDelegate.swift */; };
 		BAC3A65227FB6C51002B2CF8 /* GameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65027FB6C51002B2CF8 /* GameCenterControllerDelegate.swift */; };
 		BAC3A65327FB7AEF002B2CF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AE42227F7904400CC2B48 /* HomeViewController.swift */; };
-		BAAC083027F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
 		BAC3A65527FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
 		BAC3A65627FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
-		BAC3A65727FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
 		BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */; };
@@ -1204,7 +1202,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = iphoneos;
@@ -1236,7 +1234,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = iphoneos;
@@ -1263,7 +1261,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = appletvos;
@@ -1290,7 +1288,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = appletvos;
