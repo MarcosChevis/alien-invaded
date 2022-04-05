@@ -31,6 +31,8 @@ class GameScene: SKScene {
         self.scaleMode = .aspectFill
         self.camera = gameCamera
         self.addChildren([self.playerNode, playerHudNode])
+        
+        gameLogicController.scoreUpdateDelegate = playerHudNode
         gameLogicController.gameLogicDelegate = self
         self.physicsWorld.contactDelegate = self
         
