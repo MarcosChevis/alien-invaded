@@ -209,6 +209,9 @@
 		BAAC082E27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
 		BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
 		BAAC083027F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
+		BAC3A65527FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
+		BAC3A65627FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
+		BAC3A65727FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
 		BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF327E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
@@ -325,6 +328,7 @@
 		BAAAFF9227D6763300E14409 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUpgrade.swift; sourceTree = "<group>"; };
 		BAAC083227F228D900C9C676 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
+		BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreUpdateDelegate.swift; sourceTree = "<group>"; };
 		BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstantsEnum.swift; sourceTree = "<group>"; };
 		BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputControllerTvOS.swift; sourceTree = "<group>"; };
 		BADECBC227D14CE300EFD009 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -720,6 +724,7 @@
 				BAAAFF9227D6763300E14409 /* PlayerNode.swift */,
 				BA73533B27ED101E0088A77B /* PlayerBodyNode.swift */,
 				BA73533327ECFD750088A77B /* PlayerHudNode.swift */,
+				BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -1004,6 +1009,7 @@
 				BA088FAE27D2AB7A00CCB38D /* GameLogicController.swift in Sources */,
 				5BE72A1927EA54ED003C5C48 /* RoomDirection.swift in Sources */,
 				5BE72A0027EA180C003C5C48 /* Int+RandomList.swift in Sources */,
+				BAC3A65527FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */,
 				5B977B5727F7456E00A2F8E5 /* GameOverView.swift in Sources */,
 				BA04A40427D69A35004E51EA /* GameLogicDelegate.swift in Sources */,
 				BA73533C27ED101E0088A77B /* PlayerBodyNode.swift in Sources */,
@@ -1098,6 +1104,7 @@
 				BA088FAB27D2AA8C00CCB38D /* InputControllerProtocol.swift in Sources */,
 				BA41406027E27A3B006872E8 /* Contactable.swift in Sources */,
 				BA382DC127E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
+				BAC3A65627FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */,
 				5BE729EB27E904B2003C5C48 /* SpawnInfo.swift in Sources */,
 				5BFE7DE227DFA1E200BB9998 /* Tile.swift in Sources */,
 				5BDC597C27F94641002D52E0 /* HomeView.swift in Sources */,
@@ -1182,6 +1189,7 @@
 				5BE72A1727EA4A01003C5C48 /* RoomRepository.swift in Sources */,
 				5BFE7DDC27DFA10C00BB9998 /* Room.swift in Sources */,
 				5BFE7DE327DFA1E200BB9998 /* Tile.swift in Sources */,
+				BAC3A65727FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */,
 				BA382DC227E24FAE004F8250 /* SKPhysicsBody+Scale.swift in Sources */,
 				5BDC598027F94B09002D52E0 /* AudioService.swift in Sources */,
 				BAAAFF9527D6763300E14409 /* PlayerNode.swift in Sources */,
@@ -1383,7 +1391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WK7599VNDW;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1415,7 +1423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WK7599VNDW;
+				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
