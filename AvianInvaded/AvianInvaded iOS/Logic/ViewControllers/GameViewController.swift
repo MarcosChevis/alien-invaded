@@ -40,8 +40,8 @@ class GameViewController: UIViewController {
         skView.showsPhysics = false
         
         skView.ignoresSiblingOrder = true
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+        skView.showsFPS = false
+        skView.showsNodeCount = false
         scene.scaleMode = .aspectFill
         
         self.view = skView

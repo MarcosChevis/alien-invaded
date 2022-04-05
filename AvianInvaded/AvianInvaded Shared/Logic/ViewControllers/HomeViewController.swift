@@ -30,7 +30,6 @@ class HomeViewController: UIViewController {
         
         setupBindings()
         contentView.updateMusicButtonText(isActive: Settings.isMusicEnabled)
-        contentView.updateSFXButtonText(isActive: Settings.isSfxEnabled)
         
         if Settings.isMusicEnabled {
             audioService.play(music: .main)
@@ -45,21 +44,13 @@ class HomeViewController: UIViewController {
         contentView.musicAction = { [weak self] in
             self?.toogleMusic()
         }
-        
-        contentView.sfxAction = { [weak self] in
-            self?.toogleSFX()
-        }
+
     }
     
     private func toogleMusic() {
         Settings.isMusicEnabled.toggle()
         contentView.updateMusicButtonText(isActive: Settings.isMusicEnabled)
         reactToMusicState(Settings.isMusicEnabled)
-    }
-    
-    private func toogleSFX() {
-        Settings.isSfxEnabled.toggle()
-        contentView.updateSFXButtonText(isActive: Settings.isSfxEnabled)
     }
     
     private func reactToMusicState(_ isActive: Bool) {
