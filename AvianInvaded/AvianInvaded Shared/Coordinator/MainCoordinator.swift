@@ -43,7 +43,7 @@ class MainCoordinator: Coordinator {
     }
     
     func gameOver(score: Int) {
-        let gameOverViewController = GameOverViewController()
+        let gameOverViewController = GameOverViewController(score: score)
         gameOverViewController.coordinator = self
         navigationController.pushViewController(gameOverViewController, animated: true)
     }
