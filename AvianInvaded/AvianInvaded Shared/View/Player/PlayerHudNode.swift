@@ -154,7 +154,7 @@ extension PlayerHudNode: PlayerHudDelegate {
                 string += "+"
                 i += 0.5
             }
-            string += " " + upgrade.key.rawValue
+            string += " " + upgrade.key.localizable
             string += "  "
         }
         

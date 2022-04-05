@@ -14,4 +14,8 @@ enum PlayerUpgrade: String, CaseIterable {
     case rateOfFire = "Rate of Fire"
     case shotSize = "Shot Size"
     case maxHealth = "Maximum Health"
+    
+    var localizable: String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
 }
