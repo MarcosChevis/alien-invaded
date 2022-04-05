@@ -12,6 +12,8 @@ class GameLogicController {
     
     weak var gameLogicDelegate: GameLogicDelegate?
     weak var coordinator: GameCoordinatorProtocol?
+    weak var scoreUpdateDelegate: ScoreUpdateDelegate?
+
     private let roomService: RoomService
     private var tileSize: CGSize
     private var difficultyMultiplier: Double = 0.9
@@ -88,6 +90,7 @@ extension GameLogicController: EnemyDelegate {
         }
         
         score += Int(100 * difficultyMultiplier)
+        scoreUpdateDelegate?.updateScoreLabel(score: score)
         gameLogicDelegate?.enemyKilled()
     }
 }
