@@ -98,11 +98,10 @@ extension GameLogicController: EnemyDelegate {
 extension GameLogicController: PlayerStateDelegate {
     func playerDidDie() {
         if !isGameOver {
-            coordinator?.gameOver(score: 10)
+            coordinator?.gameOver(score: score)
             isGameOver = true
             gameLogicDelegate?.gameOver()
         }
-        
     }
     
     func playerDidUpgrade() {
