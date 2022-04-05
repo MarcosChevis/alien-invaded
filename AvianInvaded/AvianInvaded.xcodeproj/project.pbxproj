@@ -46,7 +46,6 @@
 		5BDC597F27F94B09002D52E0 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC597D27F94B09002D52E0 /* AudioService.swift */; };
 		5BDC598327F94E9E002D52E0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC598227F94E9E002D52E0 /* Settings.swift */; };
 		5BDC598427F94E9E002D52E0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC598227F94E9E002D52E0 /* Settings.swift */; };
-		5BE6295227FA0E3600F211C3 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B977B6727F76CB100A2F8E5 /* GameOverViewController.swift */; };
 		5BE729D427E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
 		5BE729D527E4F235003C5C48 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D327E4F235003C5C48 /* Enemy.swift */; };
 		5BE729D827E52255003C5C48 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE729D727E52255003C5C48 /* Contact.swift */; };
@@ -151,10 +150,8 @@
 		BAC3A65127FB6C51002B2CF8 /* GameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65027FB6C51002B2CF8 /* GameCenterControllerDelegate.swift */; };
 		BAC3A65227FB6C51002B2CF8 /* GameCenterControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65027FB6C51002B2CF8 /* GameCenterControllerDelegate.swift */; };
 		BAC3A65327FB7AEF002B2CF8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AE42227F7904400CC2B48 /* HomeViewController.swift */; };
-		BAAC083027F2225B00C9C676 /* PlayerUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAC082D27F2225B00C9C676 /* PlayerUpgrade.swift */; };
 		BAC3A65527FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
 		BAC3A65627FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
-		BAC3A65727FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3A65427FB8A9F002B2CF8 /* ScoreUpdateDelegate.swift */; };
 		BAD0DAF127E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF227E0FFC8005A21B3 /* GameConstantsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF027E0FFC8005A21B3 /* GameConstantsEnum.swift */; };
 		BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0DAF527E10BB7005A21B3 /* InputControllerTvOS.swift */; };
@@ -171,6 +168,8 @@
 		BAE17D2427DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
 		BAE17D2527DA8AF100E131F4 /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */; };
 		BAE17D2727DA8B5900E131F4 /* ProjectileSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */; };
+		BAE50F4B27FCBAB50092F6E2 /* GameOverViewTv.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE50F4A27FCBAB50092F6E2 /* GameOverViewTv.swift */; };
+		BAE50F4D27FCBB6B0092F6E2 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE50F4C27FCBB6B0092F6E2 /* GameOverViewController.swift */; };
 		D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */; };
@@ -276,6 +275,8 @@
 		BADECBE327D14CE600EFD009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileSpriteNode.swift; sourceTree = "<group>"; };
 		BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
+		BAE50F4A27FCBAB50092F6E2 /* GameOverViewTv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewTv.swift; sourceTree = "<group>"; };
+		BAE50F4C27FCBB6B0092F6E2 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicDelegate.swift; sourceTree = "<group>"; };
 		D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenSpriteNode.swift; sourceTree = "<group>"; };
 		D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenLogicController.swift; sourceTree = "<group>"; };
@@ -548,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				5B3AE42427F7908E00CC2B48 /* HomeViewTV.swift */,
+				BAE50F4A27FCBAB50092F6E2 /* GameOverViewTv.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -678,6 +680,7 @@
 			children = (
 				BADECBDD27D14CE600EFD009 /* GameViewController.swift */,
 				5B3AE42227F7904400CC2B48 /* HomeViewController.swift */,
+				BAE50F4C27FCBB6B0092F6E2 /* GameOverViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				5BE72A0E27EA3A19003C5C48 /* JSONDecoder+Utils.swift in Sources */,
 				BADECBDE27D14CE600EFD009 /* GameViewController.swift in Sources */,
 				5B977B6B27F7708B00A2F8E5 /* CoordinatorProtocol.swift in Sources */,
+				BAE50F4B27FCBAB50092F6E2 /* GameOverViewTv.swift in Sources */,
 				BA57605127F6366200688B2F /* EnemyNode.swift in Sources */,
 				5BE729F427E905C6003C5C48 /* Spawner.swift in Sources */,
 				BAAC082F27F2225B00C9C676 /* PlayerUpgrade.swift in Sources */,
@@ -994,7 +998,6 @@
 				5B3AE42527F7908E00CC2B48 /* HomeViewTV.swift in Sources */,
 				D65B8A4A27DBBC7800185928 /* ChickenLogicController.swift in Sources */,
 				BAE17D2527DA8AF100E131F4 /* TeamEnum.swift in Sources */,
-				5BE6295227FA0E3600F211C3 /* GameOverViewController.swift in Sources */,
 				BA73533527ECFD750088A77B /* PlayerHudNode.swift in Sources */,
 				5B3AE42027F78F5A00CC2B48 /* UIFont+Munro.swift in Sources */,
 				BA4C856227D7C5A2000EBEB2 /* CGSize+Math.swift in Sources */,
@@ -1002,6 +1005,7 @@
 				D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */,
 				BAE17D2727DA8B5900E131F4 /* ProjectileSpriteNode.swift in Sources */,
 				5BE72A0527EA18DE003C5C48 /* Room+Utils.swift in Sources */,
+				BAE50F4D27FCBB6B0092F6E2 /* GameOverViewController.swift in Sources */,
 				5BDC597F27F94B09002D52E0 /* AudioService.swift in Sources */,
 				BAD0DAF627E10BB7005A21B3 /* InputControllerTvOS.swift in Sources */,
 				5BC8AF5827ECEF3F00870B03 /* CGPoint+Math.swift in Sources */,
@@ -1204,7 +1208,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = iphoneos;
@@ -1236,7 +1240,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = iphoneos;
@@ -1263,7 +1267,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = appletvos;
@@ -1290,7 +1294,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chevis.AvianInvaded;
 				PRODUCT_NAME = AvianInvaded;
 				SDKROOT = appletvos;

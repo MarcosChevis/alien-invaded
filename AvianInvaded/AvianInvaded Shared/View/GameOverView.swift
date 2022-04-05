@@ -9,16 +9,16 @@ import UIKit
 
 class GameOverView: UIView {
     
-    private lazy var titleLabel: UILabel = UIComponents.menuLabel(withContent: "Game Over")
-    private lazy var scoreLabel: UILabel = UIComponents.menuLabel(withContent: "Score: \(self.score)",
+    lazy var titleLabel: UILabel = UIComponents.menuLabel(withContent: "Game Over")
+    lazy var scoreLabel: UILabel = UIComponents.menuLabel(withContent: "Score: \(self.score)",
                                                                   size: 32)
-    private lazy var restartButton: UIButton = UIComponents.menuButton(withTitle: "Restart")
-    private lazy var mainMenuButton: UIButton = UIComponents.menuButton(withTitle: "Main Menu")
-    private lazy var buttonStackView: UIStackView = UIComponents.verticalStack(arrangedSubviews:
+    lazy var restartButton: UIButton = UIComponents.menuButton(withTitle: "Restart")
+    lazy var mainMenuButton: UIButton = UIComponents.menuButton(withTitle: "Main Menu")
+    lazy var buttonStackView: UIStackView = UIComponents.verticalStack(arrangedSubviews:
                                                                                 restartButton,
                                                                                 mainMenuButton)
     
-    private let score: Int
+    let score: Int
     var restartAction: (() -> Void)?
     var mainAction: (() -> Void)?
     
