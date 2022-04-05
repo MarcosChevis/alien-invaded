@@ -10,5 +10,3 @@ import Foundation
 protocol GameCenterControllerDelegate: AnyObject {
     func sendScoreToLeaderboard(score: Int)
 }
-
-
