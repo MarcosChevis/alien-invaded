@@ -11,16 +11,13 @@ class HomeView: UIView {
     
     var playAction: (() -> Void)?
     var musicAction: (() -> Void)?
-    var sfxAction: (() -> Void)?
     
     lazy var title: UILabel = UIComponents.menuLabel(withContent: "Avian Invasion")
     lazy var playButton: UIButton = UIComponents.menuButton(withTitle: "Play")
     lazy var musicButton: UIButton = UIComponents.menuButton(withTitle: "Music")
-    lazy var sfxButton: UIButton = UIComponents.menuButton(withTitle: "SFX")
     lazy var buttonsStackView: UIStackView = UIComponents.verticalStack(arrangedSubviews:
                                                                                     playButton,
-                                                                                    musicButton,
-                                                                                    sfxButton)
+                                                                                    musicButton)
     init() {
         super.init(frame: .zero)
         setupHierarchy()
@@ -35,10 +32,6 @@ class HomeView: UIView {
     
     func updateMusicButtonText(isActive: Bool) {
         updateButtonText(musicButton, title: "Music", isActive: isActive)
-    }
-    
-    func updateSFXButtonText(isActive: Bool) {
-        updateButtonText(sfxButton, title: "SFX", isActive: isActive)
     }
     
     private func updateButtonText(_ button: UIButton,
@@ -72,7 +65,7 @@ class HomeView: UIView {
         NSLayoutConstraint.activate(titleConstraints)
         NSLayoutConstraint.activate(stackViewContraints)
         
-        [playButton, sfxButton, musicButton].forEach { button in
+        [playButton, musicButton].forEach { button in
             setupButtonConstraints(for: button)
         }
     }
@@ -105,16 +98,5 @@ class HomeView: UIView {
             action()
         }
         musicButton.addAction(musicUIAction, for: .primaryActionTriggered)
-        
-        let sfxUIAction = UIAction { [weak self] _ in
-            guard
-                let self = self,
-                let action = self.sfxAction
-            else {
-                return
-            }
-            action()
-        }
-        sfxButton.addAction(sfxUIAction, for: .primaryActionTriggered)
     }
 }
