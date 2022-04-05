@@ -17,7 +17,11 @@ extension Room {
                 row
                     .enumerated()
                     .compactMap { x, value in
-                        if value == 1 {
+                        if value == 1
+                            || y == 1
+                            || y == colision.count - 2
+                            || x == 1
+                            || x == colision[0].count - 2 {
                             return nil
                         }
                         return CGPoint(x: x, y: y)

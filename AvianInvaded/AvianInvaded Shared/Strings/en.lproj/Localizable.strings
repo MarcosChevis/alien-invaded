@@ -10,3 +10,9 @@
 "SFX"="SFX";
 "On" = "On";
 "Off" = "Off";
+"Acceleration" = "Acceleration";
+"Maximum Speed" = "Maximum Speed";
+"Shot Speed" = "Shot Speed";
+"Rate of Fire" = "Rate of Fire";
+"Shot Size" = "Shot Size";
+"Maximum Health" = "Maximum Health";

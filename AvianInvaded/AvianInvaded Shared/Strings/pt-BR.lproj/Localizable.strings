@@ -5,9 +5,14 @@
   Created by Gabriel Ferreira de Carvalho on 31/03/22.
   
 */
-
 "Play"="Jogar";
 "Music"="Musica";
 "SFX"="SFX";
 "On" = "Lig";
 "Off" = "Des";
+"Acceleration" = "Aceleracao";
+"Maximum Speed" = "Velocidade Maxima";
+"Shot Speed" = "Velocidade do Tiro";
+"Rate of Fire" = "Cadencia de Tiro";
+"Shot Size" = "Tamanho do Tiro";
+"Maximum Health" = "Vida Maxima";

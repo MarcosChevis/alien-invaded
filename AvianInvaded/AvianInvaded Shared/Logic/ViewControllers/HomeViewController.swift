@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     weak var coordinator: MainMenuCoordinatorProtocol?
     private let audioService: AudioServiceProtocol
     
-    init(audioService: AudioServiceProtocol = AudioService(), contentView: HomeView) {
+    init(audioService: AudioServiceProtocol = AudioService()) {
         self.audioService = audioService
         super.init(nibName: nil, bundle: nil)
     }
@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupBindings()
         contentView.updateMusicButtonText(isActive: Settings.isMusicEnabled)
         contentView.updateSFXButtonText(isActive: Settings.isSfxEnabled)
