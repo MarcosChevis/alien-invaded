@@ -8,8 +8,19 @@
 import UIKit
 
 class GameOverViewController: UIViewController {
-    private let contentView = GameOverView()
+    private let contentView: GameOverView
     weak var coordinator: GameOverCoordinatorProtocol?
+    private let score: Int
+    
+    init(score: Int) {
+        self.score = score
+        self.contentView = GameOverView(score: score)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = contentView
