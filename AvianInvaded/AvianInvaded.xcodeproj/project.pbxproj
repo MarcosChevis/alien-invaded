@@ -170,6 +170,8 @@
 		BAE17D2727DA8B5900E131F4 /* ProjectileSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE17D2027DA8A5100E131F4 /* ProjectileSpriteNode.swift */; };
 		BAE50F4B27FCBAB50092F6E2 /* GameOverViewTv.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE50F4A27FCBAB50092F6E2 /* GameOverViewTv.swift */; };
 		BAE50F4D27FCBB6B0092F6E2 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE50F4C27FCBB6B0092F6E2 /* GameOverViewController.swift */; };
+		BAE50F5027FCE2F60092F6E2 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE50F4F27FCE2F60092F6E2 /* GameController.framework */; };
+		BAE50F5227FCE3040092F6E2 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE50F5127FCE3040092F6E2 /* GameController.framework */; };
 		D621E33A27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D621E33B27E101D600E2E868 /* EnemyLogicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */; };
 		D65B8A4427DBBA9800185928 /* ChickenSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */; };
@@ -277,6 +279,8 @@
 		BAE17D2327DA8AF100E131F4 /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
 		BAE50F4A27FCBAB50092F6E2 /* GameOverViewTv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewTv.swift; sourceTree = "<group>"; };
 		BAE50F4C27FCBB6B0092F6E2 /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		BAE50F4F27FCE2F60092F6E2 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS15.4.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		BAE50F5127FCE3040092F6E2 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		D621E33927E101D600E2E868 /* EnemyLogicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLogicDelegate.swift; sourceTree = "<group>"; };
 		D65B8A4327DBBA9800185928 /* ChickenSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenSpriteNode.swift; sourceTree = "<group>"; };
 		D65B8A4827DBBC7800185928 /* ChickenLogicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChickenLogicController.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE50F5227FCE3040092F6E2 /* GameController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE50F5027FCE2F60092F6E2 /* GameController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +567,7 @@
 				BADECBCA27D14CE600EFD009 /* AvianInvaded iOS */,
 				BADECBDA27D14CE600EFD009 /* AvianInvaded tvOS */,
 				BADECBC927D14CE600EFD009 /* Products */,
+				BAE50F4E27FCE2F60092F6E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -710,6 +717,15 @@
 				BA41406227E27B31006872E8 /* ProjectileLogicController.swift */,
 			);
 			path = Projectile;
+			sourceTree = "<group>";
+		};
+		BAE50F4E27FCE2F60092F6E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAE50F5127FCE3040092F6E2 /* GameController.framework */,
+				BAE50F4F27FCE2F60092F6E2 /* GameController.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D65B8A4227DBBA7700185928 /* Enemy  */ = {
@@ -1192,7 +1208,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
@@ -1224,7 +1240,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-iOS-Info.plist";
@@ -1257,7 +1273,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-tvOS-Info.plist";
@@ -1284,7 +1300,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QRB568C47A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AvianInvaded-tvOS-Info.plist";
