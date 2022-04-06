@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  AvianInvaded
+
+  Created by Gabriel Ferreira de Carvalho on 31/03/22.
+  
+*/
+"Play"="Play";
+"Music"="Music";
+"SFX"="SFX";
+"On" = "On";
+"Off" = "Off";
+"Acceleration" = "Acceleration";
+"Maximum Speed" = "Maximum Speed";
+"Shot Speed" = "Shot Speed";
+"Rate of Fire" = "Rate of Fire";
+"Shot Size" = "Shot Size";
+"Maximum Health" = "Maximum Health";
